@@ -4,56 +4,102 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import ku.cs.app.models.Password;
+import ku.cs.app.models.UserData;
+import ku.cs.app.models.UserDataList;
+import ku.cs.app.services.UserDataListHardCodeDataSource;
+
+import java.io.IOException;
 
 public class ResetPasswordFormController {
 
-    private Password p1;
-    @FXML private Label errorMsgLabel;
-    @FXML private TextField usernameTextField;
-    @FXML private TextField oldPasswordTextField;
-    @FXML private TextField newPasswordTextField;
-    @FXML private TextField confirmPasswordTextField;
+    @FXML
+    private Label errorMsgLabel;
+    @FXML
+    private TextField usernameTextField;
+    @FXML
+    private TextField currentPasswordTextField;
+    @FXML
+    private TextField newPasswordTextField;
+    @FXML
+    private TextField confirmPasswordTextField;
 
+    private UserDataList dataList;
+    private UserData[] user;
+    String searchFor;
 
     public void initialize() {
-        p1 = new Password();
-        p1.setPassword("TestTest123456");
+        UserDataListHardCodeDataSource dataSource = new UserDataListHardCodeDataSource();
+        dataList = dataSource.getDataList();
+        user = new UserData[dataList.dataListSize()];
+        user = dataList.getAllData().toArray(new UserData[0]);
+    }
+
+    @FXML
+    public void handleBack(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("project");
+        } catch (IOException e) {
+            System.err.println("err ไป project ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+        }
     }
 
     @FXML
     public void handleResetButton(ActionEvent actionEvent) {
-        if (checkOldPassword(oldPasswordTextField.getText())) {
-            String newPassword = newPasswordTextField.getText();
-            String confirmPassword = confirmPasswordTextField.getText();
-            if (newPassword.equals(confirmPassword)) {
-                p1.setPassword(newPassword);
-                String errorMsg = p1.getErrorMsg();
-                errorMsgLabel.setText(errorMsg);
-                clearAllTextField();
-                System.out.println("Password: " + p1.getPassword()); //debug
 
-            }else {
-                errorMsgLabel.setText("New password doesn't match.");
-                clearAllTextField();
-                System.out.println("Password: " + p1.getPassword());} //debug
-        }else {
-            errorMsgLabel.setText("Old Password doesn't match current password in the database.");
-            clearAllTextField();
-            System.out.println("Password: " + p1.getPassword()); //debug
+        boolean found = false;
+        errorMsgLabel.setText("");
+        searchFor = usernameTextField.getText();
+
+        for (int i = 0; i < dataList.dataListSize(); i++) {
+            if (user[i].getUserName().equals(usernameTextField.getText())) {
+                found = true;
+                if (currentPasswordTextField.getText().equals(user[i].getPassword())) {
+                    if (newPasswordTextField.getText() != "" && newPasswordTextField.getText().equals(confirmPasswordTextField.getText())) {
+
+                        System.out.println("password before: " + user[i].getPassword()); //password before reset
+
+                        user[i].setPassword(newPasswordTextField.getText());
+
+                        System.out.println("password after: " + user[i].getPassword()); //password after reset
+
+                        if (user[i].getErrorMsg() != "") {
+                            errorMsgLabel.setText(user[i].getErrorMsg());
+                            clearPasswordTextField();
+
+                        } else {
+                            try {
+                                com.github.saacsos.FXRouter.goTo("project");
+                            } catch (IOException e) {
+                                System.err.println("err ไป project ไม่ได้");
+                                System.err.println("ให้ตรวจสอบการกําหนด route");
+                            }
+                        }
+                    } else {
+                        if (newPasswordTextField.getText() == "") {
+                            errorMsgLabel.setText("Enter new password.");
+                            clearPasswordTextField();
+
+                        } else {
+                            errorMsgLabel.setText("New password does not match.");
+                            clearPasswordTextField();
+
+                        }
+                    }
+                } else {
+                    errorMsgLabel.setText("Current password does not match");
+                    clearPasswordTextField();
+
+                }
+            }
+            if (!found) {
+                errorMsgLabel.setText("User does not exist.");
+            }
         }
-
-
-
     }
 
-    public boolean checkOldPassword(String password) {
-        return password.equals(p1.getPassword());
-    }
-
-    public void clearAllTextField() {
-        usernameTextField.clear();
-        oldPasswordTextField.clear();
+    private void clearPasswordTextField() {
+        currentPasswordTextField.clear();
         newPasswordTextField.clear();
         confirmPasswordTextField.clear();
     }

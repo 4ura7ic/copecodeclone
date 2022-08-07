@@ -4,7 +4,10 @@ public class Password {
     private String password;
     private String errorMsg;
 
-    public Password() {}
+    public Password() {
+        this.password = "";
+        this.errorMsg = "";
+    }
 
     private boolean checkUpperCase(String password) {
         for (int i = 0; i < password.length(); i++) {
