@@ -92,13 +92,21 @@ public class ResetPasswordFormController {
 
                 }
             }
-            if (!found) {
-                errorMsgLabel.setText("User does not exist.");
-            }
+        }
+        if (!found) {
+            errorMsgLabel.setText("User does not exist.");
+            clearAllTextField();
         }
     }
 
     private void clearPasswordTextField() {
+        currentPasswordTextField.clear();
+        newPasswordTextField.clear();
+        confirmPasswordTextField.clear();
+    }
+
+    private void clearAllTextField() {
+        usernameTextField.clear();
         currentPasswordTextField.clear();
         newPasswordTextField.clear();
         confirmPasswordTextField.clear();
