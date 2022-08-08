@@ -34,10 +34,10 @@ public class ResetPasswordFormController {
     }
 
     @FXML
-    public void handleBack(ActionEvent actionEvent) {
-        try {
+    public void handleBackButton(ActionEvent actionEvent){
+        try{
             com.github.saacsos.FXRouter.goTo("project");
-        } catch (IOException e) {
+        } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
@@ -84,14 +84,14 @@ public class ResetPasswordFormController {
                     }
 
                 } else {
-                    errorMsgLabel.setText("Current password does not match");
+                    errorMsgLabel.setText("Incorrect current password.");
                     clearPasswordTextField();
 
                 }
             }
         }
         if (!isUserExist) {
-            errorMsgLabel.setText("User does not exist.");
+            errorMsgLabel.setText("This user does not exist.");
             clearAllTextField();
         }
     }

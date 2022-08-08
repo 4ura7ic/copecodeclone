@@ -18,11 +18,11 @@ public class ProjectApplication extends Application {
     }
     private static void configRoute(){
         String packageStr = "ku/cs/";
-        FXRouter.when("user_list",packageStr+"user_list.fxml");
-        FXRouter.when("register", packageStr+"register_form.fxml");
+        FXRouter.when("user_data_list",packageStr+"user_data_list.fxml");
+        FXRouter.when("register_form", packageStr+"register_form.fxml");
         FXRouter.when("project", packageStr+"project.fxml");
         FXRouter.when("reset_password_form", packageStr+"reset_password_form.fxml");
-        FXRouter.when("login", packageStr+"login_form.fxml");
+        FXRouter.when("login_form", packageStr+"login_form.fxml");
         FXRouter.when("credit", packageStr+"credit.fxml");
 
 

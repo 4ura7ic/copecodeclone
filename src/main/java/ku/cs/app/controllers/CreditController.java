@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class CreditController {
     @FXML
-    public void handleBack(ActionEvent actionEvent){
+    public void handleBackButton(ActionEvent actionEvent){
         try{
             com.github.saacsos.FXRouter.goTo("project");
         } catch (IOException e){

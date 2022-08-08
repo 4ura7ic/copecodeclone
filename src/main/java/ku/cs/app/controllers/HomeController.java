@@ -10,7 +10,7 @@ public class HomeController {
     @FXML
     public void handleRegisterButton(ActionEvent actionEvent){
         try{
-            FXRouter.goTo("register");
+            FXRouter.goTo("register_form");
         } catch (IOException e){
             System.err.println("err ไปregisterไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
@@ -30,7 +30,7 @@ public class HomeController {
     @FXML
     public void handleListButton(ActionEvent actionEvent){
         try{
-            FXRouter.goTo("user_list");
+            FXRouter.goTo("user_data_list");
         } catch (IOException e){
             System.err.println("err ไป list ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

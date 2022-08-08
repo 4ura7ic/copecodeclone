@@ -17,7 +17,7 @@
       <TextField fx:id="nameTextField" layoutX="301.0" layoutY="272.0" prefHeight="25.0" prefWidth="230.0" promptText="Enter name" />
       <TextField fx:id="surnameTextField" layoutX="301.0" layoutY="308.0" prefHeight="25.0" prefWidth="230.0" promptText="Enter surname" />
       <Button layoutX="390.0" layoutY="380.0" mnemonicParsing="false" onAction="#handleCreateID" text="Create" />
-      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <PasswordField fx:id="passwordTextField" layoutX="301.0" layoutY="235.0" prefHeight="25.0" prefWidth="230.0" promptText="Enter Password" />
       <Label fx:id="errorMsgLabel" layoutX="233.0" layoutY="419.0" textFill="RED">
          <font>
