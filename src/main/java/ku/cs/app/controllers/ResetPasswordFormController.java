@@ -25,7 +25,6 @@ public class ResetPasswordFormController {
 
     private UserDataList dataList;
     private UserData[] user;
-    String searchFor;
 
     public void initialize() {
         UserDataListHardCodeDataSource dataSource = new UserDataListHardCodeDataSource();
@@ -47,15 +46,14 @@ public class ResetPasswordFormController {
     @FXML
     public void handleResetButton(ActionEvent actionEvent) {
 
-        boolean found = false;
+        boolean isUserExist = false;
         errorMsgLabel.setText("");
-        searchFor = usernameTextField.getText();
 
         for (int i = 0; i < dataList.dataListSize(); i++) {
             if (user[i].getUserName().equals(usernameTextField.getText())) {
-                found = true;
+                isUserExist = true;
                 if (currentPasswordTextField.getText().equals(user[i].getPassword())) {
-                    if (newPasswordTextField.getText() != "" && newPasswordTextField.getText().equals(confirmPasswordTextField.getText())) {
+                    if (!newPasswordTextField.getText().equals("") && newPasswordTextField.getText().equals(confirmPasswordTextField.getText())) {
 
                         System.out.println("password before: " + user[i].getPassword()); //password before reset
 
@@ -63,7 +61,7 @@ public class ResetPasswordFormController {
 
                         System.out.println("password after: " + user[i].getPassword()); //password after reset
 
-                        if (user[i].getErrorMsg() != "") {
+                        if (!user[i].getErrorMsg().equals("")) {
                             errorMsgLabel.setText(user[i].getErrorMsg());
                             clearPasswordTextField();
 
@@ -75,17 +73,16 @@ public class ResetPasswordFormController {
                                 System.err.println("ให้ตรวจสอบการกําหนด route");
                             }
                         }
+                    } else if (newPasswordTextField.getText().equals("")) {
+                        errorMsgLabel.setText("Please enter new password.");
+                        clearPasswordTextField();
+
                     } else {
-                        if (newPasswordTextField.getText() == "") {
-                            errorMsgLabel.setText("Enter new password.");
-                            clearPasswordTextField();
+                        errorMsgLabel.setText("New password does not match.");
+                        clearPasswordTextField();
 
-                        } else {
-                            errorMsgLabel.setText("New password does not match.");
-                            clearPasswordTextField();
-
-                        }
                     }
+
                 } else {
                     errorMsgLabel.setText("Current password does not match");
                     clearPasswordTextField();
@@ -93,7 +90,7 @@ public class ResetPasswordFormController {
                 }
             }
         }
-        if (!found) {
+        if (!isUserExist) {
             errorMsgLabel.setText("User does not exist.");
             clearAllTextField();
         }
