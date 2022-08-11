@@ -8,8 +8,8 @@
    <children>
       <Label layoutX="149.0" layoutY="277.0" prefHeight="17.0" prefWidth="229.0" text="Sirawit Laomongkhulchaisri    6410451482" />
       <Label layoutX="399.0" layoutY="516.0" prefHeight="17.0" prefWidth="219.0" text="Natchanon Kaewmongkon  6410450141" />
-      <Label layoutX="394.0" layoutY="277.0" prefHeight="17.0" prefWidth="257.0" text="Tanapat Bumrungthaiworakul 6410451482" />
-      <Label layoutX="174.0" layoutY="516.0" prefHeight="17.0" prefWidth="179.0" text="Salute Khumyunn     6410451482" />
+      <Label layoutX="394.0" layoutY="277.0" prefHeight="17.0" prefWidth="257.0" text="Tanapat Bumrungthaiworakul 6410451016" />
+      <Label layoutX="174.0" layoutY="516.0" prefHeight="17.0" prefWidth="179.0" text="Salute Khumyunn     6410450273" />
       <ImageView fx:id="image1" fitHeight="192.0" fitWidth="144.0" layoutX="185.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/third.jpg" />
