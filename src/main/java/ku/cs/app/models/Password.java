@@ -50,7 +50,7 @@ public class Password {
         if (!checkDigit(password)) {
             errorMsg += "Password must contain digit.\n";
         }
-        if (errorMsg == "") {
+        if (errorMsg.equals("")) {
             this.password = password;
         }
     }
