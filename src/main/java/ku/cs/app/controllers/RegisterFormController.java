@@ -43,7 +43,7 @@ public class RegisterFormController {
 
             clearAllTextField();
             try{
-                FXRouter.goTo("login");
+                FXRouter.goTo("login_form");
             } catch (IOException e){
                 System.err.println("err ไป project ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกําหนด route");
