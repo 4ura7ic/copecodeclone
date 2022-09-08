@@ -18,7 +18,7 @@ public class ProfileFormController {
     @FXML private Label surnameLabel;
     private UserData user;
     @FXML private ImageView image;
-    String url = getClass().getResource("/ku/cs/images/rickroll.gif").toExternalForm();
+    String url = getClass().getResource("/ku/cs/images/test.jpg").toExternalForm();
 
     @FXML
     public void initialize(){
@@ -47,5 +47,4 @@ public class ProfileFormController {
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
     }
-
 }

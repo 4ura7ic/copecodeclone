@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.ProfileFormController">
+   <children>
+      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBackButton" text="back" />
+      <ImageView fx:id="image" fitHeight="250.0" fitWidth="250.0" layoutX="100.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="usernameLabel" layoutX="400.0" layoutY="107.0" text="usernameLabel">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameLabel" layoutX="400.0" layoutY="200.0" text="nameLabel">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="surnameLabel" layoutX="400.0" layoutY="283.0" text="surnameLabel">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="57.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleResetPassword" text="Reset password" />
+   </children>
+</AnchorPane>
