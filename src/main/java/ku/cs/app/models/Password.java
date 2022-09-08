@@ -9,6 +9,10 @@ public class Password {
         this.errorMsg = "";
     }
 
+    public Password(String password) {
+        this.password = password;
+    }
+
     private boolean checkUpperCase(String password) {
         for (int i = 0; i < password.length(); i++) {
             if (Character.isUpperCase(password.charAt(i))) {
