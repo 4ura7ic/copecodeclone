@@ -8,4 +8,6 @@ module cs.ku {
 
     opens ku.cs.app.controllers to javafx.fxml;
     exports ku.cs.app.controllers;
+    exports ku.cs.app.controllers.mainPage;
+    opens ku.cs.app.controllers.mainPage to javafx.fxml;
 }
