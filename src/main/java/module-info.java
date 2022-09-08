@@ -2,7 +2,6 @@ module cs.ku {
     requires javafx.controls;
     requires javafx.fxml;
 
-
     opens ku.cs to javafx.fxml;
     exports ku.cs;
 
@@ -10,4 +9,6 @@ module cs.ku {
     exports ku.cs.app.controllers;
     exports ku.cs.app.controllers.mainPage;
     opens ku.cs.app.controllers.mainPage to javafx.fxml;
+    exports ku.cs.app.controllers.accountOrganizer;
+    opens ku.cs.app.controllers.accountOrganizer to javafx.fxml;
 }
