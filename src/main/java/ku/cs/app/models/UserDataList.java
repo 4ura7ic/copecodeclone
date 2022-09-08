@@ -10,14 +10,13 @@ public class UserDataList {
     public void addUser(UserData info){
         data.add(info);
     }
+    public void removeUser(int index){
+        data.remove(index);
+    }
     public ArrayList<UserData> getAllData(){
         return data;
     }
     public int dataListSize(){return data.size();}
-
-//    public String getUsername(int index) {
-//        return data.get(index).getUserName();
-//    }
 
     @Override
     public String toString() {
