@@ -1,4 +1,4 @@
-package ku.cs.app.controllers;
+package ku.cs.app.controllers.accountOrganizer;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +7,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.app.models.UserData;
 import ku.cs.app.models.UserDataList;
+import ku.cs.app.services.DataSource;
+import ku.cs.app.services.UserDataListFileDataSource;
 import ku.cs.app.services.UserDataListHardCodeDataSource;
+import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
 
@@ -19,20 +22,23 @@ public class LoginFormController {
     private PasswordField userPassword;
     @FXML
     private Label errorMsgLabel;
-
-    private UserDataList dataList;
     private UserData[] user;
+
+    public int userIndex;
 
 
     public void initialize() {
-        UserDataListHardCodeDataSource dataSource = new UserDataListHardCodeDataSource();
-        dataList = dataSource.getDataList();
-        user = new UserData[dataList.dataListSize()];
-        user = dataList.getAllData().toArray(new UserData[0]);
+//        UserDataListHardCodeDataSource dataSource = new UserDataListHardCodeDataSource();
+//        dataList = dataSource.getDataList();
+//        user = new UserData[dataList.dataListSize()];
+//        user = dataList.getAllData().toArray(new UserData[0]);
     }
 
     @FXML
     public void handleUserLogin(ActionEvent actionEvent) {
+        DataSource<UserDataList> dataSource = new UserDataListFileDataSource("data","user.csv");
+        UserDataList list = dataSource.readData();
+        UserData[] user = list.getAllData().toArray(new UserData[0]);
 //        boolean isUserExist = false;
 //
 //        for (int i = 0; i < dataList.dataListSize(); i++) {
@@ -59,26 +65,38 @@ public class LoginFormController {
 
 
         boolean isUserExist = false;
+        boolean correctPassword = false;
         errorMsgLabel.setText("");
 
-        for (int i = 0; i < dataList.dataListSize(); i++) {
+        for (int i = 0; i < list.dataListSize(); i++) {
             if (user[i].getUserName().equals(userName.getText())) {
                 isUserExist = true;
                 if (userPassword.getText().equals(user[i].getPassword())) {
-                    try {
-                        com.github.saacsos.FXRouter.goTo("main_form");
-                    } catch (IOException e) {
-                        System.err.println("err ไป user_list ไม่ได้");
-                        System.err.println("ให้ตรวจสอบการกําหนด route");
+                    correctPassword = true;
+                    if(user[i].getRole().equals("user")) {
+                        try {
+                            FXRouter.goTo("main_user_form",user[i]);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else if (user[i].getRole().equals("officer")) {
+                        try {
+                            FXRouter.goTo("main_agent_form",user[i]);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else if (user[i].getRole().equals("admin")){
+                        try {
+                            FXRouter.goTo("main_admin_user",user[i]);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
-                } else {
-                    System.out.printf("wrong password");
                 }
             }
         }
-        if (!isUserExist) {
+        if (!isUserExist||!correctPassword) {
             errorMsgLabel.setText("Incorrect username or password");
-            System.out.println("user does not exist");
             clearAllTextField();
         }
 
@@ -93,7 +111,7 @@ public class LoginFormController {
     @FXML
     public void handleUserRegister(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("register_form");
+            FXRouter.goTo("register_form");
         } catch (IOException e){
             System.err.println("err ไป register ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
@@ -116,6 +134,10 @@ public class LoginFormController {
             System.err.println("err ไป credit ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
+    }
+
+    public int getUserIndex(){
+        return userIndex;
     }
 
 }

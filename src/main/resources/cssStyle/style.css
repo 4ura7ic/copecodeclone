@@ -1,0 +1,31 @@
+.userPassword{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+.login{
+    -fx-background-color: #DB7C23;
+    -fx-background-radius: 100;
+}
+.register{
+    -fx-background-color: #DB7C23;
+    -fx-background-radius: 70;
+}
+.credit{
+    -fx-background-color: #DB7C23;
+    -fx-background-radius: 70;
+}
+.mainBG{
+    -fx-background-color: #6f7575;
+}
+.button{
+    -fx-background-color: #DB7C23;
+    -fx-background-radius: 70;
+}
+.backButton{
+    -fx-background-color: #DB7C23;
+    -fx-background-radius: 70;
+    -fx-cursor: hand;
+}
