@@ -2,12 +2,13 @@ package ku.cs.app.models;
 
 public class UserData {
 
-    private String name;
-    private String surname;
+    protected String name;
+    protected String surname;
 
-    private Password password;
-    private String userName;
+    protected Password password;
+    protected String userName;
 
+    protected String role;
 
     public UserData() {
         this.name = "";
@@ -16,6 +17,13 @@ public class UserData {
         password = new Password();
     }
 
+    public UserData(String name, String surname, Password password, String userName,String role) {
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.userName = userName;
+        this.role = role;
+    }
 
     public String getName() {
         return name;
@@ -29,7 +37,8 @@ public class UserData {
         return userName;
     }
 
-    public String getPassword() { return password.getPassword(); };
+    public String getPassword() { return password.getPassword(); }
+    public String getRole(){return role;}
 
     public void setName(String name) {
         this.name = name;
