@@ -20,7 +20,9 @@ public class UserList {
     public void changeImageUser(User user){
         for (User temp:data){
             if(temp.getUsername().equals(user.getUsername())){
+
                 temp.setPhoto(user.getPhoto());
+
             }
         }
     }

@@ -38,8 +38,11 @@ public class User {
     public String getRole(){return role;}
 
     public String getPhoto() {
+
         return photo;
+
     }
+
     public String getErrorMsg() {
         return password.getErrorMsg();
     }

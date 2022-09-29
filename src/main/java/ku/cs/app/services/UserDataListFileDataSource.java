@@ -53,7 +53,8 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
                         data[1].trim(),
                         new Password(data[2].trim()),
                         data[3].trim(),
-                        data[4].trim()
+                        data[4].trim(),
+                        data[5].trim()
                 );
                 list.addUser(user);
             }
@@ -87,11 +88,12 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
             buffer = new BufferedWriter(writer);
 
             for (User user : list.getAllData()) {
-                String line = user.getName() + ","
-                        + user.getSurname() + ","
+                String line = user.getRole() + ","
+                        + user.getUsername() + ","
                         + user.getPassword() + ","
-                        +user.getUsername() + ","
-                        +user.getRole();
+                        +user.getName() + ","
+                        +user.getSurname() + ","
+                        +user.getPhoto();
 
                 buffer.append(line);
                 buffer.newLine();
