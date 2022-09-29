@@ -34,7 +34,7 @@ public class RegisterFormController {
 //    private String imagePath;
     User tempUserDetail = new User();
     String fs = File.separator ;
-    String imageName = "";
+    String imageName = "rickroll.gif";
     private UserImageDataSource getImage;
 
 //    private UserDataList userList;
