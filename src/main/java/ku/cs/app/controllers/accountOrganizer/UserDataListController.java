@@ -8,80 +8,76 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
+import ku.cs.app.models.User;
+import ku.cs.app.models.UserList;
+import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListHardCodeSource;
+import ku.cs.app.services.UserDataListFileDataSource;
 import ku.cs.app.services.UserDataListHardCodeDataSource;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
+import java.io.File;
 import java.io.IOException;
 
 public class UserDataListController {
     @FXML
-    private ListView<UserData> dataListView;
-    @FXML
-    private ListView<Report> reportListView;
+    private ListView<User> dataListView;
     @FXML private ImageView image;
     @FXML private Label usernameLabel;
     @FXML private Label nameLabel;
     @FXML private Label surnameLabel;
     @FXML private Label passwordLabel;
-    @FXML private Label dateLabel;
-    @FXML private Label topicLabel;
+    String fs = File.separator ;
     String url = getClass().getResource("/ku/cs/images/test.jpg").toExternalForm();
-
-    private UserDataListHardCodeDataSource dataSource;
-    private ReportListHardCodeSource rptSource;
-    private UserDataList dataList;
-    private ReportList rptList;
+    DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
+    UserList list = dataSource.readData();
 
     @FXML
     public void initialize(){
         image.setImage(new Image(url));
-        dataSource = new UserDataListHardCodeDataSource();
-        dataList = dataSource.getDataList();
-        rptSource = new ReportListHardCodeSource();
-        rptList = rptSource.getRptList();
         showListView();
         clearSelectedUserData();
-        clearSelectedReport();
         handleSelectedListView();
     }
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("main_form");
+            com.github.saacsos.FXRouter.goTo("main_admin_form");
         } catch (IOException e){
-            System.err.println("err ไป project ไม่ได้");
+            System.err.println("err ไป main_admin_form ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
     }
+
+    @FXML
+    public void handleActivityLog(ActionEvent actionEvent){
+        try{
+            com.github.saacsos.FXRouter.goTo("activity_log");
+        } catch (IOException e){
+            System.err.println("err ไป formData ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+        }
+    }
+
     private void handleSelectedListView(){
         dataListView.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<UserData>() {
+                new ChangeListener<User>() {
                     @Override
-                    public void changed(ObservableValue<? extends UserData>
+                    public void changed(ObservableValue<? extends User>
                                                 observable,
-                                        UserData oldValue, UserData newValue) {
+                                        User oldValue, User newValue) {
                         System.out.println(newValue + " is selected");
                         showSelectedUserData(newValue);
                     }
                 });
-        reportListView.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Report>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Report>
-                                                observable,
-                                        Report oldValue, Report newValue) {
-                        System.out.println(newValue + " is selected");
-                        showSelectedReport(newValue);
-                    }
-                });
     }
-    private void showSelectedUserData(UserData data){
+    private void showSelectedUserData(User data){
+        image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + data.getPhoto()));
         nameLabel.setText(data.getName());
         surnameLabel.setText(data.getSurname());
         passwordLabel.setText(data.getPassword());
-        usernameLabel.setText(data.getUserName());
+        usernameLabel.setText(data.getUsername());
     }
 
     private void clearSelectedUserData(){
@@ -91,18 +87,8 @@ public class UserDataListController {
         usernameLabel.setText("");
     }
     private void showListView(){
-        dataListView.getItems().addAll(dataList.getAllData());
+        dataListView.getItems().addAll(list.getAllData());
         dataListView.refresh();
-        reportListView.getItems().addAll((rptList.getAllRpt()));
-        reportListView.refresh();
     }
 
-    private void showSelectedReport(Report rpt){
-        topicLabel.setText(rpt.getTopic());
-        dateLabel.setText(rpt.getDate());
-    }
-    private void clearSelectedReport(){
-        topicLabel.setText("");
-        dateLabel.setText("");
-    }
 }
