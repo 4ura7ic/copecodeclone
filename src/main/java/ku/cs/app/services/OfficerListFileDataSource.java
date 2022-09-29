@@ -86,7 +86,7 @@ public class OfficerListFileDataSource implements  DataSource<OfficerList>{
                 String line = officer.getName() + ","
                         + officer.getSurname() + ","
                         + officer.getPassword() + ","
-                        +officer.getUserName();
+                        +officer.getUsername();
 
                 buffer.append(line);
                 buffer.newLine();

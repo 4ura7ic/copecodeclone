@@ -16,7 +16,7 @@ public class TestAdmin {
         Akali.setName("Akali");
         Akali.setSurname("Jomen");
         Akali.setPassword("LoveRamen");
-        Akali.setUserName("akali");
+        Akali.setUsername("akali");
 
 
         Akali.createOfficer("newOfficer","IAMOFFICER", new Password("ThisOver9000"),"StromOfficer");
@@ -25,7 +25,7 @@ public class TestAdmin {
         officer01.setName("TestNameOfficer");
         officer01.setSurname("TestSurOfficer");
         officer01.setPassword("SuperOfficer666");
-        officer01.setUserName("OmegaTestOfficer");
+        officer01.setUsername("OmegaTestOfficer");
 
         System.out.println(Akali);
         System.out.println(officer01);

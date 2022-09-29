@@ -1,6 +1,6 @@
 package ku.cs.app.models;
 
-public class Officer extends UserData{
+public class Officer extends User{
 
     public Officer() {
     }
@@ -10,13 +10,4 @@ public class Officer extends UserData{
         super(name, surname, password, userName,"officer");
     }
 
-    @Override
-    public String toString() {
-        return "Officer{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", password=" + password +
-                ", userName='" + userName + '\'' +
-                '}';
-    }
 }

@@ -18,13 +18,13 @@ public class OfficerListFileHardCodeDataSource {
         alphaOfficer.setName("AlphaOfficer");
         alphaOfficer.setSurname("SurnameAlphaOfficer");
         alphaOfficer.setPassword("AlphaOfficer1150");
-        alphaOfficer.setUserName("AlphaTestOfficer");
+        alphaOfficer.setUsername("AlphaTestOfficer");
 
         Officer betaOfficer = new Officer();
         betaOfficer.setName("BetaOfficer");
         betaOfficer.setSurname("SurnameBetaOfficer");
         betaOfficer.setPassword("BetaOfficer1150");
-        betaOfficer.setUserName("BetaTestOfficer");
+        betaOfficer.setUsername("BetaTestOfficer");
 
         officerList.addOfficer(alphaOfficer);
         officerList.addOfficer(betaOfficer);

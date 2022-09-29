@@ -18,7 +18,7 @@ public class OfficerList {
     public int dataListSize(){return data.size();}
 
     public String getUsername(int index) {
-        return data.get(index).getUserName();
+        return data.get(index).getUsername();
     }
 
     @Override
