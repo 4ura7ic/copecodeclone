@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class OfficerList {
 
     private ArrayList<Officer> data;
+
     public OfficerList(){data = new ArrayList<>();}
 
     public void addOfficer(Officer info){

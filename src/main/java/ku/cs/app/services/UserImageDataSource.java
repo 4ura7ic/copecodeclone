@@ -11,9 +11,13 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
 public class UserImageDataSource {
+    //-------------------------------------------- instance
+
     private File filePath;
     private String imagePath;
     String fs = File.separator ;
+
+    //-------------------------------------------- method
 
     public String chooseImage(String fileName){
 
@@ -50,4 +54,5 @@ public class UserImageDataSource {
         }
         return "rickroll.gif";
     }
+
 }

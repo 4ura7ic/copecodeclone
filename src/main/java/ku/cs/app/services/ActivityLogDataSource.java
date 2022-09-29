@@ -6,31 +6,20 @@ import ku.cs.app.models.ActivityLog;
 import java.io.*;
 
 public class ActivityLogDataSource implements DataSource<ActivityLog>{
+    //-------------------------------------------- instance
 
     private String directoryName;
     private String fileName;
+
+    //-------------------------------------------- constructor
 
     public ActivityLogDataSource(String directoryName, String fileName) {
         this.directoryName = directoryName;
         this.fileName = fileName;
         checkIfFileExisted();
     }
-    private void checkIfFileExisted() {
-        File file = new File(directoryName);
-        if(!file.exists()) {
-            file.mkdirs();
-        }
+    //-------------------------------------------- reader
 
-        String filePath = directoryName + File.separator + fileName;
-        file = new File(filePath);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
     public ActivityLog readData() {
         ActivityLog log = new ActivityLog();
         String filePath = directoryName + File.separator + fileName;
@@ -67,6 +56,9 @@ public class ActivityLogDataSource implements DataSource<ActivityLog>{
         }
         return log;
     }
+
+    //-------------------------------------------- writer
+
     public void writeData(ActivityLog log) {
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
@@ -93,6 +85,26 @@ public class ActivityLogDataSource implements DataSource<ActivityLog>{
             throw new RuntimeException(e);
         }
     }
+
+    //-------------------------------------------- method
+
+    private void checkIfFileExisted() {
+        File file = new File(directoryName);
+        if(!file.exists()) {
+            file.mkdirs();
+        }
+
+        String filePath = directoryName + File.separator + fileName;
+        file = new File(filePath);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     public void clearData() {
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);

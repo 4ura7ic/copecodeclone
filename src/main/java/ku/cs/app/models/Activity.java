@@ -4,12 +4,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Activity implements Comparable<Activity> {
-
-
+    //-------------------------------------------- instance
 
     private String dateTime;
     private String activity;
     private String message;
+
+    //-------------------------------------------- constructor
 
     public Activity() {
         this.dateTime = "";
@@ -21,6 +22,22 @@ public class Activity implements Comparable<Activity> {
         this.activity = activity;
         this.message = message;
     }
+
+    //-------------------------------------------- getter
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    //-------------------------------------------- setter
 
     public void setDateTime() {
         LocalDateTime date;
@@ -34,17 +51,8 @@ public class Activity implements Comparable<Activity> {
     public void setMessage(String message) {
         this.message = message;
     }
-    public String getDateTime() {
-        return dateTime;
-    }
 
-    public String getActivity() {
-        return activity;
-    }
-
-    public String getMessage() {
-        return message;
-    }
+    //-------------------------------------------- method
 
     @Override
     public String toString() {
@@ -55,4 +63,5 @@ public class Activity implements Comparable<Activity> {
     public int compareTo(Activity o) {
         return o.dateTime.compareTo(this.dateTime);
     }
+
 }

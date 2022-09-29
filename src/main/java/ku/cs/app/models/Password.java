@@ -1,8 +1,12 @@
 package ku.cs.app.models;
 
 public class Password {
+    //-------------------------------------------- instance
+
     private String password;
     private String errorMsg;
+
+    //-------------------------------------------- constructor
 
     public Password() {
         this.password = "";
@@ -12,6 +16,8 @@ public class Password {
     public Password(String password) {
         this.password = password;
     }
+
+    //-------------------------------------------- method
 
     private boolean checkUpperCase(String password) {
         for (int i = 0; i < password.length(); i++) {
@@ -70,8 +76,6 @@ public class Password {
         return false;
     }
 
-
-
     public String getPassword() {
         return password;
     }
@@ -79,4 +83,5 @@ public class Password {
     public String getErrorMsg() {
         return errorMsg;
     }
+
 }

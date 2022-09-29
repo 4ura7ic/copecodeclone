@@ -6,8 +6,12 @@ import ku.cs.app.models.ReportList;
 import java.io.*;
 
 public class ReportListFileDataSource implements DataSource<ReportList>{
+    //-------------------------------------------- instance
+
     private String directoryName;
     private String fileName;
+
+    //-------------------------------------------- constructor
 
     public ReportListFileDataSource(String directoryName, String fileName){
         this.directoryName = directoryName;
@@ -15,21 +19,8 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
         checkIfFileExisted();
     }
 
-    private void checkIfFileExisted(){
-        File file = new File(directoryName);
-        if(!file.exists())
-            file.mkdirs();
+    //-------------------------------------------- reader
 
-        String filePath = directoryName + File.separator + fileName;
-        file = new File(filePath);
-        if(!file.exists()){
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
     public ReportList readData(){
         ReportList list  = new ReportList();
         String filePath = directoryName + File.separator + fileName;
@@ -66,6 +57,8 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
         return list;
     }
 
+    //-------------------------------------------- writer
+
     public void writeData(ReportList list){
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
@@ -90,6 +83,25 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
         }
 
     }
+
+    //-------------------------------------------- method
+
+    private void checkIfFileExisted(){
+        File file = new File(directoryName);
+        if(!file.exists())
+            file.mkdirs();
+
+        String filePath = directoryName + File.separator + fileName;
+        file = new File(filePath);
+        if(!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     public void clearData() {
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
@@ -104,4 +116,5 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
             throw new RuntimeException(e);
         }
     }
+
 }

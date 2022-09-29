@@ -1,12 +1,16 @@
 package ku.cs.app.models;
 public class User {
+    //-------------------------------------------- instance
+
     private String name;
     private String surname;
     private Password password;
     private String username;
     private String role;
     private String photo;
-    //___________________________
+
+    //-------------------------------------------- constructor
+
     public User() {
         this("", "", new Password(), "","");
     }
@@ -21,7 +25,9 @@ public class User {
         this.role = role;
         this.photo = photo;
     }
-    //___________________________
+
+    //-------------------------------------------- getter
+
     public String getName() {
         return name;
     }
@@ -35,18 +41,19 @@ public class User {
     }
 
     public String getPassword() { return password.getPassword(); }
+
     public String getRole(){return role;}
 
     public String getPhoto() {
-
         return photo;
-
     }
 
     public String getErrorMsg() {
         return password.getErrorMsg();
     }
-    //___________________________
+
+    //-------------------------------------------- setter
+
     public String setPhoto(String newPhoto) {
         this.photo = newPhoto;
         return photo;
@@ -70,9 +77,10 @@ public class User {
     public void setPassword(String password){
         this.password.setPassword(password);
     }
+
     public void setErrorMsg(String msg) { this.password.setErrorMsg(msg); }
 
-    //___________________________
+    //-------------------------------------------- method
 
     public String dataFormat(){
         String line = role + "," + username + "," + password

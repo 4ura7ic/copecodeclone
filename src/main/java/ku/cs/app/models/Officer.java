@@ -1,7 +1,7 @@
 package ku.cs.app.models;
 
 public class Officer extends User{
-
+    //-------------------------------------------- constructor
     public Officer() {
     }
 

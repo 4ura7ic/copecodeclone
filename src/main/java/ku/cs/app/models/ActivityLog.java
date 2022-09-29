@@ -7,9 +7,11 @@ import java.util.TreeSet;
 
 public class ActivityLog {
     private Collection<Activity> log;
+
     public ActivityLog(){
         log = new TreeSet<>();
     }
+
     public void addLog(Activity activity) {
         log.add(activity);
     }

@@ -4,12 +4,23 @@ import ku.cs.app.services.DataSource;
 import ku.cs.app.services.OfficerListFileDataSource;
 
 public class Admin extends User{
+    //-------------------------------------------- constructor
+
     public Admin() {
         this("",new Password(),"","");
     }
     public Admin(String username,Password password,String name, String surname) {
         super("admin", username, password, name, surname);
     }
+
+    //-------------------------------------------- setter
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    //-------------------------------------------- method
 
     public void createOfficer (String name, String surname, Password password, String userName){
 
@@ -21,9 +32,6 @@ public class Admin extends User{
         dataSource.writeData(list);
     }
 
-    @Override
-    public void setName(String name) {
-        super.setName(name);
-    }
+
 
 }

@@ -8,16 +8,21 @@ public class UserSuspensionList {
     public UserSuspensionList(){
         suspendedUser = new ArrayList<>();
     }
+
     public void addUser(UserSuspension user){
         suspendedUser.add(user);
     }
+
     public void removeUser(int index){
         suspendedUser.remove(index);
     }
+
     public ArrayList<UserSuspension> getAllData(){
         return suspendedUser;
     }
+
     public int dataListSize(){return suspendedUser.size();}
+
     public ArrayList<UserSuspension> getAllSuspendedUser(){
         return suspendedUser;
     }
@@ -30,6 +35,7 @@ public class UserSuspensionList {
         }
         return false;
     }
+
     public UserSuspension returnSuspendedUser(String username) {
         for (UserSuspension user : suspendedUser) {
             if (user.getUsername().equals(username)) {
@@ -45,4 +51,5 @@ public class UserSuspensionList {
                 "suspendedUser=" + suspendedUser +
                 '}';
     }
+
 }

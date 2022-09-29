@@ -7,9 +7,12 @@ import ku.cs.app.models.UserList;
 import java.io.*;
 
 public class UserDataListFileDataSource implements DataSource<UserList>{
+    //-------------------------------------------- instance
 
     private String directoryName;
     private String fileName;
+
+    //-------------------------------------------- constructor
 
     public UserDataListFileDataSource(String directoryName, String fileName) {
         this.directoryName = directoryName;
@@ -17,22 +20,7 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
         checkIfFileExisted();
     }
 
-    private void checkIfFileExisted() {
-        File file = new File(directoryName);
-        if(!file.exists()) {
-            file.mkdirs();
-        }
-
-        String filePath = directoryName + File.separator + fileName;
-        file = new File(filePath);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
+    //-------------------------------------------- reader
 
     public UserList readData() {
         UserList list = new UserList();
@@ -76,6 +64,8 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
         return list;
     }
 
+    //-------------------------------------------- writer
+
     public void writeData(UserList list) {
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
@@ -107,6 +97,25 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
 
     }
 
+    //-------------------------------------------- method
+
+    private void checkIfFileExisted() {
+        File file = new File(directoryName);
+        if(!file.exists()) {
+            file.mkdirs();
+        }
+
+        String filePath = directoryName + File.separator + fileName;
+        file = new File(filePath);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     public void clearData() {
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
@@ -121,4 +130,5 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
             throw new RuntimeException(e);
         }
     }
+
 }
