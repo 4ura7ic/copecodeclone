@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
+import ku.cs.app.models.User;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListFileDataSource;
 import com.github.saacsos.FXRouter;
@@ -16,20 +17,24 @@ import com.github.saacsos.FXRouter;
 import java.io.IOException;
 
 public class MainUserFormController {
-
+    //--------------------------------------------
+    @FXML private ComboBox categoryBox;
+    @FXML private ComboBox timeBox;
+    @FXML private Label nameLabel;
+    @FXML private Label topicLabel;
+    @FXML private Label dateLabel;
+    @FXML private Label categoryLabel;
+    @FXML private Label descriptionLabel;
+    @FXML private ListView<Report> reportListView;
+    //--------------------------------------------
+    private ReportList list;
+    private User user;
+    //--------------------------------------------
     ObservableList<String> categoryList = FXCollections
             .observableArrayList("Environment","Scholarship","Other","Default");
 
     ObservableList<String> timeList = FXCollections
             .observableArrayList("Descending","Ascending","Default");
-
-    @FXML private ListView<Report> reportListView;
-    private ReportList list;
-    private UserData user;
-
-    @FXML private ComboBox categoryBox;
-    @FXML private ComboBox timeBox;
-    @FXML private Label nameLabel;
 
     @FXML
     public void initialize() throws IOException {
@@ -58,14 +63,13 @@ public class MainUserFormController {
         timeBox.setValue("Default");
         timeBox.setItems(timeList);
 
-        user = (UserData) FXRouter.getData();
+        user = (User) FXRouter.getData();
         showUserData();
-//        System.out.println(user.getUserName());
     }
 
 
     private void showUserData(){
-        nameLabel.setText(user.getUserName());
+        nameLabel.setText(user.getUsername());
     }
 
     @FXML
