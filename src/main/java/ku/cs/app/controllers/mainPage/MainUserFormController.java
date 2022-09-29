@@ -1,5 +1,7 @@
 package ku.cs.app.controllers.mainPage;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -35,12 +37,13 @@ public class MainUserFormController {
 
     ObservableList<String> timeList = FXCollections
             .observableArrayList("Descending","Ascending","Default");
-
+    //--------------------------------------------
     @FXML
     public void initialize() throws IOException {
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
         showListView();
+        handleSelectedListView();
 
         categoryBox.setValue("Environment");
         categoryBox.setItems(categoryList);
@@ -72,10 +75,30 @@ public class MainUserFormController {
         nameLabel.setText(user.getUsername());
     }
 
+    private void handleSelectedListView(){
+        reportListView.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Report>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Report>
+                                                observable,
+                                        Report oldValue, Report newValue) {
+                        System.out.println(newValue + " is selected");
+                        showSelectedReport(newValue);
+                    }
+                });
+    }
+
+    private void showSelectedReport(Report report){
+        topicLabel.setText(report.getTopic());
+        dateLabel.setText(report.getDate());
+        categoryLabel.setText("none");
+        descriptionLabel.setText(report.getDescription());
+    }
+
     @FXML
     public void handleLogOut(ActionEvent actionEvent) {
         try {
-            FXRouter.goTo("project");
+            FXRouter.goTo("login_form");
         } catch (IOException e) {
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

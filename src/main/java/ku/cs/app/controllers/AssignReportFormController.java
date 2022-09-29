@@ -1,8 +1,10 @@
 package ku.cs.app.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
@@ -10,10 +12,17 @@ import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListFileDataSource;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AssignReportFormController {
+    @FXML private ComboBox categoryBox = new ComboBox(FXCollections.observableArrayList("Environment","Scholarship","Other","Default"));
     @FXML private TextField topicTextField;
     @FXML private TextField descriptionTextField;
+    //--------------------------------------------
+    private LocalDateTime date;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E dd MMM yyyy | HH:mm");
+    //--------------------------------------------
 
     @FXML
     public void handleBackButton(ActionEvent actionEvent) {
@@ -30,9 +39,11 @@ public class AssignReportFormController {
         if(topicTextField.getText()!="") {
             if(descriptionTextField.getText()!="") {
                 try {
+                    date = LocalDateTime.now();
+                    String formatDate = date.format(formatter);
                     DataSource<ReportList> dataSource = new ReportListFileDataSource("data", "report.csv");
                     ReportList list = dataSource.readData();
-                    list.addReport(new Report(topicTextField.getText(),"time set is maintenance",descriptionTextField.getText()));
+                    list.addReport(new Report(topicTextField.getText(),formatDate,descriptionTextField.getText()));
                     dataSource.writeData(list);
                     FXRouter.goTo("main_user_form");
                 } catch (IOException e) {
