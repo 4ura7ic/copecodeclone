@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.accountOrganizer.UserSuspensionFormController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.87" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/SusManager.png" />
+         </image></ImageView>
+      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="77.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="Back">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ListView fx:id="dataListView" layoutX="8.0" layoutY="101.0" prefHeight="490.0" prefWidth="223.0" />
+      <Label layoutX="66.0" layoutY="68.0" text="List of Users">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="244.0" layoutY="61.0" orientation="VERTICAL" prefHeight="529.0" prefWidth="20.0" />
+      <Label layoutX="471.0" layoutY="60.0" prefHeight="35.0" prefWidth="71.0" text="Activities" textFill="#93b39a">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ListView layoutX="280.0" layoutY="95.0" prefHeight="180.0" prefWidth="502.0" />
+      <Label layoutX="266.0" layoutY="301.0" text="Amount Inappropriate Activities: " textFill="#93b39a">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="266.0" layoutY="331.0" text="Status: " textFill="#93b39a" />
+      <Button layoutX="403.0" layoutY="468.0" mnemonicParsing="false" onAction="#handleSuspendButton" text="Suspend">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label fx:id="statusLabel" layoutX="264.0" layoutY="355.0" prefHeight="17.0" prefWidth="96.0" text="statusLabel" textFill="#93b39a" />
+      <TextField fx:id="reasonTextField" layoutX="410.0" layoutY="435.0" prefHeight="25.0" prefWidth="211.0" />
+      <Label layoutX="264.0" layoutY="382.0" prefHeight="17.0" prefWidth="123.0" text="Reason of suspension:" textFill="#93b39a" />
+      <Label layoutX="266.0" layoutY="408.0" text="Login attemp after suspension:" textFill="#93b39a" />
+      <Label fx:id="amntLabel" layoutX="478.0" layoutY="302.0" text="amntLabel" textFill="#93b39a" />
+      <Label fx:id="loginAttemptCnt" layoutX="434.0" layoutY="408.0" text="loginAttemptCnt" textFill="#93b39a" />
+      <Label fx:id="reasonLabel" layoutX="385.0" layoutY="382.0" text="reasonLabel" textFill="#93b39a" />
+      <Label layoutX="264.0" layoutY="439.0" text="Add reason of suspension:" textFill="#93b39a" />
+      <Button layoutX="699.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleRestoreButton" prefHeight="41.0" prefWidth="77.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="Restore ">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label fx:id="errorMsgLabel" layoutX="330.0" layoutY="537.0" text="errorMsgLabel" textFill="RED" />
+   </children>
+</AnchorPane>

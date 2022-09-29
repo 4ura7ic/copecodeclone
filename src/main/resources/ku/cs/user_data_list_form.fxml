@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.accountOrganizer.UserDataListController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/UserInfo.png" />
+         </image>
+      </ImageView>
+      <ListView fx:id="dataListView" layoutX="14.0" layoutY="100.0" prefHeight="490.0" prefWidth="205.0" />
+      <Label layoutX="18.0" layoutY="61.0" text="List of Users" textFill="#93b39a">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="241.0" layoutY="73.0" orientation="VERTICAL" prefHeight="515.0" prefWidth="20.0" />
+      <ImageView fx:id="image" fitHeight="236.0" fitWidth="236.0" layoutX="339.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="281.0" layoutY="395.0" text="Username" textFill="#93b39a">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameLabel" layoutX="282.0" layoutY="421.0" text="usernameLabel" textFill="#93b39a">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="282.0" layoutY="311.0" text="Name" textFill="#93b39a">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="531.0" layoutY="311.0" text="Surname" textFill="#93b39a">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="nameLabel" layoutX="281.0" layoutY="338.0" text="nameLabel" textFill="#93b39a">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label fx:id="surnameLabel" layoutX="533.0" layoutY="338.0" text="surnameLabel" textFill="#93b39a">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label layoutX="536.0" layoutY="395.0" text="Password" textFill="#93b39a">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="passwordLabel" layoutX="533.0" layoutY="422.0" text="passwordLabel" textFill="#93b39a">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="78.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="Back">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="140.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleActivityLog" text="Activity Log">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>
