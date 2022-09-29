@@ -54,10 +54,23 @@ public class Password {
         if (!checkDigit(password)) {
             errorMsg += "Password must contain digit.\n";
         }
-        if (errorMsg.equals("")) {
+        if (errorMsg == "") {
             this.password = password;
+        }else {
+            System.err.println(errorMsg);
         }
     }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
+
+    private boolean isPasswordEqual(String p1, String p2){
+        if (p1.equals(p2)) {return true;}
+        return false;
+    }
+
+
 
     public String getPassword() {
         return password;
