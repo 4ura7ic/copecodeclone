@@ -3,17 +3,12 @@ package ku.cs.app.models;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.OfficerListFileDataSource;
 
-public class Admin extends UserData{
-
+public class Admin extends User{
     public Admin() {
-        this.name = "";
-        this.surname = "";
-        this.userName = "";
-        password = new Password();
+        this("",new Password(),"","");
     }
-
-    public Admin(String name, String surname, Password password, String userName) {
-        super(name, surname, password, userName,"admin");
+    public Admin(String username,Password password,String name, String surname) {
+        super("admin", username, password, name, surname);
     }
 
     public void createOfficer (String name, String surname, Password password, String userName){
@@ -26,20 +21,9 @@ public class Admin extends UserData{
         dataSource.writeData(list);
     }
 
-
     @Override
     public void setName(String name) {
         super.setName(name);
     }
 
-
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", password=" + password +
-                ", userName='" + userName + '\'' +
-                '}';
-    }
 }

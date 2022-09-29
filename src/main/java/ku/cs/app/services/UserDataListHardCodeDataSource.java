@@ -1,19 +1,21 @@
 package ku.cs.app.services;
+import ku.cs.app.models.User;
+import ku.cs.app.models.UserList;
 
 public class UserDataListHardCodeDataSource {
-    private UserDataList dataList;
+    public UserList dataList;
 
     public UserDataListHardCodeDataSource(){
-        dataList = new UserDataList();
+        dataList = new UserList();
         readData();
     }
 
     public void readData(){
-        UserData Kevin = new UserData();
-        UserData Put = new UserData();
-        UserData Third = new UserData();
-        UserData Non = new UserData();
-        UserData Tester = new UserData();
+        User Kevin = new User();
+        User Put = new User();
+        User Third = new User();
+        User Non = new User();
+        User Tester = new User();
 
         Kevin.setName("Salute");
         Put.setName("Tanapat");
@@ -27,11 +29,11 @@ public class UserDataListHardCodeDataSource {
         Non.setSurname("Kaewmongkol");
         Tester.setSurname("Surname101");
 
-        Kevin.setUserName("Kevin99008");
-        Put.setUserName("putzamonkey");
-        Third.setUserName("Sirrtrd3");
-        Non.setUserName("auratic_uel");
-        Tester.setUserName("Tester101");
+        Kevin.setUsername("Kevin99008");
+        Put.setUsername("putzamonkey");
+        Third.setUsername("Sirrtrd3");
+        Non.setUsername("auratic_uel");
+        Tester.setUsername("Tester101");
 
         Kevin.setPassword("KevinGG555");
         Put.setPassword("Putza277353");
@@ -46,7 +48,7 @@ public class UserDataListHardCodeDataSource {
         dataList.addUser(Tester);
     }
 
-    public UserDataList getDataList(){
+    public UserList getDataList(){
         return dataList;
     }
 }
