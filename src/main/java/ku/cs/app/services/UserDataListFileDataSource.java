@@ -1,12 +1,12 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.Password;
-import ku.cs.app.models.UserData;
-import ku.cs.app.models.UserDataList;
+import ku.cs.app.models.User;
+import ku.cs.app.models.UserList;
 
 import java.io.*;
 
-public class UserDataListFileDataSource implements DataSource<UserDataList>{
+public class UserDataListFileDataSource implements DataSource<UserList>{
 
     private String directoryName;
     private String fileName;
@@ -34,8 +34,8 @@ public class UserDataListFileDataSource implements DataSource<UserDataList>{
         }
     }
 
-    public UserDataList readData() {
-        UserDataList list = new UserDataList();
+    public UserList readData() {
+        UserList list = new UserList();
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
         FileReader reader = null;
@@ -48,7 +48,7 @@ public class UserDataListFileDataSource implements DataSource<UserDataList>{
             String line = "";
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                UserData user = new UserData(
+                User user = new User(
                         data[0].trim(),
                         data[1].trim(),
                         new Password(data[2].trim()),
@@ -75,7 +75,7 @@ public class UserDataListFileDataSource implements DataSource<UserDataList>{
         return list;
     }
 
-    public void writeData(UserDataList list) {
+    public void writeData(UserList list) {
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
 
@@ -86,11 +86,11 @@ public class UserDataListFileDataSource implements DataSource<UserDataList>{
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
 
-            for (UserData user : list.getAllData()) {
+            for (User user : list.getAllData()) {
                 String line = user.getName() + ","
                         + user.getSurname() + ","
                         + user.getPassword() + ","
-                        +user.getUserName() + ","
+                        +user.getUsername() + ","
                         +user.getRole();
 
                 buffer.append(line);

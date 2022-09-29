@@ -1,6 +1,4 @@
 package ku.cs.app.services;
-import ku.cs.app.models.UserData;
-import ku.cs.app.models.UserDataList;
 
 public class UserDataListHardCodeDataSource {
     private UserDataList dataList;

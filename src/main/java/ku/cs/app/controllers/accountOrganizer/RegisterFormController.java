@@ -2,7 +2,6 @@ package ku.cs.app.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import ku.cs.app.models.UserData;
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;

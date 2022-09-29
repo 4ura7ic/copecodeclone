@@ -8,8 +8,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
-import ku.cs.app.models.UserData;
-import ku.cs.app.models.UserDataList;
 import ku.cs.app.services.ReportListHardCodeSource;
 import ku.cs.app.services.UserDataListHardCodeDataSource;
 import javafx.beans.value.ChangeListener;
