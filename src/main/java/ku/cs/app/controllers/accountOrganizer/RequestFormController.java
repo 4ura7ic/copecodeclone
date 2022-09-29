@@ -7,10 +7,14 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class RequestFormController {
+    //-------------------------------------------- FXML
+
     @FXML
     private TextField usernameTextField;
     @FXML private TextField passwordTextField;
     @FXML private TextField requestTextField;
+
+    //-------------------------------------------- handle
 
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
@@ -33,4 +37,5 @@ public class RequestFormController {
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
     }
+
 }

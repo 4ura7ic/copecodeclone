@@ -18,7 +18,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class RegisterFormController {
-    private User userDetail;
+    //-------------------------------------------- FXML
+
     @FXML private TextField usernameTextField;
     @FXML private TextField passwordTextField;
     @FXML private TextField confirmTextField;
@@ -26,18 +27,24 @@ public class RegisterFormController {
     @FXML private TextField surnameTextField;
     @FXML private Label errorMsgLabel;
     @FXML private ImageView image;
-    //______________________________________
+
+    //-------------------------------------------- private
+
+    private User userDetail;
+    private UserImageDataSource getImage;
+
+    //-------------------------------------------- noModifier
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
     UserList list = dataSource.readData();
     //    private FileChooser fileChooser;
-//    private File filePath;
-//    private String imagePath;
+    //    private File filePath;
+    //    private String imagePath;
     User tempUserDetail = new User();
     String fs = File.separator ;
     String imageName = "rickroll.gif";
-    private UserImageDataSource getImage;
+    //    private UserDataList userList;
 
-//    private UserDataList userList;
+    //-------------------------------------------- initialize
 
     @FXML
     public void initialize(){
@@ -45,9 +52,12 @@ public class RegisterFormController {
         System.out.println("initialize MemberCardDetailController");
         image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "rickroll.gif"));
 
-//        DataSource<UserDataList> dataSource = new UserDataListFileDataSource("data", "user.csv");
-//        userList = dataSource.readData();
+    //        DataSource<UserDataList> dataSource = new UserDataListFileDataSource("data", "user.csv");
+    //        userList = dataSource.readData();
     }
+
+    //-------------------------------------------- handle
+
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
@@ -98,6 +108,8 @@ public class RegisterFormController {
 
     }
 
+    //-------------------------------------------- method
+
     public void clearAllTextField() {
         usernameTextField.clear();
         passwordTextField.clear();
@@ -135,6 +147,7 @@ public class RegisterFormController {
             errorMsgLabel.setText(errorCheck);
         }
     }
+
 }
 
 

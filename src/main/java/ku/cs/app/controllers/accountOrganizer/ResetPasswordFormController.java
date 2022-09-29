@@ -11,6 +11,7 @@ import ku.cs.app.services.UserDataListFileDataSource;
 import java.io.IOException;
 
 public class ResetPasswordFormController {
+    //-------------------------------------------- FXML
     @FXML
     private Label errorMsgLabel;
     @FXML
@@ -21,12 +22,17 @@ public class ResetPasswordFormController {
     private TextField newPasswordTextField;
     @FXML
     private TextField confirmPasswordTextField;
+
+    //-------------------------------------------- private
+
     private UserList list;
     private DataSource<UserList> dataSource;
     public void initialize() {
         dataSource = new UserDataListFileDataSource("data", "user.csv");
         list = dataSource.readData();
     }
+
+    //-------------------------------------------- handle
 
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
@@ -84,6 +90,8 @@ public class ResetPasswordFormController {
             errorMsgLabel.setText("This user does not exist.\n");
         }
     }
+
+    //-------------------------------------------- method
 
     private void clearPasswordTextField() {
         currentPasswordTextField.clear();

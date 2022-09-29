@@ -21,6 +21,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class UserDataListController {
+    //-------------------------------------------- FXML
+
     @FXML
     private ListView<User> dataListView;
     @FXML private ImageView image;
@@ -28,10 +30,15 @@ public class UserDataListController {
     @FXML private Label nameLabel;
     @FXML private Label surnameLabel;
     @FXML private Label passwordLabel;
+
+    //-------------------------------------------- noModifier
+
     String fs = File.separator ;
     String url = getClass().getResource("/ku/cs/images/test.jpg").toExternalForm();
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
     UserList list = dataSource.readData();
+
+    //-------------------------------------------- initialize
 
     @FXML
     public void initialize(){
@@ -40,6 +47,9 @@ public class UserDataListController {
         clearSelectedUserData();
         handleSelectedListView();
     }
+
+    //-------------------------------------------- handle
+
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
@@ -72,6 +82,9 @@ public class UserDataListController {
                     }
                 });
     }
+
+    //-------------------------------------------- method
+
     private void showSelectedUserData(User data){
         image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + data.getPhoto()));
         nameLabel.setText(data.getName());

@@ -15,18 +15,25 @@ import ku.cs.app.services.UserSuspensionListFileSource;
 import java.io.IOException;
 
 public class LoginFormController {
+    //-------------------------------------------- FXML
+
     @FXML
     private TextField userName;
     @FXML
     private PasswordField userPassword;
     @FXML
     private Label errorMsgLabel;
+
+    //-------------------------------------------- private
+
     private DataSource<UserList> dataSource;
+    private UserList list;
     private DataSource<ActivityLog> activityLog;
     private ActivityLog log;
-    private UserList list;
     private DataSource<UserSuspensionList> susSource;
     private UserSuspensionList susList;
+
+    //-------------------------------------------- initialize
 
     public void initialize() {
 
@@ -40,6 +47,9 @@ public class LoginFormController {
         susList = susSource.readData();
 
     }
+
+    //-------------------------------------------- handle
+
     public void handleRequestButton(ActionEvent actionEvent){
         try{
             FXRouter.goTo("request_form");
@@ -59,11 +69,7 @@ public class LoginFormController {
         act.setActivity("| Login attempt from user: " + userName.getText() + " | ");
 
         if (list.checkIfUserExisted(userName.getText())){
-
             User user = list.returnUserObject(userName.getText());
-
-
-
             if(user.getUsername().equals(userName.getText())) {
                 if (user.checkIfInputPasswordCorrect(user, userPassword.getText())) {
 
@@ -103,10 +109,6 @@ public class LoginFormController {
                             }
                         }
                     }
-
-
-
-
                 }
                 else {
                     userPassword.clear();
@@ -115,8 +117,6 @@ public class LoginFormController {
                     errorMsgLabel.setText("Wrong password.");
                 }
             }
-
-
         }
         else {
             clearAllTextField();
@@ -126,10 +126,6 @@ public class LoginFormController {
         }
         activityLog.writeData(log);
         susSource.writeData(susList);
-    }
-    private void clearAllTextField() {
-        userPassword.clear();
-        userName.clear();
     }
     @FXML
     public void handleUserRegister(ActionEvent actionEvent){
@@ -149,4 +145,12 @@ public class LoginFormController {
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
     }
+
+    //-------------------------------------------- method
+
+    private void clearAllTextField() {
+        userPassword.clear();
+        userName.clear();
+    }
+
 }

@@ -16,13 +16,18 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class AssignReportFormController {
+    //-------------------------------------------- FXML
+
     @FXML private ComboBox categoryBox = new ComboBox(FXCollections.observableArrayList("Environment","Scholarship","Other","Default"));
     @FXML private TextField topicTextField;
     @FXML private TextField descriptionTextField;
-    //--------------------------------------------
+
+    //-------------------------------------------- private
+
     private LocalDateTime date;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E dd MMM yyyy | HH:mm");
-    //--------------------------------------------
+
+    //-------------------------------------------- handle
 
     @FXML
     public void handleBackButton(ActionEvent actionEvent) {
@@ -53,4 +58,5 @@ public class AssignReportFormController {
             }
         }
     }
+
 }

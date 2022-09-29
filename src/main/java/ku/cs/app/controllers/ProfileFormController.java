@@ -21,20 +21,27 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
 public class ProfileFormController {
+    //-------------------------------------------- FXML
     @FXML private Label usernameLabel;
     @FXML private Label nameLabel;
     @FXML private Label surnameLabel;
     @FXML private ImageView image;
-    //--------------------------------------------
+
+    //-------------------------------------------- private
+
     private User user;
     private FileChooser fileChooser;
     private File filePath;
     private String imagePath;
-    //--------------------------------------------
+
+    //-------------------------------------------- noModifier
+
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
     UserList userList = dataSource.readData();
     String fs = File.separator ;
-    //--------------------------------------------
+
+    //-------------------------------------------- FXML
+
     @FXML
     public void initialize(){
         user = (User) com.github.saacsos.FXRouter.getData();
@@ -51,6 +58,33 @@ public class ProfileFormController {
             usernameLabel.setText(user.getUsername());
             nameLabel.setText(user.getName());
             surnameLabel.setText(user.getSurname());
+        }
+    }
+
+    //-------------------------------------------- handle
+
+    @FXML
+    public void handleBackButton(ActionEvent actionEvent) {
+        try {
+            if(user.getRole().equals("admin"))
+                com.github.saacsos.FXRouter.goTo("main_admin_form");
+            if(user.getRole().equals("officer"))
+                com.github.saacsos.FXRouter.goTo("main_officer_form");
+            if(user.getRole().equals("user")){
+                com.github.saacsos.FXRouter.goTo("main_user_form");
+            }
+        } catch (IOException e) {
+            System.err.println("err ไป project ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+        }
+    }
+    @FXML
+    public void handleResetPassword(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("reset_password_form");
+        } catch (IOException e) {
+            System.err.println("err ไป reset ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
         }
     }
 
@@ -104,28 +138,4 @@ public class ProfileFormController {
         }
     }
 
-    @FXML
-    public void handleBackButton(ActionEvent actionEvent) {
-        try {
-            if(user.getRole().equals("admin"))
-                com.github.saacsos.FXRouter.goTo("main_admin_form");
-            if(user.getRole().equals("officer"))
-                com.github.saacsos.FXRouter.goTo("main_officer_form");
-            if(user.getRole().equals("user")){
-                com.github.saacsos.FXRouter.goTo("main_user_form");
-            }
-        } catch (IOException e) {
-            System.err.println("err ไป project ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกําหนด route");
-        }
-    }
-    @FXML
-    public void handleResetPassword(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("reset_password_form");
-        } catch (IOException e) {
-            System.err.println("err ไป reset ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกําหนด route");
-        }
-    }
 }

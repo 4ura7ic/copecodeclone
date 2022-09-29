@@ -13,6 +13,8 @@ import ku.cs.app.services.UserDataListFileDataSource;
 import java.io.IOException;
 
 public class UserSuspensionFormController {
+    //-------------------------------------------- FXML
+
     @FXML private ListView<User> dataListView;
     @FXML private Label statusLabel;
     @FXML private TextField reasonTextField;
@@ -21,16 +23,20 @@ public class UserSuspensionFormController {
     @FXML private Label reasonLabel;
     @FXML private Label errorMsgLabel;
 
-
+    //-------------------------------------------- noModifier
 
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
     UserList list = dataSource.readData();
+
+    //-------------------------------------------- initialize
 
     @FXML
     public void initialize() {
         showListView();
 
     }
+
+    //-------------------------------------------- handle
 
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
@@ -50,6 +56,8 @@ public class UserSuspensionFormController {
     public void handleRestoreButton(ActionEvent actionEvent) {
 
     }
+
+    //-------------------------------------------- method
 
     private void showListView(){
         dataListView.getItems().addAll(list.getAllData());

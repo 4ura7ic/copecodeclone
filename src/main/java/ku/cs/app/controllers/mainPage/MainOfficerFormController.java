@@ -18,8 +18,8 @@ import ku.cs.app.services.ReportListFileDataSource;
 import java.io.IOException;
 
 public class MainOfficerFormController {
+    //-------------------------------------------- FXML
 
-    //--------------------------------------------
     @FXML private ListView<Report> reportListView;
     @FXML private ComboBox categoryBox;
     @FXML private ComboBox timeBox;
@@ -28,16 +28,21 @@ public class MainOfficerFormController {
     @FXML private Label dateLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
-    //--------------------------------------------
+
+    //-------------------------------------------- private
+
     private ReportList list;
     private User user;
-    //--------------------------------------------
+
+    //-------------------------------------------- noModifier
+
     ObservableList<String> categoryList = FXCollections
             .observableArrayList("Environment","Scholarship","Other","Default");
 
     ObservableList<String> timeList = FXCollections
             .observableArrayList("Descending","Ascending","Default");
-    //--------------------------------------------
+
+    //-------------------------------------------- initialize
 
     @FXML
     public void initialize() throws IOException {
@@ -69,12 +74,10 @@ public class MainOfficerFormController {
 
         user = (User) com.github.saacsos.FXRouter.getData();
         showUserData();
-//        System.out.println(user.getUserName());
+    //        System.out.println(user.getUserName());
     }
 
-    private void showUserData(){
-        nameLabel.setText(user.getUsername());
-    }
+    //-------------------------------------------- handle
 
     private void handleSelectedListView(){
         reportListView.getSelectionModel().selectedItemProperty().addListener(
@@ -87,6 +90,30 @@ public class MainOfficerFormController {
                         showSelectedReport(newValue);
                     }
                 });
+    }
+    @FXML
+    public void handleLogOut(ActionEvent actionEvent){
+        try{
+            com.github.saacsos.FXRouter.goTo("login_form");
+        } catch (IOException e){
+            System.err.println("err ไป project ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+        }
+    }
+    @FXML
+    public void handleProfile(ActionEvent actionEvent){
+        try{
+            com.github.saacsos.FXRouter.goTo("profile_form",user);
+        } catch (IOException e){
+            System.err.println("err ไป project ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+        }
+    }
+
+    //-------------------------------------------- method
+
+    private void showUserData(){
+        nameLabel.setText(user.getUsername());
     }
 
     private void showSelectedReport(Report report){
@@ -101,23 +128,4 @@ public class MainOfficerFormController {
         reportListView.refresh();
     }
 
-    @FXML
-    public void handleLogOut(ActionEvent actionEvent){
-        try{
-            com.github.saacsos.FXRouter.goTo("login_form");
-        } catch (IOException e){
-            System.err.println("err ไป project ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกําหนด route");
-        }
-    }
-
-    @FXML
-    public void handleProfile(ActionEvent actionEvent){
-        try{
-            com.github.saacsos.FXRouter.goTo("profile_form",user);
-        } catch (IOException e){
-            System.err.println("err ไป project ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกําหนด route");
-        }
-    }
 }

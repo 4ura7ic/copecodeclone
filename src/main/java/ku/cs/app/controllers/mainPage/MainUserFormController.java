@@ -19,7 +19,8 @@ import com.github.saacsos.FXRouter;
 import java.io.IOException;
 
 public class MainUserFormController {
-    //--------------------------------------------
+    //-------------------------------------------- FXML
+
     @FXML private ComboBox categoryBox;
     @FXML private ComboBox timeBox;
     @FXML private Label nameLabel;
@@ -28,16 +29,22 @@ public class MainUserFormController {
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
     @FXML private ListView<Report> reportListView;
-    //--------------------------------------------
+
+    //-------------------------------------------- private
+
     private ReportList list;
     private User user;
-    //--------------------------------------------
+
+    //-------------------------------------------- noModifier
+
     ObservableList<String> categoryList = FXCollections
             .observableArrayList("Environment","Scholarship","Other","Default");
 
     ObservableList<String> timeList = FXCollections
             .observableArrayList("Descending","Ascending","Default");
-    //--------------------------------------------
+
+    //-------------------------------------------- initialize
+
     @FXML
     public void initialize() throws IOException {
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
@@ -70,10 +77,7 @@ public class MainUserFormController {
         showUserData();
     }
 
-
-    private void showUserData(){
-        nameLabel.setText(user.getUsername());
-    }
+    //-------------------------------------------- handle
 
     private void handleSelectedListView(){
         reportListView.getSelectionModel().selectedItemProperty().addListener(
@@ -87,14 +91,6 @@ public class MainUserFormController {
                     }
                 });
     }
-
-    private void showSelectedReport(Report report){
-        topicLabel.setText(report.getTopic());
-        dateLabel.setText(report.getDate());
-        categoryLabel.setText("none");
-        descriptionLabel.setText(report.getDescription());
-    }
-
     @FXML
     public void handleLogOut(ActionEvent actionEvent) {
         try {
@@ -114,11 +110,6 @@ public class MainUserFormController {
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
     }
-    private void showListView(){
-        reportListView.getItems().addAll(list.getAllRpt());
-        reportListView.refresh();
-    }
-
     @FXML
     public void handleAssignReportButton(ActionEvent actionEvent){
         try {
@@ -128,4 +119,22 @@ public class MainUserFormController {
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
     }
+
+    //-------------------------------------------- method
+
+    private void showUserData(){
+        nameLabel.setText(user.getUsername());
+    }
+    private void showSelectedReport(Report report){
+        topicLabel.setText(report.getTopic());
+        dateLabel.setText(report.getDate());
+        categoryLabel.setText("none");
+        descriptionLabel.setText(report.getDescription());
+    }
+
+    private void showListView(){
+        reportListView.getItems().addAll(list.getAllRpt());
+        reportListView.refresh();
+    }
+
 }

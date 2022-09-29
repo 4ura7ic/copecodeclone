@@ -12,18 +12,23 @@ import java.io.IOException;
 import java.util.Collection;
 
 public class LogDataFormController {
+    //-------------------------------------------- FXML
+
     @FXML private ListView<Activity> logListView;
+
+    //-------------------------------------------- noModifier
+
     DataSource<ActivityLog> logData = new ActivityLogDataSource("data","activityLog.csv");
     ActivityLog logList = logData.readData();
+
+    //-------------------------------------------- initialize
+
     @FXML
     public void initialize(){
         showListview();
     }
 
-    public void showListview(){
-        logListView.getItems().addAll(logList.getLog());
-        logListView.refresh();
-    }
+    //-------------------------------------------- handle
 
     @FXML public void handleBackButton(ActionEvent actionEvent){
         try{
@@ -32,5 +37,12 @@ public class LogDataFormController {
             System.err.println("err ไป userList ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
+    }
+
+    //-------------------------------------------- method
+
+    public void showListview(){
+        logListView.getItems().addAll(logList.getLog());
+        logListView.refresh();
     }
 }
