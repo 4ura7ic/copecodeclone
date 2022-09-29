@@ -137,6 +137,7 @@ public class LoginFormController {
         } catch (IOException e){
             System.err.println("err ไป register ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
         }
     }
     public void handleCredit(ActionEvent actionEvent){
