@@ -1,11 +1,14 @@
 package ku.cs.app.services;
 
-import ku.cs.app.models.Report;
-import ku.cs.app.models.ReportList;
+import ku.cs.app.models.Activity;
+import ku.cs.app.models.ActivityLog;
+import ku.cs.app.models.Category;
+import ku.cs.app.models.CategoryList;
 
 import java.io.*;
 
-public class ReportListFileDataSource implements DataSource<ReportList>{
+public class CategoryDataSource {
+
     //-------------------------------------------- instance
 
     private String directoryName;
@@ -13,16 +16,15 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
 
     //-------------------------------------------- constructor
 
-    public ReportListFileDataSource(String directoryName, String fileName){
+    public CategoryDataSource(String directoryName, String fileName) {
         this.directoryName = directoryName;
         this.fileName = fileName;
         checkIfFileExisted();
     }
-
     //-------------------------------------------- reader
 
-    public ReportList readData(){
-        ReportList list  = new ReportList();
+    public ActivityLog readData() {
+        CategoryList categoryList = new CategoryList();
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
         FileReader reader = null;
@@ -33,34 +35,33 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
             buffer = new BufferedReader(reader);
 
             String line = "";
-            while ((line = buffer.readLine()) != null){
+            while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                Report report = new Report(
+                Category category = new Category(
                         data[0].trim(),
-                        data[1].trim(),
-                        data[2].trim(),
-                        data[3].trim()
+                        data[1].trim()
                 );
-                list.addReport(report);
+                categoryList.addCategory(category);
             }
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
-            try{
+            try {
                 buffer.close();
                 reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-        return list;
+        return log;
     }
 
     //-------------------------------------------- writer
 
-    public void writeData(ReportList list){
+    public void writeData(ActivityLog log) {
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
 
@@ -71,31 +72,33 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
 
-            for(Report report: list.getAllRpt()){
-                String line = report.getTopic()+","
-                        + report.getDate()+","
-                        + report.getCategory()+","
-                        + report.getDescription();
+            for (Activity data : log.getLog()) {
+                String line = data.getDateTime() + ","
+                        + data.getActivity() + ","
+                        + data.getMessage();
+
                 buffer.append(line);
                 buffer.newLine();
             }
+
             buffer.close();
-        } catch (IOException e) {
+
+        }catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     //-------------------------------------------- method
 
-    private void checkIfFileExisted(){
+    private void checkIfFileExisted() {
         File file = new File(directoryName);
-        if(!file.exists())
+        if(!file.exists()) {
             file.mkdirs();
+        }
 
         String filePath = directoryName + File.separator + fileName;
         file = new File(filePath);
-        if(!file.exists()){
+        if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (IOException e) {
@@ -118,5 +121,4 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
             throw new RuntimeException(e);
         }
     }
-
 }

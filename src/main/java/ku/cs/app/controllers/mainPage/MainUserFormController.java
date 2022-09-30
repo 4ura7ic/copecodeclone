@@ -117,6 +117,7 @@ public class MainUserFormController {
         } catch (IOException e) {
             System.err.println("err ไป assign ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
         }
     }
 

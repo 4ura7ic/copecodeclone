@@ -2,6 +2,7 @@ package ku.cs.app.models;
 import java.util.ArrayList;
 
 public class ReportList {
+    private String  categoryList[];
 
     private ArrayList<Report> rpt;
 
