@@ -28,12 +28,15 @@ public class AssignReportFormController {
 
     private LocalDateTime date;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E dd MMM yyyy | HH:mm");
-    private ArrayList<String> category;
+    private Category category;
 
     //-------------------------------------------- initialize
 
     public void initialize(){
-        categoryBox.getItems().addAll(category);
+        category = new Category();
+        category.addFilePath("data","category.csv");
+        category.readData();
+        categoryBox.getItems().addAll(category.getCategory());
     }
 
     //-------------------------------------------- handle
