@@ -23,6 +23,7 @@ public class MainAdminFormController {
 
     @FXML private ComboBox categoryBox;
     @FXML private ComboBox timeBox;
+    @FXML private Label popUpLabel;
     @FXML private Label nameLabel;
     @FXML private Label topicLabel;
     @FXML private Label dateLabel;
@@ -34,44 +35,28 @@ public class MainAdminFormController {
 
     private ReportList list;
     private User user;
+    private String[] category = {"Education","Environment","Scholarship","Transportation"};
+    private String[] sortBy = {"Descending","Ascending"};
+
 
     //-------------------------------------------- noModifier
     ObservableList<String> categoryList = FXCollections
-            .observableArrayList("Environment","Scholarship","Other","Default");
+            .observableArrayList(category);
 
     ObservableList<String> timeList = FXCollections
-            .observableArrayList("Descending","Ascending","Default");
+            .observableArrayList(sortBy);
 
     //-------------------------------------------- initialize
 
     @FXML
     public void initialize() throws IOException {
+        startForm();
+        categoryBox.getItems().addAll(categoryList);
+        timeBox.getItems().addAll(timeList);
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
         showListView();
         handleSelectedListView();
-
-        categoryBox.setValue("Environment");
-        categoryBox.setItems(categoryList);
-
-        categoryBox.setValue("Scholarship");
-        categoryBox.setItems(categoryList);
-
-        categoryBox.setValue("Other");
-        categoryBox.setItems(categoryList);
-
-        categoryBox.setValue("Default");
-        categoryBox.setItems(categoryList);
-
-        timeBox.setValue("Descending");
-        timeBox.setItems(timeList);
-
-        timeBox.setValue("Ascending");
-        timeBox.setItems(timeList);
-
-        timeBox.setValue("Default");
-        timeBox.setItems(timeList);
-
         user = (User) FXRouter.getData();
         showUserData();
     }
@@ -139,10 +124,19 @@ public class MainAdminFormController {
         dateLabel.setText(report.getDate());
         categoryLabel.setText("none");
         descriptionLabel.setText(report.getDescription());
+        popUpLabel.setText("");
     }
     private void showListView(){
         reportListView.getItems().addAll(list.getAllRpt());
         reportListView.refresh();
+    }
+
+    private void startForm(){
+        topicLabel.setText("");
+        dateLabel.setText("");
+        categoryLabel.setText("");
+        descriptionLabel.setText("");
+        popUpLabel.setText("Please select reports below to view detail here.");
     }
 
 }
