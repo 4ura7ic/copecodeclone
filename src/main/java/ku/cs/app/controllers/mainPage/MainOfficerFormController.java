@@ -104,7 +104,7 @@ public class MainOfficerFormController {
     private void showSelectedReport(Report report){
         topicLabel.setText(report.getTopic());
         dateLabel.setText(report.getDate());
-        categoryLabel.setText("none");
+        categoryLabel.setText(report.getCategory());
         descriptionLabel.setText(report.getDescription());
         popUpLabel.setText("");
     }
