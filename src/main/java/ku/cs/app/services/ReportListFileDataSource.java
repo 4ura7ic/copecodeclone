@@ -34,7 +34,7 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
 
             String line = "";
             while ((line = buffer.readLine()) != null){
-                String[] data = line.split(",");
+                String[] data = line.split("\\|");
                 Report report = new Report(
                         data[0].trim(),
                         data[1].trim(),
@@ -72,9 +72,9 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
             buffer = new BufferedWriter(writer);
 
             for(Report report: list.getAllRpt()){
-                String line = report.getTopic()+","
-                        + report.getDate()+","
-                        + report.getCategory()+","
+                String line = report.getTopic()+"|"
+                        + report.getDate()+"|"
+                        + report.getCategory()+"|"
                         + report.getDescription();
                 buffer.append(line);
                 buffer.newLine();

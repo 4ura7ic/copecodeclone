@@ -1,12 +1,10 @@
 package ku.cs.app.controllers;
 
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import ku.cs.app.models.Category;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
 import ku.cs.app.services.DataSource;
@@ -15,7 +13,6 @@ import ku.cs.app.services.ReportListFileDataSource;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class AssignReportFormController {
     //-------------------------------------------- FXML
@@ -27,16 +24,13 @@ public class AssignReportFormController {
     //-------------------------------------------- private
 
     private LocalDateTime date;
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E dd MMM yyyy | HH:mm");
-    private Category category;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy / HH:mm");
+    private String[] category = {"Education","Environment","Scholarship","Transportation"};
 
     //-------------------------------------------- initialize
 
     public void initialize(){
-        category = new Category();
-        category.addFilePath("data","category.csv");
-        category.readData();
-        categoryBox.getItems().addAll(category.getCategory());
+        categoryBox.getItems().addAll(category);
     }
 
     //-------------------------------------------- handle
@@ -60,7 +54,7 @@ public class AssignReportFormController {
                     String formatDate = date.format(formatter);
                     DataSource<ReportList> dataSource = new ReportListFileDataSource("data", "report.csv");
                     ReportList list = dataSource.readData();
-                    list.addReport(new Report(topicTextField.getText(),categoryBox.getValue().toString(),formatDate,descriptionTextField.getText()));
+                    list.addReport(new Report(topicTextField.getText(),formatDate,categoryBox.getValue().toString(),descriptionTextField.getText()));
                     dataSource.writeData(list);
                     FXRouter.goTo("main_user_form");
                 } catch (IOException e) {

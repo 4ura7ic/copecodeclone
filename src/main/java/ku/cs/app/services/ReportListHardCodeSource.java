@@ -10,14 +10,14 @@ public class ReportListHardCodeSource {
         readReport();
     }
     public void readReport(){
-        Report Kevin = new Report("Malware in 708", "7 August 2022");
-        Report Put = new Report("Lost wallet in Library", "8 August 2022");
-        Report Third = new Report("Fire at building", "8 August 2022");
-        Report Non = new Report("Loss car at park", "9 August 2022");
-        rptList.addReport(Kevin);
-        rptList.addReport(Put);
-        rptList.addReport(Third);
-        rptList.addReport(Non);
+//        Report Kevin = new Report("Malware in 708", "7 August 2022");
+//        Report Put = new Report("Lost wallet in Library", "8 August 2022");
+//        Report Third = new Report("Fire at building", "8 August 2022");
+//        Report Non = new Report("Loss car at park", "9 August 2022");
+//        rptList.addReport(Kevin);
+//        rptList.addReport(Put);
+//        rptList.addReport(Third);
+//        rptList.addReport(Non);
     }
     public ReportList getRptList(){return rptList;}
 }

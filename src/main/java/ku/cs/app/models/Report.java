@@ -17,9 +17,6 @@ public class Report {
         this.category=category;
         this.description=description;
     }
-    public Report(String topic, String date){
-        this(topic,date,"","");
-    }
     public Report(){
         this("","","","");
     }
@@ -35,7 +32,7 @@ public class Report {
 
     @Override
     public String toString() {
-        return topic+" [" + date+ "]";
+        return topic+" [" + category+ "]";
     }
 
 }
