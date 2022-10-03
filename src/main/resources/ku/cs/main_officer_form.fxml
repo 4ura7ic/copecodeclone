@@ -46,5 +46,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <Label fx:id="rateLabel" layoutX="590.0" layoutY="140.0" prefHeight="17.0" prefWidth="50.0" text="rate" />
    </children>
 </AnchorPane>

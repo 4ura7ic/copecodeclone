@@ -39,7 +39,8 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                         data[0].trim(),
                         data[1].trim(),
                         data[2].trim(),
-                        data[3].trim()
+                        data[3].trim(),
+                        Integer.parseInt(data[4])
                 );
                 list.addReport(report);
             }
@@ -75,7 +76,8 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                 String line = report.getTopic()+"|"
                         + report.getDate()+"|"
                         + report.getCategory()+"|"
-                        + report.getDescription();
+                        + report.getDescription()+"|"
+                        + report.getRate();
                 buffer.append(line);
                 buffer.newLine();
             }

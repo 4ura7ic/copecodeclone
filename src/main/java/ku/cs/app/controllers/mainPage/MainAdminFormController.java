@@ -22,6 +22,7 @@ public class MainAdminFormController {
     //-------------------------------------------- FXML
 
     @FXML private ComboBox categoryBox;
+    @FXML private Label rateLabel;
     @FXML private ComboBox timeBox;
     @FXML private Label popUpLabel;
     @FXML private Label nameLabel;
@@ -124,6 +125,7 @@ public class MainAdminFormController {
         dateLabel.setText(report.getDate());
         categoryLabel.setText(report.getCategory());
         descriptionLabel.setText(report.getDescription());
+        rateLabel.setText("Rate: " + Integer.toString(report.getRate()));
         popUpLabel.setText("");
     }
     private void showListView(){
@@ -136,6 +138,7 @@ public class MainAdminFormController {
         dateLabel.setText("");
         categoryLabel.setText("");
         descriptionLabel.setText("");
+        rateLabel.setText("");
         popUpLabel.setText("Please select reports below to view detail here.");
     }
 

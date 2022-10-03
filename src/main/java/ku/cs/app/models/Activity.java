@@ -13,9 +13,7 @@ public class Activity implements Comparable<Activity> {
     //-------------------------------------------- constructor
 
     public Activity() {
-        this.dateTime = "";
-        this.activity = "";
-        this.message = "";
+        this("","","");
     }
     public Activity(String dateTime, String activity, String message) {
         this.dateTime = dateTime;

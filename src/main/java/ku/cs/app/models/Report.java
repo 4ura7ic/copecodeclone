@@ -7,18 +7,24 @@ public class Report {
     private String date;
     private String category;
     private String description;
+    private int rate;
 
 
     //-------------------------------------------- constructor
 
-    public Report(String topic, String date, String category, String description){
+    public Report(String topic, String date, String category, String description) {
+        this(topic,date,category,description,0);
+    }
+
+    public Report(String topic, String date, String category, String description,int rate){
         this.topic = topic;
         this.date=date;
         this.category=category;
         this.description=description;
+        this.rate =rate;
     }
     public Report(){
-        this("","","","");
+        this("","","","",0);
     }
 
     //-------------------------------------------- getter
@@ -28,6 +34,9 @@ public class Report {
     public String getDescription() {return description;}
     public String getCategory() {return category;}
 
+    public int getRate() {
+        return rate;
+    }
     //-------------------------------------------- method
 
     @Override

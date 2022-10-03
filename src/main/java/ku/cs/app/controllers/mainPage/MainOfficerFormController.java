@@ -23,6 +23,7 @@ public class MainOfficerFormController {
     @FXML private ListView<Report> reportListView;
     @FXML private ComboBox categoryBox;
     @FXML private ComboBox timeBox;
+    @FXML private Label rateLabel;
     @FXML private Label popUpLabel;
     @FXML private Label nameLabel;
     @FXML private Label topicLabel;
@@ -106,6 +107,7 @@ public class MainOfficerFormController {
         dateLabel.setText(report.getDate());
         categoryLabel.setText(report.getCategory());
         descriptionLabel.setText(report.getDescription());
+        rateLabel.setText("Rate: " + Integer.toString(report.getRate()));
         popUpLabel.setText("");
     }
 
@@ -119,6 +121,7 @@ public class MainOfficerFormController {
         dateLabel.setText("");
         categoryLabel.setText("");
         descriptionLabel.setText("");
+        rateLabel.setText("");
         popUpLabel.setText("Please select reports below to view detail here.");
     }
 
