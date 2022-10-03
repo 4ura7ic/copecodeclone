@@ -1,4 +1,20 @@
-03-10-2022 14:29:55,| Login attempt from user: Tester101 | ,Success.
+03-10-2022 17:02:08,| Login attempt from user: Tester101 | ,Success.
+03-10-2022 16:59:44,| Login attempt from user: Kevin99008 |,Success.
+03-10-2022 16:59:08,| Login attempt from user: Kevin99008 |,Success.
+03-10-2022 16:59:04,| Login attempt from user: Kevin99008 |,Failed - Wrong password.
+03-10-2022 16:56:41,| Login attempt from user: Tester101 |,Success.
+03-10-2022 16:55:52,| Login attempt from user: Kevin99008 |,Success.
+03-10-2022 16:52:58,| Login attempt from user: Kevin99008 |,Success.
+03-10-2022 16:50:01,| Login attempt from user: Kevin99008 |,Success.
+03-10-2022 16:49:46,| Login attempt from user: Tester101 |,Success.
+03-10-2022 16:42:24,| Login attempt from user: Tester101 |,Success.
+03-10-2022 16:42:10,| Login attempt from user: Kevin99008 |,Success.
+03-10-2022 16:41:53,| Login attempt from user: Tester101 |,Success.
+03-10-2022 16:33:02,| Login attempt from user: Tester101 |,Success.
+03-10-2022 15:59:33,| Login attempt from user: Tester101 |,Success.
+03-10-2022 15:55:16,| Login attempt from user: Tester101 |,Success.
+03-10-2022 15:53:13,| Login attempt from user: Tester101 |,Success.
+03-10-2022 14:29:55,| Login attempt from user: Tester101 |,Success.
 03-10-2022 14:28:21,| Login attempt from user: Tester101 |,Success.
 03-10-2022 14:28:17,| Login attempt from user: Tester101 |,Failed - Wrong password.
 03-10-2022 14:00:02,| Login attempt from user: Tester303 |,Success.

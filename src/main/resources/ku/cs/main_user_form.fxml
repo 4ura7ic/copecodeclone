@@ -23,7 +23,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ListView fx:id="reportListView" layoutX="22.0" layoutY="326.0" prefHeight="214.0" prefWidth="629.0" />
       <Button layoutX="735.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleProfile" prefHeight="50.0" prefWidth="50.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -50,6 +49,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="rateLabel" layoutX="596.0" layoutY="138.0" text="rate" />
+      <Label fx:id="rateLabel" layoutX="590.0" layoutY="140.0" prefHeight="17.0" prefWidth="50.0" text="rate" />
+      <ListView fx:id="yourReportListView" layoutX="347.0" layoutY="352.0" prefHeight="214.0" prefWidth="300.0" />
+      <ListView fx:id="reportListView" layoutX="25.0" layoutY="352.0" prefHeight="214.0" prefWidth="300.0" />
+      <Label layoutX="148.0" layoutY="331.0" text="All reports" />
+      <Label layoutX="464.0" layoutY="331.0" text="Your reports" />
    </children>
 </AnchorPane>

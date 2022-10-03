@@ -40,7 +40,8 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                         data[1].trim(),
                         data[2].trim(),
                         data[3].trim(),
-                        Integer.parseInt(data[4])
+                        data[4].trim(),
+                        Integer.parseInt(data[5])
                 );
                 list.addReport(report);
             }
@@ -73,7 +74,8 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
             buffer = new BufferedWriter(writer);
 
             for(Report report: list.getAllRpt()){
-                String line = report.getTopic()+"|"
+                String line = report.getAuthorUser()+"|"
+                        + report.getTopic()+"|"
                         + report.getDate()+"|"
                         + report.getCategory()+"|"
                         + report.getDescription()+"|"

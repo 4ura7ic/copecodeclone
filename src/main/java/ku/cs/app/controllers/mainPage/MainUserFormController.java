@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -17,6 +18,9 @@ import ku.cs.app.services.ReportListFileDataSource;
 import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class MainUserFormController {
     //-------------------------------------------- FXML
@@ -31,12 +35,14 @@ public class MainUserFormController {
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
     @FXML private ListView<Report> reportListView;
+    @FXML private ListView<Report> yourReportListView;
 
     //-------------------------------------------- private
 
     private ReportList list;
+    private ReportList yourList;
     private User user;
-    private String[] category = {"Education","Environment","Scholarship","Transportation"};
+    private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
     private String[] sortBy = {"Descending","Ascending"};
 
     //-------------------------------------------- noModifier
@@ -52,20 +58,39 @@ public class MainUserFormController {
     @FXML
     public void initialize() throws IOException {
         startForm();
+        user = (User) FXRouter.getData();
         categoryBox.getItems().addAll(categoryList);
         timeBox.getItems().addAll(timeList);
+        categoryBox.setOnAction(this::categorySort);
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
+        yourList = list;
         showListView();
         handleSelectedListView();
-        user = (User) FXRouter.getData();
         showUserData();
+    }
+
+    private void categorySort(Event event) {
+        reportListView.getItems().clear();
+        reportListView.getItems().addAll(list.sortByCategory((String) categoryBox.getValue()));
+        yourReportListView.getItems().clear();
+        yourReportListView.getItems().addAll((list.sortByUserAndCategory(user.getUsername(),(String) categoryBox.getValue())));
     }
 
     //-------------------------------------------- handle
 
     private void handleSelectedListView(){
         reportListView.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Report>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Report>
+                                                observable,
+                                        Report oldValue, Report newValue) {
+                        System.out.println(newValue + " is selected");
+                        showSelectedReport(newValue);
+                    }
+                });
+        yourReportListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Report>() {
                     @Override
                     public void changed(ObservableValue<? extends Report>
@@ -98,7 +123,7 @@ public class MainUserFormController {
     @FXML
     public void handleAssignReportButton(ActionEvent actionEvent){
         try {
-            FXRouter.goTo("assign_report_form");
+            FXRouter.goTo("assign_report_form",user);
         } catch (IOException e) {
             System.err.println("err ไป assign ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
@@ -112,17 +137,21 @@ public class MainUserFormController {
         nameLabel.setText(user.getUsername());
     }
     private void showSelectedReport(Report report){
-        topicLabel.setText(report.getTopic());
-        dateLabel.setText(report.getDate());
-        categoryLabel.setText(report.getCategory());
-        descriptionLabel.setText(report.getDescription());
-        rateLabel.setText("Rate: " + Integer.toString(report.getRate()));
-        popUpLabel.setText("");
+        if(report!=null) {
+            topicLabel.setText(report.getTopic());
+            dateLabel.setText(report.getDate());
+            categoryLabel.setText(report.getCategory());
+            descriptionLabel.setText(report.getDescription());
+            rateLabel.setText("Rate: " + Integer.toString(report.getRate()));
+            popUpLabel.setText("");
+        }
     }
 
     private void showListView(){
         reportListView.getItems().addAll(list.getAllRpt());
         reportListView.refresh();
+        yourReportListView.getItems().addAll(list.sortByUser(user.getUsername()));
+        yourReportListView.refresh();
     }
 
     private void startForm(){
