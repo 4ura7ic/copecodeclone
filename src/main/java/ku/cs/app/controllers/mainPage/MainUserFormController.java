@@ -18,9 +18,6 @@ import ku.cs.app.services.ReportListFileDataSource;
 import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 public class MainUserFormController {
     //-------------------------------------------- FXML
@@ -34,13 +31,12 @@ public class MainUserFormController {
     @FXML private Label dateLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
-    @FXML private ListView<Report> reportListView;
-    @FXML private ListView<Report> yourReportListView;
+    @FXML private ListView<Report> inProgressListView;
+    @FXML private ListView<Report> finishReportListView;
 
     //-------------------------------------------- private
 
     private ReportList list;
-    private ReportList yourList;
     private User user;
     private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
     private String[] sortBy = {"Descending","Ascending"};
@@ -64,23 +60,22 @@ public class MainUserFormController {
         categoryBox.setOnAction(this::categorySort);
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
-        yourList = list;
         showListView();
         handleSelectedListView();
         showUserData();
     }
 
     private void categorySort(Event event) {
-        reportListView.getItems().clear();
-        reportListView.getItems().addAll(list.sortByCategory((String) categoryBox.getValue()));
-        yourReportListView.getItems().clear();
-        yourReportListView.getItems().addAll((list.sortByUserAndCategory(user.getUsername(),(String) categoryBox.getValue())));
+        inProgressListView.getItems().clear();
+        inProgressListView.getItems().addAll(list.sortInProgressReportByCategory((String) categoryBox.getValue()));
+        finishReportListView.getItems().clear();
+        finishReportListView.getItems().addAll((list.sortFinishedReportByCategory((String) categoryBox.getValue())));
     }
 
     //-------------------------------------------- handle
 
     private void handleSelectedListView(){
-        reportListView.getSelectionModel().selectedItemProperty().addListener(
+        inProgressListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Report>() {
                     @Override
                     public void changed(ObservableValue<? extends Report>
@@ -90,7 +85,7 @@ public class MainUserFormController {
                         showSelectedReport(newValue);
                     }
                 });
-        yourReportListView.getSelectionModel().selectedItemProperty().addListener(
+        finishReportListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Report>() {
                     @Override
                     public void changed(ObservableValue<? extends Report>
@@ -131,6 +126,17 @@ public class MainUserFormController {
         }
     }
 
+    @FXML
+    public void handleYourReport(ActionEvent actionEvent){
+        try {
+            FXRouter.goTo("your_report_form",user);
+        } catch (IOException e) {
+            System.err.println("err ไป assign ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
+
     //-------------------------------------------- method
 
     private void showUserData(){
@@ -142,16 +148,16 @@ public class MainUserFormController {
             dateLabel.setText(report.getDate());
             categoryLabel.setText(report.getCategory());
             descriptionLabel.setText(report.getDescription());
-            rateLabel.setText("Rate: " + Integer.toString(report.getRate()));
+            rateLabel.setText("Rate: " + (report.getRate()));
             popUpLabel.setText("");
         }
     }
 
     private void showListView(){
-        reportListView.getItems().addAll(list.getAllRpt());
-        reportListView.refresh();
-        yourReportListView.getItems().addAll(list.sortByUser(user.getUsername()));
-        yourReportListView.refresh();
+        inProgressListView.getItems().addAll(list.sortInProgressReport());
+        inProgressListView.refresh();
+        finishReportListView.getItems().addAll(list.sortFinishedReport());
+        finishReportListView.refresh();
     }
 
     private void startForm(){

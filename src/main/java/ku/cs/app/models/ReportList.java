@@ -16,33 +16,46 @@ public class ReportList {
         return rpt;
     }
 
-    public ArrayList<Report> sortByCategory(String key){
+
+    public ArrayList<Report> sortInProgressReport(){
         ArrayList<Report> tmpReport = new ArrayList<>();
-        Sorter sorter = new Sorter();
         for(Report report: rpt){
-            if(sorter.categoryFilter(report,key)){
+            if(!report.isCheck()){
                 tmpReport.add(report);
             }
         }
         return tmpReport;
     }
 
-    public ArrayList<Report> sortByUser(String key){
+    public ArrayList<Report> sortInProgressReportByCategory(String key){
+        ArrayList<Report> tmpReport = new ArrayList<>();
+        Sorter sorter = new Sorter();
+        for(Report report: rpt){
+            if(!report.isCheck()) {
+                if (sorter.categoryFilter(report, key)) {
+                    tmpReport.add(report);
+                }
+            }
+        }
+        return tmpReport;
+    }
+
+    public ArrayList<Report> sortFinishedReport(){
         ArrayList<Report> tmpReport = new ArrayList<>();
         for(Report report: rpt){
-            if(report.getAuthorUser().equals(key)){
+            if(report.isCheck()){
                 tmpReport.add(report);
             }
         }
         return tmpReport;
     }
-    public ArrayList<Report> sortByUserAndCategory(String key1,String key2){
+    public ArrayList<Report> sortFinishedReportByCategory(String key){
         ArrayList<Report> tmpReport = new ArrayList<>();
         Sorter sorter = new Sorter();
         for(Report report: rpt){
-            if(report.getAuthorUser().equals(key1)){
-                if(sorter.categoryFilter(report,key2))
-                tmpReport.add(report);
+            if(report.isCheck()){
+                if(sorter.categoryFilter(report,key))
+                    tmpReport.add(report);
             }
         }
         return tmpReport;
