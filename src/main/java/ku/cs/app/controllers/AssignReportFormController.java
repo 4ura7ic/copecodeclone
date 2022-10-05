@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
+import ku.cs.app.models.User;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListFileDataSource;
 
@@ -23,6 +24,7 @@ public class AssignReportFormController {
 
     //-------------------------------------------- private
 
+    private User user;
     private LocalDateTime date;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy / HH:mm");
     private String[] category = {"Education","Environment","Scholarship","Transportation"};
@@ -30,6 +32,7 @@ public class AssignReportFormController {
     //-------------------------------------------- initialize
 
     public void initialize(){
+        user = (User) FXRouter.getData();
         categoryBox.getItems().addAll(category);
     }
 
@@ -48,21 +51,22 @@ public class AssignReportFormController {
     @FXML
     public void handleAssignButton(ActionEvent actionEvent) {
         if(topicTextField.getText()!="") {
-            if(descriptionTextField.getText()!="") {
-                try {
-                    date = LocalDateTime.now();
-                    String formatDate = date.format(formatter);
-                    DataSource<ReportList> dataSource = new ReportListFileDataSource("data", "report.csv");
-                    ReportList list = dataSource.readData();
-                    list.addReport(new Report(topicTextField.getText(),formatDate,categoryBox.getValue().toString(),descriptionTextField.getText()));
-                    dataSource.writeData(list);
-                    FXRouter.goTo("main_user_form");
-                } catch (IOException e) {
-                    System.err.println("err ไป project ไม่ได้");
-                    System.err.println("ให้ตรวจสอบการกําหนด route");
+            if(descriptionTextField.getText()!="")
+                if(categoryBox.getValue()!="") {
+                    try {
+                        date = LocalDateTime.now();
+                        String formatDate = date.format(formatter);
+                        DataSource<ReportList> dataSource = new ReportListFileDataSource("data", "report.csv");
+                        ReportList list = dataSource.readData();
+                        list.addReport(new Report(user.getUsername(), topicTextField.getText(), formatDate, categoryBox.getValue().toString(), descriptionTextField.getText()));
+                        dataSource.writeData(list);
+                        FXRouter.goTo("main_user_form");
+                    } catch (IOException e) {
+                        System.err.println("err ไป project ไม่ได้");
+                        System.err.println("ให้ตรวจสอบการกําหนด route");
+                    }
                 }
             }
         }
-    }
 
 }

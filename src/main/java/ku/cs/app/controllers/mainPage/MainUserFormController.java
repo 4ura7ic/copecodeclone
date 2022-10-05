@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -23,19 +24,21 @@ public class MainUserFormController {
 
     @FXML private ComboBox categoryBox;
     @FXML private ComboBox timeBox;
+    @FXML private Label rateLabel;
     @FXML private Label popUpLabel;
     @FXML private Label nameLabel;
     @FXML private Label topicLabel;
     @FXML private Label dateLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
-    @FXML private ListView<Report> reportListView;
+    @FXML private ListView<Report> inProgressListView;
+    @FXML private ListView<Report> finishReportListView;
 
     //-------------------------------------------- private
 
     private ReportList list;
     private User user;
-    private String[] category = {"Education","Environment","Scholarship","Transportation"};
+    private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
     private String[] sortBy = {"Descending","Ascending"};
 
     //-------------------------------------------- noModifier
@@ -51,20 +54,38 @@ public class MainUserFormController {
     @FXML
     public void initialize() throws IOException {
         startForm();
+        user = (User) FXRouter.getData();
         categoryBox.getItems().addAll(categoryList);
         timeBox.getItems().addAll(timeList);
+        categoryBox.setOnAction(this::categorySort);
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
         showListView();
         handleSelectedListView();
-        user = (User) FXRouter.getData();
         showUserData();
+    }
+
+    private void categorySort(Event event) {
+        inProgressListView.getItems().clear();
+        inProgressListView.getItems().addAll(list.sortInProgressReportByCategory((String) categoryBox.getValue()));
+        finishReportListView.getItems().clear();
+        finishReportListView.getItems().addAll((list.sortFinishedReportByCategory((String) categoryBox.getValue())));
     }
 
     //-------------------------------------------- handle
 
     private void handleSelectedListView(){
-        reportListView.getSelectionModel().selectedItemProperty().addListener(
+        inProgressListView.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Report>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Report>
+                                                observable,
+                                        Report oldValue, Report newValue) {
+                        System.out.println(newValue + " is selected");
+                        showSelectedReport(newValue);
+                    }
+                });
+        finishReportListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Report>() {
                     @Override
                     public void changed(ObservableValue<? extends Report>
@@ -97,12 +118,28 @@ public class MainUserFormController {
     @FXML
     public void handleAssignReportButton(ActionEvent actionEvent){
         try {
-            FXRouter.goTo("assign_report_form");
+            FXRouter.goTo("assign_report_form",user);
         } catch (IOException e) {
             System.err.println("err ไป assign ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void handleYourReport(ActionEvent actionEvent){
+        try {
+            FXRouter.goTo("your_report_form",user);
+        } catch (IOException e) {
+            System.err.println("err ไป assign ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleUpRateButton(){
+
     }
 
     //-------------------------------------------- method
@@ -111,16 +148,21 @@ public class MainUserFormController {
         nameLabel.setText(user.getUsername());
     }
     private void showSelectedReport(Report report){
-        topicLabel.setText(report.getTopic());
-        dateLabel.setText(report.getDate());
-        categoryLabel.setText(report.getCategory());
-        descriptionLabel.setText(report.getDescription());
-        popUpLabel.setText("");
+        if(report!=null) {
+            topicLabel.setText(report.getTopic());
+            dateLabel.setText(report.getDate());
+            categoryLabel.setText(report.getCategory());
+            descriptionLabel.setText(report.getDescription());
+            rateLabel.setText("Rate: " + (report.getRate()));
+            popUpLabel.setText("");
+        }
     }
 
     private void showListView(){
-        reportListView.getItems().addAll(list.getAllRpt());
-        reportListView.refresh();
+        inProgressListView.getItems().addAll(list.sortInProgressReport());
+        inProgressListView.refresh();
+        finishReportListView.getItems().addAll(list.sortFinishedReport());
+        finishReportListView.refresh();
     }
 
     private void startForm(){
@@ -128,6 +170,7 @@ public class MainUserFormController {
         dateLabel.setText("");
         categoryLabel.setText("");
         descriptionLabel.setText("");
+        rateLabel.setText("");
         popUpLabel.setText("Please select reports below to view detail here.");
     }
 

@@ -1,9 +1,9 @@
 package ku.cs.app.models;
+import ku.cs.app.services.Sorter;
+
 import java.util.ArrayList;
 
 public class ReportList {
-    private String  categoryList[];
-
     private ArrayList<Report> rpt;
 
     public ReportList(){ rpt = new ArrayList<>();}
@@ -16,6 +16,48 @@ public class ReportList {
         return rpt;
     }
 
-    public int reportListSize(){return rpt.size();}
 
+    public ArrayList<Report> sortInProgressReport(){
+        ArrayList<Report> tmpReport = new ArrayList<>();
+        for(Report report: rpt){
+            if(!report.isCheck()){
+                tmpReport.add(report);
+            }
+        }
+        return tmpReport;
+    }
+
+    public ArrayList<Report> sortInProgressReportByCategory(String key){
+        ArrayList<Report> tmpReport = new ArrayList<>();
+        Sorter sorter = new Sorter();
+        for(Report report: rpt){
+            if(!report.isCheck()) {
+                if (sorter.categoryFilter(report, key)) {
+                    tmpReport.add(report);
+                }
+            }
+        }
+        return tmpReport;
+    }
+
+    public ArrayList<Report> sortFinishedReport(){
+        ArrayList<Report> tmpReport = new ArrayList<>();
+        for(Report report: rpt){
+            if(report.isCheck()){
+                tmpReport.add(report);
+            }
+        }
+        return tmpReport;
+    }
+    public ArrayList<Report> sortFinishedReportByCategory(String key){
+        ArrayList<Report> tmpReport = new ArrayList<>();
+        Sorter sorter = new Sorter();
+        for(Report report: rpt){
+            if(report.isCheck()){
+                if(sorter.categoryFilter(report,key))
+                    tmpReport.add(report);
+            }
+        }
+        return tmpReport;
+    }
 }
