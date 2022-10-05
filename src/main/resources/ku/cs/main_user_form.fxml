@@ -45,7 +45,7 @@
       <Label fx:id="dateLabel" alignment="CENTER_RIGHT" layoutX="421.0" layoutY="101.0" prefHeight="17.0" prefWidth="209.0" text="dateLabel" />
       <Accordion layoutX="290.0" layoutY="188.0" />
       <Separator layoutX="47.0" layoutY="313.0" prefHeight="3.0" prefWidth="559.0" />
-      <Label fx:id="popUpLabel" alignment="CENTER" layoutX="117.0" layoutY="170.0" prefHeight="35.0" prefWidth="439.0" text="---">
+      <Label fx:id="popUpLabel" alignment="CENTER" layoutX="25.0" layoutY="170.0" prefHeight="35.0" prefWidth="623.0" text="---">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
