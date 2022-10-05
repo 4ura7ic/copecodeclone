@@ -60,4 +60,11 @@ public class ReportList {
         }
         return tmpReport;
     }
+
+    @Override
+    public String toString() {
+        return "ReportList{" +
+                "rpt=" + rpt +
+                '}';
+    }
 }

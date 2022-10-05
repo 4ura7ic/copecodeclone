@@ -4,6 +4,7 @@ import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class ReportListFileDataSource implements DataSource<ReportList>{
     //-------------------------------------------- instance
@@ -44,6 +45,12 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                         Integer.parseInt(data[5]),
                         Boolean.parseBoolean(data[6])
                 );
+                ArrayList<String> allVotedUser = new ArrayList<>();
+                String[] votedUserData = data[7].split(",");
+                for (String s: votedUserData) {
+                    allVotedUser.add(s);
+                }
+                report.addAllVotedUser(allVotedUser);
                 list.addReport(report);
             }
         } catch (FileNotFoundException e) {
@@ -80,10 +87,15 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                         + report.getDate()+"|"
                         + report.getCategory()+"|"
                         + report.getDescription()+"|"
-                        + report.getRate()+"|"
-                        + report.isCheck();
+                        + report.getVote()+"|"
+                        + report.isCheck() + "|";
+                for (String s: report.getVotedUser()) {
+                    line += s + ",";
+                }
+
                 buffer.append(line);
                 buffer.newLine();
+
             }
             buffer.close();
         } catch (IOException e) {

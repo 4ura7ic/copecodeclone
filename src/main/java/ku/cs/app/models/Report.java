@@ -1,5 +1,7 @@
 package ku.cs.app.models;
 
+import java.util.ArrayList;
+
 public class Report {
     //-------------------------------------------- instance
 
@@ -8,8 +10,9 @@ public class Report {
     private String category;
     private String description;
     private String authorUser;
-    private int rate;
+    private int vote;
     private boolean check;
+    private ArrayList<String> votedUser;
 
 
     //-------------------------------------------- constructor
@@ -18,15 +21,28 @@ public class Report {
         this(authorUser,topic,date,category,description,0,false);
     }
 
-    public Report(String authorUser, String topic, String date, String category, String description,int rate,boolean check){
+    public Report(String authorUser, String topic, String date, String category, String description,int vote,boolean check){
         this.authorUser = authorUser;
         this.topic = topic;
-        this.date=date;
-        this.category=category;
-        this.description=description;
-        this.rate =rate;
+        this.date = date;
+        this.category = category;
+        this.description = description;
+        this.vote = vote;
         this.check = check;
+        this.votedUser = new ArrayList<>();
     }
+
+    public Report(String topic, String date, String category, String description, String authorUser, int vote, boolean check, ArrayList<String> votedUser) {
+        this.topic = topic;
+        this.date = date;
+        this.category = category;
+        this.description = description;
+        this.authorUser = authorUser;
+        this.vote = vote;
+        this.check = check;
+        this.votedUser = votedUser;
+    }
+
     public Report(){
         this("","","","","",0,false);
     }
@@ -37,16 +53,37 @@ public class Report {
     public String getDate(){return date;}
     public String getDescription() {return description;}
     public String getCategory() {return category;}
-    public int getRate() {
-        return rate;
+    public int getVote() {
+        return vote;
     }
     public boolean isCheck(){return check;}
+    public void addVotedUser(String username){
+        votedUser.add(username);
+    }
+    public void removeVotedUser(String username) {
+        votedUser.remove(username);
+    }
+    public void addAllVotedUser(ArrayList list){
+        votedUser.addAll(list);
+    }
+    public ArrayList<String> getVotedUser(){
+        return votedUser;
+    }
 
     //-------------------------------------------- method
 
+
     @Override
     public String toString() {
-        return topic+" [" + category+ "]";
+        return "Report{" +
+                "topic='" + topic + '\'' +
+                ", date='" + date + '\'' +
+                ", category='" + category + '\'' +
+                ", description='" + description + '\'' +
+                ", authorUser='" + authorUser + '\'' +
+                ", vote=" + vote +
+                ", check=" + check +
+                ", votedUser=" + votedUser +
+                '}';
     }
-
 }
