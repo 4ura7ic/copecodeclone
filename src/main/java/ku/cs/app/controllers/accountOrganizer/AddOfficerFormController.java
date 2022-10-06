@@ -88,6 +88,7 @@ public class AddOfficerFormController {
                         newOfficer.setName(nameTextField.getText());
                         newOfficer.setSurname(surnameTextField.getText());
                         newOfficer.setPhoto(imageName);
+                        newOfficer.setInCharge((String) chargeInBox.getValue());
                         clearAllTextField();
                         try {
                             DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
