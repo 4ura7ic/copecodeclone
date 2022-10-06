@@ -153,7 +153,7 @@ public class MainUserFormController {
             dateLabel.setText(report.getDate());
             categoryLabel.setText(report.getCategory());
             descriptionLabel.setText(report.getDescription());
-            rateLabel.setText("Rate: " + (report.getRate()));
+            rateLabel.setText("Rate: " + (report.getVote()));
             popUpLabel.setText("");
         }
     }

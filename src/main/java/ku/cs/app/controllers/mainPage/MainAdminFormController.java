@@ -125,7 +125,7 @@ public class MainAdminFormController {
         dateLabel.setText(report.getDate());
         categoryLabel.setText(report.getCategory());
         descriptionLabel.setText(report.getDescription());
-        rateLabel.setText("Rate: " + Integer.toString(report.getRate()));
+        rateLabel.setText("Rate: " + Integer.toString(report.getVote()));
         popUpLabel.setText("");
     }
     private void showListView(){
