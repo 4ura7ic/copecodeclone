@@ -16,6 +16,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ListView fx:id="logListView" layoutX="55.0" layoutY="86.0" prefHeight="484.0" prefWidth="686.0" />
+      <ListView fx:id="logListView" layoutX="67.0" layoutY="94.0" prefHeight="469.0" prefWidth="666.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
    </children>
 </AnchorPane>

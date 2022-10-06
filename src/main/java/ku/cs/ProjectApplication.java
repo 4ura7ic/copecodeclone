@@ -1,6 +1,7 @@
 package ku.cs;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import com.github.saacsos.FXRouter;
 import java.io.IOException;
@@ -9,6 +10,9 @@ public class ProjectApplication extends Application{
     @Override
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, 800, 600);
+        stage.setTitle("copecode");
+        Image icon = new Image("logo.png");
+        stage.getIcons().add(icon);
         configRoute();
         FXRouter.goTo("login_form");
     }
