@@ -4,6 +4,7 @@ package ku.cs.app.models;
 
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.OfficerListFileDataSource;
+import ku.cs.app.services.UserDataListFileDataSource;
 
 public class Admin extends User{
     //-------------------------------------------- constructor
@@ -13,6 +14,9 @@ public class Admin extends User{
     }
     public Admin(String username,Password password,String name, String surname) {
         super("admin", username, password, name, surname);
+    }
+    public Admin(String role, String username, Password password, String name, String surname, String photo){
+        super(role, username, password, name, surname, photo);
     }
 
     //-------------------------------------------- setter
@@ -26,11 +30,11 @@ public class Admin extends User{
 
     public void createOfficer (String username, Password password,String name, String surname, String inCharge){
 
-        DataSource<OfficerList> dataSource = new OfficerListFileDataSource("data","officer.csv");
-        OfficerList list = dataSource.readData();
+        DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
+        UserList list = dataSource.readData();
 
         Officer tempOfficer = new Officer(username, password, name, surname, inCharge);
-        list.addOfficer(tempOfficer);
+        list.addUser(tempOfficer);
         dataSource.writeData(list);
     }
 

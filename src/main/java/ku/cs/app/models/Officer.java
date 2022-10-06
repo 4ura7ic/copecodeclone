@@ -15,11 +15,10 @@ public class Officer extends User{
         this.photo = "rickroll.gif";
     }
 
-
-//    public Officer(String role, String username, Password password, String name, String surname, String photo, String inCharge) {
-//        super(role, username, password, name, surname, photo);
-//        this.inCharge = inCharge;
-//    }
+    public Officer(String role, String username, Password password, String name, String surname, String photo, String inCharge) {
+        super(role, username, password, name, surname, photo);
+        this.inCharge = inCharge;
+    }
 
     public String getInCharge(){
         return inCharge;

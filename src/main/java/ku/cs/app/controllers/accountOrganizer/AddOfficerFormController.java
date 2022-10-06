@@ -14,6 +14,7 @@ import ku.cs.app.services.DataSource;
 import ku.cs.app.services.OfficerListFileDataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 import ku.cs.app.services.UserImageDataSource;
+import com.github.saacsos.FXRouter;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,9 +37,9 @@ public class AddOfficerFormController {
 
     private UserImageDataSource getImage;
 
-    DataSource<OfficerList> dataSource = new OfficerListFileDataSource("data", "user.csv");
+    DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
 
-    OfficerList list = dataSource.readData();
+    UserList list = dataSource.readData();
 
     Officer newOfficer;
 
@@ -63,7 +64,7 @@ public class AddOfficerFormController {
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("main_admin_form");
+            FXRouter.goTo("main_admin_form");
         } catch (IOException e){
             System.err.println("err ไป main_admin_form ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
@@ -89,14 +90,14 @@ public class AddOfficerFormController {
                         newOfficer.setPhoto(imageName);
                         clearAllTextField();
                         try {
-//                            DataSource<OfficerList> dataSource = new OfficerListFileDataSource("data","officer.csv");
-//                            OfficerList list = dataSource.readData();
-//                            Officer tempOfficer = new Officer(newOfficer.getUsername(), new Password(newOfficer.getPassword()), newOfficer.getName(), newOfficer.getSurname(), (String) chargeInBox.getValue());
-//                            list.addOfficer(tempOfficer);
-//                            dataSource.writeData(list);
+                            DataSource<UserList> dataSource = new UserDataListFileDataSource("data","officer.csv");
+                            UserList list = dataSource.readData();
+                            Officer tempOfficer = new Officer(newOfficer.getUsername(), new Password(newOfficer.getPassword()), newOfficer.getName(), newOfficer.getSurname(), (String) chargeInBox.getValue());
+                            list.addUser(tempOfficer);
+                            dataSource.writeData(list);
 
-                            admin.createOfficer(newOfficer.getUsername(), new Password(newOfficer.getPassword()), newOfficer.getName(), newOfficer.getSurname(), (String) chargeInBox.getValue());
-                            com.github.saacsos.FXRouter.goTo("main_admin_form");
+//                            admin.createOfficer(newOfficer.getUsername(), new Password(newOfficer.getPassword()), newOfficer.getName(), newOfficer.getSurname(), (String) chargeInBox.getValue());
+                            FXRouter.goTo("main_admin_form");
                         }catch (IOException e) {
                             System.err.println("err ไป project ไม่ได้");
                             System.err.println("ให้ตรวจสอบการกําหนด route");

@@ -1,8 +1,6 @@
 package ku.cs.app.services;
 
-import ku.cs.app.models.Password;
-import ku.cs.app.models.User;
-import ku.cs.app.models.UserList;
+import ku.cs.app.models.*;
 
 import java.io.*;
 
@@ -36,15 +34,38 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
             String line = "";
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                User user = new User(
-                        data[0].trim(),
-                        data[1].trim(),
-                        new Password(data[2].trim()),
-                        data[3].trim(),
-                        data[4].trim(),
-                        data[5].trim()
-                );
-                list.addUser(user);
+                if(data[0].equals("user")) {
+                    User user = new User(
+                            data[0].trim(),
+                            data[1].trim(),
+                            new Password(data[2].trim()),
+                            data[3].trim(),
+                            data[4].trim(),
+                            data[5].trim()
+                    );
+                    list.addUser(user);
+                } else if (data[0].equals("officer")) {
+                    Officer officer = new Officer(
+                            data[0].trim(),
+                            data[1].trim(),
+                            new Password(data[2].trim()),
+                            data[3].trim(),
+                            data[4].trim(),
+                            data[5].trim(),
+                            data[6].trim()
+                    );
+                    list.addUser(officer);
+                } else if(data[0].equals("admin")){
+                    Admin admin = new Admin(
+                            data[0].trim(),
+                            data[1].trim(),
+                            new Password(data[2].trim()),
+                            data[3].trim(),
+                            data[4].trim(),
+                            data[5].trim()
+                    );
+                    list.addUser(admin);
+                }
             }
 
 
@@ -77,16 +98,40 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
 
-            for (User user : list.getAllData()) {
-                String line = user.getRole() + ","
+            for (Object obj : list.getAllData()) {
+                if(((User)obj).getRole().equals("user")){
+                    User user = (User)obj;
+                    String line = user.getRole() + ","
                         + user.getUsername() + ","
                         + user.getPassword() + ","
                         +user.getName() + ","
                         +user.getSurname() + ","
                         +user.getPhoto();
+                    buffer.append(line);
+                    buffer.newLine();
+                } else if (((Officer)obj).getRole().equals("officer")) {
+                    Officer officer = (Officer) obj;
+                    String line = officer.getRole() + ","
+                            + officer.getUsername() + ","
+                            + officer.getPassword() + ","
+                            +officer.getName() + ","
+                            +officer.getSurname() + ","
+                            +officer.getPhoto() + ","
+                            +officer.getInCharge();
+                    buffer.append(line);
+                    buffer.newLine();
+                }else if(((Admin)obj).getRole().equals("admin")){
+                    Admin admin = (Admin) obj;
+                    String line = admin.getRole() + ","
+                            + admin.getUsername() + ","
+                            + admin.getPassword() + ","
+                            +admin.getName() + ","
+                            +admin.getSurname() + ","
+                            +admin.getPhoto();
+                    buffer.append(line);
+                    buffer.newLine();
+                }
 
-                buffer.append(line);
-                buffer.newLine();
             }
 
             buffer.close();
