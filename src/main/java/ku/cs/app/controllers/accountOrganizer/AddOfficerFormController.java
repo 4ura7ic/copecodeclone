@@ -11,7 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.app.models.*;
 import ku.cs.app.services.DataSource;
-import ku.cs.app.services.OfficerListFileDataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 import ku.cs.app.services.UserImageDataSource;
 import com.github.saacsos.FXRouter;
@@ -31,7 +30,7 @@ public class AddOfficerFormController {
     private Label errorMsgLabel;
     @FXML
     private ImageView image;
-    @FXML private ComboBox chargeInBox;
+    @FXML private ComboBox inChargeBox;
 
     private String[] charge = {"ALL","Education","Environment","Scholarship","Transportation"};
 
@@ -41,7 +40,7 @@ public class AddOfficerFormController {
 
     UserList list = dataSource.readData();
 
-    Officer newOfficer ;
+    Officer officerDetail;
 
     Officer tempOfficer = new Officer();
 
@@ -50,15 +49,14 @@ public class AddOfficerFormController {
 
     Admin admin = new Admin();
 
-    ObservableList<String> chargeInList = FXCollections
+    ObservableList<String> inChargeList = FXCollections
             .observableArrayList(charge);
 
     @FXML
     public void initialize() {
 
         System.out.println("initialize AddOfficerFormController");
-        chargeInBox.getItems().addAll(chargeInList);
-//        changeInBox.setOnAction();
+        inChargeBox.getItems().addAll(inChargeList);
     }
 
     @FXML
@@ -82,18 +80,18 @@ public class AddOfficerFormController {
             if(list.checkDuplicateUsername(tempOfficer.getUsername())){
                 if (confirmTextField.getText().equals(passwordTextField.getText())){
                     if (errorMsg == ""){
-                        newOfficer = new Officer();
-                        newOfficer.setUsername(usernameTextField.getText());
-                        newOfficer.setPassword(passwordTextField.getText());
-                        newOfficer.setName(nameTextField.getText());
-                        newOfficer.setSurname(surnameTextField.getText());
-                        newOfficer.setPhoto(imageName);
-                        newOfficer.setInCharge((String) chargeInBox.getValue());
+                        officerDetail = new Officer(usernameTextField.getText(),new Password(passwordTextField.getText()),nameTextField.getText(),surnameTextField.getText(),(String) inChargeBox.getValue());
+//                        officerDetail.setUsername(usernameTextField.getText());
+//                        officerDetail.setPassword(passwordTextField.getText());
+//                        officerDetail.setName(nameTextField.getText());
+//                        officerDetail.setSurname(surnameTextField.getText());
+//                        officerDetail.setPhoto(imageName);
+//                        officerDetail.setInCharge((String) inChargeBox.getValue());
                         clearAllTextField();
                         try {
                             DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
                             UserList list = dataSource.readData();
-                            list.addUser(newOfficer);
+                            list.addUser(officerDetail);
                             dataSource.writeData(list);
 
 //                            admin.createOfficer(newOfficer.getUsername(), new Password(newOfficer.getPassword()), newOfficer.getName(), newOfficer.getSurname(), (String) chargeInBox.getValue());
@@ -102,6 +100,10 @@ public class AddOfficerFormController {
                             System.err.println("err ไป project ไม่ได้");
                             System.err.println("ให้ตรวจสอบการกําหนด route");
                         }
+                    } else {
+                        passwordTextField.clear();
+                        confirmTextField.clear();
+                        errorMsgLabel.setText(errorMsg);
                     }
                 }else{
                     errorMsgLabel.setText("Please insert the password correctly.");

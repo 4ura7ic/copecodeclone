@@ -57,6 +57,12 @@ public class Report {
         return vote;
     }
     public boolean isCheck(){return check;}
+    public void increaseVote() {
+        vote += 1;
+    }
+    public void decreaseVote() {
+        vote -= 1;
+    }
     public void addVotedUser(String username){
         votedUser.add(username);
     }
