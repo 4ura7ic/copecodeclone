@@ -115,6 +115,17 @@ public class MainAdminFormController {
         }
     }
 
+    @FXML
+    public void handleAddNewOfficerButton(ActionEvent actionEvent){
+        try {
+            FXRouter.goTo("add_officer_form");
+        } catch (IOException e) {
+            System.err.println("err ไป suspendManager ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
+
     //-------------------------------------------- method
 
     private void showUserData(){

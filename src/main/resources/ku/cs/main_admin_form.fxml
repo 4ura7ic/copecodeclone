@@ -53,5 +53,6 @@
          </font>
       </Label>
       <Label fx:id="rateLabel" layoutX="590.0" layoutY="140.0" prefHeight="17.0" prefWidth="50.0" text="rate" />
+      <Button layoutX="670.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleAddNewOfficerButton" text="Add New Officer" />
    </children>
 </AnchorPane>

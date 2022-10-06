@@ -1,6 +1,9 @@
 package ku.cs.app.models;
 
 public class Officer extends User{
+    //-------------------------------------------- instance
+    private String inCharge;
+
     //-------------------------------------------- constructor
     public Officer() {
     }
