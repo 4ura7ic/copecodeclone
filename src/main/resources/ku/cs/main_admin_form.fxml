@@ -18,11 +18,11 @@
             <Image url="@images/adminHome.png" />
          </image>
       </ImageView>
-      <Button layoutX="656.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleUserList" prefHeight="54.0" prefWidth="131.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="User list" textFill="#84a98c">
+      <Button layoutX="656.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleUserList" prefHeight="54.0" prefWidth="131.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" textFill="#84a98c">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="8.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="44.0" prefWidth="86.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="LogOut">
+      <Button layoutX="8.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="44.0" prefWidth="86.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -38,7 +38,7 @@
       </Label>
       <ComboBox fx:id="categoryBox" layoutX="658.0" layoutY="339.0" prefHeight="26.0" prefWidth="131.0" />
       <ComboBox fx:id="timeBox" layoutX="658.0" layoutY="381.0" prefHeight="26.0" prefWidth="131.0" />
-      <Button layoutX="656.0" layoutY="179.0" mnemonicParsing="false" onAction="#handleSuspendManagerButton" prefHeight="62.0" prefWidth="131.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="Suspend Manager" textFill="#84a98c">
+      <Button layoutX="656.0" layoutY="179.0" mnemonicParsing="false" onAction="#handleSuspendManagerButton" prefHeight="62.0" prefWidth="131.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" textFill="#84a98c">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -53,5 +53,6 @@
          </font>
       </Label>
       <Label fx:id="rateLabel" layoutX="590.0" layoutY="140.0" prefHeight="17.0" prefWidth="50.0" text="rate" />
+      <Button layoutX="670.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleAddNewOfficerButton" text="Add New Officer" />
    </children>
 </AnchorPane>

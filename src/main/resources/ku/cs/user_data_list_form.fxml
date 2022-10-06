@@ -14,7 +14,7 @@
          </image>
       </ImageView>
       <ListView fx:id="dataListView" layoutX="14.0" layoutY="100.0" prefHeight="490.0" prefWidth="205.0" />
-      <Label layoutX="18.0" layoutY="61.0" text="List of Users" textFill="#93b39a">
+      <Label layoutX="21.0" layoutY="63.0" text="List of Users" textFill="#93b39a">
          <font>
             <Font size="18.0" />
          </font>
@@ -55,11 +55,11 @@
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="78.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="Back">
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="78.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="140.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleActivityLog" text="Activity Log">
+      <Button layoutX="141.0" layoutY="63.0" mnemonicParsing="false" onAction="#handleActivityLog" prefHeight="27.0" prefWidth="78.0" text="Activity Log">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

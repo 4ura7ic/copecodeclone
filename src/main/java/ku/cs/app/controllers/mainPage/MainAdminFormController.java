@@ -92,6 +92,7 @@ public class MainAdminFormController {
         } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
         }
     }
     @FXML
@@ -108,6 +109,17 @@ public class MainAdminFormController {
     public void handleSuspendManagerButton(ActionEvent actionEvent){
         try {
             FXRouter.goTo("suspend_form");
+        } catch (IOException e) {
+            System.err.println("err ไป suspendManager ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void handleAddNewOfficerButton(ActionEvent actionEvent){
+        try {
+            FXRouter.goTo("add_officer_form");
         } catch (IOException e) {
             System.err.println("err ไป suspendManager ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

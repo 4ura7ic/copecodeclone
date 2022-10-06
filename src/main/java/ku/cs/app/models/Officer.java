@@ -1,13 +1,19 @@
 package ku.cs.app.models;
 
 public class Officer extends User{
+    //-------------------------------------------- instance
+    private String inCharge;
+
     //-------------------------------------------- constructor
     public Officer() {
     }
 
-    public Officer(String name, String surname, Password password, String userName) {
-
-        super(name, surname, password, userName,"officer");
+    public Officer(String username, Password password, String name, String surname, String inCharge) {
+        super("officer", username, password, name, surname);
+        this.inCharge=inCharge;
     }
 
+    public String getInCharge(){
+        return inCharge;
+    }
 }

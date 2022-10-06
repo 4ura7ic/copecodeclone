@@ -34,7 +34,7 @@ public class UserDataListController {
     //-------------------------------------------- noModifier
 
     String fs = File.separator ;
-    String url = getClass().getResource("/ku/cs/images/test.jpg").toExternalForm();
+    String url = getClass().getResource("/ku/cs/images/default.jpg").toExternalForm();
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
     UserList list = dataSource.readData();
 

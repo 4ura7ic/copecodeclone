@@ -50,9 +50,10 @@ public class OfficerListFileDataSource implements  DataSource<OfficerList>{
                 String[] data = line.split(",");
                 Officer officer = new Officer(
                         data[0].trim(),
-                        data[1].trim(),
-                        new Password(data[2].trim()),
-                        data[3].trim()
+                        new Password(data[1].trim()),
+                        data[2].trim(),
+                        data[3].trim(),
+                        data[4].trim()
                 );
                 list.addOfficer(officer);
             }
@@ -83,10 +84,11 @@ public class OfficerListFileDataSource implements  DataSource<OfficerList>{
             buffer = new BufferedWriter(writer);
 
             for (Officer officer : list.getAllData()){
-                String line = officer.getName() + ","
-                        + officer.getSurname() + ","
+                String line = officer.getUsername() + ","
                         + officer.getPassword() + ","
-                        +officer.getUsername();
+                        + officer.getName() + ","
+                        + officer.getSurname() + ","
+                        + officer.getInCharge();
 
                 buffer.append(line);
                 buffer.newLine();
