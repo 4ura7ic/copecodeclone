@@ -36,10 +36,12 @@ public class MainAdminFormController {
 
     //-------------------------------------------- private
 
+    private DataSource<ReportList> dataSource;
     private ReportList list;
     private User user;
     private String[] category = {"Education","Environment","Scholarship","Transportation"};
     private String[] sortBy = {"Descending","Ascending"};
+    private Report rp;
 
 
     //-------------------------------------------- noModifier
@@ -56,7 +58,7 @@ public class MainAdminFormController {
         startForm();
         categoryBox.getItems().addAll(categoryList);
         timeBox.getItems().addAll(timeList);
-        DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
+        dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
         showListView();
         handleSelectedListView();
@@ -130,7 +132,18 @@ public class MainAdminFormController {
     }
 
     @FXML public void handleVoteButton(ActionEvent actionEvent) {
-
+        if (rp.getVotedUser().contains(user.getUsername())){
+            rp.decreaseVote();
+            rp.getVotedUser().remove(user.getUsername());
+            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+            dataSource.writeData(list);
+        }
+        else {
+            rp.increaseVote();
+            rp.getVotedUser().add(user.getUsername());
+            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+            dataSource.writeData(list);
+        }
     }
 
     //-------------------------------------------- method
@@ -139,6 +152,7 @@ public class MainAdminFormController {
         nameLabel.setText(user.getUsername());
     }
     private void showSelectedReport(Report report){
+        rp = report;
         topicLabel.setText(report.getTopic());
         dateLabel.setText(report.getDate());
         categoryLabel.setText(report.getCategory());
