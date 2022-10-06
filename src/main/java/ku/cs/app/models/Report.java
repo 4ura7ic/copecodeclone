@@ -71,24 +71,8 @@ public class Report {
     }
 
     //-------------------------------------------- method
-
-
-//    @Override
-//    public String toString() {
-//        return topic + " [" + category + "]";
-//    }
-
     @Override
     public String toString() {
-        return "Report{" +
-                "topic='" + topic + '\'' +
-                ", date='" + date + '\'' +
-                ", category='" + category + '\'' +
-                ", description='" + description + '\'' +
-                ", authorUser='" + authorUser + '\'' +
-                ", vote=" + vote +
-                ", check=" + check +
-                ", votedUser=" + votedUser +
-                '}';
+        return topic + " [" + category + "]";
     }
 }

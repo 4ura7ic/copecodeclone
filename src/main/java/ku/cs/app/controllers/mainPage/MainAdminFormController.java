@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -31,6 +32,7 @@ public class MainAdminFormController {
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
     @FXML private ListView<Report> reportListView;
+    @FXML private Button voteButton;
 
     //-------------------------------------------- private
 
@@ -127,6 +129,10 @@ public class MainAdminFormController {
         }
     }
 
+    @FXML public void handleVoteButton(ActionEvent actionEvent) {
+
+    }
+
     //-------------------------------------------- method
 
     private void showUserData(){
@@ -138,6 +144,7 @@ public class MainAdminFormController {
         categoryLabel.setText(report.getCategory());
         descriptionLabel.setText(report.getDescription());
         rateLabel.setText("Rate: " + Integer.toString(report.getVote()));
+        voteButton.setVisible(true);
         popUpLabel.setText("");
     }
     private void showListView(){
@@ -151,6 +158,7 @@ public class MainAdminFormController {
         categoryLabel.setText("");
         descriptionLabel.setText("");
         rateLabel.setText("");
+        voteButton.setVisible(false);
         popUpLabel.setText("Please select reports below to view detail here.");
     }
 
