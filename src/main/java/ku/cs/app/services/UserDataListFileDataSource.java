@@ -99,7 +99,7 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
             buffer = new BufferedWriter(writer);
 
             for (Object obj : list.getAllData()) {
-                if(((User)obj).getRole().equals("user")){
+                if(((User)obj).getRole().equals("user")||((User)obj).getRole().equals("admin")){
                     User user = (User)obj;
                     String line = user.getRole() + ","
                         + user.getUsername() + ","
@@ -109,27 +109,19 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
                         +user.getPhoto();
                     buffer.append(line);
                     buffer.newLine();
-                } else if (((Officer)obj).getRole().equals("officer")) {
+                    continue;
+                }if (((Officer)obj).getRole().equals("officer")) {
                     Officer officer = (Officer) obj;
                     String line = officer.getRole() + ","
                             + officer.getUsername() + ","
                             + officer.getPassword() + ","
-                            +officer.getName() + ","
-                            +officer.getSurname() + ","
-                            +officer.getPhoto() + ","
-                            +officer.getInCharge();
+                            + officer.getName() + ","
+                            + officer.getSurname() + ","
+                            + officer.getPhoto() + ","
+                            + officer.getInCharge();
                     buffer.append(line);
                     buffer.newLine();
-                }else if(((Admin)obj).getRole().equals("admin")){
-                    Admin admin = (Admin) obj;
-                    String line = admin.getRole() + ","
-                            + admin.getUsername() + ","
-                            + admin.getPassword() + ","
-                            +admin.getName() + ","
-                            +admin.getSurname() + ","
-                            +admin.getPhoto();
-                    buffer.append(line);
-                    buffer.newLine();
+                    continue;
                 }
 
             }

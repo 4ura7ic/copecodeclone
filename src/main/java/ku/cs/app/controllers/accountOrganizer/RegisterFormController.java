@@ -36,13 +36,9 @@ public class RegisterFormController {
     //-------------------------------------------- noModifier
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
     UserList list = dataSource.readData();
-    //    private FileChooser fileChooser;
-    //    private File filePath;
-    //    private String imagePath;
     User tempUserDetail = new User();
     String fs = File.separator ;
     String imageName = "rickroll.gif";
-    //    private UserDataList userList;
 
     //-------------------------------------------- initialize
 

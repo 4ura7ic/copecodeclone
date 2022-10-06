@@ -41,7 +41,7 @@ public class AddOfficerFormController {
 
     UserList list = dataSource.readData();
 
-    Officer newOfficer;
+    Officer newOfficer ;
 
     Officer tempOfficer = new Officer();
 
@@ -90,10 +90,9 @@ public class AddOfficerFormController {
                         newOfficer.setPhoto(imageName);
                         clearAllTextField();
                         try {
-                            DataSource<UserList> dataSource = new UserDataListFileDataSource("data","officer.csv");
+                            DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
                             UserList list = dataSource.readData();
-                            Officer tempOfficer = new Officer(newOfficer.getUsername(), new Password(newOfficer.getPassword()), newOfficer.getName(), newOfficer.getSurname(), (String) chargeInBox.getValue());
-                            list.addUser(tempOfficer);
+                            list.addUser(newOfficer);
                             dataSource.writeData(list);
 
 //                            admin.createOfficer(newOfficer.getUsername(), new Password(newOfficer.getPassword()), newOfficer.getName(), newOfficer.getSurname(), (String) chargeInBox.getValue());
