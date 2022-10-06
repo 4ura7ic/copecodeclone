@@ -12,7 +12,7 @@
          <image>
             <Image url="@images/SusManager.png" />
          </image></ImageView>
-      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="77.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="Back">
+      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="77.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -47,7 +47,7 @@
       <Label fx:id="loginAttemptCnt" layoutX="434.0" layoutY="408.0" text="loginAttemptCnt" textFill="#93b39a" />
       <Label fx:id="reasonLabel" layoutX="385.0" layoutY="382.0" text="reasonLabel" textFill="#93b39a" />
       <Label layoutX="264.0" layoutY="439.0" text="Add reason of suspension:" textFill="#93b39a" />
-      <Button layoutX="699.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleRestoreButton" prefHeight="41.0" prefWidth="77.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="Restore ">
+      <Button layoutX="699.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleRestoreButton" prefHeight="41.0" prefWidth="77.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

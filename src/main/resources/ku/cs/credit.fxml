@@ -13,7 +13,7 @@
             <Image url="@images/credit.png" />
          </image>
       </ImageView>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="26.0" prefWidth="58.0" styleClass="credit" stylesheets="@../../cssStyle/style.css" text="BACK">
+      <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="38.0" prefWidth="73.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
