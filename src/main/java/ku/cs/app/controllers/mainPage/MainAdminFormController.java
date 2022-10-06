@@ -92,6 +92,7 @@ public class MainAdminFormController {
         } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
         }
     }
     @FXML
