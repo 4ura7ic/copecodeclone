@@ -28,4 +28,24 @@ public class OfficerList {
                 "data=" + data +
                 '}';
     }
+
+    public boolean checkDuplicateUsername(String officerIn) {
+        for(Officer temp: data){
+            if(temp.getUsername().equals(officerIn)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void changeImageOfficer(Officer officer){
+        for (User temp:data){
+            if(temp.getUsername().equals(officer.getUsername())){
+
+                temp.setPhoto(officer.getPhoto());
+
+            }
+        }
+    }
+
 }

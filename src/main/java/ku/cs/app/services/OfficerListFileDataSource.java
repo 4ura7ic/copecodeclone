@@ -3,6 +3,7 @@ package ku.cs.app.services;
 import ku.cs.app.models.Officer;
 import ku.cs.app.models.OfficerList;
 import ku.cs.app.models.Password;
+import ku.cs.app.models.User;
 
 import java.io.*;
 
@@ -48,14 +49,28 @@ public class OfficerListFileDataSource implements  DataSource<OfficerList>{
             String line = "";
             while ((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
-                Officer officer = new Officer(
-                        data[0].trim(),
-                        new Password(data[1].trim()),
-                        data[2].trim(),
-                        data[3].trim(),
-                        data[4].trim()
-                );
-                list.addOfficer(officer);
+                if (data[0].equals("officer")) {
+                    Officer officer = new Officer(
+                            data[0].trim(),
+                            new Password(data[1].trim()),
+                            data[2].trim(),
+                            data[3].trim(),
+                            data[4].trim()
+                    );
+                    list.addOfficer(officer);
+                } else if (data[0].equals("user")) {
+                    User user = new User(
+                            data[0].trim(),
+                            data[1].trim(),
+                            new Password(data[2].trim()),
+                            data[3].trim(),
+                            data[4].trim(),
+                            data[5].trim()
+                    );
+//                    list.addOfficer(user);
+                }
+
+
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -84,11 +99,13 @@ public class OfficerListFileDataSource implements  DataSource<OfficerList>{
             buffer = new BufferedWriter(writer);
 
             for (Officer officer : list.getAllData()){
-                String line = officer.getUsername() + ","
+                String line = officer.getRole() + ","
+                        + officer.getUsername() + ","
                         + officer.getPassword() + ","
                         + officer.getName() + ","
                         + officer.getSurname() + ","
-                        + officer.getInCharge();
+                        + officer.getInCharge() + ","
+                        + officer.getPhoto();
 
                 buffer.append(line);
                 buffer.newLine();

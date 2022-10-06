@@ -2,12 +2,12 @@ package ku.cs.app.models;
 public class User {
     //-------------------------------------------- instance
 
-    private String name;
-    private String surname;
-    private Password password;
-    private String username;
-    private String role;
-    private String photo;
+    protected String name;
+    protected String surname;
+    protected Password password;
+    protected String username;
+    protected String role;
+    protected String photo;
 
     //-------------------------------------------- constructor
 
