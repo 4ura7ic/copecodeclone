@@ -36,22 +36,37 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
             String line = "";
             while ((line = buffer.readLine()) != null){
                 String[] data = line.split("\\|");
-                Report report = new Report(
-                        data[0].trim(),
-                        data[1].trim(),
-                        data[2].trim(),
-                        data[3].trim(),
-                        data[4].trim(),
-                        Integer.parseInt(data[5]),
-                        Boolean.parseBoolean(data[6])
-                );
-                ArrayList<String> allVotedUser = new ArrayList<>();
-                String[] votedUserData = data[7].split(",");
-                for (String s: votedUserData) {
-                    allVotedUser.add(s);
+                if (data.length == 7) {
+                    Report report = new Report(
+                            data[0].trim(),
+                            data[1].trim(),
+                            data[2].trim(),
+                            data[3].trim(),
+                            data[4].trim(),
+                            Integer.parseInt(data[5]),
+                            Boolean.parseBoolean(data[6])
+                    );
+                    list.addReport(report);
                 }
-                report.addAllVotedUser(allVotedUser);
-                list.addReport(report);
+                else if (data.length == 8) {
+
+                    Report report = new Report(
+                            data[0].trim(),
+                            data[1].trim(),
+                            data[2].trim(),
+                            data[3].trim(),
+                            data[4].trim(),
+                            Integer.parseInt(data[5]),
+                            Boolean.parseBoolean(data[6])
+                    );
+                    ArrayList<String> allVotedUser = new ArrayList<>();
+                    String[] votedUserData = data[7].split(",");
+                    for (String s : votedUserData) {
+                        allVotedUser.add(s);
+                    }
+                    report.addAllVotedUser(allVotedUser);
+                    list.addReport(report);
+                }
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -89,10 +104,9 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                         + report.getDescription()+"|"
                         + report.getVote()+"|"
                         + report.isCheck() + "|";
-                for (String s: report.getVotedUser()) {
-                    line += s + ",";
-                }
-
+                    for (String s : report.getVotedUser()) {
+                        line += s + ",";
+                    }
                 buffer.append(line);
                 buffer.newLine();
 

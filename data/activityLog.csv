@@ -1,5 +1,8 @@
-06-10-2022 17:55:17,| Login attempt from user: Tester303 | ,Success.
-06-10-2022 17:55:13,| Login attempt from user: Tester303 | ,Failed - Wrong password.
+06-10-2022 18:34:21,| Login attempt from user: Tester303 | ,Success.
+06-10-2022 18:25:26,| Login attempt from user: Tester202 |,Failed - Wrong password.
+06-10-2022 18:23:12,| Login attempt from user: Tester303 |,Success.
+06-10-2022 17:55:17,| Login attempt from user: Tester303 |,Success.
+06-10-2022 17:55:13,| Login attempt from user: Tester303 |,Failed - Wrong password.
 06-10-2022 17:53:07,| Login attempt from user: Tester303 |,Success.
 06-10-2022 17:50:45,| Login attempt from user: Tester303 |,Success.
 06-10-2022 17:50:40,| Login attempt from user: Tester303 |,Failed - Wrong password.
