@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.mainPage.MainAdminFormController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.mainPage.MainAdminFormController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -38,7 +33,7 @@
       </Label>
       <ComboBox fx:id="categoryBox" layoutX="658.0" layoutY="339.0" prefHeight="26.0" prefWidth="131.0" />
       <ComboBox fx:id="timeBox" layoutX="658.0" layoutY="381.0" prefHeight="26.0" prefWidth="131.0" />
-      <Button layoutX="656.0" layoutY="179.0" mnemonicParsing="false" onAction="#handleSuspendManagerButton" prefHeight="62.0" prefWidth="131.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" textFill="#84a98c">
+      <Button layoutX="656.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleSuspendManagerButton" prefHeight="54.0" prefWidth="131.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" textFill="#84a98c">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -53,6 +48,9 @@
          </font>
       </Label>
       <Label fx:id="rateLabel" layoutX="590.0" layoutY="140.0" prefHeight="17.0" prefWidth="50.0" text="rate" />
-      <Button layoutX="670.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleAddNewOfficerButton" text="Add New Officer" />
+      <Button layoutX="656.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleAddNewOfficerButton" prefHeight="62.0" prefWidth="131.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>
