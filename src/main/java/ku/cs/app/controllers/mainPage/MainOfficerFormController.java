@@ -91,8 +91,9 @@ public class MainOfficerFormController {
         try{
             com.github.saacsos.FXRouter.goTo("profile_form",user);
         } catch (IOException e){
-            System.err.println("err ไป project ไม่ได้");
+            System.err.println("err ไป profile ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
         }
     }
 
