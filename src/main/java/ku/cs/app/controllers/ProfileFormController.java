@@ -8,6 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import ku.cs.app.models.Admin;
+import ku.cs.app.models.Officer;
 import ku.cs.app.models.User;
 import ku.cs.app.models.UserList;
 import ku.cs.app.services.DataSource;
@@ -107,30 +109,49 @@ public class ProfileFormController {
 
         this.filePath = fileChooser.showOpenDialog(stage);
 
-
-
-        try{
-
-            File destDir = new File("data/images");
-            if (!destDir.exists()){
-                destDir.mkdirs();
+        try {
+            File destDir = null;
+            if (user.getRole().equals("user")) {
+                destDir = new File("data/images");
+                if (!destDir.exists()) {
+                    destDir.mkdirs();
+                }
+            }else if (user.getRole().equals("officer")) {
+                destDir = new File("data/images/officer");
+                if (!destDir.exists()) {
+                    destDir.mkdirs();
+                }
+            }else if (user.getRole().equals("admin")) {
+                destDir = new File("data/images/admin");
+                if (!destDir.exists()) {
+                    destDir.mkdirs();
+                }
             }
 
-//            System.out.println(filePath.getName());
             //Rename
             String[] fileSplit = filePath.getName().split("\\.");
-//            System.out.println(fileSplit);
-            String filename = user.getUsername() + "." + fileSplit[fileSplit.length -1];
-//            System.out.println(filename);
+
+            String filename = user.getUsername() + "." + fileSplit[fileSplit.length - 1];
+
             Path target = FileSystems.getDefault().getPath(destDir.getAbsolutePath() + System.getProperty("file.separator") + filename);
 
             Files.copy(filePath.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
             imagePath = target.toString();
 
             user.setPhoto(filename);
-//            System.out.println("+++++++" + filename);
-            userList.changeImageUser(user);
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + user.getPhoto()));
+
+            if (user.getRole().equals("user")) {
+                userList.changeImageUser(user);
+                image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + user.getPhoto()));
+            } else if (user.getRole().equals("officer")) {
+                userList.changeImageOfficer((Officer) user);
+                image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + user.getPhoto()));
+            } else if (user.getRole().equals("admin")) {
+                userList.changeImageAdmin((Admin) user);
+                image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + user.getPhoto()));
+            }
+
+
             DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
             dataSource.writeData(userList);
 

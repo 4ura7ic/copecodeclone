@@ -27,6 +27,25 @@ public class UserList {
         }
     }
 
+    public void changeImageOfficer(Officer officer){
+        for (User temp:data){
+            if(temp.getUsername().equals(officer.getUsername())){
+
+                temp.setPhoto(officer.getPhoto());
+
+            }
+        }
+    }
+    public void changeImageAdmin(Admin admin){
+        for (User temp:data){
+            if(temp.getUsername().equals(admin.getUsername())){
+
+                temp.setPhoto(admin.getPhoto());
+
+            }
+        }
+    }
+
     public boolean checkIfUserExisted(String username) {
         for (User user : data) {
             if (user.getUsername().equals(username)) {
