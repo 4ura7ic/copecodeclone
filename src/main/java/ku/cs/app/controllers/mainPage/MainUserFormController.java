@@ -7,10 +7,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
 import ku.cs.app.models.User;
@@ -25,6 +24,9 @@ public class MainUserFormController {
 
     @FXML private ComboBox categoryBox;
     @FXML private ComboBox timeBox;
+    @FXML private ScrollPane descriptionPane;
+    @FXML private Rectangle barOne;
+    @FXML private Rectangle barTwo;
     @FXML private Label rateLabel;
     @FXML private Label popUpLabel;
     @FXML private Label nameLabel;
@@ -32,6 +34,8 @@ public class MainUserFormController {
     @FXML private Label dateLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
+    @FXML private Button reportButton;
+    @FXML private Button voteButton;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
 
@@ -139,7 +143,7 @@ public class MainUserFormController {
     }
 
     @FXML
-    public void handleUpRateButton(){
+    public void handleVoteButton(){
 
     }
 
@@ -150,6 +154,11 @@ public class MainUserFormController {
     }
     private void showSelectedReport(Report report){
         if(report!=null) {
+            barOne.setVisible(true);
+            barTwo.setVisible(true);
+            descriptionPane.setVisible(true);
+            reportButton.setVisible(true);
+            voteButton.setVisible(true);
             topicLabel.setText(report.getTopic());
             dateLabel.setText(report.getDate());
             categoryLabel.setText(report.getCategory());
@@ -167,6 +176,11 @@ public class MainUserFormController {
     }
 
     private void startForm(){
+        descriptionPane.setVisible(false);
+        barOne.setVisible(false);
+        barTwo.setVisible(false);
+        reportButton.setVisible(false);
+        voteButton.setVisible(false);
         topicLabel.setText("");
         dateLabel.setText("");
         categoryLabel.setText("");

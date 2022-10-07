@@ -79,6 +79,6 @@ public class Report {
     //-------------------------------------------- method
     @Override
     public String toString() {
-        return topic + " [" + category + "]";
+        return "[" + category + "] " + topic;
     }
 }
