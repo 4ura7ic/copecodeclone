@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.app.models.*;
 import ku.cs.app.services.DataSource;
+import ku.cs.app.services.OfficerImageDataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 import ku.cs.app.services.UserImageDataSource;
 import com.github.saacsos.FXRouter;
@@ -34,7 +35,7 @@ public class AddOfficerFormController {
 
     private String[] charge = {"ALL","Education","Environment","Scholarship","Transportation"};
 
-    private UserImageDataSource getImage;
+    private OfficerImageDataSource getImage;
 
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
 
@@ -81,6 +82,7 @@ public class AddOfficerFormController {
                 if (confirmTextField.getText().equals(passwordTextField.getText())){
                     if (errorMsg == ""){
                         officerDetail = new Officer(usernameTextField.getText(),new Password(passwordTextField.getText()),nameTextField.getText(),surnameTextField.getText(),(String) inChargeBox.getValue());
+                        officerDetail.setPhoto(imageName);
 //                        officerDetail.setUsername(usernameTextField.getText());
 //                        officerDetail.setPassword(passwordTextField.getText());
 //                        officerDetail.setName(nameTextField.getText());
@@ -130,11 +132,11 @@ public class AddOfficerFormController {
 
         if(usernameTextField.getText()!=""&&list.checkDuplicateUsername(usernameTextField.getText())){
 
-            getImage = new UserImageDataSource();
+            getImage = new OfficerImageDataSource();
             imageName = getImage.chooseImage(usernameTextField.getText());
             tempOfficer.setPhoto(imageName);
             //เซ็ตรูปในFXML
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + tempOfficer.getPhoto()));
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + tempOfficer.getPhoto()));
 
         }
 

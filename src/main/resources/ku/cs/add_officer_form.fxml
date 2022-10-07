@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.accountOrganizer.AddOfficerFormController">
@@ -22,5 +23,6 @@
          </cursor></Button>
       <ComboBox fx:id="inChargeBox" layoutX="441.0" layoutY="365.0" prefWidth="150.0" promptText="select charge" />
       <Label fx:id="errorMsgLabel" layoutX="441.0" layoutY="212.0" text="errorMsgLabel" />
+      <ImageView fx:id="image" fitHeight="148.0" fitWidth="205.0" layoutX="548.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

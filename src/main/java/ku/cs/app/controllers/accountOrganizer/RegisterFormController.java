@@ -115,17 +115,17 @@ public class RegisterFormController {
 
     public void chooseImageButton(ActionEvent event){
         if(usernameTextField.getText()!=""&&list.checkDuplicateUsername(usernameTextField.getText())){
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//            String userDirectoryString = System.getProperty("user.home") + "\\Pictures";
-//            File userDirectory = new File(userDirectoryString);
-//
-//            if (!userDirectory.canRead()) {
-//                userDirectory = new File("c:/");
-//            }
-//            fileChooser.setInitialDirectory(userDirectory);
-//            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
-//            this.filePath = fileChooser.showOpenDialog(stage);
+    //            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //
+    //            String userDirectoryString = System.getProperty("user.home") + "\\Pictures";
+    //            File userDirectory = new File(userDirectoryString);
+    //
+    //            if (!userDirectory.canRead()) {
+    //                userDirectory = new File("c:/");
+    //            }
+    //            fileChooser.setInitialDirectory(userDirectory);
+    //            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
+    //            this.filePath = fileChooser.showOpenDialog(stage);
             getImage = new UserImageDataSource();
             imageName = getImage.chooseImage(usernameTextField.getText());
             tempUserDetail.setPhoto(imageName);
