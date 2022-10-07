@@ -54,10 +54,12 @@ public class ProfileFormController {
             usernameLabel.setText(user.getUsername());
             nameLabel.setText(user.getName());
             surnameLabel.setText(user.getSurname());
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + user.getPhoto()));
         } else if(user.getRole().equals("officer")) {
             usernameLabel.setText(user.getUsername());
             nameLabel.setText(user.getName());
             surnameLabel.setText(user.getSurname());
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + user.getPhoto()));
         }
     }
 
