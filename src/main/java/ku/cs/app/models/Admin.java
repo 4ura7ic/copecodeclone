@@ -3,7 +3,6 @@ package ku.cs.app.models;
 //import ku.cs.app.services.OfficerListFileDataSource;
 
 import ku.cs.app.services.DataSource;
-import ku.cs.app.services.OfficerListFileDataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 
 public class Admin extends User{

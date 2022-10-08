@@ -1,4 +1,7 @@
-08-10-2022 12:22:15,| Login attempt from user: Tester101 | ,Success.
+08-10-2022 13:55:59,| Login attempt from user: Tester303 | ,Success.
+08-10-2022 13:55:52,| Login attempt from user: Tester303 | ,Failed - Wrong password.
+08-10-2022 13:55:36,| Login attempt from user: akali |,Success.
+08-10-2022 12:22:15,| Login attempt from user: Tester101 |,Success.
 08-10-2022 12:21:04,| Login attempt from user: Tester202 |,Success.
 08-10-2022 12:20:33,| Login attempt from user: Tester202 |,Success.
 08-10-2022 12:20:12,| Login attempt from user: Tester101 |,Success.

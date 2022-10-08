@@ -33,6 +33,7 @@ public class UserImageDataSource {
         this.filePath = fileChooser.showOpenDialog(new Stage());
 
         try {
+
             File destDir = new File("data/images");
             if (!destDir.exists()) {
                 destDir.mkdirs();
