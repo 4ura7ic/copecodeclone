@@ -18,7 +18,7 @@
       <Label layoutX="500.0" layoutY="63.0" text="rate" />
       <ImageView fitHeight="200.0" fitWidth="228.0" layoutX="490.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/test.jpg" />
+            <Image url="@images/default.jpg" />
          </image>
       </ImageView>
       <ListView layoutX="70.0" layoutY="330.0" prefHeight="207.0" prefWidth="661.0" />

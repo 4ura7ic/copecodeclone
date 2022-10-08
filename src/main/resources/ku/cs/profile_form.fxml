@@ -13,7 +13,7 @@
             <Image url="@images/Profile.png" />
          </image>
       </ImageView>
-      <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="41.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" text="back">
+      <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="41.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
