@@ -76,10 +76,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="669.0" layoutY="341.0" text="Category" textFill="WHITE" />
-      <ComboBox fx:id="categoryBox" layoutX="669.0" layoutY="366.0" prefHeight="26.0" prefWidth="128.0" promptText="All" />
-      <Label layoutX="669.0" layoutY="406.0" text="SortBy" textFill="WHITE" />
-      <ComboBox fx:id="sortBox" layoutX="669.0" layoutY="429.0" prefHeight="26.0" prefWidth="128.0" promptText="Newest" />
+      <Label layoutX="658.0" layoutY="342.0" text="SortBy" textFill="WHITE" />
+      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="365.0" prefHeight="26.0" prefWidth="128.0" promptText="Newest" />
       <Label layoutX="134.0" layoutY="341.0" text="In progress reports" />
       <Label layoutX="465.0" layoutY="341.0" text="accomplished report" />
    </children>

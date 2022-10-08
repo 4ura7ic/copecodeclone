@@ -22,7 +22,6 @@ import java.io.IOException;
 public class MainOfficerFormController {
     //-------------------------------------------- FXML
 
-    @FXML private ComboBox categoryBox;
     @FXML private ComboBox sortBox;
     @FXML private ScrollPane descriptionPane;
     @FXML private Rectangle barOne;
@@ -46,14 +45,10 @@ public class MainOfficerFormController {
     private User user;
     private Object object;
     private Officer officer;
-    private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
     private String[] sortBy = {"Newest","Oldest","Most Vote","Least Vote"};
     private Report rp = new Report();
 
     //-------------------------------------------- noModifier
-
-    ObservableList<String> categoryList = FXCollections
-            .observableArrayList(category);
 
     ObservableList<String> sortList = FXCollections
             .observableArrayList(sortBy);
@@ -67,11 +62,8 @@ public class MainOfficerFormController {
         object = (Object) user;
         Officer officer = (Officer) object;
         dataSource = new ReportListFileDataSource("data","report.csv");
-        categoryBox.getItems().addAll(categoryList);
         sortBox.getItems().addAll(sortList);
-        categoryBox.setValue("ALL");
         sortBox.setValue("Newest");
-        categoryBox.setOnAction(this::categorySort);
         sortBox.setOnAction(this::categorySort);
         list = dataSource.readData();
         showListView();
@@ -83,7 +75,7 @@ public class MainOfficerFormController {
         inProgressListView.getItems().clear();
         inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(officer.getInCharge())));
         finishReportListView.getItems().clear();
-        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),(list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),(list.sortFinishedReportByCategory(officer.getInCharge()))));
     }
 
     //-------------------------------------------- handle
