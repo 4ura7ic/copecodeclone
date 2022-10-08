@@ -8,14 +8,15 @@ public class User {
     protected String username;
     protected String role;
     protected String photo;
+    private boolean suspendAble;
 
     //-------------------------------------------- constructor
 
     public User() {
-        this("", "", new Password(), "","");
+        this("", "", new Password(), "","","", false);
     }
-    public User(String role, String username, Password password, String name, String surname) {
-        this("","",new Password(),"","","rickroll.gif");
+    public User(String role, String username, Password password, String name, String surname,boolean suspendAble) {
+        this("","",new Password(),"","","rickroll.gif", suspendAble);
     }
     public User(String role, String username, Password password, String name, String surname, String photo) {
         this.name = name;
@@ -23,7 +24,16 @@ public class User {
         this.password = password;
         this.username = username;
         this.role = role;
+        this.photo = photo;//new con
+    }
+    public User(String role, String username, Password password, String name, String surname, String photo, boolean suspendAble) {
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.username = username;
+        this.role = role;
         this.photo = photo;
+        this.suspendAble = suspendAble;
     }
 
     //-------------------------------------------- getter

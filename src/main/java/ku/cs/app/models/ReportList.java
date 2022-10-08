@@ -68,21 +68,22 @@ public class ReportList {
 
     public ArrayList<Report> sortTimeReport(String key, ArrayList<Report> reports){
         ArrayList<Report> tmpReport = new ArrayList<>();
-        if(key.equals("Newest")){
+//        if(key.equals("Newest")){
+//            Collections.sort(reports, new Comparator<Report>() {
+//                @Override
+//                public int compare(Report o1, Report o2) {
+//                    if(o1.getDate().compareTo(o2.getDate())==-1) return 1;
+//                    if(o1.getDate().compareTo(o2.getDate())==1) return -1;
+//                    return 0;
+//                }
+//            });
+//        }
+        if(key.equals("Oldest") || key.equals("Newest")){
             Collections.sort(reports, new Comparator<Report>() {
                 @Override
                 public int compare(Report o1, Report o2) {
                     if(o1.getDate().compareTo(o2.getDate())==1) return 1;
                     if(o1.getDate().compareTo(o2.getDate())==-1) return -1;
-                    return 0;
-                }
-            });
-        }else if(key.equals("Oldest")){
-            Collections.sort(reports, new Comparator<Report>() {
-                @Override
-                public int compare(Report o1, Report o2) {
-                    if(o1.getDate().compareTo(o2.getDate())==1) return -1;
-                    if(o1.getDate().compareTo(o2.getDate())==-1) return 1;
                     return 0;
                 }
             });

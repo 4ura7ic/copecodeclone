@@ -1,10 +1,10 @@
 package ku.cs.app.models;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Report {
     //-------------------------------------------- instance
-
     private String topic;
     private String date;
     private String category;

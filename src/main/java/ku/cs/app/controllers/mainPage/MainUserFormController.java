@@ -17,6 +17,8 @@ import ku.cs.app.services.ReportListFileDataSource;
 import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainUserFormController {
     //-------------------------------------------- FXML
@@ -43,7 +45,7 @@ public class MainUserFormController {
     private ReportList list;
     private User user;
     private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
-    private String[] sortBy = {"Newest","Oldest","Most Vote","Least Vote"};
+    private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
 
     //-------------------------------------------- noModifier
 
@@ -52,6 +54,8 @@ public class MainUserFormController {
 
     ObservableList<String> sortList = FXCollections
             .observableArrayList(sortBy);
+
+
 
     //-------------------------------------------- initialize
 
@@ -62,7 +66,7 @@ public class MainUserFormController {
         categoryBox.getItems().addAll(categoryList);
         sortBox.getItems().addAll(sortList);
         categoryBox.setValue("ALL");
-        sortBox.setValue("Newest");
+        sortBox.setValue("Oldest");
         categoryBox.setOnAction(this::categorySort);
         sortBox.setOnAction(this::categorySort);
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
