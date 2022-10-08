@@ -2,7 +2,6 @@ package ku.cs.app.models;
 import ku.cs.app.services.Sorter;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -72,8 +71,11 @@ public class ReportList {
             Collections.sort(reports, new Comparator<Report>() {
                 @Override
                 public int compare(Report o1, Report o2) {
-                    if(o1.getDate().compareTo(o2.getDate())==1) return 1;
-                    if(o1.getDate().compareTo(o2.getDate())==-1) return -1;
+                    String[] string1 = o1.getDate().split("/");String[] string2 = o2.getDate().split("/");
+                    String s1 = string1[0]+string1[1];
+                    String s2 = string2[0]+string2[1];
+                    if(s1.compareTo(s2)==1) return -1;
+                    if(s1.compareTo(s2)==-1) return 1;
                     return 0;
                 }
             });
@@ -81,8 +83,11 @@ public class ReportList {
             Collections.sort(reports, new Comparator<Report>() {
                 @Override
                 public int compare(Report o1, Report o2) {
-                    if(o1.getDate().compareTo(o2.getDate())==1) return -1;
-                    if(o1.getDate().compareTo(o2.getDate())==-1) return 1;
+                    String[] string1 = o1.getDate().split("/");String[] string2 = o2.getDate().split("/");
+                    String s1 = string1[0]+string1[1];
+                    String s2 = string2[0]+string2[1];
+                    if(s1.compareTo(s2)==1) return 1;
+                    if(s1.compareTo(s2)==-1) return -1;
                     return 0;
                 }
             });

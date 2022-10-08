@@ -40,10 +40,12 @@ public class MainUserFormController {
 
     //-------------------------------------------- private
 
+    private DataSource<ReportList> dataSource;
     private ReportList list;
     private User user;
     private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
     private String[] sortBy = {"Newest","Oldest","Most Vote","Least Vote"};
+    private Report rp;
 
     //-------------------------------------------- noModifier
 
@@ -59,6 +61,7 @@ public class MainUserFormController {
     public void initialize() throws IOException {
         startForm();
         user = (User) FXRouter.getData();
+        dataSource = new ReportListFileDataSource("data","report.csv");
         categoryBox.getItems().addAll(categoryList);
         sortBox.getItems().addAll(sortList);
         categoryBox.setValue("ALL");
@@ -145,9 +148,19 @@ public class MainUserFormController {
         }
     }
 
-    @FXML
-    public void handleVoteButton(){
-
+    @FXML public void handleVoteButton(ActionEvent actionEvent) {
+        if (rp.getVotedUser().contains(user.getUsername())){
+            rp.decreaseVote();
+            rp.getVotedUser().remove(user.getUsername());
+            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+            dataSource.writeData(list);
+        }
+        else {
+            rp.increaseVote();
+            rp.getVotedUser().add(user.getUsername());
+            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+            dataSource.writeData(list);
+        }
     }
 
     //-------------------------------------------- method
