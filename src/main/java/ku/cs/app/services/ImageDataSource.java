@@ -10,16 +10,17 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-public class OfficerImageDataSource {
+public class ImageDataSource {
     //-------------------------------------------- instance
 
     private File filePath;
     private String imagePath;
+    private File destDir;
     String fs = File.separator ;
 
     //-------------------------------------------- method
 
-    public String chooseImage(String fileName){
+    public String chooseImage(String fileName, String key){
 
         String userDirectoryString = System.getProperty("user.home") + "\\Pictures";
         File userDirectory = new File(userDirectoryString);
@@ -33,9 +34,16 @@ public class OfficerImageDataSource {
         this.filePath = fileChooser.showOpenDialog(new Stage());
 
         try {
-            File destDir = new File("data/images/officer");
-            if (!destDir.exists()) {
-                destDir.mkdirs();
+            if(key.equals("user")) {
+                destDir = new File("data/images");
+                if (!destDir.exists()) {
+                    destDir.mkdirs();
+                }
+            }if(key.equals("officer")){
+                destDir = new File("data/images/officer");
+                if (!destDir.exists()) {
+                    destDir.mkdirs();
+                }
             }
 
             if(filePath!=null) {
@@ -54,4 +62,5 @@ public class OfficerImageDataSource {
         }
         return "rickroll.gif";
     }
+
 }

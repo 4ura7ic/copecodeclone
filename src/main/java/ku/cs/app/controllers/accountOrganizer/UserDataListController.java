@@ -86,7 +86,12 @@ public class UserDataListController {
     //-------------------------------------------- method
 
     private void showSelectedUserData(User data){
-        image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + data.getPhoto()));
+        if(data.getRole().equals("admin"))
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + data.getPhoto()));
+        if(data.getRole().equals("officer"))
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + data.getPhoto()));
+        if(data.getRole().equals("user"))
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + data.getPhoto()));
         nameLabel.setText(data.getName());
         surnameLabel.setText(data.getSurname());
         passwordLabel.setText(data.getPassword());

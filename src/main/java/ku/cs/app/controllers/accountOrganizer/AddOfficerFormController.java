@@ -11,9 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.app.models.*;
 import ku.cs.app.services.DataSource;
-import ku.cs.app.services.OfficerImageDataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
-import ku.cs.app.services.UserImageDataSource;
+import ku.cs.app.services.ImageDataSource;
 import com.github.saacsos.FXRouter;
 
 import java.io.File;
@@ -35,7 +34,7 @@ public class AddOfficerFormController {
 
     private String[] charge = {"ALL","Education","Environment","Scholarship","Transportation"};
 
-    private OfficerImageDataSource getImage;
+    private ImageDataSource getImage;
 
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
 
@@ -132,8 +131,8 @@ public class AddOfficerFormController {
 
         if(usernameTextField.getText()!=""&&list.checkDuplicateUsername(usernameTextField.getText())){
 
-            getImage = new OfficerImageDataSource();
-            imageName = getImage.chooseImage(usernameTextField.getText());
+            getImage = new ImageDataSource();
+            imageName = getImage.chooseImage(usernameTextField.getText(),"officer");
             tempOfficer.setPhoto(imageName);
             //เซ็ตรูปในFXML
             image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + tempOfficer.getPhoto()));

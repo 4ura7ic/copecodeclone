@@ -12,7 +12,7 @@ import ku.cs.app.models.User;
 import ku.cs.app.models.UserList;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
-import ku.cs.app.services.UserImageDataSource;
+import ku.cs.app.services.ImageDataSource;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +31,7 @@ public class RegisterFormController {
     //-------------------------------------------- private
 
     private User userDetail;
-    private UserImageDataSource getImage;
+    private ImageDataSource getImage;
 
     //-------------------------------------------- noModifier
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
@@ -126,8 +126,8 @@ public class RegisterFormController {
     //            fileChooser.setInitialDirectory(userDirectory);
     //            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
     //            this.filePath = fileChooser.showOpenDialog(stage);
-            getImage = new UserImageDataSource();
-            imageName = getImage.chooseImage(usernameTextField.getText());
+            getImage = new ImageDataSource();
+            imageName = getImage.chooseImage(usernameTextField.getText(), "user");
             tempUserDetail.setPhoto(imageName);
             //เซ็ตรูปในFXML
             image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + tempUserDetail.getPhoto()));
