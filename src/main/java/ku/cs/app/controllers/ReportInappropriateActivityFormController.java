@@ -2,6 +2,7 @@ package ku.cs.app.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ku.cs.app.models.InappropriateUser;
 import ku.cs.app.models.InappropriateUserList;
@@ -15,7 +16,9 @@ import java.util.ArrayList;
 
 public class ReportInappropriateActivityFormController {
     @FXML private TextField reasonTextField;
+    @FXML private Label errorMsgLabel;
 
+    InappropriateUserListFileDataSource dataSource;
     private ArrayList<Object> o;
     private User user;
     private Report rp;
@@ -23,12 +26,13 @@ public class ReportInappropriateActivityFormController {
 
 
     @FXML public void initialize(){
+        errorMsgLabel.setText("");
         o = (ArrayList<Object>) FXRouter.getData();
         user = (User) o.get(0);
         rp = (Report) o.get(1);
         System.out.println(user);
         System.out.println(rp);
-        InappropriateUserListFileDataSource dataSource = new InappropriateUserListFileDataSource("data", "inappropriateUser.csv");
+        dataSource = new InappropriateUserListFileDataSource("data", "inappropriateUser.csv");
         list = dataSource.readData();
     }
 
@@ -49,8 +53,32 @@ public class ReportInappropriateActivityFormController {
             }
         }
     }
-    public void handleReportButton(ActionEvent actionEvent){}
-    
-
-
+    public void handleReportButton(ActionEvent actionEvent){
+        if (reasonTextField.getText().equals("")) {
+            errorMsgLabel.setText("Please enter reason.");
+        }
+        else {
+            InappropriateUser u = new InappropriateUser();
+            u.setUsername(rp.getAuthorUser());
+            u.addInappropriateActions(reasonTextField.getText());
+            u.addInappropriateActivityCount();
+            list.addUser(u);
+            dataSource.writeData(list);
+            if (user.getRole().equals("user")) {
+                try {
+                    FXRouter.goTo("main_user_form", user);
+                } catch (IOException e) {
+                    System.err.println("err ไป project ไม่ได้");
+                    System.err.println("ให้ตรวจสอบการกําหนด route");
+                }
+            } else if (user.getRole().equals("officer")) {
+                try {
+                    FXRouter.goTo("main_officer_form", user);
+                } catch (IOException e) {
+                    System.err.println("err ไป project ไม่ได้");
+                    System.err.println("ให้ตรวจสอบการกําหนด route");
+                }
+            }
+        }
+    }
 }

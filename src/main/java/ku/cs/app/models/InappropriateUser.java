@@ -36,6 +36,14 @@ public class InappropriateUser {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void addInappropriateActions(String reason) {
+        InappropriateActions.add(reason);
+    }
+
     @Override
     public String toString() {
         return "InappropriateUser{" +

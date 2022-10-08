@@ -173,7 +173,7 @@ public class MainUserFormController {
         o.add(user);
         o.add(rp);
         try {
-            FXRouter.goTo("report_inappropriate_activity_form",o);
+            FXRouter.goTo("report_inappropriate_activity_form", o);
         } catch (IOException e) {
             System.err.println("err ไป assign ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
