@@ -5,21 +5,29 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import ku.cs.app.models.InappropriateUser;
 import ku.cs.app.models.InappropriateUserList;
+import ku.cs.app.models.Report;
 import ku.cs.app.models.User;
 import ku.cs.app.services.InappropriateUserListFileDataSource;
 import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ReportInappropriateActivityFormController {
     @FXML private TextField reasonTextField;
 
+    private ArrayList<Object> o;
     private User user;
+    private Report rp;
     private InappropriateUserList list;
 
 
     @FXML public void initialize(){
-        user = (User) FXRouter.getData();
+        o = (ArrayList<Object>) FXRouter.getData();
+        user = (User) o.get(0);
+        rp = (Report) o.get(1);
+        System.out.println(user);
+        System.out.println(rp);
         InappropriateUserListFileDataSource dataSource = new InappropriateUserListFileDataSource("data", "inappropriateUser.csv");
         list = dataSource.readData();
     }

@@ -169,8 +169,11 @@ public class MainUserFormController {
     }
 
     @FXML public void handleReportButton(ActionEvent actionEvent){
+        ArrayList<Object> o = new ArrayList<>();
+        o.add(user);
+        o.add(rp);
         try {
-            FXRouter.goTo("report_inappropriate_activity_form",user);
+            FXRouter.goTo("report_inappropriate_activity_form",o);
         } catch (IOException e) {
             System.err.println("err ไป assign ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
