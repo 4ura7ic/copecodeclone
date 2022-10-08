@@ -4,13 +4,14 @@ import ku.cs.app.models.*;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class InappropriateUserFileDataSource implements DataSource<InappropriateUserList>{
+public class InappropriateUserListFileDataSource implements DataSource<InappropriateUserList>{
     private String directoryName;
     private String fileName;
 
 
-    public InappropriateUserFileDataSource(String directoryName, String fileName) {
+    public InappropriateUserListFileDataSource(String directoryName, String fileName) {
         this.directoryName = directoryName;
         this.fileName = fileName;
         checkIfFileExisted();
@@ -29,8 +30,9 @@ public class InappropriateUserFileDataSource implements DataSource<Inappropriate
             String line = "";
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split("\\|");
-                InappropriateUser user = new InappropriateUser(Integer.parseInt(data[0].trim()));
-                String[] inappropriateActions = data[1].split(",");
+                InappropriateUser user = new InappropriateUser(data[0].trim(),
+                        Integer.parseInt(data[1].trim()));
+                String[] inappropriateActions = data[2].split(",");
                 ArrayList<String> allInappropriateActions = new ArrayList<>();
                 for (String s: inappropriateActions){
                     allInappropriateActions.add(s);
@@ -65,7 +67,8 @@ public class InappropriateUserFileDataSource implements DataSource<Inappropriate
             buffer = new BufferedWriter(writer);
 
             for(InappropriateUser user: list.getInappropriateUserList()){
-                String line = user.getInappropriateActivityCount() + "|";
+                String line = user.getUsername() + "|"
+                        + user.getInappropriateActivityCount() + "|";
                 for (String s: user.getInappropriateActions()) {
                     line += s + ",";
                 }

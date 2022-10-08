@@ -12,19 +12,16 @@ public class InappropriateUser {
         InappropriateActivityCount = 0;
         InappropriateActions = new ArrayList<>();
     };
-    public InappropriateUser(int inappropriateActivityCount){
+    public InappropriateUser(String username, int inappropriateActivityCount){
+        this.username = username;
         InappropriateActivityCount = inappropriateActivityCount;
         InappropriateActions = new ArrayList<>();
     }
-    public void addAllInappropriateActions(ArrayList<String> InappropriateActions){
-        InappropriateActions.addAll(InappropriateActions);
+    public void addAllInappropriateActions(ArrayList InappropriateActions){
+        this.InappropriateActions.addAll(InappropriateActions);
     }
-
     public void addInappropriateActivityCount(){
         InappropriateActivityCount += 1;
-    }
-    public void addInappropriateAction(String s){
-        InappropriateActions.add(s);
     }
 
     public int getInappropriateActivityCount() {
@@ -42,7 +39,8 @@ public class InappropriateUser {
     @Override
     public String toString() {
         return "InappropriateUser{" +
-                "InappropriateActivityCount=" + InappropriateActivityCount +
+                "username='" + username + '\'' +
+                ", InappropriateActivityCount=" + InappropriateActivityCount +
                 ", InappropriateActions=" + InappropriateActions +
                 '}';
     }

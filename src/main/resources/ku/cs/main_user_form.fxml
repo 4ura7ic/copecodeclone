@@ -69,10 +69,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="reportButton" layoutX="607.0" layoutY="226.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="20.0" text="!">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
       <ScrollPane fx:id="descriptionPane" layoutX="25.0" layoutY="154.0" prefHeight="145.0" prefWidth="532.0">
          <content>
             <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="139.0" prefWidth="516.0" text="descriptionLabel" wrapText="true" />
@@ -86,6 +82,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <Button fx:id="reportButton" layoutX="607.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="17.0" prefWidth="20.0" text="!">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label layoutX="659.0" layoutY="331.0" text="Category" textFill="WHITE" />
       <Label layoutX="659.0" layoutY="396.0" text="SortBy" textFill="WHITE" />
    </children>
