@@ -81,24 +81,14 @@ public class ReportList {
             Collections.sort(reports, new Comparator<Report>() {
                 @Override
                 public int compare(Report o1, Report o2) {
-                    String[] string1 = o1.getDate().split("/");String[] string2 = o2.getDate().split("/");
-                    String s1 = string1[0]+string1[1];
-                    String s2 = string2[0]+string2[1];
-                    if(s1.compareTo(s2)==1) return -1;
-                    if(s1.compareTo(s2)==-1) return 1;
-                    return 0;
+                    return o2.getDate().compareTo(o1.getDate());
                 }
             });
         }else if(key.equals("Oldest")){
             Collections.sort(reports, new Comparator<Report>() {
                 @Override
                 public int compare(Report o1, Report o2) {
-                    String[] string1 = o1.getDate().split("/");String[] string2 = o2.getDate().split("/");
-                    String s1 = string1[0]+string1[1];
-                    String s2 = string2[0]+string2[1];
-                    if(s1.compareTo(s2)==1) return 1;
-                    if(s1.compareTo(s2)==-1) return -1;
-                    return 0;
+                    return o2.getDate().compareTo(o1.getDate());
                 }
             });
         } else if (key.equals("Least Vote")) {
