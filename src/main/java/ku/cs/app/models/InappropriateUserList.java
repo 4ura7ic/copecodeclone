@@ -16,6 +16,23 @@ public class InappropriateUserList {
         list.remove(user);
     }
 
+    public boolean checkIfExist(String s) {
+        for (InappropriateUser user : list) {
+            if (user.getUsername().equals(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public InappropriateUser returnObject(String s){
+        for (InappropriateUser user : list) {
+            if (user.getUsername().equals(s)) {
+                return user;
+            }
+        }
+        return null;
+    }
     public ArrayList<InappropriateUser> getInappropriateUserList() {
         return list;
     }

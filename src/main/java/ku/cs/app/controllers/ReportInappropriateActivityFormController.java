@@ -58,27 +58,52 @@ public class ReportInappropriateActivityFormController {
             errorMsgLabel.setText("Please enter reason.");
         }
         else {
-            InappropriateUser u = new InappropriateUser();
-            u.setUsername(rp.getAuthorUser());
-            u.addInappropriateActions(reasonTextField.getText());
-            u.addInappropriateActivityCount();
-            list.addUser(u);
-            dataSource.writeData(list);
-            if (user.getRole().equals("user")) {
-                try {
-                    FXRouter.goTo("main_user_form", user);
-                } catch (IOException e) {
-                    System.err.println("err ไป project ไม่ได้");
-                    System.err.println("ให้ตรวจสอบการกําหนด route");
-                }
-            } else if (user.getRole().equals("officer")) {
-                try {
-                    FXRouter.goTo("main_officer_form", user);
-                } catch (IOException e) {
-                    System.err.println("err ไป project ไม่ได้");
-                    System.err.println("ให้ตรวจสอบการกําหนด route");
+            if (list.checkIfExist(rp.getAuthorUser())) {
+                InappropriateUser u = list.returnObject(rp.getAuthorUser());
+                u.addInappropriateActivityCount();
+                u.addInappropriateActions(reasonTextField.getText());
+                dataSource.writeData(list);
+                if (user.getRole().equals("user")) {
+                    try {
+                        FXRouter.goTo("main_user_form", user);
+                    } catch (IOException e) {
+                        System.err.println("err ไป project ไม่ได้");
+                        System.err.println("ให้ตรวจสอบการกําหนด route");
+                    }
+                } else if (user.getRole().equals("officer")) {
+                    try {
+                        FXRouter.goTo("main_officer_form", user);
+                    } catch (IOException e) {
+                        System.err.println("err ไป project ไม่ได้");
+                        System.err.println("ให้ตรวจสอบการกําหนด route");
+                    }
                 }
             }
+            else {
+                InappropriateUser u = new InappropriateUser();
+                u.setUsername(rp.getAuthorUser());
+                u.addInappropriateActivityCount();
+                u.addInappropriateActions(reasonTextField.getText());
+                list.addUser(u);
+                dataSource.writeData(list);
+                if (user.getRole().equals("user")) {
+                    try {
+                        FXRouter.goTo("main_user_form", user);
+                    } catch (IOException e) {
+                        System.err.println("err ไป project ไม่ได้");
+                        System.err.println("ให้ตรวจสอบการกําหนด route");
+                    }
+                } else if (user.getRole().equals("officer")) {
+                    try {
+                        FXRouter.goTo("main_officer_form", user);
+                    } catch (IOException e) {
+                        System.err.println("err ไป project ไม่ได้");
+                        System.err.println("ให้ตรวจสอบการกําหนด route");
+                    }
+                }
+            }
+
+
         }
     }
 }
