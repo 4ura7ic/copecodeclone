@@ -8,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
@@ -23,7 +22,7 @@ public class MainUserFormController {
     //-------------------------------------------- FXML
 
     @FXML private ComboBox categoryBox;
-    @FXML private ComboBox timeBox;
+    @FXML private ComboBox sortBox;
     @FXML private ScrollPane descriptionPane;
     @FXML private Rectangle barOne;
     @FXML private Rectangle barTwo;
@@ -44,14 +43,14 @@ public class MainUserFormController {
     private ReportList list;
     private User user;
     private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
-    private String[] sortBy = {"Descending","Ascending"};
+    private String[] sortBy = {"Newest","Oldest","Most Vote","Least Vote"};
 
     //-------------------------------------------- noModifier
 
     ObservableList<String> categoryList = FXCollections
             .observableArrayList(category);
 
-    ObservableList<String> timeList = FXCollections
+    ObservableList<String> sortList = FXCollections
             .observableArrayList(sortBy);
 
     //-------------------------------------------- initialize
@@ -61,7 +60,7 @@ public class MainUserFormController {
         startForm();
         user = (User) FXRouter.getData();
         categoryBox.getItems().addAll(categoryList);
-        timeBox.getItems().addAll(timeList);
+        sortBox.getItems().addAll(sortList);
         categoryBox.setOnAction(this::categorySort);
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();

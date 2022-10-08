@@ -61,6 +61,16 @@ public class ReportList {
         return tmpReport;
     }
 
+    public ArrayList<Report> sortTimeReport(ReportList inReportList){
+        ArrayList<Report> tmpReport = new ArrayList<>();
+        for(Report report: rpt){
+            if(report.isCheck()){
+
+            }
+        }
+        return tmpReport;
+    }
+
     @Override
     public String toString() {
         return "ReportList{" +
