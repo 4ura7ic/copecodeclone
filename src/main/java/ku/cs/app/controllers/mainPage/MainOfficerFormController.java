@@ -9,6 +9,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.shape.Rectangle;
+import ku.cs.app.models.Officer;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
 import ku.cs.app.models.User;
@@ -43,6 +44,8 @@ public class MainOfficerFormController {
     private DataSource<ReportList> dataSource;
     private ReportList list;
     private User user;
+    private Object object;
+    private Officer officer;
     private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
     private String[] sortBy = {"Newest","Oldest","Most Vote","Least Vote"};
     private Report rp = new Report();
@@ -61,6 +64,8 @@ public class MainOfficerFormController {
     public void initialize() throws IOException {
         startForm();
         user = (User) FXRouter.getData();
+        object = (Object) user;
+        Officer officer = (Officer) object;
         dataSource = new ReportListFileDataSource("data","report.csv");
         categoryBox.getItems().addAll(categoryList);
         sortBox.getItems().addAll(sortList);
@@ -76,7 +81,7 @@ public class MainOfficerFormController {
 
     private void categorySort(Event event) {
         inProgressListView.getItems().clear();
-        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory((String) categoryBox.getValue())));
+        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(officer.getInCharge())));
         finishReportListView.getItems().clear();
         finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),(list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
     }
