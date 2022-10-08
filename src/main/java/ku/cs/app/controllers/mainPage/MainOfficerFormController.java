@@ -5,24 +5,27 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
 import ku.cs.app.models.User;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListFileDataSource;
+import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
 
 public class MainOfficerFormController {
     //-------------------------------------------- FXML
 
-    @FXML private ListView<Report> reportListView;
     @FXML private ComboBox categoryBox;
-    @FXML private ComboBox timeBox;
+    @FXML private ComboBox sortBox;
+    @FXML private ScrollPane descriptionPane;
+    @FXML private Rectangle barOne;
+    @FXML private Rectangle barTwo;
     @FXML private Label rateLabel;
     @FXML private Label popUpLabel;
     @FXML private Label nameLabel;
@@ -30,21 +33,26 @@ public class MainOfficerFormController {
     @FXML private Label dateLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
+    @FXML private Button reportButton;
+    @FXML private Button voteButton;
+    @FXML private ListView<Report> inProgressListView;
+    @FXML private ListView<Report> finishReportListView;
 
     //-------------------------------------------- private
 
+    private DataSource<ReportList> dataSource;
     private ReportList list;
     private User user;
-    private String[] category = {"Education","Environment","Scholarship","Transportation"};
-    private String[] sortBy = {"Descending","Ascending"};
-
+    private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
+    private String[] sortBy = {"Newest","Oldest","Most Vote","Least Vote"};
+    private Report rp = new Report();
 
     //-------------------------------------------- noModifier
 
     ObservableList<String> categoryList = FXCollections
             .observableArrayList(category);
 
-    ObservableList<String> timeList = FXCollections
+    ObservableList<String> sortList = FXCollections
             .observableArrayList(sortBy);
 
     //-------------------------------------------- initialize
@@ -52,21 +60,41 @@ public class MainOfficerFormController {
     @FXML
     public void initialize() throws IOException {
         startForm();
+        user = (User) FXRouter.getData();
+        dataSource = new ReportListFileDataSource("data","report.csv");
         categoryBox.getItems().addAll(categoryList);
-        timeBox.getItems().addAll(timeList);
-        DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
+        sortBox.getItems().addAll(sortList);
+        categoryBox.setValue("ALL");
+        sortBox.setValue("Newest");
+        categoryBox.setOnAction(this::categorySort);
+        sortBox.setOnAction(this::categorySort);
         list = dataSource.readData();
         showListView();
         handleSelectedListView();
-        user = (User) com.github.saacsos.FXRouter.getData();
         showUserData();
-    //        System.out.println(user.getUserName());
+    }
+
+    private void categorySort(Event event) {
+        inProgressListView.getItems().clear();
+        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory((String) categoryBox.getValue())));
+        finishReportListView.getItems().clear();
+        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),(list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
     }
 
     //-------------------------------------------- handle
 
     private void handleSelectedListView(){
-        reportListView.getSelectionModel().selectedItemProperty().addListener(
+        inProgressListView.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Report>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Report>
+                                                observable,
+                                        Report oldValue, Report newValue) {
+                        System.out.println(newValue + " is selected");
+                        showSelectedReport(newValue);
+                    }
+                });
+        finishReportListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Report>() {
                     @Override
                     public void changed(ObservableValue<? extends Report>
@@ -77,6 +105,7 @@ public class MainOfficerFormController {
                     }
                 });
     }
+
     @FXML
     public void handleLogOut(ActionEvent actionEvent){
         try{
@@ -97,6 +126,21 @@ public class MainOfficerFormController {
         }
     }
 
+    @FXML public void handleVoteButton(ActionEvent actionEvent) {
+        if (rp.getVotedUser().contains(user.getUsername())){
+            rp.decreaseVote();
+            rp.getVotedUser().remove(user.getUsername());
+            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+            dataSource.writeData(list);
+        }
+        else {
+            rp.increaseVote();
+            rp.getVotedUser().add(user.getUsername());
+            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+            dataSource.writeData(list);
+        }
+    }
+
     //-------------------------------------------- method
 
     private void showUserData(){
@@ -104,20 +148,35 @@ public class MainOfficerFormController {
     }
 
     private void showSelectedReport(Report report){
-        topicLabel.setText(report.getTopic());
-        dateLabel.setText(report.getDate());
-        categoryLabel.setText(report.getCategory());
-        descriptionLabel.setText(report.getDescription());
-        rateLabel.setText("Rate: " + Integer.toString(report.getVote()));
-        popUpLabel.setText("");
+        if(report!=null) {
+            rp = report;
+            barOne.setVisible(true);
+            barTwo.setVisible(true);
+            descriptionPane.setVisible(true);
+            reportButton.setVisible(true);
+            voteButton.setVisible(true);
+            topicLabel.setText(report.getTopic());
+            dateLabel.setText(report.getDate());
+            categoryLabel.setText(report.getCategory());
+            descriptionLabel.setText(report.getDescription());
+            rateLabel.setText("Rate: " + (report.getVote()));
+            popUpLabel.setText("");
+        }
     }
 
     private void showListView(){
-        reportListView.getItems().addAll(list.getAllRpt());
-        reportListView.refresh();
+        inProgressListView.getItems().addAll(list.sortInProgressReport());
+        inProgressListView.refresh();
+        finishReportListView.getItems().addAll(list.sortFinishedReport());
+        finishReportListView.refresh();
     }
 
     private void startForm(){
+        descriptionPane.setVisible(false);
+        barOne.setVisible(false);
+        barTwo.setVisible(false);
+        reportButton.setVisible(false);
+        voteButton.setVisible(false);
         topicLabel.setText("");
         dateLabel.setText("");
         categoryLabel.setText("");
