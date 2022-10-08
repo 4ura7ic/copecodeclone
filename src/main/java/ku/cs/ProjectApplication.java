@@ -33,6 +33,7 @@ public class ProjectApplication extends Application{
         FXRouter.when("activity_log",packageStr+"activity_log.fxml");
         FXRouter.when("my_report_form",packageStr+"my_report_form.fxml");
         FXRouter.when("add_officer_form",packageStr+"add_officer_form.fxml");
+        FXRouter.when("report_inappropriate_activity_form", packageStr+"report_inappropriate_activity_form.fxml");
     }
     public static void main(String[] args) {
         launch();

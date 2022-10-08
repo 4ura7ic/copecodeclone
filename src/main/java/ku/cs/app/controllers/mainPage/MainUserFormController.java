@@ -168,6 +168,16 @@ public class MainUserFormController {
         }
     }
 
+    @FXML public void handleReportButton(ActionEvent actionEvent){
+        try {
+            FXRouter.goTo("report_inappropriate_activity_form",user);
+        } catch (IOException e) {
+            System.err.println("err ไป assign ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
+
     //-------------------------------------------- method
 
     private void showUserData(){
