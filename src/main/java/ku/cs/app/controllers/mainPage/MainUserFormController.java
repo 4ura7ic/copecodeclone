@@ -137,7 +137,7 @@ public class MainUserFormController {
     @FXML
     public void handleYourReport(ActionEvent actionEvent){
         try {
-            FXRouter.goTo("your_report_form",user);
+            FXRouter.goTo("my_report_form",user);
         } catch (IOException e) {
             System.err.println("err ไป assign ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
