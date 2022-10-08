@@ -9,7 +9,9 @@ import java.util.Comparator;
 public class ReportList {
     private ArrayList<Report> rpt;
 
-    public ReportList(){ rpt = new ArrayList<>();}
+    public ReportList(){
+        rpt = new ArrayList<>();
+    }
 
     public void addReport(Report rptIn){
         rpt.add(rptIn);

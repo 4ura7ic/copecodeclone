@@ -26,7 +26,7 @@ public class AssignReportFormController {
 
     private User user;
     private LocalDateTime date;
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy / HH:mm");
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy/HH:mm:ss");
     private String[] category = {"Education","Environment","Scholarship","Transportation"};
 
     //-------------------------------------------- initialize
