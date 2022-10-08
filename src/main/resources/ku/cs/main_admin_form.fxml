@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.mainPage.MainAdminFormController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.mainPage.MainAdminFormController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -27,6 +23,16 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <ListView fx:id="reportListView" layoutX="25.0" layoutY="339.0" prefHeight="212.0" prefWidth="622.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="30.0" layoutX="25.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="624.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="36.0" layoutX="25.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="624.0" />
+      <ScrollPane layoutX="26.0" layoutY="151.0" prefHeight="148.0" prefWidth="515.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="147.0" prefWidth="497.0">
+               <children>
+                  <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="144.0" prefWidth="496.0" text="descriptionLabel" />
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
       <Button layoutX="735.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleProfile" prefHeight="44.0" prefWidth="50.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -43,16 +49,27 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Separator layoutX="59.0" layoutY="324.0" prefWidth="560.0" />
-      <Label fx:id="topicLabel" layoutX="38.0" layoutY="101.0" prefHeight="17.0" prefWidth="344.0" text="topicLabel" />
-      <Label fx:id="categoryLabel" layoutX="38.0" layoutY="122.0" prefHeight="17.0" prefWidth="344.0" text="categoryLabel" />
-      <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="38.0" layoutY="148.0" prefHeight="144.0" prefWidth="602.0" text="descriptionLabel" />
-      <Label fx:id="dateLabel" alignment="CENTER_RIGHT" layoutX="426.0" layoutY="101.0" prefHeight="17.0" prefWidth="209.0" text="dateLabel" />
+      <Label fx:id="topicLabel" layoutX="34.0" layoutY="86.0" prefHeight="17.0" prefWidth="344.0" text="topicLabel">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="categoryLabel" layoutX="34.0" layoutY="128.0" prefHeight="17.0" prefWidth="344.0" text="categoryLabel">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="dateLabel" alignment="CENTER_RIGHT" layoutX="431.0" layoutY="85.0" prefHeight="17.0" prefWidth="209.0" text="dateLabel">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
       <Label fx:id="popUpLabel" alignment="CENTER" layoutX="25.0" layoutY="170.0" prefHeight="35.0" prefWidth="622.0" text="---">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="rateLabel" layoutX="590.0" layoutY="140.0" prefHeight="17.0" prefWidth="50.0" text="rate" />
+      <Label fx:id="rateLabel" layoutX="542.0" layoutY="123.0" prefHeight="32.0" prefWidth="107.0" text="           rate">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
       <Button layoutX="656.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleAddNewOfficerButton" prefHeight="62.0" prefWidth="131.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
