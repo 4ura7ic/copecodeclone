@@ -88,7 +88,7 @@ public class ReportList {
             Collections.sort(reports, new Comparator<Report>() {
                 @Override
                 public int compare(Report o1, Report o2) {
-                    return o2.getDate().compareTo(o1.getDate());
+                    return o1.getDate().compareTo(o2.getDate());
                 }
             });
         } else if (key.equals("Least Vote")) {
