@@ -9,6 +9,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public final class FXRouter {
@@ -93,6 +94,11 @@ public final class FXRouter {
     }
 
     public static void goTo(String routeLabel, Object data) throws IOException {
+        RouteScene route = (RouteScene)routes.get(routeLabel);
+        route.data = data;
+        loadNewRoute(route);
+    }
+    public static void goTo(String routeLabel, ArrayList<Object> data) throws IOException {
         RouteScene route = (RouteScene)routes.get(routeLabel);
         route.data = data;
         loadNewRoute(route);
