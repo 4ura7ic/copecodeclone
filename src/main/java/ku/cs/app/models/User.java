@@ -135,8 +135,20 @@ public class User {
         }
         return true;
     }
+//    @Override
+//    public String toString() {
+//        return username;
+//    }
+
+
     @Override
     public String toString() {
-        return username;
+        return "User{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", password=" + password +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }

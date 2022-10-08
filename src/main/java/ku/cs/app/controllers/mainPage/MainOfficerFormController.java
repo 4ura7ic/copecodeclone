@@ -42,7 +42,7 @@ public class MainOfficerFormController {
 
     private DataSource<ReportList> dataSource;
     private ReportList list;
-    private User user;
+    private Officer user;
     private Object object;
     private Officer officer;
     private String[] sortBy = {"Newest","Oldest","Most Vote","Least Vote"};
@@ -58,7 +58,7 @@ public class MainOfficerFormController {
     @FXML
     public void initialize() throws IOException {
         startForm();
-        user = (User) FXRouter.getData();
+        user = (Officer) FXRouter.getData();
         object = (Object) user;
         Officer officer = (Officer) object;
         dataSource = new ReportListFileDataSource("data","report.csv");
@@ -69,13 +69,14 @@ public class MainOfficerFormController {
         showListView();
         handleSelectedListView();
         showUserData();
+        System.out.println(user.getInCharge());
     }
 
     private void categorySort(Event event) {
         inProgressListView.getItems().clear();
-        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(officer.getInCharge())));
+        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
         finishReportListView.getItems().clear();
-        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),(list.sortFinishedReportByCategory(officer.getInCharge()))));
+        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),(list.sortFinishedReportByCategory(user.getInCharge()))));
     }
 
     //-------------------------------------------- handle
