@@ -69,14 +69,13 @@ public class MainOfficerFormController {
         showListView();
         handleSelectedListView();
         showUserData();
-        System.out.println(user.getInCharge());
     }
 
     private void categorySort(Event event) {
         inProgressListView.getItems().clear();
         inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
         finishReportListView.getItems().clear();
-        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),(list.sortFinishedReportByCategory(user.getInCharge()))));
+        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
     }
 
     //-------------------------------------------- handle
@@ -163,9 +162,9 @@ public class MainOfficerFormController {
     }
 
     private void showListView(){
-        inProgressListView.getItems().addAll(list.sortInProgressReport());
+        inProgressListView.getItems().addAll(list.sortInProgressReportByCategory(user.getInCharge()));
         inProgressListView.refresh();
-        finishReportListView.getItems().addAll(list.sortFinishedReport());
+        finishReportListView.getItems().addAll(list.sortFinishedReportByCategory(user.getInCharge()));
         finishReportListView.refresh();
     }
 
