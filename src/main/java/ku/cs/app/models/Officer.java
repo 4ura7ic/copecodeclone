@@ -26,4 +26,16 @@ public class Officer extends User{
     public String getInCharge(){
         return inCharge;
     }
+
+    @Override
+    public String toString() {
+        return "Officer{" +
+                "inCharge='" + inCharge + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", password=" + password +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }
