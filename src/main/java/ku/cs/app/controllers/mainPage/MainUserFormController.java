@@ -61,7 +61,10 @@ public class MainUserFormController {
         user = (User) FXRouter.getData();
         categoryBox.getItems().addAll(categoryList);
         sortBox.getItems().addAll(sortList);
+        categoryBox.setValue("ALL");
+        sortBox.setValue("Newest");
         categoryBox.setOnAction(this::categorySort);
+        sortBox.setOnAction(this::categorySort);
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
         showListView();
@@ -69,11 +72,12 @@ public class MainUserFormController {
         showUserData();
     }
 
+
     private void categorySort(Event event) {
         inProgressListView.getItems().clear();
-        inProgressListView.getItems().addAll(list.sortInProgressReportByCategory((String) categoryBox.getValue()));
+        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory((String) categoryBox.getValue())));
         finishReportListView.getItems().clear();
-        finishReportListView.getItems().addAll((list.sortFinishedReportByCategory((String) categoryBox.getValue())));
+        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),(list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
     }
 
     //-------------------------------------------- handle

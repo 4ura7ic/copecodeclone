@@ -2,6 +2,9 @@ package ku.cs.app.models;
 import ku.cs.app.services.Sorter;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ReportList {
     private ArrayList<Report> rpt;
@@ -61,14 +64,46 @@ public class ReportList {
         return tmpReport;
     }
 
-    public ArrayList<Report> sortTimeReport(ReportList inReportList){
+    public ArrayList<Report> sortTimeReport(String key, ArrayList<Report> reports){
         ArrayList<Report> tmpReport = new ArrayList<>();
-        for(Report report: rpt){
-            if(report.isCheck()){
-
-            }
+        if(key.equals("Newest")){
+            Collections.sort(reports, new Comparator<Report>() {
+                @Override
+                public int compare(Report o1, Report o2) {
+                    if(o1.getDate().compareTo(o2.getDate())==1) return 1;
+                    if(o1.getDate().compareTo(o2.getDate())==-1) return -1;
+                    return 0;
+                }
+            });
+        }else if(key.equals("Oldest")){
+            Collections.sort(reports, new Comparator<Report>() {
+                @Override
+                public int compare(Report o1, Report o2) {
+                    if(o1.getDate().compareTo(o2.getDate())==1) return -1;
+                    if(o1.getDate().compareTo(o2.getDate())==-1) return 1;
+                    return 0;
+                }
+            });
+        } else if (key.equals("Least Vote")) {
+            Collections.sort(reports, new Comparator<Report>() {
+                @Override
+                public int compare(Report o1, Report o2) {
+                    if(o1.getVote()>o2.getVote())return 1;
+                    if(o1.getVote()<o2.getVote())return -1;
+                    return 0;
+                }
+            });
+        } else if (key.equals("Most Vote")){
+            Collections.sort(reports, new Comparator<Report>(){
+                @Override
+                public int compare(Report o1, Report o2){
+                    if(o1.getVote()> o2.getVote()) return -1;
+                    if(o1.getVote()< o2.getVote()) return 1;
+                    return 0;
+                }
+            });
         }
-        return tmpReport;
+        return reports;
     }
 
     @Override
