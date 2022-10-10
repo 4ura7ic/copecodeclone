@@ -34,6 +34,7 @@ public class MainOfficerFormController {
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
     @FXML private Button reportButton;
+    @FXML private  Button FinishButton;
     @FXML private Button voteButton;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
@@ -137,6 +138,17 @@ public class MainOfficerFormController {
             dataSource.writeData(list);
         }
     }
+    @FXML
+    public void handleFinishButton(ActionEvent actionEvent){
+            rp.finishingCheck();
+        inProgressListView.getItems().clear();
+        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
+        finishReportListView.getItems().clear();
+        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
+
+        dataSource.writeData(list);
+    }
+
 
     //-------------------------------------------- method
 
@@ -147,6 +159,7 @@ public class MainOfficerFormController {
     private void showSelectedReport(Report report){
         if(report!=null) {
             rp = report;
+            FinishButton.setVisible(true);
             barOne.setVisible(true);
             barTwo.setVisible(true);
             descriptionPane.setVisible(true);
@@ -172,6 +185,7 @@ public class MainOfficerFormController {
         descriptionPane.setVisible(false);
         barOne.setVisible(false);
         barTwo.setVisible(false);
+        FinishButton.setVisible(false);
         reportButton.setVisible(false);
         voteButton.setVisible(false);
         topicLabel.setText("");

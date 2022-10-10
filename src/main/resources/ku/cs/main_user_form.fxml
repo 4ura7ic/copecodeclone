@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.mainPage.MainUserFormController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.mainPage.MainUserFormController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -60,10 +53,8 @@
          <font>
             <Font size="22.0" />
          </font></Label>
-      <ListView fx:id="finishReportListView" layoutX="347.0" layoutY="352.0" prefHeight="188.0" prefWidth="300.0" />
-      <ListView fx:id="inProgressListView" layoutX="25.0" layoutY="352.0" prefHeight="188.0" prefWidth="300.0" />
-      <Label layoutX="124.0" layoutY="331.0" text="In progress reports" />
-      <Label layoutX="455.0" layoutY="331.0" text="accomplished report" />
+      <ListView fx:id="finishReportListView" layoutX="347.0" layoutY="337.0" prefHeight="203.0" prefWidth="300.0" />
+      <ListView fx:id="inProgressListView" layoutX="25.0" layoutY="337.0" prefHeight="203.0" prefWidth="300.0" />
       <Button layoutX="659.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleYourReport" prefHeight="56.0" prefWidth="121.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <Button fx:id="voteButton" layoutX="587.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleVoteButton" text="Vote">
          <cursor>
@@ -88,5 +79,8 @@
          </cursor></Button>
       <Label layoutX="659.0" layoutY="331.0" text="Category" textFill="WHITE" />
       <Label layoutX="659.0" layoutY="396.0" text="SortBy" textFill="WHITE" />
+      <Rectangle fx:id="barOne1" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="25.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" width="623.0" />
+      <Label layoutX="34.0" layoutY="315.0" text="In progress reports" />
+      <Label layoutX="355.0" layoutY="315.0" text="accomplished report" />
    </children>
 </AnchorPane>

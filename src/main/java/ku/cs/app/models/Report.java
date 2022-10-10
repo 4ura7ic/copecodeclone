@@ -81,4 +81,7 @@ public class Report {
     public String toString() {
         return "[" + category + "] " + topic;
     }
+
+    public void finishingCheck(){ check = true; }
+
 }
