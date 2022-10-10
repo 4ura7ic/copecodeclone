@@ -36,6 +36,15 @@ public class InappropriateUserList {
     public ArrayList<InappropriateUser> getInappropriateUserList() {
         return list;
     }
+    public ArrayList<String> returnInappropriateUserActivities(String username) {
+        ArrayList<String> tmp = new ArrayList<>();
+        for (InappropriateUser user : list) {
+            if (username.equals(user.getUsername())) {
+                tmp.addAll(user.getInappropriateActions());
+            }
+        }
+        return tmp;
+    }
 
     @Override
     public String toString() {

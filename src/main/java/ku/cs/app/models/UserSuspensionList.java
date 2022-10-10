@@ -13,8 +13,8 @@ public class UserSuspensionList {
         suspendedUser.add(user);
     }
 
-    public void removeUser(int index){
-        suspendedUser.remove(index);
+    public void removeUser(UserSuspension user){
+        suspendedUser.remove(user);
     }
 
     public ArrayList<UserSuspension> getAllData(){

@@ -6,11 +6,11 @@ public class UserList {
     public UserList(){
         data = new ArrayList<>();
     }
-    public void addUser(User info){
-        data.add(info);
+    public void addUser(User user){
+        data.add(user);
     }
-    public void removeUser(int index){
-        data.remove(index);
+    public void removeUser(User user){
+        data.remove(user);
     }
     public ArrayList<User> getAllData(){
         return data;

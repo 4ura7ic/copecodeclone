@@ -14,6 +14,11 @@ public class UserSuspension {
         this.reason = reason;
         this.loginAttempt = loginAttempt;
     }
+    public UserSuspension(String username) {
+        this.username = username;
+        this.reason = "";
+        this.loginAttempt = 0;
+    }
 
     //-------------------------------------------- getter
 
@@ -26,6 +31,9 @@ public class UserSuspension {
     }
     public int getLoginAttempt() { return loginAttempt; }
 
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
     //-------------------------------------------- method
 
     public void addLoginAttempt() {

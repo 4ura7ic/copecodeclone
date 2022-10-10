@@ -40,8 +40,7 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
                             new Password(data[2].trim()),
                             data[3].trim(),
                             data[4].trim(),
-                            data[5].trim(),
-                            Boolean.parseBoolean(data[6].trim())
+                            data[5].trim()
                     );
                     list.addUser(user);
                 } else if (data[0].equals("officer")) {

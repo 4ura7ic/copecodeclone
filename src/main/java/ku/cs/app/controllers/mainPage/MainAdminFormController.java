@@ -136,7 +136,7 @@ public class MainAdminFormController {
     @FXML
     public void handleSuspendManagerButton(ActionEvent actionEvent){
         try {
-            FXRouter.goTo("suspend_form");
+            FXRouter.goTo("suspend_form", user);
         } catch (IOException e) {
             System.err.println("err ไป suspendManager ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

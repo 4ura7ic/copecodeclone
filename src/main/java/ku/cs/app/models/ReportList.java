@@ -29,7 +29,6 @@ public class ReportList {
         }
         return tmpReport;
     }
-
     public ArrayList<Report> sortInProgressReport(){
         ArrayList<Report> tmpReport = new ArrayList<>();
         for(Report report: rpt){
@@ -38,6 +37,15 @@ public class ReportList {
             }
         }
         return tmpReport;
+    }
+    public ArrayList<Report> returnUserReport(String username) {
+        ArrayList<Report> list = new ArrayList<>();
+        for (Report rp :rpt) {
+            if (username.equals(rp.getAuthorUser())) {
+                list.add(rp);
+            }
+        }
+        return list;
     }
 
     public ArrayList<Report> sortInProgressReportByCategory(String key){
