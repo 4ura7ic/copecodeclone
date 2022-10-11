@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.mainPage.MainUserFormController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.mainPage.MainUserFormController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -16,11 +23,14 @@
       </ImageView>
       <Rectangle fx:id="barOne" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="36.0" layoutX="25.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
       <Rectangle fx:id="barTwo" arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="30.0" layoutX="25.0" layoutY="123.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
-      <Button layoutX="11.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="78.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
+      <Button layoutX="11.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="85.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button layoutX="735.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleProfile" prefHeight="50.0" prefWidth="50.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
+         </cursor>
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button layoutX="735.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleProfile" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30 30 30 30;" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -29,12 +39,15 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="categoryBox" layoutX="659.0" layoutY="356.0" prefHeight="26.0" prefWidth="128.0" promptText="All" />
-      <ComboBox fx:id="sortBox" layoutX="659.0" layoutY="419.0" prefHeight="26.0" prefWidth="128.0" promptText="Newest" />
-      <Button layoutX="659.0" layoutY="90.0" mnemonicParsing="false" onAction="#handleAssignReportButton" prefHeight="56.0" prefWidth="128.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" textFill="#84a98c">
+      <ComboBox fx:id="categoryBox" layoutX="659.0" layoutY="356.0" prefHeight="26.0" prefWidth="128.0" promptText="All" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="sortBox" layoutX="659.0" layoutY="419.0" prefHeight="26.0" prefWidth="128.0" promptText="Newest" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
+      <Button layoutX="659.0" layoutY="90.0" mnemonicParsing="false" onAction="#handleAssignReportButton" prefHeight="56.0" prefWidth="128.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Assign Report">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <font>
+            <Font size="17.0" />
+         </font></Button>
       <Label fx:id="topicLabel" layoutX="34.0" layoutY="86.0" prefHeight="17.0" prefWidth="344.0" text="topicLabel">
          <font>
             <Font size="20.0" />
@@ -55,8 +68,11 @@
          </font></Label>
       <ListView fx:id="finishReportListView" layoutX="347.0" layoutY="337.0" prefHeight="203.0" prefWidth="300.0" />
       <ListView fx:id="inProgressListView" layoutX="25.0" layoutY="337.0" prefHeight="203.0" prefWidth="300.0" />
-      <Button layoutX="659.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleYourReport" prefHeight="56.0" prefWidth="121.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Button fx:id="voteButton" layoutX="587.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleVoteButton" text="Vote">
+      <Button layoutX="659.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleYourReport" prefHeight="56.0" prefWidth="121.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="My Report">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="voteButton" layoutX="587.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleVoteButton" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -73,7 +89,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="reportButton" layoutX="607.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="17.0" prefWidth="20.0" text="!">
+      <Button fx:id="reportButton" layoutX="607.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="17.0" prefWidth="20.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="!">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

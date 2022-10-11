@@ -17,10 +17,13 @@
          <image>
             <Image url="@images/SusManager.png" />
          </image></ImageView>
-      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="77.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
+      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="77.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font></Button>
       <ListView fx:id="dataListView" layoutX="8.0" layoutY="101.0" prefHeight="490.0" prefWidth="223.0" />
       <Label layoutX="66.0" layoutY="68.0" text="List of Users">
          <font>
@@ -40,7 +43,7 @@
          </font>
       </Label>
       <Label layoutX="261.0" layoutY="431.0" text="Status: " textFill="#93b39a" />
-      <Button layoutX="403.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleSuspendButton" text="Suspend">
+      <Button layoutX="404.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleSuspendButton" prefHeight="22.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Suspend">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -52,10 +55,13 @@
       <Label fx:id="loginAttemptCnt" layoutX="426.0" layoutY="467.0" text="loginAttemptCnt" textFill="#93b39a" />
       <Label fx:id="reasonLabel" layoutX="384.0" layoutY="449.0" text="reasonLabel" textFill="#93b39a" />
       <Label layoutX="261.0" layoutY="489.0" text="Add reason of suspension:" textFill="#93b39a" />
-      <Button layoutX="699.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleRestoreButton" prefHeight="41.0" prefWidth="77.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
+      <Button layoutX="699.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleRestoreButton" prefHeight="41.0" prefWidth="77.0" styleClass="button1" stylesheets="@../../cssStyle/style.css" text="Restore">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font></Button>
       <Label fx:id="errorMsgLabel" layoutX="266.0" layoutY="569.0" text="errorMsgLabel" textFill="RED" />
       <ListView fx:id="inappropriateActivitiesListView" layoutX="268.0" layoutY="326.0" prefHeight="94.0" prefWidth="259.0" />
    </children>

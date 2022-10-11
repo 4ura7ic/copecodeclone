@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.MyReportFormController">
    <children>
@@ -17,21 +18,24 @@
             <Image url="@images/myRepo.png" />
          </image>
       </ImageView>
-      <Button layoutX="12.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="39.0" prefWidth="76.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <Rectangle fx:id="barOne" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="36.0" layoutX="60.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="681.0" />
       <Rectangle fx:id="barTwo" arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="47.0" layoutX="60.0" layoutY="129.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="681.0" />
       <Label fx:id="topicLabel" layoutX="80.0" layoutY="101.0" text="topic" />
       <Label fx:id="categoryLabel" layoutX="70.0" layoutY="174.0" text="category" />
-      <Label fx:id="rateLabel" layoutX="513.0" layoutY="127.0" prefHeight="17.0" prefWidth="47.0" text="rate" />
+      <Label fx:id="rateLabel" layoutX="492.0" layoutY="144.0" prefHeight="17.0" prefWidth="47.0" text="rate" />
       <ListView fx:id="yourReportListView" layoutX="70.0" layoutY="330.0" prefHeight="207.0" prefWidth="501.0" />
-      <ComboBox fx:id="categoryBox" layoutX="587.0" layoutY="348.0" prefWidth="150.0" promptText="All" />
-      <ComboBox fx:id="sortBox" layoutX="587.0" layoutY="421.0" prefWidth="150.0" promptText="Oldest" />
+      <ComboBox fx:id="categoryBox" layoutX="587.0" layoutY="348.0" prefWidth="150.0" promptText="All" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="sortBox" layoutX="587.0" layoutY="421.0" prefWidth="150.0" promptText="Oldest" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
       <ScrollPane fx:id="descriptionPane" layoutX="60.0" layoutY="179.0" prefHeight="138.0" prefWidth="681.0">
          <content>
             <Label fx:id="descriptionLabel" text="Label" />
          </content>
       </ScrollPane>
-      <Label fx:id="dateLabel" layoutX="293.0" layoutY="127.0" text="date" />
+      <Button layoutX="12.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="39.0" prefWidth="76.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Label fx:id="dateLabel" layoutX="274.0" layoutY="144.0" text="date" />
       <Label fx:id="popUpLabel" alignment="CENTER" layoutX="148.0" layoutY="194.0" prefHeight="17.0" prefWidth="526.0" text="popUp" />
       <Label layoutX="587.0" layoutY="330.0" text="Category" textFill="WHITE" />
       <Label layoutX="587.0" layoutY="404.0" text="SortBy" textFill="WHITE" />

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.accountOrganizer.RegisterFormController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.accountOrganizer.RegisterFormController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -16,24 +20,30 @@
       <TextField fx:id="usernameTextField" layoutX="346.0" layoutY="167.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter username" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="nameTextField" layoutX="346.0" layoutY="342.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter name" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="surnameTextField" layoutX="346.0" layoutY="399.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter surname" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="607.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="50.0" prefWidth="81.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
+      <Button layoutX="610.0" layoutY="495.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="30.0" prefWidth="81.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Create">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button layoutX="711.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="39.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" textFill="#84a98c">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <font>
+            <Font size="15.0" />
+         </font></Button>
       <PasswordField fx:id="passwordTextField" layoutX="346.0" layoutY="225.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter Password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <Label fx:id="errorMsgLabel" layoutX="233.0" layoutY="419.0" textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="222.0" layoutY="499.0" mnemonicParsing="false" onAction="#chooseImageButton" styleClass="userPassword" stylesheets="@../../cssStyle/style.css" text="Choose Image">
+      <Button layoutX="207.0" layoutY="499.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="22.0" prefWidth="99.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose Image">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <Button layoutX="711.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="39.0" prefWidth="75.0" styleClass="button2" stylesheets="@../../cssStyle/style.css" text="Back" textFill="#84a98c">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font></Button>
       <ImageView fx:id="image" fitHeight="113.0" fitWidth="147.0" layoutX="346.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true" />
       <PasswordField fx:id="confirmTextField" layoutX="346.0" layoutY="287.0" prefHeight="39.0" prefWidth="258.0" promptText="Confirm password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
    </children>

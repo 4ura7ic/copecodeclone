@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.ProfileFormController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.ProfileFormController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Profile.png" />
          </image>
       </ImageView>
-      <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="41.0" prefWidth="75.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
       <ImageView fx:id="image" fitHeight="243.0" fitWidth="207.0" layoutX="14.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="usernameLabel" layoutX="258.0" layoutY="94.0" text="usernameLabel" textFill="#93b39a">
          <font>
@@ -33,13 +31,26 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="258.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="41.0" prefWidth="100.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
+      <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="41.0" prefWidth="75.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button layoutX="364.0" layoutY="545.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="41.0" prefWidth="100.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button layoutX="258.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="41.0" prefWidth="100.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset password">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button layoutX="364.0" layoutY="545.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="41.0" prefWidth="100.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Change Image">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

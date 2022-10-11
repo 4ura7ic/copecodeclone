@@ -5,3 +5,140 @@
 .transparent{
     -fx-background-color: rgba(0,0,0,0);
 }
+.button1{
+    -fx-background-color: #84a98c;
+    -fx-background-radius: 30 150 150 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+}
+.button1:hover{
+
+    -fx-background-color: #c6ffd2;
+    -fx-background-radius: 30 150 150 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.button1:pressed {
+    -fx-background-color: #84a98c;
+    -fx-background-radius: 30 150 150 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+
+}
+
+.button1flip{
+    -fx-background-color: #84a98c;
+    -fx-background-radius: 150 30 30 150;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.button1flip:hover{
+
+    -fx-background-color: #c6ffd2;
+    -fx-background-radius: 150 30 30 150;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+
+}
+.button1flip:pressed {
+    -fx-background-color: #84a98c;
+    -fx-background-radius: 150 30 30 150;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+
+}
+
+.button2{
+    -fx-background-color: #2c3333;
+    -fx-background-radius: 150 30 30 150;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.button2:hover{
+    -fx-background-color: #444949;
+    -fx-background-radius: 150 30 30 150;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.button2:pressed{
+    -fx-background-color: #2c3333;
+    -fx-background-radius: 150 30 30 150;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+
+.button2flip{
+    -fx-background-color: #2c3333;
+    -fx-background-radius: 30 150 150 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.button2flip:hover{
+    -fx-background-color: #444949;
+    -fx-background-radius: 30 150 150 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.button2flip:pressed{
+    -fx-background-color: #2c3333;
+    -fx-background-radius: 30 150 150 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+
+.allpurposeButton{
+    -fx-background-color: #adadad;
+    -fx-background-radius: 30 30 30 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.allpurposeButton:hover{
+    -fx-background-color: #d2d3d3;
+    -fx-background-radius: 30 30 30 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.allpurposeButton:pressed{
+    -fx-background-color: #adadad;
+    -fx-background-radius: 30 30 30 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+
+.allpurposeButtonGreen{
+    -fx-background-color: #5c7561;
+    -fx-background-radius: 10 10 10 10;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.allpurposeButtonGreen:hover{
+    -fx-background-color: #84a98c;
+    -fx-background-radius: 10 10 10 10;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+.allpurposeButtonGreen:pressed{
+    -fx-background-color: #5c7561;
+    -fx-background-radius: 10 10 10 10;
+    -fx-font-family: "Tw Cen MT";
+    -fx-cursor: HAND;
+
+}
+
+
