@@ -33,18 +33,6 @@ public class Report {
         this.votedUser = new ArrayList<>();
     }
 
-//    public Report(String topic, String date, String category, String description, String solution, String authorUser, int vote, boolean check, ArrayList<String> votedUser) {
-//        this.topic = topic;
-//        this.date = date;
-//        this.category = category;
-//        this.description = description;
-//        this.solution = solution;
-//        this.authorUser = authorUser;
-//        this.vote = vote;
-//        this.check = check;
-//        this.votedUser = votedUser;
-//    }
-
     public Report(){
         this("","","","","",0,false);
     }

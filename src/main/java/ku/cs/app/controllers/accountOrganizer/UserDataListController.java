@@ -6,16 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import ku.cs.app.models.Report;
-import ku.cs.app.models.ReportList;
 import ku.cs.app.models.User;
 import ku.cs.app.models.UserList;
 import ku.cs.app.services.DataSource;
-import ku.cs.app.services.ReportListHardCodeSource;
 import ku.cs.app.services.UserDataListFileDataSource;
-import ku.cs.app.services.UserDataListHardCodeDataSource;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import com.github.saacsos.FXRouter;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +50,7 @@ public class UserDataListController {
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("main_admin_form");
+            FXRouter.goTo("main_admin_form");
         } catch (IOException e){
             System.err.println("err ไป main_admin_form ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
@@ -63,7 +60,7 @@ public class UserDataListController {
     @FXML
     public void handleActivityLog(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("activity_log");
+            FXRouter.goTo("activity_log");
         } catch (IOException e){
             System.err.println("err ไป formData ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

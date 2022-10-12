@@ -48,8 +48,6 @@ public class RegisterFormController {
         System.out.println("initialize MemberCardDetailController");
         image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "rickroll.gif"));
 
-    //        DataSource<UserDataList> dataSource = new UserDataListFileDataSource("data", "user.csv");
-    //        userList = dataSource.readData();
     }
 
     //-------------------------------------------- handle
@@ -57,7 +55,7 @@ public class RegisterFormController {
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("login_form");
+            FXRouter.goTo("login_form");
         } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

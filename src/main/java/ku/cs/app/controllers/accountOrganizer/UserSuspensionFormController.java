@@ -71,7 +71,7 @@ public class UserSuspensionFormController {
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("main_admin_form");
+            FXRouter.goTo("main_admin_form");
         } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

@@ -7,6 +7,7 @@ import ku.cs.app.models.Activity;
 import ku.cs.app.models.ActivityLog;
 import ku.cs.app.services.ActivityLogDataSource;
 import ku.cs.app.services.DataSource;
+import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -32,7 +33,7 @@ public class LogDataFormController {
 
     @FXML public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("user_data_list");
+            FXRouter.goTo("user_data_list");
         } catch (IOException e){
             System.err.println("err ไป userList ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

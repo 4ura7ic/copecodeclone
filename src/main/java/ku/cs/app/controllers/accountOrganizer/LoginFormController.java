@@ -139,7 +139,7 @@ public class LoginFormController {
     }
     public void handleCredit(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("credit");
+            FXRouter.goTo("credit");
         } catch (IOException e){
             System.err.println("err ไป credit ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

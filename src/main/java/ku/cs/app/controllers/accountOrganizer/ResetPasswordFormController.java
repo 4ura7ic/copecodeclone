@@ -9,6 +9,7 @@ import ku.cs.app.models.UserList;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 import java.io.IOException;
+import com.github.saacsos.FXRouter;
 
 public class ResetPasswordFormController {
     //-------------------------------------------- FXML
@@ -37,7 +38,7 @@ public class ResetPasswordFormController {
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("main_user_form");
+            FXRouter.goTo("login_form");
         } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
@@ -65,7 +66,7 @@ public class ResetPasswordFormController {
                             dataSource.writeData(list);
 
                             try {
-                                com.github.saacsos.FXRouter.goTo("login_form");
+                                FXRouter.goTo("login_form");
                             } catch (IOException e) {
                                 System.err.println("err ไป project ไม่ได้");
                                 System.err.println("ให้ตรวจสอบการกําหนด route");
