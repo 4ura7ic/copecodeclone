@@ -21,7 +21,7 @@
       <TextField fx:id="confirmTextField" layoutX="88.0" layoutY="257.0" prefHeight="43.0" prefWidth="270.0" promptText="confirm password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="nameTextField" layoutX="88.0" layoutY="325.0" prefHeight="43.0" prefWidth="270.0" promptText="name" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="surnameTextField" layoutX="88.0" layoutY="391.0" prefHeight="43.0" prefWidth="270.0" promptText="surname" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="441.0" layoutY="120.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="36.0" prefWidth="107.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose image">
+      <Button layoutX="435.0" layoutY="120.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="36.0" prefWidth="113.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose image">
          <font>
             <Font size="15.0" />
          </font></Button>

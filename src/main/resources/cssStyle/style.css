@@ -120,25 +120,26 @@
 }
 
 .allpurposeButtonGreen{
-    -fx-background-color: #5c7561;
+    -fx-background-color: #97bd9d;
     -fx-background-radius: 10 10 10 10;
     -fx-font-family: "Tw Cen MT";
+    -fx-text-fill: #000000;
     -fx-cursor: HAND;
 
 }
 .allpurposeButtonGreen:hover{
-    -fx-background-color: #84a98c;
+    -fx-background-color: #bcd5c3;
     -fx-background-radius: 10 10 10 10;
+    -fx-text-fill: #000000;
     -fx-font-family: "Tw Cen MT";
     -fx-cursor: HAND;
 
 }
-.allpurposeButtonGreen:pressed{
-    -fx-background-color: #5c7561;
+.allpurposeButtonGreen:pressed {
+    -fx-background-color: #97bd9d;
     -fx-background-radius: 10 10 10 10;
+    -fx-text-fill: #000000;
     -fx-font-family: "Tw Cen MT";
     -fx-cursor: HAND;
-
 }
-
 
