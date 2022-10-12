@@ -21,16 +21,16 @@
             <Image url="@images/agentHome.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="barOne" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="36.0" layoutX="24.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="625.0" />
-      <Rectangle fx:id="barTwo" arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="30.0" layoutX="24.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="625.0" />
-      <Button layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="83.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT" textAlignment="CENTER">
+      <Rectangle fx:id="barOne" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="35.0" layoutX="25.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
+      <Rectangle fx:id="barTwo" arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="30.0" layoutX="25.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
+      <Button layoutX="680.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="85.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT" textAlignment="CENTER">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font size="14.0" />
+            <Font size="15.0" />
          </font></Button>
-      <ListView fx:id="inProgressListView" layoutX="24.0" layoutY="326.0" prefHeight="215.0" prefWidth="311.0" />
+      <ListView fx:id="inProgressListView" layoutX="24.0" layoutY="326.0" prefHeight="214.0" prefWidth="311.0" />
       <Button layoutX="735.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleProfile" prefHeight="44.0" prefWidth="50.0" style="-fx-background-radius: 30 30 30 30;" styleClass="transparent" stylesheets="@../../cssStyle/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -53,9 +53,9 @@
          <font>
             <Font size="22.0" />
          </font></Label>
-      <ScrollPane fx:id="descriptionPane" layoutX="25.0" layoutY="151.0" prefHeight="148.0" prefWidth="516.0">
+      <ScrollPane fx:id="descriptionPane" layoutX="25.0" layoutY="151.0" prefHeight="149.0" prefWidth="623.0">
          <content>
-            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="144.0" prefWidth="513.0" text="descriptionLabel" />
+            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="144.0" prefWidth="619.0" text="descriptionLabel" />
          </content>
       </ScrollPane>
       <Accordion layoutX="290.0" layoutY="188.0" />
@@ -68,22 +68,22 @@
          <font>
             <Font size="22.0" />
          </font></Label>
-      <ListView fx:id="finishReportListView" layoutX="357.0" layoutY="326.0" prefHeight="215.0" prefWidth="290.0" />
-      <Button fx:id="reportButton" layoutX="617.0" layoutY="236.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="20.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="!">
+      <ListView fx:id="finishReportListView" layoutX="336.0" layoutY="326.0" prefHeight="214.0" prefWidth="312.0" />
+      <Button fx:id="reportButton" layoutX="735.0" layoutY="170.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="20.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="!">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="voteButton" layoutX="597.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleVoteButton" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote">
+      <Button fx:id="voteButton" layoutX="707.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleVoteButton" prefHeight="44.0" prefWidth="56.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
       <Label layoutX="658.0" layoutY="342.0" text="SortBy" textFill="WHITE" />
-      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="365.0" prefHeight="26.0" prefWidth="128.0" promptText="Newest" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="365.0" prefHeight="26.0" prefWidth="128.0" promptText="Newest" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="25.0" layoutX="24.0" layoutY="304.0" stroke="BLACK" strokeType="INSIDE" width="625.0" />
       <Label layoutX="37.0" layoutY="308.0" text="In progress reports" />
       <Label layoutX="368.0" layoutY="308.0" text="accomplished report" />
-      <Button fx:id="FinishButton" layoutX="588.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleFinishButton" prefHeight="25.0" prefWidth="50.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Finish" />
+      <Button fx:id="FinishButton" layoutX="707.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleFinishButton" prefHeight="44.0" prefWidth="56.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Finish" />
    </children>
 </AnchorPane>

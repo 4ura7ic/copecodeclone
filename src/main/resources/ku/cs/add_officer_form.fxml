@@ -32,9 +32,12 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button layoutX="611.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="36.0" prefWidth="74.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
+      <Button layoutX="611.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="36.0" prefWidth="74.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Add">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
       <ImageView fx:id="image1" fitHeight="183.0" fitWidth="179.0" layoutX="441.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
-      <ComboBox fx:id="inChargeBox" layoutX="441.0" layoutY="365.0" prefWidth="150.0" promptText="select charge" />
+      <ComboBox fx:id="inChargeBox" layoutX="441.0" layoutY="365.0" prefWidth="150.0" promptText="select charge" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
       <Label fx:id="errorMsgLabel" layoutX="88.0" layoutY="459.0" text="errorMsgLabel" />
    </children>
 </AnchorPane>
