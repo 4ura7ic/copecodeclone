@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
@@ -24,6 +25,7 @@ public class MainUserFormController {
 
     @FXML private ComboBox categoryBox;
     @FXML private ComboBox sortBox;
+    @FXML private Pane solutionPane;
     @FXML private ScrollPane descriptionPane;
     @FXML private Rectangle barOne;
     @FXML private Rectangle barTwo;
@@ -32,8 +34,10 @@ public class MainUserFormController {
     @FXML private Label nameLabel;
     @FXML private Label topicLabel;
     @FXML private Label dateLabel;
+    @FXML private Label solutionLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
+    @FXML private Button viewSolutionButton;
     @FXML private Button reportButton;
     @FXML private Button voteButton;
     @FXML private ListView<Report> inProgressListView;
@@ -180,6 +184,15 @@ public class MainUserFormController {
         }
     }
 
+    @FXML public void handleViewSolutionButton(ActionEvent actionEvent){
+        solutionPane.setVisible(true);
+        solutionLabel.setText(rp.getSolution());
+    }
+
+    @FXML public void handleOKButton(ActionEvent actionEvent){
+        solutionPane.setVisible(false);
+    }
+
     //-------------------------------------------- method
 
     private void showUserData(){
@@ -187,6 +200,10 @@ public class MainUserFormController {
     }
     private void showSelectedReport(Report report){
         if(report!=null) {
+            if(report.isCheck())
+                viewSolutionButton.setVisible(true);
+            else
+                viewSolutionButton.setVisible(false);
             rp = report;
             barOne.setVisible(true);
             barTwo.setVisible(true);
@@ -215,6 +232,8 @@ public class MainUserFormController {
         barTwo.setVisible(false);
         reportButton.setVisible(false);
         voteButton.setVisible(false);
+        viewSolutionButton.setVisible(false);
+        solutionPane.setVisible(false);
         topicLabel.setText("");
         dateLabel.setText("");
         categoryLabel.setText("");

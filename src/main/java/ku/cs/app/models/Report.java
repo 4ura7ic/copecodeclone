@@ -18,22 +18,23 @@ public class Report {
     //-------------------------------------------- constructor
 
     public Report(String authorUser, String topic, String date, String category, String description) {
-        this(authorUser,topic,date,category,description,0,false);
+        this(authorUser,topic,date,category,description, "",0,false);
     }
 
-    public Report(String authorUser, String topic, String date, String category, String description,int vote,boolean check){
+    public Report(String authorUser, String topic, String date, String category, String description, String solution,int vote,boolean check){
         this.authorUser = authorUser;
         this.topic = topic;
         this.date = date;
         this.category = category;
         this.description = description;
+        this.solution = solution;
         this.vote = vote;
         this.check = check;
         this.votedUser = new ArrayList<>();
     }
 
     public Report(){
-        this("","","","","",0,false);
+        this("","","","","","",0,false);
     }
 
     //-------------------------------------------- getter
@@ -41,6 +42,7 @@ public class Report {
     public String getTopic(){return topic;}
     public String getDate(){return date;}
     public String getDescription() {return description;}
+    public String getSolution() {return solution;}
     public String getCategory() {return category;}
     public int getVote() {
         return vote;

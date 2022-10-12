@@ -35,19 +35,20 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
             String line = "";
             while ((line = buffer.readLine()) != null){
                 String[] data = line.split("\\|");
-                if (data.length == 7) {
+                if (data.length == 8) {
                     Report report = new Report(
                             data[0].trim(),
                             data[1].trim(),
                             data[2].trim(),
                             data[3].trim(),
                             data[4].trim(),
-                            Integer.parseInt(data[5]),
-                            Boolean.parseBoolean(data[6])
+                            data[5].trim(),
+                            Integer.parseInt(data[6]),
+                            Boolean.parseBoolean(data[7])
                     );
                     list.addReport(report);
                 }
-                else if (data.length == 8) {
+                else if (data.length == 9) {
 
                     Report report = new Report(
                             data[0].trim(),
@@ -55,11 +56,12 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                             data[2].trim(),
                             data[3].trim(),
                             data[4].trim(),
-                            Integer.parseInt(data[5]),
-                            Boolean.parseBoolean(data[6])
+                            data[5].trim(),
+                            Integer.parseInt(data[6]),
+                            Boolean.parseBoolean(data[7])
                     );
                     ArrayList<String> allVotedUser = new ArrayList<>();
-                    String[] votedUserData = data[7].split(",");
+                    String[] votedUserData = data[8].split(",");
                     for (String s : votedUserData) {
                         allVotedUser.add(s);
                     }
@@ -101,6 +103,7 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                         + report.getDate()+"|"
                         + report.getCategory()+"|"
                         + report.getDescription()+"|"
+                        + report.getSolution()+"|"
                         + report.getVote()+"|"
                         + report.isCheck() + "|";
                     for (String s : report.getVotedUser()) {

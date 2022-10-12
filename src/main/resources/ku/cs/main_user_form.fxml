@@ -11,6 +11,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -84,11 +85,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ScrollPane>
-      <Label fx:id="popUpLabel" alignment="CENTER" layoutX="24.0" layoutY="197.0" prefHeight="82.0" prefWidth="623.0" text="---" visible="false">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
       <Button fx:id="reportButton" layoutX="706.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="22.0" prefWidth="56.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="!">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -99,6 +95,31 @@
       <Rectangle fx:id="barOne1" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="23.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="313.0" />
       <Label layoutX="33.0" layoutY="335.0" text="In progress reports" />
       <Label layoutX="346.0" layoutY="335.0" text="accomplished report" />
-      <Button layoutX="678.0" layoutY="261.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View Solution" />
+      <Button fx:id="viewSolutionButton" layoutX="678.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleViewSolutionButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View Solution" />
+      <Label fx:id="popUpLabel" alignment="CENTER" layoutX="24.0" layoutY="150.0" prefHeight="82.0" prefWidth="623.0" text="---">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Pane fx:id="solutionPane" layoutX="96.0" layoutY="212.0" prefHeight="200.0" prefWidth="524.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="524.0" />
+            <Button layoutX="450.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleOKButton" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="OK">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="13.0" layoutY="14.0" text="Solution" textFill="#cdffd7">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="13.0" layoutY="46.0" prefHeight="87.0" prefWidth="495.0">
+               <content>
+                  <Label fx:id="solutionLabel" alignment="TOP_LEFT" prefHeight="85.0" prefWidth="490.0" text="solutionLabel" />
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
