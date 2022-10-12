@@ -91,11 +91,11 @@ public class MyReportFormController {
     @FXML public void handleBackButton(ActionEvent actionEvent){
         try {
             if(user.getRole().equals("admin"))
-                com.github.saacsos.FXRouter.goTo("main_admin_form");
+                FXRouter.goTo("main_admin_form");
             if(user.getRole().equals("officer"))
-                com.github.saacsos.FXRouter.goTo("main_officer_form");
+                FXRouter.goTo("main_officer_form");
             if(user.getRole().equals("user")){
-                com.github.saacsos.FXRouter.goTo("main_user_form");
+                FXRouter.goTo("main_user_form");
             }
         } catch (IOException e) {
             System.err.println("err ไป project ไม่ได้");

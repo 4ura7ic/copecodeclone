@@ -1,10 +1,8 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.*;
-
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class InappropriateUserListFileDataSource implements DataSource<InappropriateUserList>{
     private String directoryName;

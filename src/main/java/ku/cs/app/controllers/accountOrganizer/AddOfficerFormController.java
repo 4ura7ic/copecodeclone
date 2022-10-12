@@ -82,19 +82,12 @@ public class AddOfficerFormController {
                     if (errorMsg == ""){
                         officerDetail = new Officer(usernameTextField.getText(),new Password(passwordTextField.getText()),nameTextField.getText(),surnameTextField.getText(),(String) inChargeBox.getValue());
                         officerDetail.setPhoto(imageName);
-//                        officerDetail.setUsername(usernameTextField.getText());
-//                        officerDetail.setPassword(passwordTextField.getText());
-//                        officerDetail.setName(nameTextField.getText());
-//                        officerDetail.setSurname(surnameTextField.getText());
-//                        officerDetail.setPhoto(imageName);
-//                        officerDetail.setInCharge((String) inChargeBox.getValue());
                         clearAllTextField();
                         try {
                             DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
                             UserList list = dataSource.readData();
                             list.addUser(officerDetail);
                             dataSource.writeData(list);
-
 //                            admin.createOfficer(newOfficer.getUsername(), new Password(newOfficer.getPassword()), newOfficer.getName(), newOfficer.getSurname(), (String) chargeInBox.getValue());
                             FXRouter.goTo("main_admin_form");
                         }catch (IOException e) {

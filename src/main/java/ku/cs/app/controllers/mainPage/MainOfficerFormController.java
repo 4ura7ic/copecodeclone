@@ -12,7 +12,6 @@ import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Officer;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
-import ku.cs.app.models.User;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListFileDataSource;
 import com.github.saacsos.FXRouter;
@@ -107,7 +106,7 @@ public class MainOfficerFormController {
     @FXML
     public void handleLogOut(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("login_form");
+            FXRouter.goTo("login_form");
         } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
@@ -116,7 +115,7 @@ public class MainOfficerFormController {
     @FXML
     public void handleProfile(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("profile_form",user);
+            FXRouter.goTo("profile_form",user);
         } catch (IOException e){
             System.err.println("err ไป profile ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

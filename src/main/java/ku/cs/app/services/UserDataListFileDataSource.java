@@ -1,7 +1,6 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.*;
-
 import java.io.*;
 
 public class UserDataListFileDataSource implements DataSource<UserList>{

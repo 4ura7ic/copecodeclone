@@ -1,4 +1,5 @@
 package ku.cs.app.services;
+
 import ku.cs.app.models.User;
 import ku.cs.app.models.UserList;
 

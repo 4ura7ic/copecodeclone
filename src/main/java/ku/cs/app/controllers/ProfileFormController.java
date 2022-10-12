@@ -14,7 +14,7 @@ import ku.cs.app.models.User;
 import ku.cs.app.models.UserList;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
-
+import com.github.saacsos.FXRouter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -71,11 +71,11 @@ public class ProfileFormController {
     public void handleBackButton(ActionEvent actionEvent) {
         try {
             if(user.getRole().equals("admin"))
-                com.github.saacsos.FXRouter.goTo("main_admin_form");
+                FXRouter.goTo("main_admin_form");
             if(user.getRole().equals("officer"))
-                com.github.saacsos.FXRouter.goTo("main_officer_form");
+                FXRouter.goTo("main_officer_form");
             if(user.getRole().equals("user")){
-                com.github.saacsos.FXRouter.goTo("main_user_form");
+                FXRouter.goTo("main_user_form");
             }
         } catch (IOException e) {
             System.err.println("err ไป project ไม่ได้");
@@ -85,7 +85,7 @@ public class ProfileFormController {
     @FXML
     public void handleResetPassword(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("reset_password_form");
+            FXRouter.goTo("reset_password_form");
         } catch (IOException e) {
             System.err.println("err ไป reset ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");

@@ -1,6 +1,6 @@
 package ku.cs.app.models;
-import ku.cs.app.services.Sorter;
 
+import ku.cs.app.services.Sorter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

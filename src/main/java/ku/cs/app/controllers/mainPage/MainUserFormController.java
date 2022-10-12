@@ -18,7 +18,6 @@ import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainUserFormController {
     //-------------------------------------------- FXML

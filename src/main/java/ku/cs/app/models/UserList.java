@@ -1,4 +1,5 @@
 package ku.cs.app.models;
+
 import java.util.ArrayList;
 
 public class UserList {

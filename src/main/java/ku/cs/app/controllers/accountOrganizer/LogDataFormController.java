@@ -10,7 +10,6 @@ import ku.cs.app.services.DataSource;
 import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
-import java.util.Collection;
 
 public class LogDataFormController {
     //-------------------------------------------- FXML

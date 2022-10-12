@@ -1,7 +1,6 @@
 package ku.cs.app.models;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class Report {
     //-------------------------------------------- instance

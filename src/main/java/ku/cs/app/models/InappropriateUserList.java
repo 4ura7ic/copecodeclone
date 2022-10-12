@@ -1,7 +1,5 @@
 package ku.cs.app.models;
 
-import javafx.event.ActionEvent;
-
 import java.util.ArrayList;
 
 public class InappropriateUserList {

@@ -107,7 +107,7 @@ public class MainAdminFormController {
     @FXML
     public void handleLogOut(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("login_form");
+            FXRouter.goTo("login_form");
         } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
@@ -116,7 +116,7 @@ public class MainAdminFormController {
     @FXML
     public void handleUserList(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("user_data_list");
+            FXRouter.goTo("user_data_list");
         } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
@@ -126,7 +126,7 @@ public class MainAdminFormController {
     @FXML
     public void handleProfile(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("profile_form",user);
+            FXRouter.goTo("profile_form",user);
         } catch (IOException e){
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
