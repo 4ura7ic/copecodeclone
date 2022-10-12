@@ -21,9 +21,10 @@
             <Image url="@images/userHome.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="barOne" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="36.0" layoutX="25.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
-      <Rectangle fx:id="barTwo" arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="30.0" layoutX="25.0" layoutY="123.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
-      <Button layoutX="11.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="85.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT">
+      <Rectangle fx:id="barOne" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="36.0" layoutX="24.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
+      <Rectangle fx:id="barOne11" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="338.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="315.0" />
+      <Rectangle fx:id="barTwo" arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="30.0" layoutX="24.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
+      <Button layoutX="680.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="85.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -34,69 +35,70 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label fx:id="nameLabel" alignment="CENTER" layoutX="577.0" layoutY="14.0" prefHeight="27.0" prefWidth="150.0" text="nameLabel" textFill="#84a98c">
+      <Label fx:id="nameLabel" alignment="CENTER" layoutX="584.0" layoutY="18.0" prefHeight="27.0" prefWidth="150.0" text="nameLabel" textFill="#84a98c">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="categoryBox" layoutX="659.0" layoutY="356.0" prefHeight="26.0" prefWidth="128.0" promptText="All" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
-      <ComboBox fx:id="sortBox" layoutX="659.0" layoutY="419.0" prefHeight="26.0" prefWidth="128.0" promptText="Oldest" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="659.0" layoutY="90.0" mnemonicParsing="false" onAction="#handleAssignReportButton" prefHeight="56.0" prefWidth="128.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Assign Report">
+      <ComboBox fx:id="categoryBox" layoutX="659.0" layoutY="384.0" prefHeight="26.0" prefWidth="128.0" promptText="All" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="447.0" prefHeight="26.0" prefWidth="128.0" promptText="Oldest" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
+      <Button layoutX="128.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleAssignReportButton" prefHeight="36.0" prefWidth="128.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Assign Report">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="17.0" />
          </font></Button>
-      <Label fx:id="topicLabel" layoutX="34.0" layoutY="86.0" prefHeight="17.0" prefWidth="344.0" text="topicLabel">
+      <Label fx:id="topicLabel" layoutX="33.0" layoutY="81.0" prefHeight="17.0" prefWidth="344.0" text="topicLabel">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Label fx:id="categoryLabel" layoutX="34.0" layoutY="128.0" prefHeight="17.0" prefWidth="344.0" text="categoryLabel">
+      <Label fx:id="categoryLabel" layoutX="33.0" layoutY="123.0" prefHeight="17.0" prefWidth="344.0" text="categoryLabel">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Label fx:id="dateLabel" alignment="CENTER_RIGHT" layoutX="429.0" layoutY="85.0" prefHeight="17.0" prefWidth="209.0" text="dateLabel">
+      <Label fx:id="dateLabel" alignment="CENTER_RIGHT" layoutX="428.0" layoutY="80.0" prefHeight="32.0" prefWidth="218.0" text="dateLabel">
          <font>
             <Font size="22.0" />
          </font></Label>
-      <Accordion layoutX="270.0" layoutY="188.0" prefWidth="20.0" />
-      <Separator layoutX="47.0" layoutY="313.0" prefHeight="3.0" prefWidth="559.0" />
-      <Label fx:id="rateLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="542.0" layoutY="123.0" prefHeight="27.0" prefWidth="105.0" text="rate">
+      <Accordion layoutX="269.0" layoutY="216.0" prefWidth="20.0" />
+      <Separator layoutX="58.0" layoutY="331.0" prefHeight="3.0" prefWidth="559.0" />
+      <Label fx:id="rateLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="541.0" layoutY="118.0" prefHeight="32.0" prefWidth="101.0" text="rate">
          <font>
             <Font size="22.0" />
          </font></Label>
-      <ListView fx:id="finishReportListView" layoutX="347.0" layoutY="337.0" prefHeight="203.0" prefWidth="300.0" />
-      <ListView fx:id="inProgressListView" layoutX="25.0" layoutY="337.0" prefHeight="203.0" prefWidth="300.0" />
-      <Button layoutX="659.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleYourReport" prefHeight="56.0" prefWidth="121.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="My Report">
+      <ListView fx:id="finishReportListView" layoutX="339.0" layoutY="365.0" prefHeight="200.0" prefWidth="315.0" />
+      <ListView fx:id="inProgressListView" layoutX="24.0" layoutY="365.0" prefHeight="200.0" prefWidth="315.0" />
+      <Button layoutX="23.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleYourReport" prefHeight="32.0" prefWidth="89.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="My Report">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="voteButton" layoutX="587.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleVoteButton" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote">
+      <Button fx:id="voteButton" layoutX="707.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleVoteButton" prefHeight="44.0" prefWidth="56.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ScrollPane fx:id="descriptionPane" layoutX="25.0" layoutY="154.0" prefHeight="145.0" prefWidth="532.0">
+      <ScrollPane fx:id="descriptionPane" layoutX="23.0" layoutY="150.0" prefHeight="176.0" prefWidth="630.0">
          <content>
-            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="139.0" prefWidth="516.0" text="descriptionLabel" wrapText="true" />
+            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="173.0" prefWidth="620.0" text="descriptionLabel" wrapText="true" />
          </content>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ScrollPane>
-      <Label fx:id="popUpLabel" alignment="CENTER" layoutX="25.0" layoutY="170.0" prefHeight="82.0" prefWidth="623.0" text="---">
+      <Label fx:id="popUpLabel" alignment="CENTER" layoutX="24.0" layoutY="197.0" prefHeight="82.0" prefWidth="623.0" text="---" visible="false">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="reportButton" layoutX="607.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="17.0" prefWidth="20.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="!">
+      <Button fx:id="reportButton" layoutX="710.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="22.0" prefWidth="48.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="!">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label layoutX="659.0" layoutY="331.0" text="Category" textFill="WHITE" />
-      <Label layoutX="659.0" layoutY="396.0" text="SortBy" textFill="WHITE" />
-      <Rectangle fx:id="barOne1" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="25.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" width="623.0" />
-      <Label layoutX="34.0" layoutY="315.0" text="In progress reports" />
-      <Label layoutX="355.0" layoutY="315.0" text="accomplished report" />
+      <Label layoutX="658.0" layoutY="359.0" text="Category" textFill="WHITE" />
+      <Label layoutX="658.0" layoutY="424.0" text="SortBy" textFill="WHITE" />
+      <Rectangle fx:id="barOne1" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="24.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="315.0" />
+      <Label layoutX="33.0" layoutY="343.0" text="In progress reports" />
+      <Label layoutX="365.0" layoutY="343.0" text="accomplished report" />
+      <Button layoutX="673.0" layoutY="279.0" mnemonicParsing="false" text="View Solution" />
    </children>
 </AnchorPane>
