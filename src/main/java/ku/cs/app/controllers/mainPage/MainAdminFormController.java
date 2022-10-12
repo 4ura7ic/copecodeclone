@@ -44,7 +44,7 @@ public class MainAdminFormController {
     private ReportList list;
     private User user;
     private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
-    private String[] sortBy = {"Newest","Oldest","Most Vote","Least Vote"};
+    private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
     private Report rp = new Report();
 
     //-------------------------------------------- noModifier

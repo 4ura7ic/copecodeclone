@@ -32,8 +32,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="categoryBox" layoutX="658.0" layoutY="339.0" prefHeight="26.0" prefWidth="131.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
-      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="381.0" prefHeight="26.0" prefWidth="131.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="categoryBox" layoutX="658.0" layoutY="360.0" prefHeight="26.0" prefWidth="131.0" promptText="All" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="432.0" prefHeight="26.0" prefWidth="131.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" />
       <Button layoutX="656.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleSuspendManagerButton" prefHeight="54.0" prefWidth="131.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Suspend Officer">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -94,5 +94,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="25.0" layoutX="24.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="625.0" />
       <Label layoutX="34.0" layoutY="319.0" text="In progress reports" />
       <Label layoutX="377.0" layoutY="317.0" text="accomplished report" />
+      <Label layoutX="669.0" layoutY="341.0" text="Category" textFill="WHITE" />
+      <Label layoutX="669.0" layoutY="406.0" text="SortBy" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -46,7 +46,7 @@ public class MainOfficerFormController {
     private Officer user;
     private Object object;
     private Officer officer;
-    private String[] sortBy = {"Newest","Oldest","Most Vote","Least Vote"};
+    private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
     private Report rp = new Report();
 
     //-------------------------------------------- noModifier
