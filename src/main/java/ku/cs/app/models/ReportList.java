@@ -20,15 +20,6 @@ public class ReportList {
         return rpt;
     }
 
-    public ArrayList<Report> sortYourReport(String key){
-        ArrayList<Report> tmpReport = new ArrayList<>();
-        for(Report report: rpt){
-            if(report.getAuthorUser().equals(key)){
-                tmpReport.add(report);
-            }
-        }
-        return tmpReport;
-    }
     public ArrayList<Report> sortInProgressReport(){
         ArrayList<Report> tmpReport = new ArrayList<>();
         for(Report report: rpt){
@@ -117,6 +108,15 @@ public class ReportList {
             });
         }
         return reports;
+    }
+
+    public ArrayList<Report> sortByVoteOfReport(int amount, ArrayList<Report> reports){
+        ArrayList<Report> tmpReport = new ArrayList<>();
+        for(Report report: reports){
+            if(report.getVote()>=amount)
+                tmpReport.add(report);
+        }
+        return tmpReport;
     }
 
     @Override

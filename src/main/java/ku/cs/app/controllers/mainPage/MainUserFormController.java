@@ -40,6 +40,7 @@ public class MainUserFormController {
     @FXML private Button viewSolutionButton;
     @FXML private Button reportButton;
     @FXML private Button voteButton;
+    @FXML private TextField amountVoteField;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
 
@@ -181,6 +182,16 @@ public class MainUserFormController {
             System.err.println("err ไป assign ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
             e.printStackTrace();
+        }
+    }
+
+    @FXML public void handleSortVote(ActionEvent actionEvent){
+        if(Integer.parseInt(amountVoteField.getText())>=0) {
+            inProgressListView.getItems().clear();
+            inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(amountVoteField.getText()), list.sortTimeReport((String) sortBox.getValue(), list.sortInProgressReportByCategory((String) categoryBox.getValue()))));
+            finishReportListView.getItems().clear();
+            finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(amountVoteField.getText()), list.sortTimeReport((String) sortBox.getValue(), list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+            amountVoteField.clear();
         }
     }
 

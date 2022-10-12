@@ -7,10 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
@@ -20,6 +17,7 @@ import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListFileDataSource;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 public class MyReportFormController {
     //-------------------------------------------- FXML
@@ -70,7 +68,7 @@ public class MyReportFormController {
 
     private void categorySort(Event event) {
         yourReportListView.getItems().clear();
-        yourReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortYourReport(user.getUsername())));
+        yourReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.returnUserReport(user.getUsername())));
     }
 
     //-------------------------------------------- handle
@@ -122,7 +120,7 @@ public class MyReportFormController {
     }
 
     private void showListView(){
-        yourReportListView.getItems().addAll(list.sortYourReport(user.getUsername()));
+        yourReportListView.getItems().addAll(list.returnUserReport(user.getUsername()));
         yourReportListView.refresh();
     }
 

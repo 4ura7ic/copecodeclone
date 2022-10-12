@@ -8,6 +8,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,8 +41,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="categoryBox" layoutX="659.0" layoutY="384.0" prefHeight="26.0" prefWidth="128.0" promptText="All" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
-      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="447.0" prefHeight="26.0" prefWidth="128.0" promptText="Oldest" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="categoryBox" layoutX="659.0" layoutY="354.0" prefHeight="26.0" prefWidth="128.0" promptText="All" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="417.0" prefHeight="26.0" prefWidth="128.0" promptText="Oldest" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
       <Button layoutX="128.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleAssignReportButton" prefHeight="32.0" prefWidth="128.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Assign Report">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -73,7 +74,7 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="voteButton" layoutX="707.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleVoteButton" prefHeight="44.0" prefWidth="56.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote">
+      <Button fx:id="voteButton" layoutX="706.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleVoteButton" prefHeight="44.0" prefWidth="56.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -85,13 +86,13 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ScrollPane>
-      <Button fx:id="reportButton" layoutX="706.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="22.0" prefWidth="56.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="!">
+      <Button fx:id="reportButton" layoutX="706.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="22.0" prefWidth="56.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="!">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Rectangle fx:id="barOne11" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="335.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
-      <Label layoutX="658.0" layoutY="359.0" text="Category" textFill="WHITE" />
-      <Label layoutX="658.0" layoutY="424.0" text="SortBy" textFill="WHITE" />
+      <Label layoutX="658.0" layoutY="329.0" text="Category" textFill="WHITE" />
+      <Label layoutX="658.0" layoutY="394.0" text="SortBy" textFill="WHITE" />
       <Rectangle fx:id="barOne1" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="23.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="313.0" />
       <Label layoutX="33.0" layoutY="335.0" text="In progress reports" />
       <Label layoutX="346.0" layoutY="335.0" text="accomplished report" />
@@ -121,5 +122,8 @@
             </ScrollPane>
          </children>
       </Pane>
+      <Label layoutX="658.0" layoutY="456.0" text="SortOverVote" textFill="WHITE" />
+      <TextField fx:id="amountVoteField" layoutX="657.0" layoutY="473.0" prefHeight="25.0" prefWidth="73.0" promptText="amount" />
+      <Button layoutX="739.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="43.0" text="Sort" />
    </children>
 </AnchorPane>
