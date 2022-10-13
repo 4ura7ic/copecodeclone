@@ -75,4 +75,7 @@ public class Report {
 
     public void finishingCheck(){ check = true; }
 
+    public void setSolution(String solution){
+        this.solution = solution;
+    }
 }

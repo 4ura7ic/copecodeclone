@@ -38,7 +38,7 @@ public class RegisterFormController {
     UserList list = dataSource.readData();
     User tempUserDetail = new User();
     String fs = File.separator ;
-    String imageName = "rickroll.gif";
+    String imageName = "default.jpg";
 
     //-------------------------------------------- initialize
 
@@ -46,7 +46,7 @@ public class RegisterFormController {
     public void initialize(){
 
         System.out.println("initialize MemberCardDetailController");
-        image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "rickroll.gif"));
+        image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "default.jpg"));
 
     }
 

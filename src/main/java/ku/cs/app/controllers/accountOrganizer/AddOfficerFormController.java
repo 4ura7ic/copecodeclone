@@ -84,11 +84,11 @@ public class AddOfficerFormController {
                         officerDetail.setPhoto(imageName);
                         clearAllTextField();
                         try {
-                            DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
-                            UserList list = dataSource.readData();
-                            list.addUser(officerDetail);
-                            dataSource.writeData(list);
-//                            admin.createOfficer(newOfficer.getUsername(), new Password(newOfficer.getPassword()), newOfficer.getName(), newOfficer.getSurname(), (String) chargeInBox.getValue());
+//                            DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
+//                            UserList list = dataSource.readData();
+//                            list.addUser(officerDetail);
+//                            dataSource.writeData(list);
+                            admin.createOfficer(officerDetail);
                             FXRouter.goTo("main_admin_form");
                         }catch (IOException e) {
                             System.err.println("err ไป project ไม่ได้");
