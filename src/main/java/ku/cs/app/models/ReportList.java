@@ -15,6 +15,7 @@ public class ReportList {
     public void addReport(Report rptIn){
         rpt.add(rptIn);
     }
+    public void removeReport(Report rptIn) {rpt.remove(rptIn);}
 
     public ArrayList<Report> getAllRpt(){
         return rpt;
@@ -37,6 +38,15 @@ public class ReportList {
             }
         }
         return list;
+    }
+
+    public boolean checkIfExist(String username) {
+        for (Report rp:rpt) {
+            if (username.equals(rp.getAuthorUser())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Report> sortUserReportByCategory(String key, ArrayList<Report> reports){

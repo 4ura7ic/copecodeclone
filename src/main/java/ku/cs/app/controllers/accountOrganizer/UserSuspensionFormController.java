@@ -41,8 +41,10 @@ public class UserSuspensionFormController {
      private InappropriateUserList inappropriateUserList;
      private UserSuspensionList userSuspensionList;
      private UserSuspension soonToBeSuspendedUser;
+     private Report soonToBeRemovedReport;
      private UserRequestList userRequestList;
      private UserRequest userRequest;
+     private User selectedUser;
 
 
 
@@ -91,6 +93,7 @@ public class UserSuspensionFormController {
                 new ChangeListener<User>() {
                     @Override
                     public void changed(ObservableValue<? extends User> observableValue, User oldUser, User newUser) {
+                        selectedUser = newUser;
                         requestLabel.setText("");
                         errorMsgLabel.setText("");
                         if (inappropriateUserList.checkIfExist(newUser.getUsername())){
@@ -119,10 +122,19 @@ public class UserSuspensionFormController {
                         }
                         showReportListView(newUser.getUsername());
                         showInappropriateActivitiesListView(newUser.getUsername());
-                        System.out.println(newUser + "is selected");
+
                     }
                 }
         );
+        reportListView.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Report>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Report> observableValue, Report report, Report newReport) {
+                        soonToBeRemovedReport = newReport;
+                    }
+                }
+        );
+
     }
 
     @FXML
@@ -169,6 +181,18 @@ public class UserSuspensionFormController {
                 errorMsgLabel.setText("Restore complete.");
             }
 
+        }
+    }
+
+    @FXML
+    public void handleRemoveReport(ActionEvent actionEvent) {
+        if (soonToBeRemovedReport == null) {
+            errorMsgLabel.setText("Please select the report to remove.");
+        }
+        else {
+            reportList.removeReport(soonToBeRemovedReport);
+            showReportListView(selectedUser.getUsername());
+            reportListDataSource.writeData(reportList);
         }
     }
 

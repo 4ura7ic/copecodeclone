@@ -90,5 +90,10 @@
       <ListView fx:id="inappropriateActivitiesListView" layoutX="278.0" layoutY="326.0" prefHeight="94.0" prefWidth="259.0" />
       <Label layoutX="540.0" layoutY="356.0" text="Request:" />
       <Label fx:id="requestLabel" layoutX="589.0" layoutY="356.0" prefHeight="17.0" prefWidth="164.0" text="requestLabel" />
+      <Button layoutX="690.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleRemoveReport" prefHeight="22.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Remove Report">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
