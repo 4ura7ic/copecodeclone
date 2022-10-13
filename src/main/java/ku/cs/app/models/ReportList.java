@@ -113,7 +113,7 @@ public class ReportList {
     public ArrayList<Report> sortByVoteOfReport(int amount, ArrayList<Report> reports){
         ArrayList<Report> tmpReport = new ArrayList<>();
         for(Report report: reports){
-            if(report.getVote()>=amount)
+            if(report.getVote()>amount)
                 tmpReport.add(report);
         }
         return tmpReport;

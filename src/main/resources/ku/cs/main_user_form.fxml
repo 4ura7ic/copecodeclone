@@ -25,7 +25,7 @@
       </ImageView>
       <Rectangle fx:id="barOne" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="36.0" layoutX="24.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="624.0" />
       <Rectangle fx:id="barTwo" arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="30.0" layoutX="24.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="624.0" />
-      <Button layoutX="680.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="85.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT">
+      <Button layoutX="664.0" layoutY="556.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="17.0" prefWidth="119.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -41,8 +41,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="categoryBox" layoutX="659.0" layoutY="354.0" prefHeight="26.0" prefWidth="128.0" promptText="All" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
-      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="417.0" prefHeight="26.0" prefWidth="128.0" promptText="Oldest" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="categoryBox" layoutX="659.0" layoutY="344.0" prefHeight="26.0" prefWidth="128.0" promptText="All" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="397.0" prefHeight="26.0" prefWidth="128.0" promptText="Oldest" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
       <Button layoutX="128.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleAssignReportButton" prefHeight="32.0" prefWidth="128.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Assign Report">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -91,8 +91,8 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Rectangle fx:id="barOne11" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="335.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
-      <Label layoutX="658.0" layoutY="329.0" text="Category" textFill="WHITE" />
-      <Label layoutX="658.0" layoutY="394.0" text="SortBy" textFill="WHITE" />
+      <Label layoutX="658.0" layoutY="324.0" text="Category" textFill="WHITE" />
+      <Label layoutX="658.0" layoutY="377.0" text="SortBy" textFill="WHITE" />
       <Rectangle fx:id="barOne1" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="23.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="313.0" />
       <Label layoutX="33.0" layoutY="335.0" text="In progress reports" />
       <Label layoutX="346.0" layoutY="335.0" text="accomplished report" />
@@ -122,13 +122,14 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Label layoutX="658.0" layoutY="456.0" text="SortOverVote" textFill="WHITE" />
-      <TextField fx:id="amountVoteField" layoutX="657.0" layoutY="473.0" prefHeight="25.0" prefWidth="73.0" promptText="amount" />
-      <Button layoutX="739.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="43.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Sort" />
-      <Label fx:id="errorMsg" layoutX="657.0" layoutY="504.0" text="error" textFill="RED">
+      <Label layoutX="658.0" layoutY="434.0" text="SortOverVote" textFill="WHITE" />
+      <TextField fx:id="amountVoteField" layoutX="657.0" layoutY="453.0" prefHeight="25.0" prefWidth="73.0" promptText="amount" />
+      <Button layoutX="739.0" layoutY="453.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="43.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Set" />
+      <Label fx:id="errorMsg" layoutX="657.0" layoutY="479.0" text="error" textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <Button fx:id="resetSortButton" layoutX="706.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleResetSortButton" prefHeight="25.0" prefWidth="72.0" text="Reset Sort" />
    </children>
 </AnchorPane>

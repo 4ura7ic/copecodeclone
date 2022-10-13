@@ -41,6 +41,7 @@ public class MainUserFormController {
     @FXML private Button viewSolutionButton;
     @FXML private Button reportButton;
     @FXML private Button voteButton;
+    @FXML private Button resetSortButton;
     @FXML private TextField amountVoteField;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
@@ -78,6 +79,7 @@ public class MainUserFormController {
         sortBox.setValue("Oldest");
         categoryBox.setOnAction(this::categorySort);
         sortBox.setOnAction(this::categorySort);
+        resetSortButton.setVisible(false);
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
         showListView();
@@ -190,7 +192,6 @@ public class MainUserFormController {
             errorMsg.setText("Put your number first");
         else if(Integer.parseInt(checkVoteSort)>=0) {
             updateListView();
-            amountVoteField.clear();
         }
         else
             errorMsg.setText("Invalid Number");
@@ -205,16 +206,22 @@ public class MainUserFormController {
         solutionPane.setVisible(false);
     }
 
+    @FXML public void handleResetSortButton(ActionEvent actionEvent){
+        showListView();
+        resetSortButton.setVisible(false);
+        amountVoteField.clear();
+    }
 
 
     //-------------------------------------------- method
 
     private void updateListView(){
-        String  checkVoteSort = (amountVoteField.getText()=="")?"0":amountVoteField.getText();
+        String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"-1";
         inProgressListView.getItems().clear();
         inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortInProgressReportByCategory((String) categoryBox.getValue()))));
         finishReportListView.getItems().clear();
         finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+        resetSortButton.setVisible(true);
         clearForm();
     }
 
