@@ -25,13 +25,11 @@ public class Admin extends User{
 
     //-------------------------------------------- method
 
-    public void createOfficer (String username, Password password,String name, String surname, String inCharge){
+    public void createOfficer (Officer newOfficer){
 
         DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
         UserList list = dataSource.readData();
-
-        Officer tempOfficer = new Officer(username, password, name, surname, inCharge);
-        list.addUser(tempOfficer);
+        list.addUser(newOfficer);
         dataSource.writeData(list);
     }
 
