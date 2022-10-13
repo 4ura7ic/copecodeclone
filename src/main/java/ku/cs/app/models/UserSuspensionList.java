@@ -21,12 +21,6 @@ public class UserSuspensionList {
         return suspendedUser;
     }
 
-    public int dataListSize(){return suspendedUser.size();}
-
-    public ArrayList<UserSuspension> getAllSuspendedUser(){
-        return suspendedUser;
-    }
-
     public boolean checkIfSuspended(String username) {
         for (UserSuspension user : suspendedUser) {
             if (user.getUsername().equals(username)) {
