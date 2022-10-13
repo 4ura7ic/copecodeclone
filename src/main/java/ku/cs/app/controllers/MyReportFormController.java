@@ -68,7 +68,7 @@ public class MyReportFormController {
 
     private void categorySort(Event event) {
         yourReportListView.getItems().clear();
-        yourReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.returnUserReport(user.getUsername())));
+        yourReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortUserReportByCategory((String) categoryBox.getValue(),list.returnUserReport(user.getUsername()))));
     }
 
     //-------------------------------------------- handle

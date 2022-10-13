@@ -39,6 +39,17 @@ public class ReportList {
         return list;
     }
 
+    public ArrayList<Report> sortUserReportByCategory(String key, ArrayList<Report> reports){
+        ArrayList<Report> tmpReport = new ArrayList<>();
+        Sorter sorter = new Sorter();
+        for(Report report: reports){
+                if (sorter.categoryFilter(report, key)) {
+                    tmpReport.add(report);
+                }
+        }
+        return tmpReport;
+    }
+
     public ArrayList<Report> sortInProgressReportByCategory(String key){
         ArrayList<Report> tmpReport = new ArrayList<>();
         Sorter sorter = new Sorter();

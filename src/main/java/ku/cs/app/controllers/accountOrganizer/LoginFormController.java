@@ -51,15 +51,6 @@ public class LoginFormController {
 
     //-------------------------------------------- handle
 
-    public void handleRequestButton(ActionEvent actionEvent){
-        try{
-            FXRouter.goTo("request_form");
-        } catch (IOException e){
-            System.err.println("err ไป register ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกําหนด route");
-            e.printStackTrace();
-        }
-    }
     @FXML
     public void handleUserLogin(ActionEvent actionEvent){
 
