@@ -105,16 +105,16 @@
       <Pane fx:id="solutionPane" layoutX="96.0" layoutY="212.0" prefHeight="200.0" prefWidth="524.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="524.0" />
-            <Button layoutX="450.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleOKButton" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="OK">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
             <Label layoutX="13.0" layoutY="14.0" text="Solution" textFill="#cdffd7">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
+            <Button layoutX="430.0" layoutY="150.0" maxHeight="27.0" maxWidth="70.0" minHeight="27.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleOKButton" prefHeight="27.0" prefWidth="70.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="OK">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
             <ScrollPane layoutX="13.0" layoutY="46.0" prefHeight="87.0" prefWidth="495.0">
                <content>
                   <Label fx:id="solutionLabel" alignment="TOP_LEFT" prefHeight="85.0" prefWidth="490.0" text="solutionLabel" />
@@ -124,7 +124,7 @@
       </Pane>
       <Label layoutX="658.0" layoutY="456.0" text="SortOverVote" textFill="WHITE" />
       <TextField fx:id="amountVoteField" layoutX="657.0" layoutY="473.0" prefHeight="25.0" prefWidth="73.0" promptText="amount" />
-      <Button layoutX="739.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="43.0" text="Sort" />
+      <Button layoutX="739.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="43.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Sort" />
       <Label fx:id="errorMsg" layoutX="657.0" layoutY="504.0" text="error" textFill="RED">
          <font>
             <Font size="14.0" />

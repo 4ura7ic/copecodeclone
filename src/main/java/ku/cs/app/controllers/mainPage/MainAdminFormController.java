@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.ReportList;
@@ -33,10 +34,17 @@ public class MainAdminFormController {
     @FXML private Label dateLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
+    @FXML private Label solutionLabel;
+    @FXML private Label errorMsg;
+    @FXML private TextField amountVoteField;
+
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
 
+    @FXML private Pane solutionPane;
+
     @FXML private Button voteButton;
+    @FXML private Button viewSolutionButton;
 
     //-------------------------------------------- private
 
@@ -169,14 +177,43 @@ public class MainAdminFormController {
             dataSource.writeData(list);
         }
     }
-
+    @FXML public void handleSortVote(ActionEvent actionEvent){
+        String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"";
+        if(checkVoteSort == "")
+            errorMsg.setText("Put your number first");
+        else if(Integer.parseInt(checkVoteSort)>=0) {
+            updateListView();
+            amountVoteField.clear();
+        }
+        else
+            errorMsg.setText("Invalid Number");
+    }
+    @FXML public void handleViewSolutionButton(ActionEvent actionEvent){
+        solutionPane.setVisible(true);
+        solutionLabel.setText(rp.getSolution());
+    }
+    @FXML public void handleOKButton(ActionEvent actionEvent){
+        solutionPane.setVisible(false);
+    }
     //-------------------------------------------- method
+    private void updateListView(){
+        String  checkVoteSort = (amountVoteField.getText()=="")?"0":amountVoteField.getText();
+        inProgressListView.getItems().clear();
+        inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortInProgressReportByCategory((String) categoryBox.getValue()))));
+        finishReportListView.getItems().clear();
+        finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+        startForm();
+    }
 
     private void showUserData(){
         nameLabel.setText(user.getUsername());
     }
     private void showSelectedReport(Report report){
         if(report!=null) {
+            if(report.isCheck())
+                viewSolutionButton.setVisible(true);
+            else
+                viewSolutionButton.setVisible(false);
             rp =report;
             barOne.setVisible(true);
             barTwo.setVisible(true);
@@ -201,6 +238,8 @@ public class MainAdminFormController {
         descriptionPane.setVisible(false);
         barOne.setVisible(false);
         barTwo.setVisible(false);
+        viewSolutionButton.setVisible(false);
+        solutionPane.setVisible(false);
         voteButton.setVisible(false);
         topicLabel.setText("");
         dateLabel.setText("");
