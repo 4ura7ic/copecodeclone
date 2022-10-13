@@ -36,6 +36,7 @@ public class MainAdminFormController {
     @FXML private Label descriptionLabel;
     @FXML private Label solutionLabel;
     @FXML private Label errorMsg;
+    @FXML private Button resetSortButton;
     @FXML private TextField amountVoteField;
 
     @FXML private ListView<Report> inProgressListView;
@@ -164,15 +165,13 @@ public class MainAdminFormController {
         if (rp.getVotedUser().contains(user.getUsername())){
             rp.decreaseVote();
             rp.getVotedUser().remove(user.getUsername());
-            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
-            dataSource.writeData(list);
         }
         else {
             rp.increaseVote();
             rp.getVotedUser().add(user.getUsername());
-            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
-            dataSource.writeData(list);
         }
+        rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+        dataSource.writeData(list);
     }
     @FXML public void handleSortVote(ActionEvent actionEvent){
         String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"";
@@ -191,13 +190,21 @@ public class MainAdminFormController {
     @FXML public void handleOKButton(ActionEvent actionEvent){
         solutionPane.setVisible(false);
     }
+
+    @FXML public void handleResetSortButton(ActionEvent actionEvent){
+        showListView();
+        resetSortButton.setVisible(false);
+        amountVoteField.clear();
+    }
+
     //-------------------------------------------- method
     private void updateListView(){
-        String  checkVoteSort = (amountVoteField.getText()=="")?"0":amountVoteField.getText();
+        String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"-1";
         inProgressListView.getItems().clear();
         inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortInProgressReportByCategory((String) categoryBox.getValue()))));
         finishReportListView.getItems().clear();
         finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+        resetSortButton.setVisible(true);
         clearForm();
     }
 
