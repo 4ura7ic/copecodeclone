@@ -10,7 +10,7 @@ public class Officer extends User{
     }
 
     public Officer(String username, Password password, String name, String surname, String inCharge) {
-        super("officer", username, password, name, surname,"rickroll.gif");
+        super("officer", username, password, name, surname,"default.jpg");
         this.inCharge=inCharge;
     }
 

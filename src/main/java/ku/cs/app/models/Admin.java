@@ -10,7 +10,7 @@ public class Admin extends User{
         this("",new Password(),"","");
     }
     public Admin(String username,Password password,String name, String surname) {
-        super("admin", username, password, name, surname,"rickroll.gif");//fix
+        super("admin", username, password, name, surname,"default.jpg");//fix
     }
     public Admin(String role, String username, Password password, String name, String surname, String photo){
         super(role, username, password, name, surname, photo);//fix

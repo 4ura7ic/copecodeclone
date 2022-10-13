@@ -15,7 +15,7 @@ public class User {
         this("", "", new Password(), "","","");
     }
     public User(String role, String username, Password password, String name, String surname) {
-        this("","",new Password(),"","","rickroll.gif");
+        this("","",new Password(),"","","default.jpg");
     }
     public User(String role, String username, Password password, String name, String surname, String photo) {
         this.name = name;
