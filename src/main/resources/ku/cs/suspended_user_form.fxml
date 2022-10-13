@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.mainPage.SuspendedUserController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.SuspendedUserController">
    <children>
       <Label layoutX="129.0" layoutY="95.0" prefHeight="45.0" prefWidth="542.0" text="YOUR ACCOUNT HAS BEEN SUSPENDED">
          <font>

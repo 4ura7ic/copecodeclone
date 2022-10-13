@@ -1,4 +1,4 @@
-package ku.cs.app.controllers.mainPage;
+package ku.cs.app.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

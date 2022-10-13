@@ -64,7 +64,7 @@ public class MainOfficerFormController {
         user = (Officer) FXRouter.getData();
         dataSource = new ReportListFileDataSource("data","report.csv");
         sortBox.getItems().addAll(sortList);
-        sortBox.setValue("Newest");
+        sortBox.setValue("Oldest");
         sortBox.setOnAction(this::categorySort);
         list = dataSource.readData();
         showListView();

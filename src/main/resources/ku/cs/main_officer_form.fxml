@@ -88,7 +88,7 @@
          </cursor>
       </Button>
       <Label layoutX="658.0" layoutY="342.0" text="SortBy" textFill="WHITE" />
-      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="365.0" prefHeight="26.0" prefWidth="128.0" promptText="Newest" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
+      <ComboBox fx:id="sortBox" layoutX="658.0" layoutY="365.0" prefHeight="26.0" prefWidth="128.0" promptText="Oldest" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="25.0" layoutX="23.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="313.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="25.0" layoutX="336.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
       <Label layoutX="34.0" layoutY="330.0" text="In progress reports" />
