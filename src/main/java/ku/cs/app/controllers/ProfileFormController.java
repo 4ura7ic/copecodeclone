@@ -13,6 +13,7 @@ import ku.cs.app.models.Officer;
 import ku.cs.app.models.User;
 import ku.cs.app.models.UserList;
 import ku.cs.app.services.DataSource;
+import ku.cs.app.services.ImageDataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 import com.github.saacsos.FXRouter;
 import java.io.File;
@@ -41,6 +42,8 @@ public class ProfileFormController {
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
     UserList userList = dataSource.readData();
     String fs = File.separator ;
+
+    private ImageDataSource getImage;
 
     //-------------------------------------------- FXML
 
@@ -93,72 +96,16 @@ public class ProfileFormController {
     }
 
     public void chooseImageButton(ActionEvent event){
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        getImage = new ImageDataSource();
+        getImage.changeImage(user);
+        if (user.getRole().equals("user")) {
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + user.getPhoto()));
+        } else if (user.getRole().equals("officer")) {
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + user.getPhoto()));
+        } else if (user.getRole().equals("admin")) {
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + user.getPhoto()));
+        }
 
-        fileChooser = new FileChooser();
-
-
-        String userDirectoryString = System.getProperty("user.home") + "\\Pictures";
-        File userDirectory = new File(userDirectoryString);
-
-        if(!userDirectory.canRead())
-        {userDirectory = new File("c:/");}
-
-        fileChooser.setInitialDirectory(userDirectory);
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
-
-        this.filePath = fileChooser.showOpenDialog(stage);
-
-        try {
-            File destDir = null;
-            if (user.getRole().equals("user")) {
-                destDir = new File("data/images");
-                if (!destDir.exists()) {
-                    destDir.mkdirs();
-                }
-            }else if (user.getRole().equals("officer")) {
-                destDir = new File("data/images/officer");
-                if (!destDir.exists()) {
-                    destDir.mkdirs();
-                }
-            }else if (user.getRole().equals("admin")) {
-                destDir = new File("data/images/admin");
-                if (!destDir.exists()) {
-                    destDir.mkdirs();
-                }
-            }
-
-            //Rename
-            String[] fileSplit = filePath.getName().split("\\.");
-
-            String filename = user.getUsername() + "." + fileSplit[fileSplit.length - 1];
-
-            Path target = FileSystems.getDefault().getPath(destDir.getAbsolutePath() + System.getProperty("file.separator") + filename);
-
-            Files.copy(filePath.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
-            imagePath = target.toString();
-
-            user.setPhoto(filename);
-
-            if (user.getRole().equals("user")) {
-                userList.changeImageUser(user);
-                image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + user.getPhoto()));
-            } else if (user.getRole().equals("officer")) {
-                userList.changeImageOfficer((Officer) user);
-                image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + user.getPhoto()));
-            } else if (user.getRole().equals("admin")) {
-                userList.changeImageAdmin((Admin) user);
-                image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + user.getPhoto()));
-            }
-
-
-            DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
-            dataSource.writeData(userList);
-
-
-        } catch (IOException e){
-            e.printStackTrace();
         }
     }
 
-}
