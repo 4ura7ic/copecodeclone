@@ -59,7 +59,7 @@ public class ImageDataSource {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "rickroll.gif";
+        return "default.jpg";
     }
 
 }
