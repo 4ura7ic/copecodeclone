@@ -33,9 +33,6 @@ public class ProfileFormController {
     //-------------------------------------------- private
 
     private User user;
-    private FileChooser fileChooser;
-    private File filePath;
-    private String imagePath;
 
     //-------------------------------------------- noModifier
 

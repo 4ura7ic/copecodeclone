@@ -10,6 +10,7 @@ public class Report {
     private String description;
     private String authorUser;
     private String solution;
+    private String service;
     private int vote;
     private boolean check;
     private ArrayList<String> votedUser;
@@ -18,10 +19,10 @@ public class Report {
     //-------------------------------------------- constructor
 
     public Report(String authorUser, String topic, String date, String category, String description) {
-        this(authorUser,topic,date,category,description, "",0,false);
+        this(authorUser,topic,date,category,description, "","",0,false);
     }
 
-    public Report(String authorUser, String topic, String date, String category, String description, String solution,int vote,boolean check){
+    public Report(String authorUser, String topic, String date, String category, String description, String solution,String service,int vote,boolean check){
         this.authorUser = authorUser;
         this.topic = topic;
         this.date = date;
@@ -30,11 +31,12 @@ public class Report {
         this.solution = solution;
         this.vote = vote;
         this.check = check;
+        this.service = service;
         this.votedUser = new ArrayList<>();
     }
 
     public Report(){
-        this("","","","","","",0,false);
+        this("","","","","","","",0,false);
     }
 
     //-------------------------------------------- getter
@@ -44,6 +46,7 @@ public class Report {
     public String getDescription() {return description;}
     public String getSolution() {return solution;}
     public String getCategory() {return category;}
+    public String getService() {return service;}
     public int getVote() {
         return vote;
     }
@@ -78,4 +81,5 @@ public class Report {
     public void setSolution(String solution){
         this.solution = solution;
     }
+    public void setService(String service) { this.service = service;}
 }

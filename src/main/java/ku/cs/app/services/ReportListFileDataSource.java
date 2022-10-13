@@ -35,7 +35,7 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
             String line = "";
             while ((line = buffer.readLine()) != null){
                 String[] data = line.split("\\|");
-                if (data.length == 8) {
+                if (data.length == 9) {
                     Report report = new Report(
                             data[0].trim(),
                             data[1].trim(),
@@ -43,12 +43,13 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                             data[3].trim(),
                             data[4].trim(),
                             data[5].trim(),
-                            Integer.parseInt(data[6]),
-                            Boolean.parseBoolean(data[7])
+                            data[6].trim(),
+                            Integer.parseInt(data[7]),
+                            Boolean.parseBoolean(data[8])
                     );
                     list.addReport(report);
                 }
-                else if (data.length == 9) {
+                else if (data.length == 10) {
 
                     Report report = new Report(
                             data[0].trim(),
@@ -57,11 +58,12 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                             data[3].trim(),
                             data[4].trim(),
                             data[5].trim(),
-                            Integer.parseInt(data[6]),
-                            Boolean.parseBoolean(data[7])
+                            data[6].trim(),
+                            Integer.parseInt(data[7]),
+                            Boolean.parseBoolean(data[8])
                     );
                     ArrayList<String> allVotedUser = new ArrayList<>();
-                    String[] votedUserData = data[8].split(",");
+                    String[] votedUserData = data[9].split(",");
                     for (String s : votedUserData) {
                         allVotedUser.add(s);
                     }
@@ -104,6 +106,7 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                         + report.getCategory()+"|"
                         + report.getDescription()+"|"
                         + report.getSolution()+"|"
+                        + report.getService()+"|"
                         + report.getVote()+"|"
                         + report.isCheck() + "|";
                     for (String s : report.getVotedUser()) {

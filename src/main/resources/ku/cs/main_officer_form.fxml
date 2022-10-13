@@ -42,6 +42,17 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Pane fx:id="officerPane" layoutX="655.0" layoutY="87.0" prefHeight="60.0" prefWidth="136.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#99ffd8" height="36.0" layoutX="-1.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="135.0" />
+            <Label fx:id="officerLabel" layoutY="22.0" prefHeight="36.0" prefWidth="136.0" text="officerName">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label text="Take care by" textFill="WHITE" />
+         </children>
+      </Pane>
       <Separator layoutX="58.0" layoutY="312.0" prefWidth="555.0" />
       <Label fx:id="topicLabel" layoutX="38.0" layoutY="86.0" prefHeight="17.0" prefWidth="344.0" text="topicLabel">
          <font>
@@ -71,14 +82,6 @@
             <Font size="22.0" />
          </font></Label>
       <ListView fx:id="finishReportListView" layoutX="337.0" layoutY="351.0" prefHeight="190.0" prefWidth="312.0" />
-      <Button fx:id="reportButton" layoutX="703.0" layoutY="170.0" mnemonicParsing="false" onAction="#handlereportButton" prefHeight="22.0" prefWidth="64.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Appeal">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
       <Button fx:id="voteButton" layoutX="707.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleVoteButton" prefHeight="44.0" prefWidth="56.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -90,16 +93,16 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="25.0" layoutX="336.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
       <Label layoutX="34.0" layoutY="330.0" text="In progress reports" />
       <Label layoutX="346.0" layoutY="330.0" text="accomplished report" />
-      <Button fx:id="FinishButton" layoutX="670.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleFinishButton" prefHeight="44.0" prefWidth="93.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Submit Solution" />
+      <Button fx:id="submitSolutionButton" layoutX="670.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleSubmitSolutionButton" prefHeight="44.0" prefWidth="93.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Submit Solution" />
       <Pane fx:id="submitSolutionPane" layoutX="96.0" layoutY="212.0" prefHeight="200.0" prefWidth="524.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="524.0" />
-            <Button layoutX="430.0" layoutY="150.0" maxHeight="27.0" maxWidth="70.0" minHeight="27.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleOKButton" prefHeight="27.0" prefWidth="70.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Submit">
+            <Button layoutX="430.0" layoutY="150.0" maxHeight="27.0" maxWidth="70.0" minHeight="27.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="27.0" prefWidth="70.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Submit">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <TextField fx:id="solution" alignment="TOP_LEFT" layoutX="13.0" layoutY="46.0" prefHeight="87.0" prefWidth="495.0" promptText="text here">
+            <TextField fx:id="solutionTextField" alignment="TOP_LEFT" layoutX="13.0" layoutY="46.0" prefHeight="87.0" prefWidth="495.0" promptText="text here">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font></TextField>
@@ -108,7 +111,9 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Button layoutX="461.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleCloseButton" text="Close" />
          </children>
       </Pane>
+      <Button fx:id="editSolutionButton" layoutX="675.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleEditSolutionButton" text="Edit Solution" />
    </children>
 </AnchorPane>

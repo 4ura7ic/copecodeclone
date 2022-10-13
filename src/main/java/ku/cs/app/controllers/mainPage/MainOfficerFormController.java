@@ -33,12 +33,13 @@ public class MainOfficerFormController {
     @FXML private Label dateLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
-    @FXML private Button reportButton;
-    @FXML private Button FinishButton;
+    @FXML private Label officerLabel;
+    @FXML private Button submitSolutionButton;
     @FXML private Button voteButton;
-
-    @FXML private TextField solution;
+    @FXML private Button editSolutionButton;
+    @FXML private TextField solutionTextField;
     @FXML private Pane submitSolutionPane;
+    @FXML private Pane officerPane;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
 
@@ -137,24 +138,32 @@ public class MainOfficerFormController {
             dataSource.writeData(list);
         }
     }
-    @FXML void handlereportButton(ActionEvent actionEvent){
-
-    }
     @FXML
-    public void handleFinishButton(ActionEvent actionEvent){
+    public void handleSubmitSolutionButton(ActionEvent actionEvent){
         submitSolutionPane.setVisible(true);
     }
-    @FXML public void handleOKButton(ActionEvent actionEvent){
-        rp.setSolution(solution.getText());
+    @FXML public void handleSubmitButton(ActionEvent actionEvent){
+        rp.setSolution(solutionTextField.getText());
+        rp.setService(user.getUsername());
         rp.finishingCheck();
+        solutionTextField.clear();
         inProgressListView.getItems().clear();
         inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
         finishReportListView.getItems().clear();
         finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
+
         dataSource.writeData(list);
         submitSolutionPane.setVisible(false);
     }
 
+    @FXML public void handleEditSolutionButton(ActionEvent actionEvent){
+        submitSolutionPane.setVisible(true);
+        solutionTextField.setText(rp.getSolution());
+    }
+
+    @FXML public void handleCloseButton(ActionEvent actionEvent){
+        submitSolutionPane.setVisible(false);
+    }
 
     //-------------------------------------------- method
 
@@ -165,11 +174,10 @@ public class MainOfficerFormController {
     private void showSelectedReport(Report report){
         if(report!=null) {
             rp = report;
-            FinishButton.setVisible(true);
+            submitSolutionButton.setVisible(true);
             barOne.setVisible(true);
             barTwo.setVisible(true);
             descriptionPane.setVisible(true);
-            reportButton.setVisible(true);
             voteButton.setVisible(true);
             topicLabel.setText(report.getTopic());
             dateLabel.setText(report.getDate());
@@ -177,6 +185,16 @@ public class MainOfficerFormController {
             descriptionLabel.setText(report.getDescription());
             rateLabel.setText("Rate: " + (report.getVote()));
             popUpLabel.setText("");
+            if (rp.isCheck()) {
+                officerPane.setVisible(true);
+                officerLabel.setText(rp.getService());
+                editSolutionButton.setVisible(true);
+                submitSolutionButton.setVisible(false);
+            }
+            else {
+                officerPane.setVisible(false);
+                editSolutionButton.setVisible(false);
+            }
         }
     }
 
@@ -192,9 +210,10 @@ public class MainOfficerFormController {
         barOne.setVisible(false);
         barTwo.setVisible(false);
         submitSolutionPane.setVisible(false);
-        FinishButton.setVisible(false);
-        reportButton.setVisible(false);
+        submitSolutionButton.setVisible(false);
+        editSolutionButton.setVisible(false);
         voteButton.setVisible(false);
+        officerPane.setVisible(false);
         topicLabel.setText("");
         dateLabel.setText("");
         categoryLabel.setText("");
