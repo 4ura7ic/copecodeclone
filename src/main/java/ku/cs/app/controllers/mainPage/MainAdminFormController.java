@@ -72,7 +72,7 @@ public class MainAdminFormController {
         categoryBox.getItems().addAll(categoryList);
         sortBox.getItems().addAll(sortList);
         categoryBox.setValue("ALL");
-        sortBox.setValue("Newest");
+        sortBox.setValue("Oldest");
         categoryBox.setOnAction(this::categorySort);
         sortBox.setOnAction(this::categorySort);
         list = dataSource.readData();
