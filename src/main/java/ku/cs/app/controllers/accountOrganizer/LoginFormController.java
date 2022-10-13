@@ -13,6 +13,7 @@ import com.github.saacsos.FXRouter;
 import ku.cs.app.services.UserSuspensionListFileSource;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LoginFormController {
     //-------------------------------------------- FXML
@@ -74,13 +75,27 @@ public class LoginFormController {
                 if (user.checkIfInputPasswordCorrect(user, userPassword.getText())) {
 
                     if (susList.checkIfSuspended(user.getUsername())) {
-                        UserSuspension suspendedUser = susList.returnSuspendedUser(user.getUsername());
-                        suspendedUser.addLoginAttempt();
-                        userPassword.clear();
-                        act.setMessage("Failed - User suspended. | Login attempt: " + suspendedUser.getLoginAttempt() + "time(s).");
-                        log.addLog(act);
-                        errorMsgLabel.setText("User suspended.\n" + "Reason of suspension: " + suspendedUser.getReason()
-                                                + "\nLogin attempt count: " + suspendedUser.getLoginAttempt() + "time(s).");
+//                        UserSuspension suspendedUser = susList.returnSuspendedUser(user.getUsername());
+//                        suspendedUser.addLoginAttempt();
+//                        userPassword.clear();
+//                        act.setMessage("Failed - User suspended. | Login attempt: " + suspendedUser.getLoginAttempt() + "time(s).");
+//                        log.addLog(act);
+//                        errorMsgLabel.setText("User suspended.\n" + "Reason of suspension: " + suspendedUser.getReason()
+//                                                + "\nLogin attempt count: " + suspendedUser.getLoginAttempt() + "time(s).");
+
+                        try {
+                            ArrayList<Object> o = new ArrayList<>();
+                            UserSuspension suspendedUser = susList.returnSuspendedUser(user.getUsername());
+                            suspendedUser.addLoginAttempt();
+                            act.setMessage("Failed - User suspended. | Login attempt: " + suspendedUser.getLoginAttempt() + "time(s).");
+                            log.addLog(act);
+                            o.add(user);
+                            o.add(suspendedUser);
+                            FXRouter.goTo("suspended_user", o);
+                        }catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
                     } else {
                         if (user.getRole().equals("user")) {
                             try {
