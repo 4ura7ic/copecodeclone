@@ -45,7 +45,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="548.0" layoutY="326.0" text="Status: ">
+      <Label layoutX="537.0" layoutY="316.0" text="Status: ">
          <font>
             <Font size="24.0" />
          </font></Label>
@@ -53,7 +53,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label fx:id="statusLabel" layoutX="627.0" layoutY="326.0" prefHeight="35.0" prefWidth="140.0" text="statusLabel">
+      <Label fx:id="statusLabel" layoutX="614.0" layoutY="316.0" prefHeight="35.0" prefWidth="140.0" text="statusLabel">
          <font>
             <Font size="24.0" />
          </font></Label>
@@ -88,5 +88,7 @@
          </font></Button>
       <Label fx:id="errorMsgLabel" layoutX="276.0" layoutY="558.0" text="errorMsgLabel" textFill="RED" />
       <ListView fx:id="inappropriateActivitiesListView" layoutX="278.0" layoutY="326.0" prefHeight="94.0" prefWidth="259.0" />
+      <Label layoutX="540.0" layoutY="356.0" text="Request:" />
+      <Label fx:id="requestLabel" layoutX="589.0" layoutY="356.0" prefHeight="17.0" prefWidth="164.0" text="requestLabel" />
    </children>
 </AnchorPane>

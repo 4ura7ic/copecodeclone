@@ -25,6 +25,7 @@ public class UserSuspensionFormController {
     @FXML private Label loginAttemptCnt;
     @FXML private Label reasonLabel;
     @FXML private Label errorMsgLabel;
+    @FXML private Label requestLabel;
 
     //-------------------------------------------- noModifier
 
@@ -33,12 +34,15 @@ public class UserSuspensionFormController {
      private DataSource<ReportList> reportListDataSource;
      private DataSource<InappropriateUserList> inappropriateUserListDataSource;
      private DataSource<UserSuspensionList> userSuspensionListDataSource;
+     private DataSource<UserRequestList> userRequestListDataSource;
 
      private UserList userList;
      private ReportList reportList;
      private InappropriateUserList inappropriateUserList;
      private UserSuspensionList userSuspensionList;
      private UserSuspension soonToBeSuspendedUser;
+     private UserRequestList userRequestList;
+     private UserRequest userRequest;
 
 
 
@@ -59,6 +63,9 @@ public class UserSuspensionFormController {
 
         userSuspensionListDataSource = new UserSuspensionListFileSource("data", "suspendedUser.csv");
         userSuspensionList = userSuspensionListDataSource.readData();
+
+        userRequestListDataSource = new UserRequestListFileDataSource("data", "userRequest.csv");
+        userRequestList = userRequestListDataSource.readData();
 
         initializeLabel();
         showUserListView();
@@ -84,6 +91,7 @@ public class UserSuspensionFormController {
                 new ChangeListener<User>() {
                     @Override
                     public void changed(ObservableValue<? extends User> observableValue, User oldUser, User newUser) {
+                        requestLabel.setText("");
                         errorMsgLabel.setText("");
                         if (inappropriateUserList.checkIfExist(newUser.getUsername())){
                             soonToBeSuspendedUser = new UserSuspension(newUser.getUsername());
@@ -96,6 +104,10 @@ public class UserSuspensionFormController {
                         }
                         if (userSuspensionList.checkIfSuspended(newUser.getUsername())) {
                             UserSuspension user = userSuspensionList.returnSuspendedUser(newUser.getUsername());
+                            if (userRequestList.checkIfExist(newUser.getUsername())) {
+                                userRequest = userRequestList.returnObject(newUser.getUsername());
+                                requestLabel.setText(userRequest.getConfession());
+                            }
                             statusLabel.setText("Suspended");
                             reasonLabel.setText(user.getReason());
                             loginAttemptCnt.setText(Integer.toString(user.getLoginAttempt()));
@@ -116,7 +128,7 @@ public class UserSuspensionFormController {
     @FXML
     public void handleSuspendButton(ActionEvent actionEvent){
         if (soonToBeSuspendedUser == null) {
-            errorMsgLabel.setText("You can't suspend user without inappropriate activities.");
+            errorMsgLabel.setText("You can't suspend a user without an inappropriate activities.");
             reasonTextField.clear();
         }
         else if (userSuspensionList.checkIfSuspended(soonToBeSuspendedUser.getUsername())) {
@@ -172,6 +184,7 @@ public class UserSuspensionFormController {
         reasonLabel.setText("");
         loginAttemptCnt.setText("");
         errorMsgLabel.setText("");
+        requestLabel.setText("");
     }
 
 }
