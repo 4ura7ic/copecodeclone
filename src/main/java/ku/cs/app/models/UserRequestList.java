@@ -10,7 +10,7 @@ public class UserRequestList {
     public void addUser(UserRequest user) {
         rqList.add(user);
     }
-    public void  removeUser(UserSuspension user) {
+    public void  removeUser(UserRequest user) {
         rqList.remove(user);
     }
     public ArrayList<UserRequest> getAllData() {

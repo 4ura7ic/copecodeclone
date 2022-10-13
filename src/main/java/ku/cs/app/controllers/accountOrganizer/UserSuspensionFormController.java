@@ -154,9 +154,21 @@ public class UserSuspensionFormController {
         }
         else if (userSuspensionList.checkIfSuspended(soonToBeSuspendedUser.getUsername())) {
             UserSuspension user = userSuspensionList.returnSuspendedUser(soonToBeSuspendedUser.getUsername());
-            userSuspensionList.removeUser(user);
-            userSuspensionListDataSource.writeData(userSuspensionList);
-            errorMsgLabel.setText("Restore complete.");
+            if (userRequestList.checkIfExist(soonToBeSuspendedUser.getUsername())) {
+                userRequest = userRequestList.returnObject(soonToBeSuspendedUser.getUsername());
+
+                userSuspensionList.removeUser(user);
+                userRequestList.removeUser(userRequest);
+                userRequestListDataSource.writeData(userRequestList);
+                userSuspensionListDataSource.writeData(userSuspensionList);
+                errorMsgLabel.setText("Restore complete.");
+            }
+            else {
+                userSuspensionList.removeUser(user);
+                userSuspensionListDataSource.writeData(userSuspensionList);
+                errorMsgLabel.setText("Restore complete.");
+            }
+
         }
     }
 
