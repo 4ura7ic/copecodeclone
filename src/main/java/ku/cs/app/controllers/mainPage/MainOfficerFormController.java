@@ -47,8 +47,6 @@ public class MainOfficerFormController {
     private DataSource<ReportList> dataSource;
     private ReportList list;
     private Officer user;
-    private Object object;
-    private Officer officer;
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
     private Report rp = new Report();
 
@@ -63,8 +61,6 @@ public class MainOfficerFormController {
     public void initialize() throws IOException {
         startForm();
         user = (Officer) FXRouter.getData();
-        object = (Object) user;
-        Officer officer = (Officer) object;
         dataSource = new ReportListFileDataSource("data","report.csv");
         sortBox.getItems().addAll(sortList);
         sortBox.setValue("Newest");

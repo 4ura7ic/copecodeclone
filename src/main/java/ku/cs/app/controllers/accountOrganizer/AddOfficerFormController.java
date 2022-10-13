@@ -42,10 +42,10 @@ public class AddOfficerFormController {
 
     Officer officerDetail;
 
-    Officer tempOfficer = new Officer();
+    User tempOfficer = new Officer();
 
     String fs = File.separator ;
-    String imageName = "rickroll.gif";
+    String imageName = "default.jpg";
 
     Admin admin = new Admin();
 
