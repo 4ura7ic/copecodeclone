@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Officer;
 import ku.cs.app.models.Report;
@@ -33,8 +34,11 @@ public class MainOfficerFormController {
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
     @FXML private Button reportButton;
-    @FXML private  Button FinishButton;
+    @FXML private Button FinishButton;
     @FXML private Button voteButton;
+
+    @FXML private TextField solution;
+    @FXML private Pane submitSolutionPane;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
 
@@ -137,15 +141,22 @@ public class MainOfficerFormController {
             dataSource.writeData(list);
         }
     }
+    @FXML void handlereportButton(ActionEvent actionEvent){
+
+    }
     @FXML
     public void handleFinishButton(ActionEvent actionEvent){
-            rp.finishingCheck();
+        submitSolutionPane.setVisible(true);
+    }
+    @FXML public void handleOKButton(ActionEvent actionEvent){
+        rp.setSolution(solution.getText());
+        rp.finishingCheck();
         inProgressListView.getItems().clear();
         inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
         finishReportListView.getItems().clear();
         finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
-
         dataSource.writeData(list);
+        submitSolutionPane.setVisible(false);
     }
 
 
@@ -184,6 +195,7 @@ public class MainOfficerFormController {
         descriptionPane.setVisible(false);
         barOne.setVisible(false);
         barTwo.setVisible(false);
+        submitSolutionPane.setVisible(false);
         FinishButton.setVisible(false);
         reportButton.setVisible(false);
         voteButton.setVisible(false);

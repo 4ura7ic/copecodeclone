@@ -25,7 +25,7 @@
       </ImageView>
       <Rectangle fx:id="barOne" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="36.0" layoutX="24.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="624.0" />
       <Rectangle fx:id="barTwo" arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="30.0" layoutX="24.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="624.0" />
-      <Button layoutX="664.0" layoutY="556.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="17.0" prefWidth="119.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT">
+      <Button layoutX="680.0" layoutY="542.0" maxHeight="85.0" maxWidth="119.0" minHeight="36.0" minWidth="85.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="85.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
