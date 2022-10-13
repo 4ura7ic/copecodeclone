@@ -37,6 +37,7 @@ public class MainUserFormController {
     @FXML private Label solutionLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
+    @FXML private Label errorMsg;
     @FXML private Button viewSolutionButton;
     @FXML private Button reportButton;
     @FXML private Button voteButton;
@@ -68,7 +69,7 @@ public class MainUserFormController {
 
     @FXML
     public void initialize() throws IOException {
-        startForm();
+        clearForm();
         user = (User) FXRouter.getData();
         dataSource = new ReportListFileDataSource("data","report.csv");
         categoryBox.getItems().addAll(categoryList);
@@ -80,21 +81,19 @@ public class MainUserFormController {
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
         showListView();
-        handleSelectedListView();
+        handleSelectedInProgressListView();
+        handleSelectedFinishedListView();
         showUserData();
     }
 
 
     private void categorySort(Event event) {
-        inProgressListView.getItems().clear();
-        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory((String) categoryBox.getValue())));
-        finishReportListView.getItems().clear();
-        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),(list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+        updateListView();
     }
 
     //-------------------------------------------- handle
 
-    private void handleSelectedListView(){
+    private void handleSelectedInProgressListView(){
         inProgressListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Report>() {
                     @Override
@@ -105,6 +104,8 @@ public class MainUserFormController {
                         showSelectedReport(newValue);
                     }
                 });
+    }
+    private void handleSelectedFinishedListView(){
         finishReportListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Report>() {
                     @Override
@@ -161,15 +162,13 @@ public class MainUserFormController {
         if (rp.getVotedUser().contains(user.getUsername())){
             rp.decreaseVote();
             rp.getVotedUser().remove(user.getUsername());
-            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
-            dataSource.writeData(list);
         }
         else {
             rp.increaseVote();
             rp.getVotedUser().add(user.getUsername());
-            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
-            dataSource.writeData(list);
         }
+        rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+        dataSource.writeData(list);
     }
 
     @FXML public void handleReportButton(ActionEvent actionEvent){
@@ -186,13 +185,15 @@ public class MainUserFormController {
     }
 
     @FXML public void handleSortVote(ActionEvent actionEvent){
-        if(Integer.parseInt(amountVoteField.getText())>=0) {
-            inProgressListView.getItems().clear();
-            inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(amountVoteField.getText()), list.sortTimeReport((String) sortBox.getValue(), list.sortInProgressReportByCategory((String) categoryBox.getValue()))));
-            finishReportListView.getItems().clear();
-            finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(amountVoteField.getText()), list.sortTimeReport((String) sortBox.getValue(), list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+        String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"";
+        if(checkVoteSort == "")
+            errorMsg.setText("Put your number first");
+        else if(Integer.parseInt(checkVoteSort)>=0) {
+            updateListView();
             amountVoteField.clear();
         }
+        else
+            errorMsg.setText("Invalid Number");
     }
 
     @FXML public void handleViewSolutionButton(ActionEvent actionEvent){
@@ -205,6 +206,15 @@ public class MainUserFormController {
     }
 
     //-------------------------------------------- method
+
+    private void updateListView(){
+        String  checkVoteSort = (amountVoteField.getText()=="")?"0":amountVoteField.getText();
+        inProgressListView.getItems().clear();
+        inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortInProgressReportByCategory((String) categoryBox.getValue()))));
+        finishReportListView.getItems().clear();
+        finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+        clearForm();
+    }
 
     private void showUserData(){
         nameLabel.setText(user.getUsername());
@@ -227,6 +237,8 @@ public class MainUserFormController {
             descriptionLabel.setText(report.getDescription());
             rateLabel.setText("Rate: " + (report.getVote()));
             popUpLabel.setText("");
+            finishReportListView.refresh();
+            inProgressListView.refresh();
         }
     }
 
@@ -237,7 +249,7 @@ public class MainUserFormController {
         finishReportListView.refresh();
     }
 
-    private void startForm(){
+    private void clearForm(){
         descriptionPane.setVisible(false);
         barOne.setVisible(false);
         barTwo.setVisible(false);
@@ -250,6 +262,7 @@ public class MainUserFormController {
         categoryLabel.setText("");
         descriptionLabel.setText("");
         rateLabel.setText("");
+        errorMsg.setText("");
         popUpLabel.setText("Please select reports below to view detail here.");
     }
 
