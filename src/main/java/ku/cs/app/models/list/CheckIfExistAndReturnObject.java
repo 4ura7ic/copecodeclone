@@ -1,4 +1,4 @@
-package ku.cs.app.models;
+package ku.cs.app.models.list;
 
 public interface CheckIfExistAndReturnObject<T> {
     boolean checkIfExist(String s);

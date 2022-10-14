@@ -1,5 +1,7 @@
-package ku.cs.app.models;
+package ku.cs.app.models.list;
 
+import ku.cs.app.models.Report;
+import ku.cs.app.models.list.CheckIfExistAndReturnObject;
 import ku.cs.app.services.Sorter;
 import java.util.ArrayList;
 import java.util.Collections;

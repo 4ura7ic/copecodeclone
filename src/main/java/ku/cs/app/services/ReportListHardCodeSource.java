@@ -1,6 +1,6 @@
 package ku.cs.app.services;
 
-import ku.cs.app.models.ReportList;
+import ku.cs.app.models.list.ReportList;
 
 public class ReportListHardCodeSource {
     private ReportList rptList;

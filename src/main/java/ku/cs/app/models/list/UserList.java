@@ -1,4 +1,9 @@
-package ku.cs.app.models;
+package ku.cs.app.models.list;
+
+import ku.cs.app.models.Admin;
+import ku.cs.app.models.Officer;
+import ku.cs.app.models.User;
+import ku.cs.app.models.list.CheckIfExistAndReturnObject;
 
 import java.util.ArrayList;
 

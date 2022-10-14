@@ -1,12 +1,11 @@
 package ku.cs.app.services;
 
-import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import ku.cs.app.models.Admin;
 import ku.cs.app.models.Officer;
 import ku.cs.app.models.User;
-import ku.cs.app.models.UserList;
+import ku.cs.app.models.list.UserList;
 
 import java.io.File;
 import java.io.IOException;

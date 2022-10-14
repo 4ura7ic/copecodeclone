@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import ku.cs.app.models.*;
+import ku.cs.app.models.list.*;
 import ku.cs.app.services.*;
 import com.github.saacsos.FXRouter;
 

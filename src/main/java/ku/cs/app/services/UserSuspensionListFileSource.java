@@ -1,7 +1,7 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.UserSuspension;
-import ku.cs.app.models.UserSuspensionList;
+import ku.cs.app.models.list.UserSuspensionList;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

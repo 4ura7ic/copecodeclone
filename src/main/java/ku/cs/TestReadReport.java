@@ -1,6 +1,6 @@
 package ku.cs;
 
-import ku.cs.app.models.InappropriateUserList;
+import ku.cs.app.models.list.InappropriateUserList;
 import ku.cs.app.services.InappropriateUserListFileDataSource;
 
 public class TestReadReport {

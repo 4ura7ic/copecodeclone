@@ -1,7 +1,7 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.Report;
-import ku.cs.app.models.ReportList;
+import ku.cs.app.models.list.ReportList;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;

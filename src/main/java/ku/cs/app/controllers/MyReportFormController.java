@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
-import ku.cs.app.models.ReportList;
+import ku.cs.app.models.list.ReportList;
 import ku.cs.app.models.User;
 import com.github.saacsos.FXRouter;
 import ku.cs.app.services.DataSource;

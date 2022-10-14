@@ -1,6 +1,8 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.*;
+import ku.cs.app.models.list.InappropriateUserList;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;

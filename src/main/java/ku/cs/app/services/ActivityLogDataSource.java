@@ -1,7 +1,7 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.Activity;
-import ku.cs.app.models.ActivityLog;
+import ku.cs.app.models.list.ActivityLog;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

@@ -2,26 +2,17 @@ package ku.cs.app.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import ku.cs.app.models.Admin;
-import ku.cs.app.models.Officer;
 import ku.cs.app.models.User;
-import ku.cs.app.models.UserList;
+import ku.cs.app.models.list.UserList;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ImageDataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 import com.github.saacsos.FXRouter;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 
 public class ProfileFormController {
     //-------------------------------------------- FXML

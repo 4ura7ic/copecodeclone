@@ -1,6 +1,8 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.*;
+import ku.cs.app.models.list.UserList;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
