@@ -42,7 +42,7 @@ public class ImageDataSource {
 
         try {
             if(key.equals("user")) {
-                destDir = new File("data/images");
+                destDir = new File("data/images/user");
                 if (!destDir.exists()) {
                     destDir.mkdirs();
                 }
@@ -90,7 +90,7 @@ public class ImageDataSource {
         try {
 
             if(user.getRole().equals("user")) {
-                destDir = new File("data/images");
+                destDir = new File("data/images/user");
                 if (!destDir.exists()) {
                     destDir.mkdirs();
                 }

@@ -88,7 +88,7 @@ public class UserDataListController {
         if(data.getRole().equals("officer"))
             image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + data.getPhoto()));
         if(data.getRole().equals("user"))
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + data.getPhoto()));
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "user" + fs + data.getPhoto()));
         nameLabel.setText(data.getName());
         surnameLabel.setText(data.getSurname());
         passwordLabel.setText(data.getPassword());

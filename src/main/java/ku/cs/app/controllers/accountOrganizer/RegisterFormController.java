@@ -46,7 +46,7 @@ public class RegisterFormController {
     public void initialize(){
 
         System.out.println("initialize MemberCardDetailController");
-        image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "default.jpg"));
+        image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "user" + fs + "default.jpg"));
 
     }
 
@@ -128,7 +128,7 @@ public class RegisterFormController {
             imageName = getImage.chooseImage(usernameTextField.getText(), "user");
             tempUserDetail.setPhoto(imageName);
             //เซ็ตรูปในFXML
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + tempUserDetail.getPhoto()));
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "user" + fs + tempUserDetail.getPhoto()));
 
         }
 
