@@ -21,11 +21,11 @@
          <font>
             <Font size="20.0" />
          </font></Text>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="33.0" prefWidth="69.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
+      <Button layoutX="14.0" layoutY="14.0" maxHeight="33.0" maxWidth="69.0" minHeight="33.0" minWidth="69.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="33.0" prefWidth="69.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button layoutX="348.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="43.0" prefWidth="105.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Report">
+      <Button layoutX="348.0" layoutY="455.0" maxHeight="43.0" maxWidth="105.0" minHeight="43.0" minWidth="105.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="43.0" prefWidth="105.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Report">
          <font>
             <Font size="20.0" />
          </font></Button>

@@ -20,7 +20,7 @@
       <TextField fx:id="usernameTextField" layoutX="346.0" layoutY="167.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter username" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="nameTextField" layoutX="346.0" layoutY="342.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter name" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="surnameTextField" layoutX="346.0" layoutY="399.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter surname" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="610.0" layoutY="495.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="30.0" prefWidth="81.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Create">
+      <Button layoutX="610.0" layoutY="495.0" maxHeight="30.0" maxWidth="81.0" minHeight="30.0" minWidth="81.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="30.0" prefWidth="81.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Create">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -33,11 +33,11 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="207.0" layoutY="499.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="22.0" prefWidth="99.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose Image">
+      <Button layoutX="207.0" layoutY="499.0" maxHeight="22.0" maxWidth="99.0" minHeight="22.0" minWidth="99.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="22.0" prefWidth="99.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose Image">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="711.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="39.0" prefWidth="75.0" styleClass="button2" stylesheets="@../../cssStyle/style.css" text="Back" textFill="#84a98c">
+      <Button layoutX="711.0" layoutY="14.0" maxHeight="39.0" maxWidth="75.0" minHeight="39.0" minWidth="75.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="39.0" prefWidth="75.0" styleClass="button2" stylesheets="@../../cssStyle/style.css" text="Back" textFill="#84a98c">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

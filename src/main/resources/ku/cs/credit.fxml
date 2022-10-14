@@ -14,7 +14,7 @@
             <Image url="@images/credit.png" />
          </image>
       </ImageView>
-      <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="38.0" prefWidth="73.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
+      <Button layoutX="14.0" layoutY="10.0" maxHeight="38.0" maxWidth="73.0" minHeight="38.0" minWidth="73.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="38.0" prefWidth="73.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

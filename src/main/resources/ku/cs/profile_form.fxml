@@ -34,21 +34,21 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="41.0" prefWidth="75.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
+      <Button layoutX="14.0" layoutY="8.0" maxHeight="41.0" maxWidth="75.0" minHeight="41.0" minWidth="75.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="41.0" prefWidth="75.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button layoutX="427.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="27.0" prefWidth="136.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset password">
+      <Button layoutX="427.0" layoutY="337.0" maxHeight="27.0" maxWidth="136.0" minHeight="27.0" minWidth="136.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="27.0" prefWidth="136.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset password">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="13.0" />
          </font></Button>
-      <Button layoutX="264.0" layoutY="337.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="27.0" prefWidth="136.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Change Image">
+      <Button layoutX="264.0" layoutY="337.0" maxHeight="27.0" maxWidth="136.0" minHeight="27.0" minWidth="136.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="27.0" prefWidth="136.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Change Image">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

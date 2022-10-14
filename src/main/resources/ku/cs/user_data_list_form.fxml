@@ -59,14 +59,14 @@
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="78.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
+      <Button layoutX="14.0" layoutY="14.0" maxHeight="35.0" maxWidth="78.0" minHeight="35.0" minWidth="78.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="78.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button layoutX="141.0" layoutY="63.0" mnemonicParsing="false" onAction="#handleActivityLog" prefHeight="27.0" prefWidth="78.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Activity Log">
+      <Button layoutX="141.0" layoutY="63.0" maxHeight="27.0" maxWidth="78.0" minHeight="27.0" minWidth="78.0" mnemonicParsing="false" onAction="#handleActivityLog" prefHeight="27.0" prefWidth="78.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Activity Log">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

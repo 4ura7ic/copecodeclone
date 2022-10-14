@@ -18,21 +18,21 @@
          </image>
       </ImageView>
       <TextField fx:id="userName" layoutX="316.0" layoutY="270.0" prefHeight="35.0" prefWidth="258.0" promptText="Username" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="538.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleUserLogin" prefHeight="35.0" prefWidth="72.0" styleClass="button1" stylesheets="@../../cssStyle/style.css" text="LOGIN">
+      <Button layoutX="538.0" layoutY="369.0" maxHeight="35.0" maxWidth="72.0" minHeight="35.0" minWidth="72.0" mnemonicParsing="false" onAction="#handleUserLogin" prefHeight="35.0" prefWidth="72.0" styleClass="button1" stylesheets="@../../cssStyle/style.css" text="LOGIN">
          <font>
             <Font name="Tw Cen MT" size="16.0" />
          </font>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></Button>
-      <Button layoutX="294.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleUserRegister" prefHeight="42.0" prefWidth="88.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Register">
+      <Button layoutX="294.0" layoutY="520.0" maxHeight="42.0" maxWidth="88.0" minHeight="42.0" minWidth="88.0" mnemonicParsing="false" onAction="#handleUserRegister" prefHeight="42.0" prefWidth="88.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Register">
          <font>
             <Font size="16.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="420.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleCredit" prefHeight="42.0" prefWidth="88.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Credit">
+      <Button layoutX="420.0" layoutY="520.0" maxHeight="42.0" maxWidth="88.0" minHeight="42.0" minWidth="88.0" mnemonicParsing="false" onAction="#handleCredit" prefHeight="42.0" prefWidth="88.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Credit">
          <font>
             <Font size="16.0" />
          </font>

@@ -21,18 +21,18 @@
       <TextField fx:id="confirmTextField" layoutX="88.0" layoutY="257.0" prefHeight="43.0" prefWidth="270.0" promptText="confirm password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="nameTextField" layoutX="88.0" layoutY="325.0" prefHeight="43.0" prefWidth="270.0" promptText="name" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="surnameTextField" layoutX="88.0" layoutY="391.0" prefHeight="43.0" prefWidth="270.0" promptText="surname" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="435.0" layoutY="120.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="36.0" prefWidth="113.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose image">
+      <Button layoutX="435.0" layoutY="120.0" maxHeight="36.0" maxWidth="113.0" minHeight="36.0" minWidth="113.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="36.0" prefWidth="113.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose image">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="36.0" prefWidth="74.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
+      <Button layoutX="14.0" layoutY="11.0" maxHeight="36.0" maxWidth="74.0" minHeight="36.0" minWidth="74.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="36.0" prefWidth="74.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button layoutX="611.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="36.0" prefWidth="74.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Add">
+      <Button layoutX="611.0" layoutY="494.0" maxHeight="36.0" maxWidth="74.0" minHeight="36.0" minWidth="74.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="36.0" prefWidth="74.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Add">
          <font>
             <Font size="20.0" />
          </font></Button>

@@ -37,7 +37,7 @@
       </Label>
       <ComboBox fx:id="categoryBox" layoutX="659.0" layoutY="340.0" prefHeight="26.0" prefWidth="131.0" promptText="All" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
       <ComboBox fx:id="sortBox" layoutX="659.0" layoutY="395.0" prefHeight="26.0" prefWidth="131.0" promptText="Oldest" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="128.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleSuspendManagerButton" prefHeight="32.0" prefWidth="128.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="User Manager">
+      <Button layoutX="128.0" layoutY="18.0" maxHeight="32.0" maxWidth="128.0" minHeight="32.0" minWidth="128.0" mnemonicParsing="false" onAction="#handleSuspendManagerButton" prefHeight="32.0" prefWidth="128.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="User Manager">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -71,35 +71,35 @@
          <font>
             <Font size="22.0" />
          </font></Label>
-      <Button layoutX="680.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="85.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT" textAlignment="CENTER">
+      <Button layoutX="680.0" layoutY="532.0" maxHeight="36.0" maxWidth="85.0" minHeight="36.0" minWidth="85.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="36.0" prefWidth="85.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="LOG OUT" textAlignment="CENTER">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button layoutX="23.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleUserList" prefHeight="32.0" prefWidth="89.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="User List">
+      <Button layoutX="23.0" layoutY="18.0" maxHeight="32.0" maxWidth="89.0" minHeight="32.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleUserList" prefHeight="32.0" prefWidth="89.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="User List">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button layoutX="273.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleAddNewOfficerButton" prefHeight="32.0" prefWidth="128.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Add New Officer">
+      <Button layoutX="273.0" layoutY="18.0" maxHeight="32.0" maxWidth="128.0" minHeight="32.0" minWidth="128.0" mnemonicParsing="false" onAction="#handleAddNewOfficerButton" prefHeight="32.0" prefWidth="128.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Add New Officer">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="voteButton" layoutX="706.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleVoteButton" prefHeight="44.0" prefWidth="56.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote" />
+      <Button fx:id="voteButton" layoutX="706.0" layoutY="126.0" maxHeight="44.0" maxWidth="56.0" minHeight="44.0" minWidth="56.0" mnemonicParsing="false" onAction="#handleVoteButton" prefHeight="44.0" prefWidth="56.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Vote" />
       <ListView fx:id="finishReportListView" layoutX="337.0" layoutY="339.0" prefHeight="212.0" prefWidth="311.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="25.0" layoutX="25.0" layoutY="314.0" stroke="BLACK" strokeType="INSIDE" width="312.0" />
       <Label layoutX="34.0" layoutY="319.0" text="In progress reports" />
       <Label layoutX="347.0" layoutY="319.0" text="accomplished report" />
       <Label layoutX="663.0" layoutY="319.0" text="Category" textFill="WHITE" />
       <Label layoutX="663.0" layoutY="374.0" text="SortBy" textFill="WHITE" />
-      <Button fx:id="viewSolutionButton" layoutX="678.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleViewSolutionButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View solution" />
+      <Button fx:id="viewSolutionButton" layoutX="678.0" layoutY="261.0" maxHeight="36.0" maxWidth="89.0" minHeight="36.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleViewSolutionButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View solution" />
       <Pane fx:id="solutionPane" layoutX="81.0" layoutY="197.0" prefHeight="200.0" prefWidth="524.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" width="524.0" />
@@ -124,14 +124,14 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Label fx:id="errorMsg" layoutX="657.0" layoutY="498.0" text="error" textFill="RED">
+      <Label fx:id="errorMsg" layoutX="661.0" layoutY="480.0" text="error" textFill="RED">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="amountVoteField" layoutX="657.0" layoutY="468.0" prefHeight="25.0" prefWidth="73.0" promptText="amount" />
-      <Label layoutX="658.0" layoutY="446.0" text="SortOverVote" textFill="WHITE" />
-      <Button layoutX="734.0" layoutY="468.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="43.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Sort" />
-      <Button fx:id="resetSortButton" layoutX="711.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleResetSortButton" prefHeight="25.0" prefWidth="72.0" text="Reset Sort" />
+      <TextField fx:id="amountVoteField" layoutX="661.0" layoutY="453.0" prefHeight="25.0" prefWidth="73.0" promptText="amount" />
+      <Label layoutX="663.0" layoutY="432.0" text="SortOverVote" textFill="WHITE" />
+      <Button layoutX="742.0" layoutY="453.0" maxHeight="25.0" maxWidth="43.0" minHeight="25.0" minWidth="43.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="43.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Sort" />
+      <Button fx:id="resetSortButton" layoutX="714.0" layoutY="487.0" maxHeight="25.0" maxWidth="72.0" minHeight="25.0" minWidth="72.0" mnemonicParsing="false" onAction="#handleResetSortButton" prefHeight="25.0" prefWidth="72.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset Sort" />
    </children>
 </AnchorPane>

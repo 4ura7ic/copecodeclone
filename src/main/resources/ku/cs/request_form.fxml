@@ -18,14 +18,14 @@
       <TextField fx:id="usernameTextField" layoutX="218.0" layoutY="117.0" prefHeight="35.0" prefWidth="267.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="passwordTextField" layoutX="218.0" layoutY="159.0" prefHeight="35.0" prefWidth="267.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="requestTextField" alignment="TOP_LEFT" layoutX="92.0" layoutY="242.0" prefHeight="265.0" prefWidth="620.0" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="640.0" layoutY="517.0" mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="41.0" prefWidth="84.0" styleClass="button2flip" stylesheets="@../../cssStyle/style.css" text="Submit" textFill="#7ea185">
+      <Button layoutX="640.0" layoutY="517.0" maxHeight="41.0" maxWidth="84.0" minHeight="41.0" minWidth="84.0" mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="41.0" prefWidth="84.0" styleClass="button2flip" stylesheets="@../../cssStyle/style.css" text="Submit" textFill="#7ea185">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="41.0" prefWidth="74.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
+      <Button layoutX="14.0" layoutY="9.0" maxHeight="41.0" maxWidth="74.0" minHeight="41.0" minWidth="74.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="41.0" prefWidth="74.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
