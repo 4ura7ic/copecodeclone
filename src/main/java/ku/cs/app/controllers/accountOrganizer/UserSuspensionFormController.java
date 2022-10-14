@@ -105,8 +105,8 @@ public class UserSuspensionFormController {
                             soonToBeSuspendedUser = null;
                             amntLabel.setText("0");
                         }
-                        if (userSuspensionList.checkIfSuspended(newUser.getUsername())) {
-                            UserSuspension user = userSuspensionList.returnSuspendedUser(newUser.getUsername());
+                        if (userSuspensionList.checkIfExist(newUser.getUsername())) {
+                            UserSuspension user = userSuspensionList.returnObject(newUser.getUsername());
                             if (userRequestList.checkIfExist(newUser.getUsername())) {
                                 userRequest = userRequestList.returnObject(newUser.getUsername());
                                 requestLabel.setText(userRequest.getConfession());
@@ -143,7 +143,7 @@ public class UserSuspensionFormController {
             errorMsgLabel.setText("You can't suspend a user without an inappropriate activities.");
             reasonTextField.clear();
         }
-        else if (userSuspensionList.checkIfSuspended(soonToBeSuspendedUser.getUsername())) {
+        else if (userSuspensionList.checkIfExist(soonToBeSuspendedUser.getUsername())) {
             errorMsgLabel.setText("You can't suspend an already suspended user.");
             reasonTextField.clear();
         }
@@ -164,8 +164,8 @@ public class UserSuspensionFormController {
         if (soonToBeSuspendedUser == null){
             errorMsgLabel.setText("You can't restore an active account.");
         }
-        else if (userSuspensionList.checkIfSuspended(soonToBeSuspendedUser.getUsername())) {
-            UserSuspension user = userSuspensionList.returnSuspendedUser(soonToBeSuspendedUser.getUsername());
+        else if (userSuspensionList.checkIfExist(soonToBeSuspendedUser.getUsername())) {
+            UserSuspension user = userSuspensionList.returnObject(soonToBeSuspendedUser.getUsername());
             if (userRequestList.checkIfExist(soonToBeSuspendedUser.getUsername())) {
                 userRequest = userRequestList.returnObject(soonToBeSuspendedUser.getUsername());
 
@@ -199,13 +199,13 @@ public class UserSuspensionFormController {
     //-------------------------------------------- method
 
     private void showUserListView(){
-        userList.removeUser(userList.returnUserObject(user.getUsername()));
+        userList.removeUser(userList.returnObject(user.getUsername()));
         dataListView.getItems().addAll(userList.getAllData());
         dataListView.refresh();
     }
     private void showReportListView(String username){
         reportListView.getItems().clear();
-        reportListView.getItems().addAll(reportList.returnUserReport(username));
+        reportListView.getItems().addAll(reportList.returnObject(username));
         reportListView.refresh();
     }
     private void showInappropriateActivitiesListView(String username) {

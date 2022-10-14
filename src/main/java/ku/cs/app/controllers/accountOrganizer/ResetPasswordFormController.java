@@ -48,9 +48,9 @@ public class ResetPasswordFormController {
     @FXML
     public void handleResetButton(ActionEvent actionEvent) {
         errorMsgLabel.setText("");
-        if (list.checkIfUserExisted(usernameTextField.getText())) {
+        if (list.checkIfExist(usernameTextField.getText())) {
 
-            User user = list.returnUserObject(usernameTextField.getText());
+            User user = list.returnObject(usernameTextField.getText());
 
             if (user.checkIfInputPasswordCorrect(user, currentPasswordTextField.getText())){
 

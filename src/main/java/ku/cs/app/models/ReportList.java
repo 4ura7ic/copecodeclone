@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class ReportList {
+public class ReportList implements CheckIfExistAndReturnObject<ArrayList<Report>> {
     private ArrayList<Report> rpt;
 
     public ReportList(){
@@ -30,16 +30,7 @@ public class ReportList {
         }
         return tmpReport;
     }
-    public ArrayList<Report> returnUserReport(String username) {
-        ArrayList<Report> list = new ArrayList<>();
-        for (Report rp :rpt) {
-            if (username.equals(rp.getAuthorUser())) {
-                list.add(rp);
-            }
-        }
-        return list;
-    }
-
+    @Override
     public boolean checkIfExist(String username) {
         for (Report rp:rpt) {
             if (username.equals(rp.getAuthorUser())) {
@@ -47,6 +38,17 @@ public class ReportList {
             }
         }
         return false;
+    }
+
+    @Override
+    public ArrayList<Report> returnObject(String username) {
+        ArrayList<Report> list = new ArrayList<>();
+        for (Report rp :rpt) {
+            if (username.equals(rp.getAuthorUser())) {
+                list.add(rp);
+            }
+        }
+        return list;
     }
 
     public ArrayList<Report> sortUserReportByCategory(String key, ArrayList<Report> reports){

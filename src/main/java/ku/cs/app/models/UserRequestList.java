@@ -2,7 +2,7 @@ package ku.cs.app.models;
 
 import java.util.ArrayList;
 
-public class UserRequestList {
+public class UserRequestList implements CheckIfExistAndReturnObject<UserRequest> {
     private ArrayList<UserRequest> rqList;
 
     public UserRequestList() {rqList = new ArrayList<>();}
@@ -17,6 +17,7 @@ public class UserRequestList {
         return rqList;
     }
 
+    @Override
     public boolean checkIfExist(String username) {
         for (UserRequest user: rqList) {
             if (user.getUsername().equals(username)) {
@@ -26,6 +27,7 @@ public class UserRequestList {
         return false;
     }
 
+    @Override
     public UserRequest returnObject(String username) {
         for (UserRequest user : rqList) {
             if (user.getUsername().equals(username)) {
