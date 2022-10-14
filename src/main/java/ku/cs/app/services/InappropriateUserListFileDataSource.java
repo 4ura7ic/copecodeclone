@@ -2,6 +2,7 @@ package ku.cs.app.services;
 
 import ku.cs.app.models.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class InappropriateUserListFileDataSource implements DataSource<InappropriateUserList>{
@@ -22,7 +23,7 @@ public class InappropriateUserListFileDataSource implements DataSource<Inappropr
         BufferedReader buffer = null;
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file, StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
             String line = "";
@@ -61,7 +62,7 @@ public class InappropriateUserListFileDataSource implements DataSource<Inappropr
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             for(InappropriateUser user: list.getInappropriateUserList()){
@@ -85,7 +86,7 @@ public class InappropriateUserListFileDataSource implements DataSource<Inappropr
         Writer writer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             writer.write("");
             writer.close();
         } catch (IOException e) {
