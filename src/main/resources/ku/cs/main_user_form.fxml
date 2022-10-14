@@ -131,5 +131,10 @@
          </font>
       </Label>
       <Button fx:id="resetSortButton" layoutX="706.0" layoutY="487.0" maxHeight="25.0" maxWidth="73.0" minHeight="25.0" minWidth="73.0" mnemonicParsing="false" onAction="#handleResetSortButton" prefHeight="25.0" prefWidth="73.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset Sort" />
+      <Button layoutX="269.0" layoutY="18.0" maxHeight="32.0" maxWidth="101.0" minHeight="32.0" minWidth="101.0" mnemonicParsing="false" onAction="#handleHowToButton" prefHeight="32.0" prefWidth="101.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="How To Use">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

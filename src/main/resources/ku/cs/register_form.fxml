@@ -17,9 +17,9 @@
             <Image url="@images/regis.png" />
          </image>
       </ImageView>
-      <TextField fx:id="usernameTextField" layoutX="346.0" layoutY="167.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter username" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <TextField fx:id="nameTextField" layoutX="346.0" layoutY="342.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter name" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <TextField fx:id="surnameTextField" layoutX="346.0" layoutY="399.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter surname" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
+      <TextField fx:id="usernameTextField" layoutX="299.0" layoutY="121.0" prefHeight="39.0" prefWidth="311.0" promptText="Enter username" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
+      <TextField fx:id="nameTextField" layoutX="299.0" layoutY="316.0" prefHeight="39.0" prefWidth="311.0" promptText="Enter name" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
+      <TextField fx:id="surnameTextField" layoutX="299.0" layoutY="383.0" prefHeight="39.0" prefWidth="311.0" promptText="Enter surname" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <Button layoutX="610.0" layoutY="495.0" maxHeight="30.0" maxWidth="81.0" minHeight="30.0" minWidth="81.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="30.0" prefWidth="81.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Create">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -27,13 +27,13 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <PasswordField fx:id="passwordTextField" layoutX="346.0" layoutY="225.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter Password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Label fx:id="errorMsgLabel" alignment="TOP_LEFT" layoutX="621.0" layoutY="207.0" prefHeight="113.0" prefWidth="139.0" text="errorMsg" textFill="RED">
+      <PasswordField fx:id="passwordTextField" layoutX="299.0" layoutY="187.0" prefHeight="39.0" prefWidth="311.0" promptText="Enter Password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
+      <Label fx:id="errorMsgLabel" alignment="TOP_LEFT" layoutX="622.0" layoutY="187.0" prefHeight="113.0" prefWidth="139.0" text="errorMsg" textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="207.0" layoutY="499.0" maxHeight="22.0" maxWidth="99.0" minHeight="22.0" minWidth="99.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="22.0" prefWidth="99.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose Image">
+      <Button layoutX="171.0" layoutY="473.0" maxHeight="22.0" maxWidth="99.0" minHeight="22.0" minWidth="99.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="22.0" prefWidth="99.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose Image">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -44,7 +44,7 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <ImageView fx:id="image" fitHeight="113.0" fitWidth="147.0" layoutX="346.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true" />
-      <PasswordField fx:id="confirmTextField" layoutX="346.0" layoutY="287.0" prefHeight="39.0" prefWidth="258.0" promptText="Confirm password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
+      <ImageView fx:id="image" fitHeight="140.0" fitWidth="200.0" layoutX="299.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
+      <PasswordField fx:id="confirmTextField" layoutX="299.0" layoutY="252.0" prefHeight="39.0" prefWidth="311.0" promptText="Confirm password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
    </children>
 </AnchorPane>
