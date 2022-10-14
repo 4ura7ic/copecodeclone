@@ -28,7 +28,7 @@
             <Font size="15.0" />
          </font></Button>
       <PasswordField fx:id="passwordTextField" layoutX="346.0" layoutY="225.0" prefHeight="39.0" prefWidth="258.0" promptText="Enter Password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Label fx:id="errorMsgLabel" layoutX="233.0" layoutY="419.0" textFill="RED">
+      <Label fx:id="errorMsgLabel" alignment="TOP_LEFT" layoutX="621.0" layoutY="207.0" prefHeight="113.0" prefWidth="139.0" text="errorMsg" textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
