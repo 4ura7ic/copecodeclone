@@ -37,6 +37,7 @@ public class MainOfficerFormController {
     @FXML private Button submitSolutionButton;
     @FXML private Button voteButton;
     @FXML private Button editSolutionButton;
+    @FXML private Button resetSortButton;
     @FXML private TextField solutionTextField;
     @FXML private Pane submitSolutionPane;
     @FXML private Pane officerPane;
@@ -57,7 +58,7 @@ public class MainOfficerFormController {
 
     @FXML
     public void initialize() throws IOException {
-        startForm();
+        clearForm();
         user = (Officer) FXRouter.getData();
         dataSource = new ReportListFileDataSource("data","report.csv");
         sortBox.getItems().addAll(sortList);
@@ -159,6 +160,13 @@ public class MainOfficerFormController {
         submitSolutionPane.setVisible(false);
     }
 
+    @FXML public void handleResetSortButton(ActionEvent actionEvent){
+        clearForm();
+        clearListView();
+        showListView();
+        resetSortButton.setVisible(false);
+    }
+
     //-------------------------------------------- method
 
     private void showUserData(){
@@ -204,7 +212,7 @@ public class MainOfficerFormController {
         finishReportListView.refresh();
     }
 
-    private void startForm(){
+    private void clearForm(){
         descriptionPane.setVisible(false);
         barOne.setVisible(false);
         barTwo.setVisible(false);
