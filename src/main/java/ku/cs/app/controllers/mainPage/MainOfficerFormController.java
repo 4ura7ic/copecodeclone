@@ -50,10 +50,7 @@ public class MainOfficerFormController {
     private Officer user;
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
     private Report rp = new Report();
-
-    //-------------------------------------------- noModifier
-
-    ObservableList<String> sortList = FXCollections
+    private ObservableList<String> sortList = FXCollections
             .observableArrayList(sortBy);
 
     //-------------------------------------------- initialize
@@ -73,9 +70,8 @@ public class MainOfficerFormController {
     }
 
     private void categorySort(Event event) {
-        inProgressListView.getItems().clear();
+        clearListView();
         inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
-        finishReportListView.getItems().clear();
         finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
     }
 
@@ -147,11 +143,9 @@ public class MainOfficerFormController {
         rp.setService(user.getUsername());
         rp.finishingCheck();
         solutionTextField.clear();
-        inProgressListView.getItems().clear();
+        clearListView();
         inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
-        finishReportListView.getItems().clear();
         finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
-
         dataSource.writeData(list);
         submitSolutionPane.setVisible(false);
     }
@@ -169,6 +163,11 @@ public class MainOfficerFormController {
 
     private void showUserData(){
         nameLabel.setText(user.getUsername());
+    }
+
+    private void clearListView(){
+        inProgressListView.getItems().clear();
+        finishReportListView.getItems().clear();
     }
 
     private void showSelectedReport(Report report){

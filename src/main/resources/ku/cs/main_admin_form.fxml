@@ -131,7 +131,7 @@
       </Label>
       <TextField fx:id="amountVoteField" layoutX="661.0" layoutY="453.0" prefHeight="25.0" prefWidth="73.0" promptText="amount" />
       <Label layoutX="663.0" layoutY="432.0" text="SortOverVote" textFill="WHITE" />
-      <Button layoutX="742.0" layoutY="453.0" maxHeight="25.0" maxWidth="43.0" minHeight="25.0" minWidth="43.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="43.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Sort" />
+      <Button layoutX="742.0" layoutY="453.0" maxHeight="25.0" maxWidth="43.0" minHeight="25.0" minWidth="43.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="43.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Set" />
       <Button fx:id="resetSortButton" layoutX="714.0" layoutY="487.0" maxHeight="25.0" maxWidth="72.0" minHeight="25.0" minWidth="72.0" mnemonicParsing="false" onAction="#handleResetSortButton" prefHeight="25.0" prefWidth="72.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset Sort" />
    </children>
 </AnchorPane>

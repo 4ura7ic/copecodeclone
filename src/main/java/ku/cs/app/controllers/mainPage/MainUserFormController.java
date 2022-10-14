@@ -55,16 +55,10 @@ public class MainUserFormController {
 
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
     private Report rp = new Report();
-
-    //-------------------------------------------- noModifier
-
-    ObservableList<String> categoryList = FXCollections
+    private ObservableList<String> categoryList = FXCollections
             .observableArrayList(category);
-
-    ObservableList<String> sortList = FXCollections
+    private ObservableList<String> sortList = FXCollections
             .observableArrayList(sortBy);
-
-
 
     //-------------------------------------------- initialize
 
@@ -207,6 +201,8 @@ public class MainUserFormController {
     }
 
     @FXML public void handleResetSortButton(ActionEvent actionEvent){
+        clearForm();
+        clearListView();
         showListView();
         resetSortButton.setVisible(false);
         amountVoteField.clear();
@@ -217,12 +213,16 @@ public class MainUserFormController {
 
     private void updateListView(){
         String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"-1";
-        inProgressListView.getItems().clear();
+        clearListView();
         inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortInProgressReportByCategory((String) categoryBox.getValue()))));
-        finishReportListView.getItems().clear();
         finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
         resetSortButton.setVisible(true);
         clearForm();
+    }
+
+    private void clearListView(){
+        inProgressListView.getItems().clear();
+        finishReportListView.getItems().clear();
     }
 
     private void showUserData(){
