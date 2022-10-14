@@ -1,4 +1,6 @@
-package ku.cs.app.models;
+package ku.cs.app.models.list;
+
+import ku.cs.app.models.Activity;
 
 import java.util.Collection;
 import java.util.TreeSet;

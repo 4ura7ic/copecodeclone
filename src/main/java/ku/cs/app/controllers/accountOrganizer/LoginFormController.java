@@ -6,6 +6,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.app.models.*;
+import ku.cs.app.models.list.ActivityLog;
+import ku.cs.app.models.list.UserList;
+import ku.cs.app.models.list.UserSuspensionList;
 import ku.cs.app.services.ActivityLogDataSource;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
@@ -60,12 +63,12 @@ public class LoginFormController {
         act.setDateTime();
         act.setActivity("| Login attempt from user: " + userName.getText() + " | ");
 
-        if (list.checkIfUserExisted(userName.getText())){
-            User user = list.returnUserObject(userName.getText());
+        if (list.checkIfExist(userName.getText())){
+            User user = list.returnObject(userName.getText());
             if(user.getUsername().equals(userName.getText())) {
                 if (user.checkIfInputPasswordCorrect(user, userPassword.getText())) {
 
-                    if (susList.checkIfSuspended(user.getUsername())) {
+                    if (susList.checkIfExist(user.getUsername())) {
 //                        UserSuspension suspendedUser = susList.returnSuspendedUser(user.getUsername());
 //                        suspendedUser.addLoginAttempt();
 //                        userPassword.clear();
@@ -76,7 +79,7 @@ public class LoginFormController {
 
                         try {
                             ArrayList<Object> o = new ArrayList<>();
-                            UserSuspension suspendedUser = susList.returnSuspendedUser(user.getUsername());
+                            UserSuspension suspendedUser = susList.returnObject(user.getUsername());
                             suspendedUser.addLoginAttempt();
                             act.setMessage("Failed - User suspended. | Login attempt: " + suspendedUser.getLoginAttempt() + "time(s).");
                             log.addLog(act);

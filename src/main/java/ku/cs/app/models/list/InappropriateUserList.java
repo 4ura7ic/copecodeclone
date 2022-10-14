@@ -1,8 +1,11 @@
-package ku.cs.app.models;
+package ku.cs.app.models.list;
+
+import ku.cs.app.models.InappropriateUser;
+import ku.cs.app.models.list.CheckIfExistAndReturnObject;
 
 import java.util.ArrayList;
 
-public class InappropriateUserList {
+public class InappropriateUserList implements CheckIfExistAndReturnObject<InappropriateUser> {
     private ArrayList<InappropriateUser> list;
     public InappropriateUserList() {
         list = new ArrayList<>();
@@ -14,6 +17,7 @@ public class InappropriateUserList {
         list.remove(user);
     }
 
+    @Override
     public boolean checkIfExist(String s) {
         for (InappropriateUser user : list) {
             if (user.getUsername().equals(s)) {
@@ -23,6 +27,7 @@ public class InappropriateUserList {
         return false;
     }
 
+    @Override
     public InappropriateUser returnObject(String s){
         for (InappropriateUser user : list) {
             if (user.getUsername().equals(s)) {

@@ -1,9 +1,10 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.Activity;
-import ku.cs.app.models.ActivityLog;
+import ku.cs.app.models.list.ActivityLog;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class ActivityLogDataSource implements DataSource<ActivityLog>{
     //-------------------------------------------- instance
@@ -28,7 +29,7 @@ public class ActivityLogDataSource implements DataSource<ActivityLog>{
         BufferedReader buffer = null;
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file, StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
             String line = "";
@@ -67,7 +68,7 @@ public class ActivityLogDataSource implements DataSource<ActivityLog>{
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             for (Activity data : log.getLog()) {
@@ -112,7 +113,7 @@ public class ActivityLogDataSource implements DataSource<ActivityLog>{
         Writer writer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             writer.write("");
             writer.close();
         } catch (IOException e) {

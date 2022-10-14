@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Officer;
 import ku.cs.app.models.Report;
-import ku.cs.app.models.ReportList;
+import ku.cs.app.models.list.ReportList;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListFileDataSource;
 import com.github.saacsos.FXRouter;

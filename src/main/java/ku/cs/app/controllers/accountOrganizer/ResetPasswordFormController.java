@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ku.cs.app.models.User;
-import ku.cs.app.models.UserList;
+import ku.cs.app.models.list.UserList;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 import java.io.IOException;
@@ -48,9 +48,9 @@ public class ResetPasswordFormController {
     @FXML
     public void handleResetButton(ActionEvent actionEvent) {
         errorMsgLabel.setText("");
-        if (list.checkIfUserExisted(usernameTextField.getText())) {
+        if (list.checkIfExist(usernameTextField.getText())) {
 
-            User user = list.returnUserObject(usernameTextField.getText());
+            User user = list.returnObject(usernameTextField.getText());
 
             if (user.checkIfInputPasswordCorrect(user, currentPasswordTextField.getText())){
 

@@ -1,8 +1,11 @@
-package ku.cs.app.models;
+package ku.cs.app.models.list;
+
+import ku.cs.app.models.UserSuspension;
+import ku.cs.app.models.list.CheckIfExistAndReturnObject;
 
 import java.util.ArrayList;
 
-public class UserSuspensionList {
+public class UserSuspensionList implements CheckIfExistAndReturnObject<UserSuspension> {
     private ArrayList<UserSuspension> suspendedUser;
 
     public UserSuspensionList(){
@@ -21,7 +24,7 @@ public class UserSuspensionList {
         return suspendedUser;
     }
 
-    public boolean checkIfSuspended(String username) {
+    public boolean checkIfExist(String username) {
         for (UserSuspension user : suspendedUser) {
             if (user.getUsername().equals(username)) {
                 return true;
@@ -30,7 +33,7 @@ public class UserSuspensionList {
         return false;
     }
 
-    public UserSuspension returnSuspendedUser(String username) {
+    public UserSuspension returnObject(String username) {
         for (UserSuspension user : suspendedUser) {
             if (user.getUsername().equals(username)) {
                 return user;

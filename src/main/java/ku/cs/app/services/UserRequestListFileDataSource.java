@@ -1,11 +1,10 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.UserRequest;
-import ku.cs.app.models.UserRequestList;
-import ku.cs.app.models.UserSuspension;
-import ku.cs.app.models.UserSuspensionList;
+import ku.cs.app.models.list.UserRequestList;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class UserRequestListFileDataSource implements DataSource<UserRequestList>{
     private String directoryName;
@@ -25,7 +24,7 @@ public class UserRequestListFileDataSource implements DataSource<UserRequestList
         BufferedReader buffer = null;
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file, StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
             String line = "";
@@ -59,7 +58,7 @@ public class UserRequestListFileDataSource implements DataSource<UserRequestList
         Writer writer = null;
         BufferedWriter buffer = null;
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             for (UserRequest user : list.getAllData()) {
@@ -86,7 +85,7 @@ public class UserRequestListFileDataSource implements DataSource<UserRequestList
         Writer writer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             writer.write("");
             writer.close();
         } catch (IOException e) {

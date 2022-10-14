@@ -1,9 +1,10 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.UserSuspension;
-import ku.cs.app.models.UserSuspensionList;
+import ku.cs.app.models.list.UserSuspensionList;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class UserSuspensionListFileSource implements DataSource<UserSuspensionList>{
     //-------------------------------------------- instance
@@ -28,7 +29,7 @@ public class UserSuspensionListFileSource implements DataSource<UserSuspensionLi
         BufferedReader buffer = null;
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file, StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
             String line = "";
@@ -66,7 +67,7 @@ public class UserSuspensionListFileSource implements DataSource<UserSuspensionLi
         Writer writer = null;
         BufferedWriter buffer = null;
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             for (UserSuspension user : list.getAllData()) {
@@ -110,7 +111,7 @@ public class UserSuspensionListFileSource implements DataSource<UserSuspensionLi
         Writer writer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             writer.write("");
             writer.close();
         } catch (IOException e) {

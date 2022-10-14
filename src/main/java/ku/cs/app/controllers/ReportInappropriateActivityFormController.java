@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ku.cs.app.models.InappropriateUser;
-import ku.cs.app.models.InappropriateUserList;
+import ku.cs.app.models.list.InappropriateUserList;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.User;
 import ku.cs.app.services.InappropriateUserListFileDataSource;

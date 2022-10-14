@@ -1,7 +1,10 @@
 package ku.cs.app.services;
 
 import ku.cs.app.models.*;
+import ku.cs.app.models.list.UserList;
+
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class UserDataListFileDataSource implements DataSource<UserList>{
     //-------------------------------------------- instance
@@ -27,7 +30,7 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
         BufferedReader buffer = null;
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file, StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
             String line = "";
@@ -93,7 +96,7 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             for (Object obj : list.getAllData()) {
@@ -158,7 +161,7 @@ public class UserDataListFileDataSource implements DataSource<UserList>{
         Writer writer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file, StandardCharsets.UTF_8);
             writer.write("");
             writer.close();
         } catch (IOException e) {

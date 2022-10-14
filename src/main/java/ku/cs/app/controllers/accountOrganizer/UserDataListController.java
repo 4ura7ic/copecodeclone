@@ -7,7 +7,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.app.models.User;
-import ku.cs.app.models.UserList;
+import ku.cs.app.models.list.UserList;
 import ku.cs.app.services.DataSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 import javafx.beans.value.ChangeListener;
