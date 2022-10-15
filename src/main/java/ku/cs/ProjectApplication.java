@@ -35,6 +35,8 @@ public class ProjectApplication extends Application{
         FXRouter.when("add_officer_form",packageStr+"add_officer_form.fxml");
         FXRouter.when("report_inappropriate_activity_form", packageStr+"report_inappropriate_activity_form.fxml");
         FXRouter.when("suspended_user", packageStr+"suspended_user_form.fxml");
+        FXRouter.when("user_HowTo_form", packageStr+"user_HowTo_form.fxml");
+
     }
     public static void main(String[] args) {
         launch();

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.accountOrganizer.userHowtoController">
+   <children>
+      <ScrollPane prefHeight="600.0" prefWidth="800.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1800.0" prefWidth="782.0">
+               <children>
+                  <ImageView fitHeight="1800.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/userHowto.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="14.0" layoutY="14.0" maxHeight="31.0" maxWidth="70.0" minHeight="31.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="31.0" prefWidth="70.0" styleClass="button2" stylesheets="@../../cssStyle/style.css" text="Back" textFill="#56665a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
