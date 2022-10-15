@@ -82,6 +82,16 @@ public class ProfileFormController {
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
     }
+    @FXML
+    public void handleHowToButton(ActionEvent actionEvent){
+        try {
+            FXRouter.goTo("howTo_Profile");
+        } catch (IOException e) {
+            System.err.println("err ไป How to ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
 
     public void chooseImageButton(ActionEvent event){
         getImage = new ImageDataSource();

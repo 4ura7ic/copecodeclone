@@ -55,5 +55,10 @@
          <font>
             <Font size="13.0" />
          </font></Button>
+      <Button layoutX="101.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleHowToButton" prefHeight="35.0" prefWidth="115.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="How to use">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

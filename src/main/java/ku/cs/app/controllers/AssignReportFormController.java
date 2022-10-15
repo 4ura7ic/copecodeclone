@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.list.ReportList;
 import ku.cs.app.models.User;
@@ -21,6 +22,7 @@ public class AssignReportFormController {
     @FXML private ComboBox categoryBox;
     @FXML private TextField topicTextField;
     @FXML private TextField descriptionTextField;
+    @FXML private Pane howToAssignPane;
 
     //-------------------------------------------- private
 
@@ -47,8 +49,6 @@ public class AssignReportFormController {
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
     }
-
-    @FXML
     public void handleAssignButton(ActionEvent actionEvent) {
         if(topicTextField.getText()!="") {
             if(descriptionTextField.getText()!="")
@@ -68,5 +68,14 @@ public class AssignReportFormController {
                 }
             }
         }
-
+    @FXML
+    public void handleHowToButton(ActionEvent actionEvent){
+        try {
+            FXRouter.goTo("user_HowTo_Assign_form");
+        } catch (IOException e) {
+            System.err.println("err ไป How to ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
 }
