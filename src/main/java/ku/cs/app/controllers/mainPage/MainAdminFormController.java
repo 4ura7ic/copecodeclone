@@ -199,6 +199,16 @@ public class MainAdminFormController {
         resetSortButton.setVisible(false);
         amountVoteField.clear();
     }
+    @FXML
+    public void handleHowToButton(ActionEvent actionEvent){
+        try {
+            FXRouter.goTo("admin_HowTo_form");
+        } catch (IOException e) {
+            System.err.println("err ไป How to ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
 
     //-------------------------------------------- method
     private void updateListView(){
