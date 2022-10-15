@@ -37,7 +37,7 @@ public class MainUserFormController {
     @FXML private Label solutionLabel;
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
-    @FXML private Label errorMsg;
+    @FXML private Label errorMessageLabel;
     @FXML private Button viewSolutionButton;
     @FXML private Button reportButton;
     @FXML private Button voteButton;
@@ -194,12 +194,12 @@ public class MainUserFormController {
     @FXML public void handleSortVote(ActionEvent actionEvent){
         String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"";
         if(checkVoteSort == "")
-            errorMsg.setText("Put your number first");
+            errorMessageLabel.setText("Put your number first");
         else if(Integer.parseInt(checkVoteSort)>=0) {
             updateListView();
         }
         else
-            errorMsg.setText("Invalid Number");
+            errorMessageLabel.setText("Invalid Number");
     }
 
     @FXML public void handleViewSolutionButton(ActionEvent actionEvent){
@@ -282,7 +282,7 @@ public class MainUserFormController {
         categoryLabel.setText("");
         descriptionLabel.setText("");
         rateLabel.setText("");
-        errorMsg.setText("");
+        errorMessageLabel.setText("");
         popUpLabel.setText("Please select reports below to view detail here.");
     }
 

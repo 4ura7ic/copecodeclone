@@ -35,7 +35,7 @@ public class MainAdminFormController {
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
     @FXML private Label solutionLabel;
-    @FXML private Label errorMsg;
+    @FXML private Label errorMessageLabel;
     @FXML private Button resetSortButton;
     @FXML private TextField amountVoteField;
 
@@ -55,8 +55,6 @@ public class MainAdminFormController {
     private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
     private Report rp = new Report();
-
-    //-------------------------------------------- noModifier
     private ObservableList<String> categoryList = FXCollections
             .observableArrayList(category);
 
@@ -177,12 +175,12 @@ public class MainAdminFormController {
     @FXML public void handleSortVote(ActionEvent actionEvent){
         String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"";
         if(checkVoteSort == "")
-            errorMsg.setText("Put your number first");
+            errorMessageLabel.setText("Put your number first");
         else if(Integer.parseInt(checkVoteSort)>=0) {
             updateListView();
         }
         else
-            errorMsg.setText("Invalid Number");
+            errorMessageLabel.setText("Invalid Number");
     }
     @FXML public void handleViewSolutionButton(ActionEvent actionEvent){
         solutionPane.setVisible(true);
@@ -258,7 +256,7 @@ public class MainAdminFormController {
         categoryLabel.setText("");
         descriptionLabel.setText("");
         rateLabel.setText("");
-        errorMsg.setText("");
+        errorMessageLabel.setText("");
         popUpLabel.setText("Please select reports below to view detail here.");
     }
 

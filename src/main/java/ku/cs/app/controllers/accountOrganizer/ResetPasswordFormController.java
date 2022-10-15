@@ -14,7 +14,7 @@ import com.github.saacsos.FXRouter;
 public class ResetPasswordFormController {
     //-------------------------------------------- FXML
     @FXML
-    private Label errorMsgLabel;
+    private Label errorMessageLabel;
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -47,7 +47,7 @@ public class ResetPasswordFormController {
 
     @FXML
     public void handleResetButton(ActionEvent actionEvent) {
-        errorMsgLabel.setText("");
+        errorMessageLabel.setText("");
         if (list.checkIfExist(usernameTextField.getText())) {
 
             User user = list.returnObject(usernameTextField.getText());
@@ -73,22 +73,22 @@ public class ResetPasswordFormController {
                                 e.printStackTrace();
                             }
                         } else {
-                            errorMsgLabel.setText(user.getErrorMsg());
+                            errorMessageLabel.setText(user.getErrorMsg());
                         }
                     }
                     clearPasswordTextField();
-                    errorMsgLabel.setText(user.getErrorMsg());
+                    errorMessageLabel.setText(user.getErrorMsg());
                 }
                 clearPasswordTextField();
-                errorMsgLabel.setText(user.getErrorMsg());
+                errorMessageLabel.setText(user.getErrorMsg());
             }
             clearPasswordTextField();
-            errorMsgLabel.setText(user.getErrorMsg());
+            errorMessageLabel.setText(user.getErrorMsg());
 
 
         }else {
             clearAllTextField();
-            errorMsgLabel.setText("This user does not exist.\n");
+            errorMessageLabel.setText("This user does not exist.\n");
         }
     }
 

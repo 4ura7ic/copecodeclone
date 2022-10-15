@@ -22,7 +22,7 @@ public class UserSuspensionFormController {
     @FXML private ListView<String> inappropriateActivitiesListView;
     @FXML private Label statusLabel;
     @FXML private TextField reasonTextField;
-    @FXML private Label amntLabel;
+    @FXML private Label amountLabel;
     @FXML private Label loginAttemptCnt;
     @FXML private Label reasonLabel;
     @FXML private Label errorMsgLabel;
@@ -100,11 +100,11 @@ public class UserSuspensionFormController {
                         if (inappropriateUserList.checkIfExist(newUser.getUsername())){
                             soonToBeSuspendedUser = new UserSuspension(newUser.getUsername());
                             InappropriateUser user = inappropriateUserList.returnObject(newUser.getUsername());
-                            amntLabel.setText(Integer.toString(user.getInappropriateActivityCount()));
+                            amountLabel.setText(Integer.toString(user.getInappropriateActivityCount()));
                         }
                         else {
                             soonToBeSuspendedUser = null;
-                            amntLabel.setText("0");
+                            amountLabel.setText("0");
                         }
                         if (userSuspensionList.checkIfExist(newUser.getUsername())) {
                             UserSuspension user = userSuspensionList.returnObject(newUser.getUsername());
@@ -216,7 +216,7 @@ public class UserSuspensionFormController {
     }
 
     private void initializeLabel() {
-        amntLabel.setText("");
+        amountLabel.setText("");
         statusLabel.setText("");
         reasonLabel.setText("");
         loginAttemptCnt.setText("");

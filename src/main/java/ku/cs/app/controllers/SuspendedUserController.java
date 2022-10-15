@@ -15,26 +15,26 @@ import java.util.ArrayList;
 public class SuspendedUserController {
     @FXML private Label reasonLabel;
     @FXML private Label loginAttemptCountLabel;
-    @FXML private Label errorMsgLabel;
+    @FXML private Label errorMessageLabel;
     @FXML private TextField requestTextField;
 
-    private ArrayList<Object> o;
+    private ArrayList<Object> objects;
     private User user;
     private UserSuspension suspendedUser;
     private UserRequestListFileDataSource dataSource;
     private UserRequestList list;
 
     public void initialize() {
-        o = (ArrayList<Object>) FXRouter.getData();
-        user = (User) o.get(0);
-        suspendedUser = (UserSuspension) o.get(1);
+        objects = (ArrayList<Object>) FXRouter.getData();
+        user = (User) objects.get(0);
+        suspendedUser = (UserSuspension) objects.get(1);
         dataSource = new UserRequestListFileDataSource("data", "userRequest.csv");
         list = dataSource.readData();
 
 
         reasonLabel.setText(suspendedUser.getReason());
         loginAttemptCountLabel.setText(Integer.toString(suspendedUser.getLoginAttempt()) + "time(s).");
-        errorMsgLabel.setText("");
+        errorMessageLabel.setText("");
 
     }
 
@@ -49,9 +49,10 @@ public class SuspendedUserController {
 
     public void handleSentRequestButton() {
         if (list.checkIfExist(user.getUsername())) {
-            errorMsgLabel.setText("You already sent a request.");
+            errorMessageLabel.setText("You already sent a request.");
         }else {
-            if (requestTextField.getText().equals("")) {errorMsgLabel.setText("Please enter a request.");}
+            if (requestTextField.getText().equals("")) {
+                errorMessageLabel.setText("Please enter a request.");}
             else {
                 UserRequest userRequest = new UserRequest(user.getUsername(), requestTextField.getText());
                 list.addUser(userRequest);

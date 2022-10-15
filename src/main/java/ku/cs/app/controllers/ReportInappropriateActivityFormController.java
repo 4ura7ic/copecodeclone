@@ -16,22 +16,22 @@ import java.util.ArrayList;
 
 public class ReportInappropriateActivityFormController {
     @FXML private TextField reasonTextField;
-    @FXML private Label errorMsgLabel;
+    @FXML private Label errorMessageLabel;
 
     InappropriateUserListFileDataSource dataSource;
     private ArrayList<Object> o;
     private User user;
-    private Report rp;
+    private Report report;
     private InappropriateUserList list;
 
 
     @FXML public void initialize(){
-        errorMsgLabel.setText("");
+        errorMessageLabel.setText("");
         o = (ArrayList<Object>) FXRouter.getData();
         user = (User) o.get(0);
-        rp = (Report) o.get(1);
+        report = (Report) o.get(1);
         System.out.println(user);
-        System.out.println(rp);
+        System.out.println(report);
         dataSource = new InappropriateUserListFileDataSource("data", "inappropriateUser.csv");
         list = dataSource.readData();
     }
@@ -55,11 +55,11 @@ public class ReportInappropriateActivityFormController {
     }
     public void handleReportButton(ActionEvent actionEvent){
         if (reasonTextField.getText().equals("")) {
-            errorMsgLabel.setText("Please enter reason.");
+            errorMessageLabel.setText("Please enter reason.");
         }
         else {
-            if (list.checkIfExist(rp.getAuthorUser())) {
-                InappropriateUser u = list.returnObject(rp.getAuthorUser());
+            if (list.checkIfExist(report.getAuthorUser())) {
+                InappropriateUser u = list.returnObject(report.getAuthorUser());
                 u.addInappropriateActivityCount();
                 u.addInappropriateActions(reasonTextField.getText());
                 dataSource.writeData(list);
@@ -81,7 +81,7 @@ public class ReportInappropriateActivityFormController {
             }
             else {
                 InappropriateUser u = new InappropriateUser();
-                u.setUsername(rp.getAuthorUser());
+                u.setUsername(report.getAuthorUser());
                 u.addInappropriateActivityCount();
                 u.addInappropriateActions(reasonTextField.getText());
                 list.addUser(u);

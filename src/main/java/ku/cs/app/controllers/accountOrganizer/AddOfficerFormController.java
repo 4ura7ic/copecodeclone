@@ -28,34 +28,31 @@ public class AddOfficerFormController {
     @FXML
     private TextField surnameTextField;
     @FXML
-    private Label errorMsgLabel;
+    private Label errorMessageLabel;
     @FXML
     private ImageView image;
-    @FXML private ComboBox inChargeBox;
+    @FXML private ComboBox<String> inChargeBox;
 
-    private String[] charge = {"ALL","Education","Environment","Scholarship","Transportation"};
+    private String[] charge = {"Education","Environment","Scholarship","Transportation"};
 
     private ImageDataSource getImage;
 
-    DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
+    private DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
 
-    UserList list = dataSource.readData();
+    private UserList list = dataSource.readData();
 
-    Officer officerDetail;
+    private Officer officerDetail;
 
-    User tempOfficer = new Officer();
+    private User tempOfficer = new Officer();
 
-    String fs = File.separator ;
-    String imageName = "default.jpg";
+    private String fs = File.separator ;
+    private String imageName = "default.jpg";
 
-    Admin admin = new Admin();
-
-    ObservableList<String> inChargeList = FXCollections
+    private ObservableList<String> inChargeList = FXCollections
             .observableArrayList(charge);
 
     @FXML
     public void initialize() {
-
         System.out.println("initialize AddOfficerFormController");
         inChargeBox.getItems().addAll(inChargeList);
     }
@@ -81,14 +78,11 @@ public class AddOfficerFormController {
             if(list.checkDuplicateUsername(tempOfficer.getUsername())){
                 if (confirmTextField.getText().equals(passwordTextField.getText())){
                     if (errorMsg == ""){
-                        officerDetail = new Officer(usernameTextField.getText(),new Password(passwordTextField.getText()),nameTextField.getText(),surnameTextField.getText(),(String) inChargeBox.getValue());
+                        officerDetail = new Officer(usernameTextField.getText(),new Password(passwordTextField.getText()),nameTextField.getText(),surnameTextField.getText(), inChargeBox.getValue());
                         officerDetail.setPhoto(imageName);
                         clearAllTextField();
                         try {
-//                            DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
-//                            UserList list = dataSource.readData();
-//                            list.addUser(officerDetail);
-//                            dataSource.writeData(list);
+                            Admin admin = new Admin();
                             admin.createOfficer(officerDetail);
                             FXRouter.goTo("main_admin_form");
                         }catch (IOException e) {
@@ -98,17 +92,17 @@ public class AddOfficerFormController {
                     } else {
                         passwordTextField.clear();
                         confirmTextField.clear();
-                        errorMsgLabel.setText(errorMsg);
+                        errorMessageLabel.setText(errorMsg);
                     }
                 }else{
-                    errorMsgLabel.setText("Please insert the password correctly.");
+                    errorMessageLabel.setText("Please insert the password correctly.");
                     passwordTextField.clear();
                     confirmTextField.clear();
                 }
 
             }else {
                 passwordTextField.clear();
-                errorMsgLabel.setText("This username has already use.\n" + errorMsg);
+                errorMessageLabel.setText("This username has already use.\n" + errorMsg);
             }
 
     }
@@ -139,7 +133,7 @@ public class AddOfficerFormController {
                 errorCheck += "Please fill username first.";
             if(!list.checkDuplicateUsername(usernameTextField.getText()))
                 errorCheck += "This username has already used.";
-            errorMsgLabel.setText(errorCheck);
+            errorMessageLabel.setText(errorCheck);
         }
     }
 }

@@ -1,31 +1,30 @@
 package ku.cs.app.models.list;
 
 import ku.cs.app.models.UserSuspension;
-import ku.cs.app.models.list.CheckIfExistAndReturnObject;
 
 import java.util.ArrayList;
 
 public class UserSuspensionList implements CheckIfExistAndReturnObject<UserSuspension> {
-    private ArrayList<UserSuspension> suspendedUser;
+    private ArrayList<UserSuspension> suspendedUsers;
 
     public UserSuspensionList(){
-        suspendedUser = new ArrayList<>();
+        suspendedUsers = new ArrayList<>();
     }
 
     public void addUser(UserSuspension user){
-        suspendedUser.add(user);
+        suspendedUsers.add(user);
     }
 
     public void removeUser(UserSuspension user){
-        suspendedUser.remove(user);
+        suspendedUsers.remove(user);
     }
 
     public ArrayList<UserSuspension> getAllData(){
-        return suspendedUser;
+        return suspendedUsers;
     }
 
     public boolean checkIfExist(String username) {
-        for (UserSuspension user : suspendedUser) {
+        for (UserSuspension user : suspendedUsers) {
             if (user.getUsername().equals(username)) {
                 return true;
             }
@@ -34,7 +33,7 @@ public class UserSuspensionList implements CheckIfExistAndReturnObject<UserSuspe
     }
 
     public UserSuspension returnObject(String username) {
-        for (UserSuspension user : suspendedUser) {
+        for (UserSuspension user : suspendedUsers) {
             if (user.getUsername().equals(username)) {
                 return user;
             }
@@ -45,7 +44,7 @@ public class UserSuspensionList implements CheckIfExistAndReturnObject<UserSuspe
     @Override
     public String toString() {
         return "UserSuspensionList{" +
-                "suspendedUser=" + suspendedUser +
+                "suspendedUser=" + suspendedUsers +
                 '}';
     }
 

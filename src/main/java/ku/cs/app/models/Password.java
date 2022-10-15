@@ -4,13 +4,13 @@ public class Password {
     //-------------------------------------------- instance
 
     private String password;
-    private String errorMsg;
+    private String errorMessage;
 
     //-------------------------------------------- constructor
 
     public Password() {
         this.password = "";
-        this.errorMsg = "";
+        this.errorMessage = "";
     }
 
     public Password(String password) {
@@ -47,28 +47,28 @@ public class Password {
     }
 
     public void setPassword(String password) {
-        errorMsg = "";
+        errorMessage = "";
         if (password.length() < 8) {
-            errorMsg += "Password must be at least 8 characters.\n";
+            errorMessage += "Password must be at least 8 characters.\n";
         }
         if (!checkUpperCase(password)) {
-            errorMsg += "Password must contain uppercase.\n";
+            errorMessage += "Password must contain uppercase.\n";
         }
         if (!checkLowerCase(password)) {
-            errorMsg += "Password must contain lowercase.\n";
+            errorMessage += "Password must contain lowercase.\n";
         }
         if (!checkDigit(password)) {
-            errorMsg += "Password must contain digit.\n";
+            errorMessage += "Password must contain digit.\n";
         }
-        if (errorMsg == "") {
+        if (errorMessage == "") {
             this.password = password;
         }else {
-            System.err.println(errorMsg);
+            System.err.println(errorMessage);
         }
     }
 
-    public void setErrorMsg(String errorMsg) {
-        this.errorMsg = errorMsg;
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 
     private boolean isPasswordEqual(String p1, String p2){
@@ -80,8 +80,8 @@ public class Password {
         return password;
     }
 
-    public String getErrorMsg() {
-        return errorMsg;
+    public String getErrorMessage() {
+        return errorMessage;
     }
 
 }

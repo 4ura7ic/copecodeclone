@@ -1,31 +1,31 @@
 package ku.cs.app.models.list;
 
 import ku.cs.app.models.Report;
-import ku.cs.app.models.list.CheckIfExistAndReturnObject;
 import ku.cs.app.services.Sorter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class ReportList implements CheckIfExistAndReturnObject<ArrayList<Report>> {
-    private ArrayList<Report> rpt;
+    private ArrayList<Report> reports;
 
     public ReportList(){
-        rpt = new ArrayList<>();
+        reports = new ArrayList<>();
     }
 
     public void addReport(Report rptIn){
-        rpt.add(rptIn);
+        reports.add(rptIn);
     }
-    public void removeReport(Report rptIn) {rpt.remove(rptIn);}
+    public void removeReport(Report rptIn) {
+        reports.remove(rptIn);}
 
     public ArrayList<Report> getAllRpt(){
-        return rpt;
+        return reports;
     }
 
     public ArrayList<Report> sortInProgressReport(){
         ArrayList<Report> tmpReport = new ArrayList<>();
-        for(Report report: rpt){
+        for(Report report: reports){
             if(!report.isCheck()){
                 tmpReport.add(report);
             }
@@ -34,7 +34,7 @@ public class ReportList implements CheckIfExistAndReturnObject<ArrayList<Report>
     }
     @Override
     public boolean checkIfExist(String username) {
-        for (Report rp:rpt) {
+        for (Report rp: reports) {
             if (username.equals(rp.getAuthorUser())) {
                 return true;
             }
@@ -45,7 +45,7 @@ public class ReportList implements CheckIfExistAndReturnObject<ArrayList<Report>
     @Override
     public ArrayList<Report> returnObject(String username) {
         ArrayList<Report> list = new ArrayList<>();
-        for (Report rp :rpt) {
+        for (Report rp : reports) {
             if (username.equals(rp.getAuthorUser())) {
                 list.add(rp);
             }
@@ -67,7 +67,7 @@ public class ReportList implements CheckIfExistAndReturnObject<ArrayList<Report>
     public ArrayList<Report> sortInProgressReportByCategory(String key){
         ArrayList<Report> tmpReport = new ArrayList<>();
         Sorter sorter = new Sorter();
-        for(Report report: rpt){
+        for(Report report: reports){
             if(!report.isCheck()) {
                 if (sorter.categoryFilter(report, key)) {
                     tmpReport.add(report);
@@ -79,7 +79,7 @@ public class ReportList implements CheckIfExistAndReturnObject<ArrayList<Report>
 
     public ArrayList<Report> sortFinishedReport(){
         ArrayList<Report> tmpReport = new ArrayList<>();
-        for(Report report: rpt){
+        for(Report report: reports){
             if(report.isCheck()){
                 tmpReport.add(report);
             }
@@ -89,7 +89,7 @@ public class ReportList implements CheckIfExistAndReturnObject<ArrayList<Report>
     public ArrayList<Report> sortFinishedReportByCategory(String key){
         ArrayList<Report> tmpReport = new ArrayList<>();
         Sorter sorter = new Sorter();
-        for(Report report: rpt){
+        for(Report report: reports){
             if(report.isCheck()){
                 if(sorter.categoryFilter(report,key))
                     tmpReport.add(report);
@@ -99,36 +99,29 @@ public class ReportList implements CheckIfExistAndReturnObject<ArrayList<Report>
     }
 
     public ArrayList<Report> sortTimeReport(String key, ArrayList<Report> reports){
-        if(key.equals("Newest")){
-            Collections.sort(reports, new Comparator<Report>() {
+        switch (key) {
+            case "Newest" -> Collections.sort(reports, new Comparator<Report>() {
                 @Override
                 public int compare(Report o1, Report o2) {
                     return o2.getDate().compareTo(o1.getDate());
                 }
             });
-        }else if(key.equals("Oldest")){
-            Collections.sort(reports, new Comparator<Report>() {
+            case "Oldest" -> Collections.sort(reports, new Comparator<Report>() {
                 @Override
                 public int compare(Report o1, Report o2) {
                     return o1.getDate().compareTo(o2.getDate());
                 }
             });
-        } else if (key.equals("Least Vote")) {
-            Collections.sort(reports, new Comparator<Report>() {
+            case "Least Vote" -> Collections.sort(reports, new Comparator<Report>() {
                 @Override
                 public int compare(Report o1, Report o2) {
-                    if(o1.getVote()>o2.getVote())return 1;
-                    if(o1.getVote()<o2.getVote())return -1;
-                    return 0;
+                    return Integer.compare(o1.getVote(), o2.getVote());
                 }
             });
-        } else if (key.equals("Most Vote")){
-            Collections.sort(reports, new Comparator<Report>(){
+            case "Most Vote" -> Collections.sort(reports, new Comparator<Report>() {
                 @Override
-                public int compare(Report o1, Report o2){
-                    if(o1.getVote()> o2.getVote()) return -1;
-                    if(o1.getVote()< o2.getVote()) return 1;
-                    return 0;
+                public int compare(Report o1, Report o2) {
+                    return Integer.compare(o2.getVote(), o1.getVote());
                 }
             });
         }
@@ -147,7 +140,7 @@ public class ReportList implements CheckIfExistAndReturnObject<ArrayList<Report>
     @Override
     public String toString() {
         return "ReportList{" +
-                "rpt=" + rpt +
+                "rpt=" + reports +
                 '}';
     }
 }

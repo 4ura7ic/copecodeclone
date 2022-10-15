@@ -21,8 +21,8 @@ import java.io.IOException;
 public class MyReportFormController {
     //-------------------------------------------- FXML
 
-    @FXML private ComboBox categoryBox;
-    @FXML private ComboBox sortBox;
+    @FXML private ComboBox<String> categoryBox;
+    @FXML private ComboBox<String> sortBox;
     @FXML private ScrollPane descriptionPane;
     @FXML private Rectangle barOne;
     @FXML private Rectangle barTwo;
@@ -67,7 +67,7 @@ public class MyReportFormController {
 
     private void categorySort(Event event) {
         yourReportListView.getItems().clear();
-        yourReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortUserReportByCategory((String) categoryBox.getValue(),list.returnObject(user.getUsername()))));
+        yourReportListView.getItems().addAll(list.sortTimeReport(sortBox.getValue(),list.sortUserReportByCategory(categoryBox.getValue(),list.returnObject(user.getUsername()))));
     }
 
     //-------------------------------------------- handle

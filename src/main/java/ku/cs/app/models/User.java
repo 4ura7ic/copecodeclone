@@ -49,7 +49,7 @@ public class User {
     }
 
     public String getErrorMsg() {
-        return password.getErrorMsg();
+        return password.getErrorMessage();
     }
 
     //-------------------------------------------- setter
@@ -78,7 +78,7 @@ public class User {
         this.password.setPassword(password);
     }
 
-    public void setErrorMsg(String msg) { this.password.setErrorMsg(msg); }
+    public void setErrorMsg(String msg) { this.password.setErrorMessage(msg); }
 
     //-------------------------------------------- method
 
@@ -89,11 +89,11 @@ public class User {
     }
     public boolean checkIfInputPasswordCorrect (User user, String pwdInput) {
         if (pwdInput.equals("")) {
-            user.password.setErrorMsg("Please enter current password.\n");
+            user.password.setErrorMessage("Please enter current password.\n");
             return false;
         }
         else if (!user.getPassword().equals(pwdInput)) {
-            user.password.setErrorMsg("Incorrect current password.\n");
+            user.password.setErrorMessage("Incorrect current password.\n");
             return false;
         }
         else {

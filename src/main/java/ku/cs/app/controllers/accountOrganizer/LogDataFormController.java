@@ -18,8 +18,8 @@ public class LogDataFormController {
 
     //-------------------------------------------- noModifier
 
-    DataSource<ActivityLog> logData = new ActivityLogDataSource("data","activityLog.csv");
-    ActivityLog logList = logData.readData();
+    private DataSource<ActivityLog> logData = new ActivityLogDataSource("data","activityLog.csv");
+    private ActivityLog logList = logData.readData();
 
     //-------------------------------------------- initialize
 

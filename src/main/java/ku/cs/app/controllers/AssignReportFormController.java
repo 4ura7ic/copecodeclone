@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.list.ReportList;
 import ku.cs.app.models.User;
@@ -19,10 +18,9 @@ import java.time.format.DateTimeFormatter;
 public class AssignReportFormController {
     //-------------------------------------------- FXML
 
-    @FXML private ComboBox categoryBox;
+    @FXML private ComboBox<String> categoryBox;
     @FXML private TextField topicTextField;
     @FXML private TextField descriptionTextField;
-    @FXML private Pane howToAssignPane;
 
     //-------------------------------------------- private
 

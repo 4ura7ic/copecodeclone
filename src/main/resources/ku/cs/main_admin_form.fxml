@@ -124,7 +124,7 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Label fx:id="errorMsg" layoutX="661.0" layoutY="480.0" text="error" textFill="RED">
+      <Label fx:id="errorMessageLabel" layoutX="661.0" layoutY="480.0" text="error" textFill="RED">
          <font>
             <Font size="13.0" />
          </font>

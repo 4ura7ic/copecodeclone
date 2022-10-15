@@ -130,7 +130,7 @@
       <Label layoutX="658.0" layoutY="434.0" text="SortOverVote" textFill="WHITE" />
       <TextField fx:id="amountVoteField" layoutX="657.0" layoutY="453.0" prefHeight="25.0" prefWidth="73.0" promptText="amount" />
       <Button layoutX="734.0" layoutY="453.0" maxHeight="25.0" maxWidth="41.0" minHeight="25.0" minWidth="41.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="41.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Set" />
-      <Label fx:id="errorMsg" layoutX="657.0" layoutY="479.0" text="error" textFill="RED">
+      <Label fx:id="errorMessageLabel" layoutX="657.0" layoutY="479.0" text="error" textFill="RED">
          <font>
             <Font size="14.0" />
          </font>

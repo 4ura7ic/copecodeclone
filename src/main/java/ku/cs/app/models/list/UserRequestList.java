@@ -1,28 +1,28 @@
 package ku.cs.app.models.list;
 
 import ku.cs.app.models.UserRequest;
-import ku.cs.app.models.list.CheckIfExistAndReturnObject;
 
 import java.util.ArrayList;
 
 public class UserRequestList implements CheckIfExistAndReturnObject<UserRequest> {
-    private ArrayList<UserRequest> rqList;
+    private ArrayList<UserRequest> userRequests;
 
-    public UserRequestList() {rqList = new ArrayList<>();}
+    public UserRequestList() {
+        userRequests = new ArrayList<>();}
 
     public void addUser(UserRequest user) {
-        rqList.add(user);
+        userRequests.add(user);
     }
     public void  removeUser(UserRequest user) {
-        rqList.remove(user);
+        userRequests.remove(user);
     }
     public ArrayList<UserRequest> getAllData() {
-        return rqList;
+        return userRequests;
     }
 
     @Override
     public boolean checkIfExist(String username) {
-        for (UserRequest user: rqList) {
+        for (UserRequest user: userRequests) {
             if (user.getUsername().equals(username)) {
                 return true;
             }
@@ -32,7 +32,7 @@ public class UserRequestList implements CheckIfExistAndReturnObject<UserRequest>
 
     @Override
     public UserRequest returnObject(String username) {
-        for (UserRequest user : rqList) {
+        for (UserRequest user : userRequests) {
             if (user.getUsername().equals(username)) {
                 return user;
             }

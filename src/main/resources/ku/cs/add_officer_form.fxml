@@ -38,6 +38,6 @@
          </font></Button>
       <ImageView fx:id="image1" fitHeight="183.0" fitWidth="179.0" layoutX="441.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
       <ComboBox fx:id="inChargeBox" layoutX="441.0" layoutY="365.0" prefWidth="150.0" promptText="select charge" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
-      <Label fx:id="errorMsgLabel" layoutX="88.0" layoutY="459.0" text="errorMsgLabel" />
+      <Label fx:id="errorMessageLabel" layoutX="88.0" layoutY="459.0" text="errorMsgLabel" />
    </children>
 </AnchorPane>

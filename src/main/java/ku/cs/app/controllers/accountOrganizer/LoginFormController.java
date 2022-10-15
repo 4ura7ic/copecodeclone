@@ -26,7 +26,7 @@ public class LoginFormController {
     @FXML
     private PasswordField userPassword;
     @FXML
-    private Label errorMsgLabel;
+    private Label errorMessageLabel;
 
     //-------------------------------------------- private
 
@@ -69,14 +69,6 @@ public class LoginFormController {
                 if (user.checkIfInputPasswordCorrect(user, userPassword.getText())) {
 
                     if (susList.checkIfExist(user.getUsername())) {
-//                        UserSuspension suspendedUser = susList.returnSuspendedUser(user.getUsername());
-//                        suspendedUser.addLoginAttempt();
-//                        userPassword.clear();
-//                        act.setMessage("Failed - User suspended. | Login attempt: " + suspendedUser.getLoginAttempt() + "time(s).");
-//                        log.addLog(act);
-//                        errorMsgLabel.setText("User suspended.\n" + "Reason of suspension: " + suspendedUser.getReason()
-//                                                + "\nLogin attempt count: " + suspendedUser.getLoginAttempt() + "time(s).");
-
                         try {
                             ArrayList<Object> o = new ArrayList<>();
                             UserSuspension suspendedUser = susList.returnObject(user.getUsername());
@@ -123,7 +115,7 @@ public class LoginFormController {
                     userPassword.clear();
                     act.setMessage("Failed - Wrong password.");
                     log.addLog(act);
-                    errorMsgLabel.setText("Wrong password.");
+                    errorMessageLabel.setText("Wrong password.");
                 }
             }
         }
@@ -131,7 +123,7 @@ public class LoginFormController {
             clearAllTextField();
             act.setMessage("Failed - user not exist.");
             log.addLog(act);
-            errorMsgLabel.setText("User not exist.");
+            errorMessageLabel.setText("User not exist.");
         }
         activityLog.writeData(log);
         susSource.writeData(susList);

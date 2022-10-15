@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class officerHowToController {
+public class OfficerHowToController {
     @FXML
     public void handleBackButton(ActionEvent actionEvent) {
         try {

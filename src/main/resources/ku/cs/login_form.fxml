@@ -39,7 +39,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label fx:id="errorMsgLabel" layoutX="316.0" layoutY="369.0" prefHeight="61.0" prefWidth="221.0" textFill="RED" />
+      <Label fx:id="errorMessageLabel" layoutX="316.0" layoutY="369.0" prefHeight="61.0" prefWidth="221.0" textFill="RED" />
       <PasswordField fx:id="userPassword" layoutX="316.0" layoutY="320.0" prefHeight="35.0" prefWidth="258.0" promptText="Password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
    </children>
 </AnchorPane>

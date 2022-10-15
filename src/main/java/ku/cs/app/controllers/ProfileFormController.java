@@ -38,21 +38,25 @@ public class ProfileFormController {
     @FXML
     public void initialize(){
         user = (User) com.github.saacsos.FXRouter.getData();
-        if(user.getRole().equals("user")) {
-            usernameLabel.setText(user.getUsername());
-            nameLabel.setText(user.getName());
-            surnameLabel.setText(user.getSurname());
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "user" + fs +user.getPhoto()));
-        } else if (user.getRole().equals("admin")) {
-            usernameLabel.setText(user.getUsername());
-            nameLabel.setText(user.getName());
-            surnameLabel.setText(user.getSurname());
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + user.getPhoto()));
-        } else if(user.getRole().equals("officer")) {
-            usernameLabel.setText(user.getUsername());
-            nameLabel.setText(user.getName());
-            surnameLabel.setText(user.getSurname());
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + user.getPhoto()));
+        switch (user.getRole()) {
+            case "user" -> {
+                usernameLabel.setText(user.getUsername());
+                nameLabel.setText(user.getName());
+                surnameLabel.setText(user.getSurname());
+                image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "user" + fs + user.getPhoto()));
+            }
+            case "admin" -> {
+                usernameLabel.setText(user.getUsername());
+                nameLabel.setText(user.getName());
+                surnameLabel.setText(user.getSurname());
+                image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + user.getPhoto()));
+            }
+            case "officer" -> {
+                usernameLabel.setText(user.getUsername());
+                nameLabel.setText(user.getName());
+                surnameLabel.setText(user.getSurname());
+                image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + user.getPhoto()));
+            }
         }
     }
 
@@ -96,12 +100,13 @@ public class ProfileFormController {
     public void chooseImageButton(ActionEvent event){
         getImage = new ImageDataSource();
         getImage.changeImage(user);
-        if (user.getRole().equals("user")) {
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "user" + fs +user.getPhoto()));
-        } else if (user.getRole().equals("officer")) {
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + user.getPhoto()));
-        } else if (user.getRole().equals("admin")) {
-            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + user.getPhoto()));
+        switch (user.getRole()) {
+            case "user" ->
+                    image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "user" + fs + user.getPhoto()));
+            case "officer" ->
+                    image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + user.getPhoto()));
+            case "admin" ->
+                    image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + user.getPhoto()));
         }
 
         }
