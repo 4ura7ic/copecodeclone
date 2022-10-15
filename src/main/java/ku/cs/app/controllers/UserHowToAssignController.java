@@ -1,11 +1,11 @@
-package ku.cs.app.controllers.accountOrganizer;
+package ku.cs.app.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class userHowToAssignController {
+public class UserHowToAssignController {
     @FXML
     public void handleBackButton(ActionEvent actionEvent) {
         try {

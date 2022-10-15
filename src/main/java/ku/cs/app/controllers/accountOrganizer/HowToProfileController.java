@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class howToProfileController {
+public class HowToProfileController {
         @FXML
         public void handleBackButton(ActionEvent actionEvent) {
             try {

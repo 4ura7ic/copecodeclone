@@ -77,6 +77,7 @@ public class MainAdminFormController {
         categoryBox.setOnAction(this::categorySort);
         sortBox.setOnAction(this::categorySort);
         list = dataSource.readData();
+        resetSortButton.setVisible(false);
         showListView();
         handleSelectedListView();
         showUserData();

@@ -64,6 +64,7 @@ public class MainOfficerFormController {
         sortBox.getItems().addAll(sortList);
         sortBox.setValue("Oldest");
         sortBox.setOnAction(this::categorySort);
+        resetSortButton.setVisible(false);
         list = dataSource.readData();
         showListView();
         handleSelectedListView();
@@ -72,6 +73,8 @@ public class MainOfficerFormController {
 
     private void categorySort(Event event) {
         clearListView();
+        resetSortButton.setVisible(true);
+        clearForm();
         inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
         finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
     }
@@ -125,15 +128,13 @@ public class MainOfficerFormController {
         if (rp.getVotedUser().contains(user.getUsername())){
             rp.decreaseVote();
             rp.getVotedUser().remove(user.getUsername());
-            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
-            dataSource.writeData(list);
         }
         else {
             rp.increaseVote();
             rp.getVotedUser().add(user.getUsername());
-            rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
-            dataSource.writeData(list);
         }
+        rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+        dataSource.writeData(list);
     }
     @FXML
     public void handleSubmitSolutionButton(ActionEvent actionEvent){
