@@ -167,6 +167,16 @@ public class MainOfficerFormController {
         showListView();
         resetSortButton.setVisible(false);
     }
+    @FXML
+    public void handleHowToButton(ActionEvent actionEvent){
+        try {
+            FXRouter.goTo("officer_HowTo_form");
+        } catch (IOException e) {
+            System.err.println("err ไป How to ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
 
     //-------------------------------------------- method
 

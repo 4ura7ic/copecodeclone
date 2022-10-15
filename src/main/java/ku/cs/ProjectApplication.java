@@ -38,6 +38,7 @@ public class ProjectApplication extends Application{
         FXRouter.when("user_HowTo_form", packageStr+"user_HowTo_form.fxml");
         FXRouter.when("user_HowTo_Assign_form", packageStr+"user_HowTo_Assign_form.fxml");
         FXRouter.when("howTo_Profile", packageStr+"howTo_Profile.fxml");
+        FXRouter.when("officer_HowTo_form", packageStr+"officer_HowTo_form.fxml");
 
 
     }

@@ -1,4 +1,4 @@
-package ku.cs.app.controllers.accountOrganizer;
+package ku.cs.app.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

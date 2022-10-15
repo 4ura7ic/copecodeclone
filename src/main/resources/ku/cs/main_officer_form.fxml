@@ -115,6 +115,14 @@
          </children>
       </Pane>
       <Button fx:id="editSolutionButton" layoutX="675.0" layoutY="166.0" maxHeight="26.0" maxWidth="85.0" minHeight="26.0" minWidth="85.0" mnemonicParsing="false" onAction="#handleEditSolutionButton" prefHeight="26.0" prefWidth="85.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Edit Solution" />
-      <Button fx:id="resetSortButton" layoutX="718.0" layoutY="469.0" mnemonicParsing="false" onAction="#handleResetSortButton" text="Reset" />
+      <Button fx:id="resetSortButton" layoutX="702.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleResetSortButton" prefHeight="27.0" prefWidth="66.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button layoutX="23.0" layoutY="18.0" maxHeight="32.0" maxWidth="101.0" minHeight="32.0" minWidth="101.0" mnemonicParsing="false" onAction="#handleHowToButton" prefHeight="32.0" prefWidth="101.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="How To Use">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
