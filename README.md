@@ -1,3 +1,17 @@
+<h1>copeCode</h1>
+<h3>วิธีการติดตั้ง</h3>
+1.ดาวน์โหลดไฟล์ชื่อว่า copeCodeSetup.zip ไว้ที่ตำแหน่งที่ต้องการ<br>
+2.ทำการแตกไฟล์ copeCodeSetup.zip ออก<br>
+3.เมื่อแตกไฟล์ออกให้ดับเบิ้ลคลิกที่ไฟล์ copeCode.jar เพื่อเริ่มใช้งานโปรแกรม<br>
+
+<h3>รหัสผู้ใช้งานตัวอย่าง</h3>
+- Admin<br>
+Username: Tester303<br>
+Password: Tester12345<br><br>
+- Officer<br>
+Username: Tester202<br> Password: Tester12345<br><br>
+- User<br>
+Username: Tester101<br> Password: Tester12345<br><br>
 
 <h3>UPDATE LAST PATCH</h3>
 
