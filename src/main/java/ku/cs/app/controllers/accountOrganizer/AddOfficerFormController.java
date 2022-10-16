@@ -57,6 +57,7 @@ public class AddOfficerFormController {
     @FXML
     public void initialize() {
         System.out.println("initialize AddOfficerFormController");
+        image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + "default.jpg"));
         inChargeBox.getItems().addAll(inChargeList);
     }
 
