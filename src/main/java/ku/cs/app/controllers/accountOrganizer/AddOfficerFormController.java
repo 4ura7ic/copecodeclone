@@ -43,7 +43,7 @@ public class AddOfficerFormController {
 
     private Officer officerDetail;
 
-    private User tempOfficer = new Officer();
+    private Officer tempOfficer = new Officer();
 
     private String fs = File.separator ;
     private String imageName = "default.jpg";

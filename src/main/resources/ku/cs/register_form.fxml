@@ -20,7 +20,7 @@
       <TextField fx:id="usernameTextField" layoutX="299.0" layoutY="121.0" prefHeight="39.0" prefWidth="311.0" promptText="Enter username" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="nameTextField" layoutX="299.0" layoutY="316.0" prefHeight="39.0" prefWidth="311.0" promptText="Enter name" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="surnameTextField" layoutX="299.0" layoutY="383.0" prefHeight="39.0" prefWidth="311.0" promptText="Enter surname" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="610.0" layoutY="495.0" maxHeight="30.0" maxWidth="81.0" minHeight="30.0" minWidth="81.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="30.0" prefWidth="81.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Create">
+      <Button layoutX="671.0" layoutY="516.0" maxHeight="30.0" maxWidth="81.0" minHeight="30.0" minWidth="81.0" mnemonicParsing="false" onAction="#handleCreateID" prefHeight="30.0" prefWidth="81.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Create">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -28,7 +28,7 @@
             <Font size="15.0" />
          </font></Button>
       <PasswordField fx:id="passwordTextField" layoutX="299.0" layoutY="187.0" prefHeight="39.0" prefWidth="311.0" promptText="Enter Password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Label fx:id="errorMsgLabel" alignment="TOP_LEFT" layoutX="622.0" layoutY="187.0" prefHeight="113.0" prefWidth="139.0" text="errorMsg" textFill="RED">
+      <Label fx:id="errorMessageLabel" alignment="TOP_LEFT" layoutX="455.0" layoutY="439.0" prefHeight="74.0" prefWidth="296.0" text="errorMsg" textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
@@ -44,7 +44,7 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <ImageView fx:id="image" fitHeight="140.0" fitWidth="200.0" layoutX="299.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image" fitHeight="140.0" fitWidth="140.0" layoutX="299.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
       <PasswordField fx:id="confirmTextField" layoutX="299.0" layoutY="252.0" prefHeight="39.0" prefWidth="311.0" promptText="Confirm password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
    </children>
 </AnchorPane>

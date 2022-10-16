@@ -25,7 +25,7 @@ public class RegisterFormController {
     @FXML private TextField confirmTextField;
     @FXML private TextField nameTextField;
     @FXML private TextField surnameTextField;
-    @FXML private Label errorMsgLabel;
+    @FXML private Label errorMessageLabel;
     @FXML private ImageView image;
 
     //-------------------------------------------- private
@@ -44,7 +44,7 @@ public class RegisterFormController {
 
     @FXML
     public void initialize(){
-
+        errorMessageLabel.setText("");
         System.out.println("initialize MemberCardDetailController");
         image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "user" + fs + "default.jpg"));
 
@@ -88,16 +88,16 @@ public class RegisterFormController {
                 } else {
                     passwordTextField.clear();
                     confirmTextField.clear();
-                    errorMsgLabel.setText(errorMsg);
+                    errorMessageLabel.setText(errorMsg);
                 }
             }else{
-                errorMsgLabel.setText("Please insert the password correctly.");
+                errorMessageLabel.setText("Please insert the password correctly.");
                 passwordTextField.clear();
                 confirmTextField.clear();
             }
         }else {
             passwordTextField.clear();
-            errorMsgLabel.setText("This username has already use.\n"+errorMsg);
+            errorMessageLabel.setText("This username has already use.\n"+errorMsg);
         }
 
     }
@@ -127,7 +127,7 @@ public class RegisterFormController {
                 errorCheck += "Please fill username first.";
             if(!list.checkDuplicateUsername(usernameTextField.getText()))
                 errorCheck += "This username has already used.";
-            errorMsgLabel.setText(errorCheck);
+            errorMessageLabel.setText(errorCheck);
         }
     }
 
