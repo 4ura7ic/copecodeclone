@@ -47,6 +47,6 @@ public class ReportImageDataSource {
         } catch (IOException e){
             e.printStackTrace();
         }
-        return "default.jpg";
+        return null;
     }
 }

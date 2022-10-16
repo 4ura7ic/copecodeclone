@@ -106,30 +106,32 @@ public class ImageDataSource {
                 }
             }
 
-            //Rename
-            String[] fileSplit = filePath.getName().split("\\.");
+            if(filePath!=null) {
+                //Rename
+                String[] fileSplit = filePath.getName().split("\\.");
 
 
-            String filename = user.getUsername() + "." + fileSplit[fileSplit.length - 1];
+                String filename = user.getUsername() + "." + fileSplit[fileSplit.length - 1];
 
-            Path target = FileSystems.getDefault().getPath(destDir.getAbsolutePath() + System.getProperty("file.separator") + filename);
+                Path target = FileSystems.getDefault().getPath(destDir.getAbsolutePath() + System.getProperty("file.separator") + filename);
 
-            Files.copy(filePath.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
-            imagePath = target.toString();
+                Files.copy(filePath.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
+                imagePath = target.toString();
 
-            user.setPhoto(filename);
+                user.setPhoto(filename);
 
-            if (user.getRole().equals("user")) {
-                userList.changeImageUser(user);
-            } else if (user.getRole().equals("officer")) {
-                userList.changeImageOfficer((Officer) user);
-            } else if (user.getRole().equals("admin")) {
-                userList.changeImageAdmin((Admin) user);
+                if (user.getRole().equals("user")) {
+                    userList.changeImageUser(user);
+                } else if (user.getRole().equals("officer")) {
+                    userList.changeImageOfficer((Officer) user);
+                } else if (user.getRole().equals("admin")) {
+                    userList.changeImageAdmin((Admin) user);
+                }
+
+
+                DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
+                dataSource.writeData(userList);
             }
-
-
-            DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
-            dataSource.writeData(userList);
 
 
         } catch (IOException e){

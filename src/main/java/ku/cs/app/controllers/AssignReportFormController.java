@@ -35,7 +35,7 @@ public class AssignReportFormController {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd/HH:mm:ss");
     private String[] category = {"Education","Environment","Scholarship","Transportation"};
     private ReportImageDataSource getImage;
-    private String imageName = "default.jpg";
+    private String imageName = "-";
     private String fs = File.separator ;
     //-------------------------------------------- initialize
 
@@ -64,7 +64,7 @@ public class AssignReportFormController {
                         String formatDate = date.format(formatter);
                         DataSource<ReportList> dataSource = new ReportListFileDataSource("data", "report.csv");
                         ReportList list = dataSource.readData();
-                        list.addReport(new Report(user.getUsername(), topicTextField.getText(), formatDate, categoryBox.getValue().toString(), descriptionTextField.getText()));
+                        list.addReport(new Report(user.getUsername(), topicTextField.getText(), formatDate, categoryBox.getValue(),descriptionTextField.getText(),imageName));
                         dataSource.writeData(list);
                         FXRouter.goTo("main_user_form");
                     } catch (IOException e) {
@@ -89,7 +89,7 @@ public class AssignReportFormController {
         getImage = new ReportImageDataSource();
         imageName = getImage.chooseImage(topicTextField.getText());
         System.out.println(imageName);
-        image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "reportImage" + fs + imageName));
-
+        if(imageName!=null)
+            image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "reportImage" + fs + imageName));
     }
 }

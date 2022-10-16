@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
@@ -17,6 +19,7 @@ import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListFileDataSource;
 import com.github.saacsos.FXRouter;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -26,6 +29,7 @@ public class MainUserFormController {
     @FXML private ComboBox categoryBox;
     @FXML private ComboBox sortBox;
     @FXML private Pane solutionPane;
+    @FXML private Pane imagePane;
     @FXML private ScrollPane descriptionPane;
     @FXML private Rectangle barOne;
     @FXML private Rectangle barTwo;
@@ -42,7 +46,9 @@ public class MainUserFormController {
     @FXML private Button reportButton;
     @FXML private Button voteButton;
     @FXML private Button resetSortButton;
+    @FXML private Button viewImageButton;
     @FXML private TextField amountVoteField;
+    @FXML private ImageView reportImage;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
 
@@ -51,6 +57,7 @@ public class MainUserFormController {
     private DataSource<ReportList> dataSource;
     private ReportList list;
     private User user;
+    String fs = File.separator ;
     private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
 
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
@@ -209,6 +216,7 @@ public class MainUserFormController {
 
     @FXML public void handleOKButton(ActionEvent actionEvent){
         solutionPane.setVisible(false);
+        imagePane.setVisible(false);
     }
 
     @FXML public void handleResetSortButton(ActionEvent actionEvent){
@@ -219,6 +227,11 @@ public class MainUserFormController {
         amountVoteField.clear();
     }
 
+    @FXML public void handleViewImageButton(){
+        System.out.printf(rp.getPhoto());
+        imagePane.setVisible(true);
+        reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+rp.getPhoto()));
+    }
 
     //-------------------------------------------- method
 
@@ -245,6 +258,10 @@ public class MainUserFormController {
                 viewSolutionButton.setVisible(true);
             else
                 viewSolutionButton.setVisible(false);
+            if(!report.getPhoto().equals("null"))
+                viewImageButton.setVisible(true);
+            else
+                viewImageButton.setVisible(false);
             rp = report;
             barOne.setVisible(true);
             barTwo.setVisible(true);
@@ -270,6 +287,7 @@ public class MainUserFormController {
     }
 
     private void clearForm(){
+        imagePane.setVisible(false);
         descriptionPane.setVisible(false);
         barOne.setVisible(false);
         barTwo.setVisible(false);
@@ -277,6 +295,7 @@ public class MainUserFormController {
         voteButton.setVisible(false);
         viewSolutionButton.setVisible(false);
         solutionPane.setVisible(false);
+        viewImageButton.setVisible(false);
         topicLabel.setText("");
         dateLabel.setText("");
         categoryLabel.setText("");
