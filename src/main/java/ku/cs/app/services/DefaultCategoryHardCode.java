@@ -13,6 +13,7 @@ public class DefaultCategoryHardCode {
          defaultCategory.addCategory("ALL");
          defaultCategory.addCategory("Education");
          defaultCategory.addCategory("Environment");
+         defaultCategory.addCategory("Safety");
          defaultCategory.addCategory("Scholarship");
          defaultCategory.addCategory("Transportation");
      }
