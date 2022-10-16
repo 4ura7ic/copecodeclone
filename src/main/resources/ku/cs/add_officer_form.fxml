@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.accountOrganizer.AddOfficerFormController">
    <children>
-      <ImageView fx:id="image" fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/new%20officer.png" />
          </image></ImageView>
@@ -21,7 +21,7 @@
       <TextField fx:id="confirmTextField" layoutX="88.0" layoutY="257.0" prefHeight="43.0" prefWidth="270.0" promptText="confirm password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="nameTextField" layoutX="88.0" layoutY="325.0" prefHeight="43.0" prefWidth="270.0" promptText="name" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <TextField fx:id="surnameTextField" layoutX="88.0" layoutY="391.0" prefHeight="43.0" prefWidth="270.0" promptText="surname" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
-      <Button layoutX="435.0" layoutY="120.0" maxHeight="36.0" maxWidth="113.0" minHeight="36.0" minWidth="113.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="36.0" prefWidth="113.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose image">
+      <Button layoutX="435.0" layoutY="120.0" maxHeight="36.0" maxWidth="129.0" minHeight="36.0" minWidth="113.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="36.0" prefWidth="129.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Choose image">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -36,7 +36,7 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <ImageView fx:id="image1" fitHeight="183.0" fitWidth="179.0" layoutX="441.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image" fitHeight="181.0" fitWidth="180.0" layoutX="441.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" />
       <ComboBox fx:id="inChargeBox" layoutX="441.0" layoutY="365.0" prefWidth="150.0" promptText="select charge" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
       <Label fx:id="errorMessageLabel" layoutX="88.0" layoutY="459.0" text="errorMsgLabel" />
    </children>
