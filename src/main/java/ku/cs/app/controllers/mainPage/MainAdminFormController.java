@@ -208,6 +208,17 @@ public class MainAdminFormController {
         }
     }
 
+    @FXML
+    public void handleEditButton(ActionEvent actionEvent) {
+        try {
+            FXRouter.goTo("category_edit_form", user);
+        } catch (IOException e) {
+            System.err.println("err ไป How to ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกําหนด route");
+            e.printStackTrace();
+        }
+    }
+
     //-------------------------------------------- method
     private void updateListView(){
         String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"-1";

@@ -1,6 +1,7 @@
 package ku.cs;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import com.github.saacsos.FXRouter;
@@ -39,6 +40,7 @@ public class ProjectApplication extends Application{
         FXRouter.when("howTo_Profile", packageStr+"how_to_profile.fxml");
         FXRouter.when("officer_HowTo_form", packageStr+"officer_how_to_form.fxml");
         FXRouter.when("admin_HowTo_form", packageStr+"admin_HowTo_form.fxml");
+        FXRouter.when("category_edit_form", packageStr+"category_editor.fxml");
 
     }
     public static void main(String[] args) {

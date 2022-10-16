@@ -138,5 +138,13 @@
             <Font size="16.0" />
          </font>
       </Button>
+      <Button layoutX="732.0" layoutY="318.0" maxHeight="32.0" maxWidth="128.0" minHeight="11.0" minWidth="56.0" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="19.0" prefWidth="56.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Edit">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
