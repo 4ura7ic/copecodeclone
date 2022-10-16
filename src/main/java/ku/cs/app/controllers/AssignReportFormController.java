@@ -47,6 +47,7 @@ public class AssignReportFormController {
     //-------------------------------------------- initialize
 
     public void initialize(){
+        dynamicCategory.removeCategory("ALL");
         user = (User) FXRouter.getData();
         categoryBox.getItems().addAll(dynamicCategory.getAllCategory());
         cancelButton.setVisible(false);
