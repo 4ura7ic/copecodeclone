@@ -14,20 +14,22 @@ public class Report {
     private int vote;
     private boolean check;
     private ArrayList<String> votedUser;
+    private String photo;
 
 
     //-------------------------------------------- constructor
 
-    public Report(String authorUser, String topic, String date, String category, String description) {
-        this(authorUser,topic,date,category,description, "","",0,false);
+    public Report(String authorUser, String topic, String date, String category, String description,String photo) {
+        this(authorUser,topic,date,category,description,photo, "","",0,false);
     }
 
-    public Report(String authorUser, String topic, String date, String category, String description, String solution,String service,int vote,boolean check){
+    public Report(String authorUser, String topic, String date, String category, String description,String photo, String solution,String service,int vote,boolean check){
         this.authorUser = authorUser;
         this.topic = topic;
         this.date = date;
         this.category = category;
         this.description = description;
+        this.photo = photo;
         this.solution = solution;
         this.vote = vote;
         this.check = check;
@@ -36,7 +38,7 @@ public class Report {
     }
 
     public Report(){
-        this("","","","","","","",0,false);
+        this("","","","","","","","",0,false);
     }
 
     //-------------------------------------------- getter
@@ -68,6 +70,14 @@ public class Report {
     }
     public ArrayList<String> getVotedUser(){
         return votedUser;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     //-------------------------------------------- method

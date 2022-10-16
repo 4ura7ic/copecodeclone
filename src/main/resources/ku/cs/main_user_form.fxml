@@ -107,7 +107,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Pane fx:id="solutionPane" layoutX="96.0" layoutY="212.0" prefHeight="200.0" prefWidth="524.0">
+      <Pane fx:id="solutionPane" layoutX="96.0" layoutY="212.0" prefHeight="200.0" prefWidth="524.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="524.0" />
             <Label layoutX="13.0" layoutY="14.0" text="Solution" textFill="#cdffd7">
@@ -135,6 +135,14 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <Pane fx:id="imagePane" layoutX="50.0" layoutY="94.0" prefHeight="413.0" prefWidth="566.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#537948" height="413.0" stroke="BLACK" strokeType="INSIDE" width="566.0" />
+            <ImageView fx:id="reportImage" fitHeight="308.0" fitWidth="495.0" layoutX="39.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="482.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleOKButton" text="Button" />
+         </children>
+      </Pane>
       <Button fx:id="resetSortButton" layoutX="706.0" layoutY="487.0" maxHeight="25.0" maxWidth="73.0" minHeight="25.0" minWidth="73.0" mnemonicParsing="false" onAction="#handleResetSortButton" prefHeight="25.0" prefWidth="73.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset Sort" />
+      <Button fx:id="viewImageButton" layoutX="684.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleViewImageButton" text="View Image" />
    </children>
 </AnchorPane>
