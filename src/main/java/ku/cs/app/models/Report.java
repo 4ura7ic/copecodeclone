@@ -14,6 +14,7 @@ public class Report {
     private int vote;
     private boolean check;
     private ArrayList<String> votedUser;
+    private String photo;
 
 
     //-------------------------------------------- constructor
@@ -33,6 +34,19 @@ public class Report {
         this.check = check;
         this.service = service;
         this.votedUser = new ArrayList<>();
+    }
+    public Report(String authorUser, String topic, String date, String category, String description, String solution,String service,int vote,boolean check,String photo){
+        this.authorUser = authorUser;
+        this.topic = topic;
+        this.date = date;
+        this.category = category;
+        this.description = description;
+        this.solution = solution;
+        this.vote = vote;
+        this.check = check;
+        this.service = service;
+        this.votedUser = new ArrayList<>();
+        this.photo = photo;
     }
 
     public Report(){
@@ -68,6 +82,14 @@ public class Report {
     }
     public ArrayList<String> getVotedUser(){
         return votedUser;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     //-------------------------------------------- method

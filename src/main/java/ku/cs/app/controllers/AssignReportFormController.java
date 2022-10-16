@@ -5,12 +5,17 @@ import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.list.ReportList;
 import ku.cs.app.models.User;
 import ku.cs.app.services.DataSource;
+import ku.cs.app.services.ImageDataSource;
+import ku.cs.app.services.ReportImageDataSource;
 import ku.cs.app.services.ReportListFileDataSource;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,6 +26,7 @@ public class AssignReportFormController {
     @FXML private ComboBox<String> categoryBox;
     @FXML private TextField topicTextField;
     @FXML private TextField descriptionTextField;
+    @FXML private ImageView image;
 
     //-------------------------------------------- private
 
@@ -28,7 +34,9 @@ public class AssignReportFormController {
     private LocalDateTime date;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd/HH:mm:ss");
     private String[] category = {"Education","Environment","Scholarship","Transportation"};
-
+    private ReportImageDataSource getImage;
+    private String imageName = "default.jpg";
+    private String fs = File.separator ;
     //-------------------------------------------- initialize
 
     public void initialize(){
@@ -75,5 +83,13 @@ public class AssignReportFormController {
             System.err.println("ให้ตรวจสอบการกําหนด route");
             e.printStackTrace();
         }
+    }
+
+    public void chooseImageButton(ActionEvent event) throws IOException {
+        getImage = new ReportImageDataSource();
+        imageName = getImage.chooseImage(topicTextField.getText());
+        System.out.println(imageName);
+        image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "reportImage" + fs + imageName));
+
     }
 }
