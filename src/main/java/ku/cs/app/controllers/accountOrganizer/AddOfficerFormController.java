@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,8 +23,8 @@ import java.io.IOException;
 public class AddOfficerFormController {
     @FXML
     private TextField usernameTextField;
-    @FXML private TextField passwordTextField;
-    @FXML private TextField confirmTextField;
+    @FXML private PasswordField passwordField;
+    @FXML private PasswordField confirmPasswordField;
     @FXML private TextField nameTextField;
     @FXML
     private TextField surnameTextField;
@@ -71,14 +72,14 @@ public class AddOfficerFormController {
     public void handleCreateID(ActionEvent actionEvent){
 
             tempOfficer.setName(usernameTextField.getText());
-            tempOfficer.setPassword(passwordTextField.getText());
+            tempOfficer.setPassword(passwordField.getText());
 
             String errorMsg = tempOfficer.getErrorMsg();
 
             if(list.checkDuplicateUsername(tempOfficer.getUsername())){
-                if (confirmTextField.getText().equals(passwordTextField.getText())){
+                if (confirmPasswordField.getText().equals(passwordField.getText())){
                     if (errorMsg == ""){
-                        officerDetail = new Officer(usernameTextField.getText(),new Password(passwordTextField.getText()),nameTextField.getText(),surnameTextField.getText(), inChargeBox.getValue());
+                        officerDetail = new Officer(usernameTextField.getText(),new Password(passwordField.getText()),nameTextField.getText(),surnameTextField.getText(), inChargeBox.getValue());
                         officerDetail.setPhoto(imageName);
                         clearAllTextField();
                         try {
@@ -90,18 +91,18 @@ public class AddOfficerFormController {
                             System.err.println("ให้ตรวจสอบการกําหนด route");
                         }
                     } else {
-                        passwordTextField.clear();
-                        confirmTextField.clear();
+                        passwordField.clear();
+                        confirmPasswordField.clear();
                         errorMessageLabel.setText(errorMsg);
                     }
                 }else{
                     errorMessageLabel.setText("Please insert the password correctly.");
-                    passwordTextField.clear();
-                    confirmTextField.clear();
+                    passwordField.clear();
+                    confirmPasswordField.clear();
                 }
 
             }else {
-                passwordTextField.clear();
+                passwordField.clear();
                 errorMessageLabel.setText("This username has already use.\n" + errorMsg);
             }
 
@@ -109,8 +110,8 @@ public class AddOfficerFormController {
 
     public void clearAllTextField() {
         usernameTextField.clear();
-        passwordTextField.clear();
-        confirmTextField.clear();
+        passwordField.clear();
+        confirmPasswordField.clear();
         nameTextField.clear();
         surnameTextField.clear();
     }
