@@ -16,7 +16,7 @@
                         <Image url="@images/userHowto.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="2.0" layoutY="88.0" maxHeight="37.0" maxWidth="70.0" minHeight="31.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="37.0" prefWidth="64.0" styleClass="button2" stylesheets="@../../cssStyle/style.css" text="Back" textFill="#56665a">
+                  <Button layoutX="2.0" layoutY="88.0" maxHeight="37.0" maxWidth="70.0" minHeight="31.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="37.0" prefWidth="64.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Back">
                      <font>
                         <Font size="18.0" />
                      </font>
