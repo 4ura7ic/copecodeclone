@@ -36,7 +36,7 @@ public class ProjectApplication extends Application{
         FXRouter.when("report_inappropriate_activity_form", packageStr+"report_inappropriate_activity_form.fxml");
         FXRouter.when("suspended_user", packageStr+"suspended_user_form.fxml");
         FXRouter.when("user_HowTo_form", packageStr+"user_how_to_form.fxml");
-        FXRouter.when("user_HowTo_Assign_form", packageStr+"user_HowTo_Assign_form.fxml");
+        FXRouter.when("user_HowTo_Assign_form", packageStr+"user_how_to_assign_form.fxml");
         FXRouter.when("howTo_Profile", packageStr+"how_to_profile.fxml");
         FXRouter.when("officer_HowTo_form", packageStr+"officer_how_to_form.fxml");
         FXRouter.when("admin_HowTo_form", packageStr+"admin_HowTo_form.fxml");
