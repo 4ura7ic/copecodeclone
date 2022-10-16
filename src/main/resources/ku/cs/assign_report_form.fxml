@@ -3,10 +3,12 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controllers.AssignReportFormController">
@@ -25,7 +27,6 @@
          </font></Button>
       <ComboBox fx:id="categoryBox" layoutX="201.0" layoutY="112.0" prefWidth="150.0" promptText="Select Category" />
       <TextField fx:id="topicTextField" layoutX="511.0" layoutY="112.0" prefHeight="25.0" prefWidth="251.0" promptText="Topic" />
-      <TextField fx:id="descriptionTextField" alignment="TOP_LEFT" layoutX="64.0" layoutY="187.0" prefHeight="209.0" prefWidth="693.0" />
       <Button layoutX="690.0" layoutY="534.0" maxHeight="35.0" maxWidth="74.0" minHeight="35.0" minWidth="74.0" mnemonicParsing="false" onAction="#handleAssignButton" prefHeight="35.0" prefWidth="74.0" styleClass="button2flip" stylesheets="@../../cssStyle/style.css" text="Assign" textAlignment="CENTER" textFill="#93b39a">
          <font>
             <Font size="19.0" />
@@ -39,7 +40,15 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="325.0" layoutY="522.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="25.0" prefWidth="116.0" text="chooseimage" />
+      <Button layoutX="58.0" layoutY="257.0" mnemonicParsing="false" onAction="#chooseImageButton" prefHeight="25.0" prefWidth="116.0" text="Choose image" />
+      <TextField fx:id="descriptionTextField" layoutX="58.0" layoutY="182.0" prefHeight="41.0" prefWidth="702.0" />
+      <Rectangle fx:id="imagePreviewBar" arcHeight="5.0" arcWidth="5.0" fill="#89ae8b" height="269.0" layoutX="230.0" layoutY="257.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="358.0" />
+      <Label layoutX="306.0" layoutY="368.0" text="image preview">
+         <font>
+            <Font name="System Italic" size="32.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="image" fitHeight="269.0" fitWidth="358.0" layoutX="230.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="cancelButton" layoutX="58.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleCancelButton" prefHeight="25.0" prefWidth="116.0" text="Cancel" />
    </children>
 </AnchorPane>

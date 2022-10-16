@@ -24,12 +24,12 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="nameLabel" layoutX="258.0" layoutY="484.0" text="nameLabel" textFill="#93b39a">
+      <Label fx:id="nameLabel" alignment="CENTER" layoutX="101.0" layoutY="484.0" prefHeight="35.0" prefWidth="250.0" text="nameLabel" textFill="#93b39a">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="surnameLabel" layoutX="433.0" layoutY="484.0" text="surnameLabel" textFill="#93b39a">
+      <Label fx:id="surnameLabel" alignment="CENTER" layoutX="447.0" layoutY="484.0" prefHeight="35.0" prefWidth="250.0" text="surnameLabel" textFill="#93b39a">
          <font>
             <Font size="24.0" />
          </font>
