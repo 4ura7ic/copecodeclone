@@ -5,16 +5,22 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import com.github.saacsos.FXRouter;
+import ku.cs.app.services.DefaultImageHardCode;
+
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class ProjectApplication extends Application{
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, URISyntaxException {
+        DefaultImageHardCode imageHardCode = new DefaultImageHardCode();
+        imageHardCode.getDefault();
         FXRouter.bind(this, stage, 800, 600);
         Image icon = new Image("logo.png");
         stage.getIcons().add(icon);
         configRoute();
         FXRouter.goTo("login_form");
+
     }
     private static void configRoute(){
         String packageStr = "ku/cs/";
