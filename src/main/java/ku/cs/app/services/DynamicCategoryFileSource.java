@@ -94,6 +94,8 @@ public class DynamicCategoryFileSource  implements DataSource<DynamicCategory>{
         if (!file.exists()) {
             try {
                 file.createNewFile();
+                DynamicCategory defaultCategory = new DefaultCategoryHardCode().getDefaultCategory();
+                writeData(defaultCategory);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
