@@ -22,7 +22,7 @@ import java.io.IOException;
 public class MainOfficerFormController {
     //-------------------------------------------- FXML
 
-    @FXML private ComboBox sortBox;
+    @FXML private ComboBox<String> sortBox;
     @FXML private ScrollPane descriptionPane;
     @FXML private Rectangle barOne;
     @FXML private Rectangle barTwo;
@@ -75,8 +75,8 @@ public class MainOfficerFormController {
         clearListView();
         resetSortButton.setVisible(true);
         clearForm();
-        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
-        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
+        inProgressListView.getItems().addAll(list.sortTimeReport(sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
+        finishReportListView.getItems().addAll(list.sortTimeReport(sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
     }
 
     //-------------------------------------------- handle
@@ -146,8 +146,8 @@ public class MainOfficerFormController {
         rp.finishingCheck();
         solutionTextField.clear();
         clearListView();
-        inProgressListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
-        finishReportListView.getItems().addAll(list.sortTimeReport((String) sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
+        inProgressListView.getItems().addAll(list.sortTimeReport(sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
+        finishReportListView.getItems().addAll(list.sortTimeReport(sortBox.getValue(),list.sortFinishedReportByCategory(user.getInCharge())));
         dataSource.writeData(list);
         submitSolutionPane.setVisible(false);
     }

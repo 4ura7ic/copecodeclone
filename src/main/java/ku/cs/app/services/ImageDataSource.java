@@ -18,7 +18,6 @@ public class ImageDataSource {
     //-------------------------------------------- instance
 
     private File filePath;
-    private String imagePath;
     private File destDir;
     String fs = File.separator ;
     private User user;
@@ -116,16 +115,14 @@ public class ImageDataSource {
                 Path target = FileSystems.getDefault().getPath(destDir.getAbsolutePath() + System.getProperty("file.separator") + filename);
 
                 Files.copy(filePath.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
-                imagePath = target.toString();
+                String imagePath = target.toString();
 
                 user.setPhoto(filename);
 
-                if (user.getRole().equals("user")) {
-                    userList.changeImageUser(user);
-                } else if (user.getRole().equals("officer")) {
-                    userList.changeImageOfficer((Officer) user);
-                } else if (user.getRole().equals("admin")) {
-                    userList.changeImageAdmin((Admin) user);
+                switch (user.getRole()) {
+                    case "user" -> userList.changeImageUser(user);
+                    case "officer" -> userList.changeImageOfficer((Officer) user);
+                    case "admin" -> userList.changeImageAdmin((Admin) user);
                 }
 
 

@@ -43,8 +43,6 @@ public class UserSuspensionListFileSource implements DataSource<UserSuspensionLi
                 list.addUser(user);
             }
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {

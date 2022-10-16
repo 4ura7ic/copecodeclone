@@ -56,7 +56,7 @@ public class User {
 
     public String setPhoto(String newPhoto) {
         this.photo = newPhoto;
-        return photo;
+        return this.photo;
     }
 
     public void setName(String name) {
@@ -82,11 +82,6 @@ public class User {
 
     //-------------------------------------------- method
 
-    public String dataFormat(){
-        String line = role + "," + username + "," + password
-                + "," + name + "," + surname + "," + photo;
-        return line;
-    }
     public boolean checkIfInputPasswordCorrect (User user, String pwdInput) {
         if (pwdInput.equals("")) {
             user.password.setErrorMessage("Please enter current password.\n");

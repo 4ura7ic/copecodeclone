@@ -74,8 +74,6 @@ public class ReportListFileDataSource implements DataSource<ReportList>{
                     list.addReport(report);
                 }
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
