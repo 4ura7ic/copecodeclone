@@ -90,6 +90,5 @@ public class CategoryEditorController {
         categoryListView.getItems().clear();
         categoryListView.getItems().addAll(dynamicCategory.getAllCategory());
         categoryListView.refresh();
-
     }
 }

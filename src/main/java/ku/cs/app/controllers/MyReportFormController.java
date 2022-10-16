@@ -10,10 +10,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
+import ku.cs.app.models.list.DynamicCategory;
 import ku.cs.app.models.list.ReportList;
 import ku.cs.app.models.User;
 import com.github.saacsos.FXRouter;
 import ku.cs.app.services.DataSource;
+import ku.cs.app.services.DynamicCategoryFileSource;
 import ku.cs.app.services.ReportListFileDataSource;
 
 import java.io.IOException;
@@ -35,15 +37,15 @@ public class MyReportFormController {
     @FXML private Label descriptionLabel;
     @FXML private ListView<Report> yourReportListView;
     //-------------------------------------------- private
-
+    private DynamicCategoryFileSource dynamicCategoryFileSource = new DynamicCategoryFileSource("data", "category.csv");
+    private DynamicCategory dynamicCategory = dynamicCategoryFileSource.readData();
     private User user;
     private ReportList list;
-    private String[] category = {"ALL","Education","Environment","Scholarship","Transportation"};
 
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
 
     ObservableList<String> categoryList = FXCollections
-            .observableArrayList(category);
+            .observableArrayList(dynamicCategory.getAllCategory());
 
     ObservableList<String> sortList = FXCollections
             .observableArrayList(sortBy);

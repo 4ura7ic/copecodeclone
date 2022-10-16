@@ -11,8 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.app.models.*;
+import ku.cs.app.models.list.DynamicCategory;
 import ku.cs.app.models.list.UserList;
 import ku.cs.app.services.DataSource;
+import ku.cs.app.services.DynamicCategoryFileSource;
 import ku.cs.app.services.UserDataListFileDataSource;
 import ku.cs.app.services.ImageDataSource;
 import com.github.saacsos.FXRouter;
@@ -34,8 +36,8 @@ public class AddOfficerFormController {
     private ImageView image;
     @FXML private ComboBox<String> inChargeBox;
 
-    private String[] charge = {"Education","Environment","Scholarship","Transportation"};
-
+    private DynamicCategoryFileSource dynamicCategoryFileSource = new DynamicCategoryFileSource("data", "category.csv");
+    private DynamicCategory dynamicCategory = dynamicCategoryFileSource.readData();
     private ImageDataSource getImage;
 
     private DataSource<UserList> dataSource = new UserDataListFileDataSource("data", "user.csv");
@@ -50,7 +52,7 @@ public class AddOfficerFormController {
     private String imageName = "default.jpg";
 
     private ObservableList<String> inChargeList = FXCollections
-            .observableArrayList(charge);
+            .observableArrayList(dynamicCategory.getAllCategory());
 
     @FXML
     public void initialize() {
