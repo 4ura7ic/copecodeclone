@@ -37,7 +37,10 @@
          </font></Button>
       <ImageView fx:id="image" fitHeight="181.0" fitWidth="180.0" layoutX="441.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" />
       <ComboBox fx:id="inChargeBox" layoutX="441.0" layoutY="365.0" prefWidth="150.0" promptText="select charge" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" />
-      <Label fx:id="errorMessageLabel" layoutX="88.0" layoutY="459.0" text="errorMsgLabel" />
+      <Label fx:id="errorMessageLabel" alignment="TOP_LEFT" layoutX="88.0" layoutY="459.0" prefHeight="93.0" prefWidth="270.0" text="errorMsgLabel" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <PasswordField fx:id="passwordField" layoutX="86.0" layoutY="192.0" prefHeight="36.0" prefWidth="270.0" promptText="password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
       <PasswordField fx:id="confirmPasswordField" layoutX="86.0" layoutY="254.0" prefHeight="43.0" prefWidth="270.0" promptText="confirm password" styleClass="transparent" stylesheets="@../../cssStyle/style.css" />
    </children>

@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import ku.cs.app.models.User;
 import ku.cs.app.models.list.UserList;
 import ku.cs.app.services.DataSource;
@@ -20,8 +21,8 @@ import java.io.IOException;
 public class UserDataListController {
     //-------------------------------------------- FXML
 
-    @FXML
-    private ListView<User> dataListView;
+    @FXML private Pane infoPane;
+    @FXML private ListView<User> dataListView;
     @FXML private ImageView image;
     @FXML private Label usernameLabel;
     @FXML private Label nameLabel;
@@ -31,7 +32,6 @@ public class UserDataListController {
     //-------------------------------------------- noModifier
 
     String fs = File.separator ;
-    String url = getClass().getResource("/ku/cs/images/default.jpg").toExternalForm();
     DataSource<UserList> dataSource = new UserDataListFileDataSource("data","user.csv");
     UserList list = dataSource.readData();
 
@@ -39,7 +39,7 @@ public class UserDataListController {
 
     @FXML
     public void initialize(){
-        image.setImage(new Image(url));
+        infoPane.setVisible(false);
         showListView();
         clearSelectedUserData();
         handleSelectedListView();
@@ -93,6 +93,7 @@ public class UserDataListController {
         surnameLabel.setText(data.getSurname());
         passwordLabel.setText(data.getPassword());
         usernameLabel.setText(data.getUsername());
+        infoPane.setVisible(true);
     }
 
     private void clearSelectedUserData(){

@@ -43,8 +43,6 @@ public class ActivityLogDataSource implements DataSource<ActivityLog>{
                 log.addLog(activity);
             }
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {

@@ -9,14 +9,14 @@
    <children>
       <ScrollPane prefHeight="600.0" prefWidth="800.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1800.0" prefWidth="782.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1800.0" prefWidth="780.0">
                <children>
-                  <ImageView fitHeight="1800.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="1800.0" fitWidth="780.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/userHowto.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="14.0" layoutY="14.0" maxHeight="31.0" maxWidth="70.0" minHeight="31.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="31.0" prefWidth="70.0" styleClass="button2" stylesheets="@../../cssStyle/style.css" text="Back" textFill="#56665a">
+                  <Button layoutX="2.0" layoutY="88.0" maxHeight="37.0" maxWidth="70.0" minHeight="31.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="37.0" prefWidth="64.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Back">
                      <font>
                         <Font size="18.0" />
                      </font>

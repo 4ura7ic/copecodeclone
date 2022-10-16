@@ -24,8 +24,8 @@ import java.io.IOException;
 public class MainAdminFormController {
     //-------------------------------------------- FXML
 
-    @FXML private ComboBox categoryBox;
-    @FXML private ComboBox sortBox;
+    @FXML private ComboBox<String> categoryBox;
+    @FXML private ComboBox<String> sortBox;
     @FXML private ScrollPane descriptionPane;
     @FXML private Rectangle barOne;
     @FXML private Rectangle barTwo;
@@ -226,8 +226,8 @@ public class MainAdminFormController {
     private void updateListView(){
         String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"-1";
         clearListView();
-        inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortInProgressReportByCategory((String) categoryBox.getValue()))));
-        finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+        inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport(sortBox.getValue(), list.sortInProgressReportByCategory(categoryBox.getValue()))));
+        finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport(sortBox.getValue(), list.sortFinishedReportByCategory(categoryBox.getValue()))));
         resetSortButton.setVisible(true);
         clearForm();
     }

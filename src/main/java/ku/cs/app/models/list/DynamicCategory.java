@@ -3,6 +3,7 @@ package ku.cs.app.models.list;
 import javafx.animation.ScaleTransition;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class DynamicCategory implements CheckIfExistAndReturnObject<String>{
     private ArrayList<String> list;
@@ -16,8 +17,10 @@ public class DynamicCategory implements CheckIfExistAndReturnObject<String>{
         list.remove(s);
     }
     public ArrayList<String> getAllCategory() {
+        Collections.sort(list);
         return list;
     }
+
     @Override
     public boolean checkIfExist(String s) {
         for (String category: list) {

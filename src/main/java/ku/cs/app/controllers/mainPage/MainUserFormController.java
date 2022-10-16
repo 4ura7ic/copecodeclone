@@ -28,8 +28,8 @@ import java.util.ArrayList;
 public class MainUserFormController {
     //-------------------------------------------- FXML
 
-    @FXML private ComboBox categoryBox;
-    @FXML private ComboBox sortBox;
+    @FXML private ComboBox<String> categoryBox;
+    @FXML private ComboBox<String> sortBox;
     @FXML private Pane solutionPane;
     @FXML private Pane imagePane;
     @FXML private ScrollPane descriptionPane;
@@ -239,8 +239,8 @@ public class MainUserFormController {
     private void updateListView(){
         String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"-1";
         clearListView();
-        inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortInProgressReportByCategory((String) categoryBox.getValue()))));
-        finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport((String) sortBox.getValue(), list.sortFinishedReportByCategory((String) categoryBox.getValue()))));
+        inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport(sortBox.getValue(), list.sortInProgressReportByCategory(categoryBox.getValue()))));
+        finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport(sortBox.getValue(), list.sortFinishedReportByCategory(categoryBox.getValue()))));
         resetSortButton.setVisible(true);
         clearForm();
     }

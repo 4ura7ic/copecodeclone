@@ -51,14 +51,13 @@ public class AddOfficerFormController {
     private String fs = File.separator ;
     private String imageName = "default.jpg";
 
-    private ObservableList<String> inChargeList = FXCollections
-            .observableArrayList(dynamicCategory.getAllCategory());
-
     @FXML
     public void initialize() {
+        errorMessageLabel.setText("");
+        dynamicCategory.removeCategory("ALL");
         System.out.println("initialize AddOfficerFormController");
         image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + "default.jpg"));
-        inChargeBox.getItems().addAll(inChargeList);
+        inChargeBox.getItems().addAll(dynamicCategory.getAllCategory());
     }
 
     @FXML
