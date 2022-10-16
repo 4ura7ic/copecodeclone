@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -18,8 +19,6 @@
          <image>
             <Image url="@images/SusManager.png" />
          </image></ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="68.0" layoutX="264.0" layoutY="431.0" stroke="BLACK" strokeType="INSIDE" width="517.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="143.0" layoutX="264.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" width="517.0" />
       <Button layoutX="14.0" layoutY="12.0" maxHeight="35.0" maxWidth="77.0" minHeight="35.0" minWidth="77.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="77.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -34,66 +33,81 @@
          </font>
       </Label>
       <Separator layoutX="244.0" layoutY="61.0" orientation="VERTICAL" prefHeight="529.0" prefWidth="20.0" />
-      <Label layoutX="471.0" layoutY="60.0" prefHeight="35.0" prefWidth="71.0" text="Activities" textFill="#93b39a">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <ListView fx:id="reportListView" layoutX="265.0" layoutY="95.0" prefHeight="180.0" prefWidth="517.0" />
-      <Label layoutX="276.0" layoutY="291.0" text="Amount Inappropriate Activities: ">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="537.0" layoutY="316.0" text="Status: ">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-      <Button layoutX="500.0" layoutY="526.0" maxHeight="22.0" maxWidth="89.0" minHeight="22.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleSuspendButton" prefHeight="22.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Suspend">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Label fx:id="statusLabel" layoutX="614.0" layoutY="316.0" prefHeight="35.0" prefWidth="140.0" text="statusLabel">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-      <TextField fx:id="reasonTextField" layoutX="276.0" layoutY="525.0" prefHeight="25.0" prefWidth="211.0" />
-      <Label layoutX="276.0" layoutY="434.0" prefHeight="27.0" prefWidth="198.0" text="Reason of suspension:">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Label layoutX="277.0" layoutY="464.0" text="Login attemp after suspension:">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Label fx:id="amountLabel" layoutX="508.0" layoutY="291.0" text="amntLabel">
-         <font>
-            <Font size="16.0" />
-         </font></Label>
-      <Label fx:id="loginAttemptCnt" layoutX="522.0" layoutY="464.0" text="loginAttemptCnt">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Label fx:id="reasonLabel" layoutX="459.0" layoutY="434.0" text="reasonLabel">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Label layoutX="278.0" layoutY="506.0" text="Add reason of suspension:" textFill="WHITE" />
-      <Button layoutX="699.0" layoutY="537.0" maxHeight="41.0" maxWidth="77.0" minHeight="41.0" minWidth="77.0" mnemonicParsing="false" onAction="#handleRestoreButton" prefHeight="41.0" prefWidth="77.0" styleClass="button1" stylesheets="@../../cssStyle/style.css" text="Restore">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font size="18.0" />
-         </font></Button>
-      <Label fx:id="errorMsgLabel" layoutX="276.0" layoutY="558.0" text="errorMsgLabel" textFill="RED" />
-      <ListView fx:id="inappropriateActivitiesListView" layoutX="271.0" layoutY="318.0" prefHeight="99.0" prefWidth="263.0" />
-      <Label layoutX="540.0" layoutY="356.0" text="Request:" />
-      <Label fx:id="requestLabel" layoutX="589.0" layoutY="356.0" prefHeight="17.0" prefWidth="164.0" text="requestLabel" />
-      <Button layoutX="690.0" layoutY="250.0" maxHeight="22.0" maxWidth="89.0" minHeight="22.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleRemoveReport" prefHeight="22.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Remove Report">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      <Pane fx:id="infoPane" layoutX="264.0" layoutY="61.0" prefHeight="529.0" prefWidth="517.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#78e899" height="68.0" layoutY="366.0" stroke="BLACK" strokeType="INSIDE" width="517.0" />
+            <Label layoutX="8.0" layoutY="400.0" text="Login attemp after suspension:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="loginAttemptCnt" layoutX="261.0" layoutY="400.0" text="loginAttemptCnt">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="reasonLabel" layoutX="193.0" layoutY="373.0" text="reasonLabel">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="373.0" prefHeight="27.0" prefWidth="198.0" text="Reason of suspension:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="reasonTextField" layoutX="14.0" layoutY="466.0" prefHeight="25.0" prefWidth="211.0" />
+            <Label layoutX="14.0" layoutY="447.0" text="Add reason of suspension:" textFill="WHITE" />
+            <Button layoutX="433.0" layoutY="478.0" maxHeight="41.0" maxWidth="77.0" minHeight="41.0" minWidth="77.0" mnemonicParsing="false" onAction="#handleRestoreButton" prefHeight="41.0" prefWidth="77.0" styleClass="button1" stylesheets="@../../cssStyle/style.css" text="Restore">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="143.0" layoutY="223.0" stroke="BLACK" strokeType="INSIDE" width="517.0" />
+            <Label fx:id="requestLabel" layoutX="327.0" layoutY="294.0" prefHeight="17.0" prefWidth="164.0" text="requestLabel" />
+            <Label layoutX="223.0" layoutY="-3.0" prefHeight="35.0" prefWidth="71.0" text="Activities" textFill="#93b39a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ListView fx:id="reportListView" layoutY="32.0" prefHeight="180.0" prefWidth="517.0" />
+            <ListView fx:id="inappropriateActivitiesListView" layoutX="8.0" layoutY="253.0" prefHeight="99.0" prefWidth="263.0" />
+            <Button layoutX="421.0" layoutY="184.0" maxHeight="22.0" maxWidth="89.0" minHeight="22.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleRemoveReport" prefHeight="22.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Remove Report">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="8.0" layoutY="228.0" text="Amount Inappropriate Activities: ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="amountLabel" layoutX="241.0" layoutY="228.0" text="amntLabel">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="276.0" layoutY="253.0" text="Status: ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="statusLabel" layoutX="351.0" layoutY="253.0" prefHeight="35.0" prefWidth="140.0" text="statusLabel">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="278.0" layoutY="294.0" text="Request:" />
+            <Label fx:id="errorMsgLabel" layoutX="14.0" layoutY="498.0" text="errorMsgLabel" textFill="RED" />
+            <Button layoutX="232.0" layoutY="467.0" maxHeight="22.0" maxWidth="89.0" minHeight="22.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleSuspendButton" prefHeight="22.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Suspend">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

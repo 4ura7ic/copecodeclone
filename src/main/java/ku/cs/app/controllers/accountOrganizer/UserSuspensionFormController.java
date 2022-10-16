@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import ku.cs.app.models.*;
 import ku.cs.app.models.list.*;
 import ku.cs.app.services.*;
@@ -20,6 +21,7 @@ public class UserSuspensionFormController {
     @FXML private ListView<User> dataListView;
     @FXML private ListView<Report> reportListView;
     @FXML private ListView<String> inappropriateActivitiesListView;
+    @FXML private Pane infoPane;
     @FXML private Label statusLabel;
     @FXML private TextField reasonTextField;
     @FXML private Label amountLabel;
@@ -123,7 +125,7 @@ public class UserSuspensionFormController {
                         }
                         showReportListView(newUser.getUsername());
                         showInappropriateActivitiesListView(newUser.getUsername());
-
+                        infoPane.setVisible(true);
                     }
                 }
         );
@@ -173,14 +175,12 @@ public class UserSuspensionFormController {
                 userSuspensionList.removeUser(user);
                 userRequestList.removeUser(userRequest);
                 userRequestListDataSource.writeData(userRequestList);
-                userSuspensionListDataSource.writeData(userSuspensionList);
-                errorMsgLabel.setText("Restore complete.");
             }
             else {
                 userSuspensionList.removeUser(user);
-                userSuspensionListDataSource.writeData(userSuspensionList);
-                errorMsgLabel.setText("Restore complete.");
             }
+            userSuspensionListDataSource.writeData(userSuspensionList);
+            errorMsgLabel.setText("Restore complete.");
 
         }
     }
@@ -222,6 +222,7 @@ public class UserSuspensionFormController {
         loginAttemptCnt.setText("");
         errorMsgLabel.setText("");
         requestLabel.setText("");
+        infoPane.setVisible(false);
     }
 
 }
