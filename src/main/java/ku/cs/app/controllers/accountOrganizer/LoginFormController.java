@@ -61,7 +61,7 @@ public class LoginFormController {
 
         act = new Activity();
         act.setDateTime();
-        act.setActivity("| Login attempt from user: " + userName.getText() + " | ");
+        act.setActivity("| Login attempt from user: " + userName.getText() + " |");
 
         if (list.checkIfExist(userName.getText())){
             User user = list.returnObject(userName.getText());
@@ -93,7 +93,7 @@ public class LoginFormController {
                             }
                         } else if (user.getRole().equals("officer")) {
                             try {
-                                act.setMessage("Success.");
+                                act.setMessage("InCharge: " + ((Officer)user).getInCharge() + ", Success.");
                                 log.addLog(act);
                                 activityLog.clearData();
                                 FXRouter.goTo("main_officer_form", user);
