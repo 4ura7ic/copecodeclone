@@ -46,7 +46,7 @@
          </font></Button>
       <TextField fx:id="descriptionTextField" layoutX="58.0" layoutY="182.0" prefHeight="41.0" prefWidth="702.0" />
       <Rectangle fx:id="imagePreviewBar" arcHeight="5.0" arcWidth="5.0" fill="#89ae8b" height="269.0" layoutX="230.0" layoutY="257.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="358.0" />
-      <Label layoutX="306.0" layoutY="368.0" text="image preview">
+      <Label fx:id="imagePreviewLabel" layoutX="306.0" layoutY="368.0" text="image preview">
          <font>
             <Font name="System Italic" size="32.0" />
          </font>
