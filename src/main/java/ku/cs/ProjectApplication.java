@@ -13,6 +13,8 @@ import java.net.URISyntaxException;
 public class ProjectApplication extends Application{
     @Override
     public void start(Stage stage) throws IOException, URISyntaxException {
+        DefaultImageHardCode imageHardCode = new DefaultImageHardCode();
+        imageHardCode.getDefault();
         FXRouter.bind(this, stage, 800, 600);
         Image icon = new Image("logo.png");
         stage.getIcons().add(icon);
