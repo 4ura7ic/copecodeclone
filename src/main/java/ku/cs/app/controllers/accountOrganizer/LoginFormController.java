@@ -93,7 +93,7 @@ public class LoginFormController {
                             }
                         } else if (user.getRole().equals("officer")) {
                             try {
-                                act.setMessage("InCharge: " + ((Officer)user).getInCharge() + ", Success.");
+                                act.setMessage("InCharge: " + ((Officer)user).getInCharge() + "| Success.");
                                 log.addLog(act);
                                 activityLog.clearData();
                                 FXRouter.goTo("main_officer_form", user);
