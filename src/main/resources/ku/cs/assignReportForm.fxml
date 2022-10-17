@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/Assign.png" />
+            <Image url="@images/assign.png" />
          </image>
       </ImageView>
       <Button layoutX="14.0" layoutY="8.0" maxHeight="41.0" maxWidth="74.0" minHeight="41.0" minWidth="74.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="41.0" prefWidth="74.0" styleClass="button1flip" stylesheets="@../../cssStyle/style.css" text="Back">

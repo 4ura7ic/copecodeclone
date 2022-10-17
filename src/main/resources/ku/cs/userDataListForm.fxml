@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/UserInfo.png" />
+            <Image url="@images/userInfo.png" />
          </image>
       </ImageView>
       <ListView fx:id="dataListView" layoutX="14.0" layoutY="100.0" prefHeight="490.0" prefWidth="205.0" stylesheets="@../../cssStyle/style.css" />
