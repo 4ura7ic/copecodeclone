@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/HowtoProfile.png" />
+            <Image url="@images/howtoProfile.png" />
          </image>
       </ImageView>
       <Button layoutX="20.0" layoutY="21.0" minHeight="37.0" minWidth="64.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="37.0" prefWidth="64.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Back">

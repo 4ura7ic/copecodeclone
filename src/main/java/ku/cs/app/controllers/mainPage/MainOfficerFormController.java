@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Officer;
@@ -17,6 +19,7 @@ import ku.cs.app.services.DataSource;
 import ku.cs.app.services.ReportListFileDataSource;
 import com.github.saacsos.FXRouter;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainOfficerFormController {
@@ -41,6 +44,9 @@ public class MainOfficerFormController {
     @FXML private TextField solutionTextField;
     @FXML private Pane submitSolutionPane;
     @FXML private Pane officerPane;
+    @FXML private Pane imagePane;
+    @FXML private Button viewImageButton;
+    @FXML private ImageView reportImage;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
 
@@ -49,6 +55,7 @@ public class MainOfficerFormController {
     private DataSource<ReportList> dataSource;
     private ReportList list;
     private Officer user;
+    private String fs = File.separator ;
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
     private Report rp = new Report();
     private ObservableList<String> sortList = FXCollections
@@ -123,6 +130,9 @@ public class MainOfficerFormController {
             e.printStackTrace();
         }
     }
+    @FXML public void handleOKButton(ActionEvent actionEvent){
+        imagePane.setVisible(false);
+    }
 
     @FXML public void handleVoteButton(ActionEvent actionEvent) {
         if (rp.getVotedUser().contains(user.getUsername())){
@@ -177,6 +187,11 @@ public class MainOfficerFormController {
             e.printStackTrace();
         }
     }
+    @FXML public void handleViewImageButton(){
+        System.out.printf(rp.getPhoto());
+        imagePane.setVisible(true);
+        reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+rp.getPhoto()));
+    }
 
     //-------------------------------------------- method
 
@@ -213,6 +228,10 @@ public class MainOfficerFormController {
                 officerPane.setVisible(false);
                 editSolutionButton.setVisible(false);
             }
+            if(!report.getPhoto().equals("null"))
+                viewImageButton.setVisible(true);
+            else
+                viewImageButton.setVisible(false);
         }
     }
 
@@ -232,6 +251,7 @@ public class MainOfficerFormController {
         editSolutionButton.setVisible(false);
         voteButton.setVisible(false);
         officerPane.setVisible(false);
+        viewImageButton.setVisible(false);
         topicLabel.setText("");
         dateLabel.setText("");
         categoryLabel.setText("");

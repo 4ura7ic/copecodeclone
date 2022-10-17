@@ -100,7 +100,7 @@
       <Label layoutX="663.0" layoutY="319.0" text="Category" textFill="WHITE" />
       <Label layoutX="663.0" layoutY="374.0" text="SortBy" textFill="WHITE" />
       <Button fx:id="viewSolutionButton" layoutX="678.0" layoutY="261.0" maxHeight="36.0" maxWidth="89.0" minHeight="36.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleViewSolutionButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View solution" />
-      <Pane fx:id="solutionPane" layoutX="81.0" layoutY="197.0" prefHeight="200.0" prefWidth="524.0">
+      <Pane fx:id="solutionPane" focusTraversable="true" layoutX="81.0" layoutY="197.0" prefHeight="200.0" prefWidth="524.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" width="524.0" />
             <Label layoutX="13.0" layoutY="14.0" text="Solution" textFill="#cdffd7">
@@ -146,5 +146,17 @@
             <Font size="11.0" />
          </font>
       </Button>
+      <Button fx:id="viewImageButton" layoutX="678.0" layoutY="214.0" maxHeight="36.0" maxWidth="89.0" minHeight="36.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleViewImageButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View Image" />
+      <Pane fx:id="imagePane" layoutX="50.0" layoutY="94.0" prefHeight="413.0" prefWidth="566.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#637060" height="413.0" stroke="BLACK" strokeType="INSIDE" width="566.0" />
+            <ImageView fx:id="reportImage" fitHeight="308.0" fitWidth="495.0" layoutX="39.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="476.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleOKButton" prefHeight="36.0" prefWidth="56.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="OK">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

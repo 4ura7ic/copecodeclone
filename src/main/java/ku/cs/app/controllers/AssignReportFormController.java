@@ -3,10 +3,7 @@ package ku.cs.app.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
@@ -33,6 +30,7 @@ public class AssignReportFormController {
     @FXML private ImageView image;
     @FXML private Button cancelButton;
     @FXML private Rectangle imagePreviewBar;
+    @FXML private Label imagePreviewLabel;
 
     //-------------------------------------------- private
 
@@ -42,7 +40,7 @@ public class AssignReportFormController {
     private LocalDateTime date;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd/HH:mm:ss");
     private ReportImageDataSource getImage;
-    private String imageName = "-";
+    private String imageName = "null";
     private String fs = File.separator ;
     //-------------------------------------------- initialize
 
@@ -99,6 +97,7 @@ public class AssignReportFormController {
         image.setVisible(false);
         imagePreviewBar.setVisible(true);
         imageName = null;
+        imagePreviewLabel.setText("image preview");
     }
 
     public void chooseImageButton(ActionEvent event) throws IOException {
@@ -107,6 +106,7 @@ public class AssignReportFormController {
         System.out.println(imageName);
         if(imageName!=null) {
             imagePreviewBar.setVisible(false);
+            imagePreviewLabel.setText("");
             cancelButton.setVisible(true);
             image.setVisible(true);
             image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "reportImage" + fs + imageName));

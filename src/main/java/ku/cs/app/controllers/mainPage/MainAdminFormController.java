@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
@@ -19,6 +21,7 @@ import ku.cs.app.services.DynamicCategoryFileSource;
 import ku.cs.app.services.ReportListFileDataSource;
 import com.github.saacsos.FXRouter;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainAdminFormController {
@@ -40,12 +43,12 @@ public class MainAdminFormController {
     @FXML private Label errorMessageLabel;
     @FXML private Button resetSortButton;
     @FXML private TextField amountVoteField;
-
+    @FXML private ImageView reportImage;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
-
+    @FXML private Pane imagePane;
     @FXML private Pane solutionPane;
-
+    @FXML private Button viewImageButton;
     @FXML private Button voteButton;
     @FXML private Button viewSolutionButton;
 
@@ -56,6 +59,7 @@ public class MainAdminFormController {
     private DataSource<ReportList> dataSource;
     private ReportList list;
     private User user;
+    private String fs = File.separator ;
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
     private Report rp = new Report();
     private ObservableList<String> categoryList = FXCollections
@@ -191,8 +195,8 @@ public class MainAdminFormController {
     }
     @FXML public void handleOKButton(ActionEvent actionEvent){
         solutionPane.setVisible(false);
+        imagePane.setVisible(false);
     }
-
     @FXML public void handleResetSortButton(ActionEvent actionEvent){
         clearListView();
         clearForm();
@@ -221,6 +225,11 @@ public class MainAdminFormController {
             e.printStackTrace();
         }
     }
+    @FXML public void handleViewImageButton(){
+        System.out.printf(rp.getPhoto());
+        imagePane.setVisible(true);
+        reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+rp.getPhoto()));
+    }
 
     //-------------------------------------------- method
     private void updateListView(){
@@ -246,6 +255,10 @@ public class MainAdminFormController {
                 viewSolutionButton.setVisible(true);
             else
                 viewSolutionButton.setVisible(false);
+            if(!report.getPhoto().equals("null"))
+                viewImageButton.setVisible(true);
+            else
+                viewImageButton.setVisible(false);
             rp = report;
             barOne.setVisible(true);
             barTwo.setVisible(true);
@@ -275,6 +288,8 @@ public class MainAdminFormController {
         voteButton.setVisible(false);
         viewSolutionButton.setVisible(false);
         solutionPane.setVisible(false);
+        viewImageButton.setVisible(false);
+        imagePane.setVisible(false);
         topicLabel.setText("");
         dateLabel.setText("");
         categoryLabel.setText("");

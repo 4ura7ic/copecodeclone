@@ -60,7 +60,7 @@ public class MainUserFormController {
     private DataSource<ReportList> dataSource;
     private ReportList list;
     private User user;
-    String fs = File.separator ;
+    private String fs = File.separator ;
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
     private Report rp = new Report();
     private ObservableList<String> categoryList = FXCollections
