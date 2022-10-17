@@ -27,7 +27,7 @@ public class ReportImageDataSource {
         }
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(userDirectory);
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*ขยะข้างตึก.png", "*.jpg", "*.jpeg"));
         this.filePath = fileChooser.showOpenDialog(new Stage());
 
         try {
