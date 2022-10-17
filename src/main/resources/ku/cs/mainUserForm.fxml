@@ -85,7 +85,7 @@
       </Button>
       <ScrollPane fx:id="descriptionPane" layoutX="24.0" layoutY="150.0" prefHeight="150.0" prefWidth="624.0">
          <content>
-            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="147.0" prefWidth="618.0" text="descriptionLabel" wrapText="true" />
+            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="610.0" text="descriptionLabel" wrapText="true" />
          </content>
       </ScrollPane>
       <Button fx:id="reportButton" layoutX="706.0" layoutY="88.0" maxHeight="22.0" maxWidth="56.0" minHeight="22.0" minWidth="56.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="22.0" prefWidth="56.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="!">
