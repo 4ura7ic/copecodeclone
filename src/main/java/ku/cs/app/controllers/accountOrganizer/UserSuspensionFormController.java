@@ -25,7 +25,7 @@ public class UserSuspensionFormController {
     @FXML private Label statusLabel;
     @FXML private TextField reasonTextField;
     @FXML private Label amountLabel;
-    @FXML private Label loginAttemptCnt;
+    @FXML private Label loginAttemptCount;
     @FXML private Label reasonLabel;
     @FXML private Label errorMsgLabel;
     @FXML private Label requestLabel;
@@ -116,12 +116,12 @@ public class UserSuspensionFormController {
                             }
                             statusLabel.setText("Suspended");
                             reasonLabel.setText(user.getReason());
-                            loginAttemptCnt.setText(Integer.toString(user.getLoginAttempt()));
+                            loginAttemptCount.setText(Integer.toString(user.getLoginAttempt()));
                         }
                         else {
                             statusLabel.setText("Active");
                             reasonLabel.setText("");
-                            loginAttemptCnt.setText("");
+                            loginAttemptCount.setText("");
                         }
                         showReportListView(newUser.getUsername());
                         showInappropriateActivitiesListView(newUser.getUsername());
@@ -219,7 +219,7 @@ public class UserSuspensionFormController {
         amountLabel.setText("");
         statusLabel.setText("");
         reasonLabel.setText("");
-        loginAttemptCnt.setText("");
+        loginAttemptCount.setText("");
         errorMsgLabel.setText("");
         requestLabel.setText("");
         infoPane.setVisible(false);
