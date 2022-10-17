@@ -60,7 +60,7 @@
       </Label>
       <ScrollPane fx:id="descriptionPane" layoutX="26.0" layoutY="151.0" prefHeight="149.0" prefWidth="623.0">
          <content>
-            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="146.0" prefWidth="614.0" text="descriptionLabel" />
+            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="610.0" text="descriptionLabel" />
          </content></ScrollPane>
       <Label fx:id="popUpLabel" alignment="CENTER" layoutX="25.0" layoutY="170.0" prefHeight="35.0" prefWidth="622.0" text="---">
          <font>

@@ -68,7 +68,7 @@
          </font></Label>
       <ScrollPane fx:id="descriptionPane" layoutX="25.0" layoutY="151.0" prefHeight="149.0" prefWidth="623.0">
          <content>
-            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="144.0" prefWidth="619.0" text="descriptionLabel" />
+            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="610.0" text="descriptionLabel" />
          </content>
       </ScrollPane>
       <Accordion layoutX="290.0" layoutY="188.0" />
