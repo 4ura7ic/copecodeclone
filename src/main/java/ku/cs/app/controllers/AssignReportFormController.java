@@ -31,6 +31,7 @@ public class AssignReportFormController {
     @FXML private Button cancelButton;
     @FXML private Rectangle imagePreviewBar;
     @FXML private Label imagePreviewLabel;
+    @FXML private Label errorMessageLabel;
 
     //-------------------------------------------- private
 
@@ -45,6 +46,7 @@ public class AssignReportFormController {
     //-------------------------------------------- initialize
 
     public void initialize(){
+        errorMessageLabel.setText("");
         dynamicCategory.removeCategory("ALL");
         user = (User) FXRouter.getData();
         categoryBox.getItems().addAll(dynamicCategory.getAllCategory());
@@ -65,7 +67,7 @@ public class AssignReportFormController {
     public void handleAssignButton(ActionEvent actionEvent) {
         if(topicTextField.getText()!="") {
             if(descriptionTextField.getText()!="")
-                if(categoryBox.getValue()!="") {
+                if(categoryBox.getValue()!=null) {
                     try {
                         date = LocalDateTime.now();
                         String formatDate = date.format(formatter);
@@ -79,6 +81,8 @@ public class AssignReportFormController {
                         System.err.println("ให้ตรวจสอบการกําหนด route");
                     }
                 }
+                else
+                    errorMessageLabel.setText("Please select category first");
             }
         }
     @FXML
