@@ -10,35 +10,51 @@ public class DefaultImageHardCode {
 
     private File destDir;
 
-    public void getDefault() throws IOException, URISyntaxException {
-        URL inputUrl = getClass().getResource("/ku/cs/images/default.jpg");
+    public void getDefault() {
+        Path src = Paths.get("classes/ku/cs/defaultImage/default.jpg");
         destDir = new File("data/images/user");
         if (!destDir.exists()) {
             destDir.mkdirs();
-        }
-        Path target = FileSystems.getDefault().getPath(destDir.getAbsolutePath()+System.getProperty("file.separator")+"default.jpg");
-        try {
-            Files.copy(Paths.get(inputUrl.toURI()).toFile().toPath(),target, StandardCopyOption.REPLACE_EXISTING);
-        } catch (URISyntaxException | IOException e) {
-            throw new RuntimeException(e);
-        }
+            Path target = Paths.get("data/images/user/default.jpg");
 
-//        URL copyPath = getClass().getResource("/ku/cs/images/default.jpg");
+            try{
+                Files.copy(src,target,StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        destDir = new File("data/images/admin");
+        if (!destDir.exists()){
+            destDir.mkdirs();
+            Path target = Paths.get("data/images/admin/default.jpg");
 
-//        Path copyPath = Paths.get("src/main/resources/ku/cs/images/default.jpg");
-//        destDir = new File("data/images/user");
-//        if (!destDir.exists()) {
-//            destDir.mkdirs();
-//        }
-//        String filename = "default.jpg";
-//
-//        Path target = FileSystems.getDefault().getPath(destDir.getAbsolutePath()+System.getProperty("file.separator") + filename);
-//        System.out.println("==========");
-//        System.out.println(target);
-//        System.out.println(copyPath);
-////            Files.copy(Paths.get(copyPath.toURI()).toFile().toPath(),target,StandardCopyOption.REPLACE_EXISTING);
-//        Files.copy(copyPath,target,StandardCopyOption.REPLACE_EXISTING);
-//        System.out.println("=========");
-////            System.out.println(Paths.get(copyPath.toURI()).toFile().toPath());
+            try{
+                Files.copy(src,target,StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        destDir = new File("data/images/officer");
+        if (!destDir.exists()){
+            destDir.mkdirs();
+            Path target = Paths.get("data/images/officer/default.jpg");
+
+            try{
+                Files.copy(src,target,StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        destDir = new File("data/images/reportImage");
+        if (!destDir.exists()){
+            destDir.mkdirs();
+            Path target = Paths.get("data/images/reportImage/default.jpg");
+
+            try{
+                Files.copy(src,target,StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
