@@ -62,7 +62,7 @@ public class MainUserFormController {
     private User user;
     private String fs = File.separator ;
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
-    private Report rp = new Report();
+    private Report report = new Report();
     private ObservableList<String> categoryList = FXCollections
             .observableArrayList(dynamicCategory.getAllCategory());
     private ObservableList<String> sortList = FXCollections
@@ -174,22 +174,22 @@ public class MainUserFormController {
     }
 
     @FXML public void handleVoteButton(ActionEvent actionEvent) {
-        if (rp.getVotedUser().contains(user.getUsername())){
-            rp.decreaseVote();
-            rp.getVotedUser().remove(user.getUsername());
+        if (report.getVotedUser().contains(user.getUsername())){
+            report.decreaseVote();
+            report.getVotedUser().remove(user.getUsername());
         }
         else {
-            rp.increaseVote();
-            rp.getVotedUser().add(user.getUsername());
+            report.increaseVote();
+            report.getVotedUser().add(user.getUsername());
         }
-        rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+        rateLabel.setText("Rate: " + Integer.toString(report.getVote()));
         dataSource.writeData(list);
     }
 
     @FXML public void handleReportButton(ActionEvent actionEvent){
         ArrayList<Object> o = new ArrayList<>();
         o.add(user);
-        o.add(rp);
+        o.add(report);
         try {
             FXRouter.goTo("report_inappropriate_activity_form", o);
         } catch (IOException e) {
@@ -212,7 +212,7 @@ public class MainUserFormController {
 
     @FXML public void handleViewSolutionButton(ActionEvent actionEvent){
         solutionPane.setVisible(true);
-        solutionLabel.setText(rp.getSolution());
+        solutionLabel.setText(report.getSolution());
     }
 
     @FXML public void handleOKButton(ActionEvent actionEvent){
@@ -229,9 +229,9 @@ public class MainUserFormController {
     }
 
     @FXML public void handleViewImageButton(){
-        System.out.printf(rp.getPhoto());
+        System.out.printf(report.getPhoto());
         imagePane.setVisible(true);
-        reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+rp.getPhoto()));
+        reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+ report.getPhoto()));
     }
 
     //-------------------------------------------- method
@@ -263,7 +263,7 @@ public class MainUserFormController {
                 viewImageButton.setVisible(true);
             else
                 viewImageButton.setVisible(false);
-            rp = report;
+            this.report = report;
             barOne.setVisible(true);
             barTwo.setVisible(true);
             descriptionPane.setVisible(true);

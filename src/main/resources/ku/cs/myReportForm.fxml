@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -39,6 +40,8 @@
                      <font>
                         <Font size="15.0" />
                      </font></Label>
+                  <Button fx:id="viewImageButton" layoutX="571.0" layoutY="80.0" maxHeight="36.0" maxWidth="89.0" minHeight="36.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleViewImageButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View Image" />
+                  <Button fx:id="viewSolutionButton" layoutX="571.0" layoutY="28.0" maxHeight="36.0" maxWidth="89.0" minHeight="36.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleViewSolutionButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View Solution" />
                </children>
             </AnchorPane>
          </content>
@@ -65,5 +68,36 @@
          <font>
             <Font size="18.0" />
          </font></Label>
+      <Pane fx:id="imagePane" focusTraversable="true" layoutX="117.0" layoutY="94.0" prefHeight="413.0" prefWidth="566.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#637060" height="413.0" stroke="BLACK" strokeType="INSIDE" width="566.0" />
+            <ImageView fx:id="reportImage" fitHeight="308.0" fitWidth="495.0" layoutX="39.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="476.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleOKButton" prefHeight="36.0" prefWidth="56.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="OK">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="solutionPane" layoutX="106.0" layoutY="222.0" prefHeight="200.0" prefWidth="524.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="524.0" />
+            <Label layoutX="13.0" layoutY="14.0" text="Solution" textFill="#cdffd7">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="430.0" layoutY="150.0" maxHeight="27.0" maxWidth="70.0" minHeight="27.0" minWidth="70.0" mnemonicParsing="false" onAction="#handleOKButton" prefHeight="27.0" prefWidth="70.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="OK">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <ScrollPane layoutX="13.0" layoutY="46.0" prefHeight="87.0" prefWidth="495.0">
+               <content>
+                  <Label fx:id="solutionLabel" alignment="TOP_LEFT" prefHeight="85.0" prefWidth="490.0" text="solutionLabel" />
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

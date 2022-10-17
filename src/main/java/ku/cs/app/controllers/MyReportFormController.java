@@ -8,6 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import ku.cs.app.models.Report;
 import ku.cs.app.models.list.DynamicCategory;
@@ -18,6 +21,7 @@ import ku.cs.app.services.DataSource;
 import ku.cs.app.services.DynamicCategoryFileSource;
 import ku.cs.app.services.ReportListFileDataSource;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MyReportFormController {
@@ -26,6 +30,8 @@ public class MyReportFormController {
     @FXML private ComboBox<String> categoryBox;
     @FXML private ComboBox<String> sortBox;
     @FXML private ScrollPane descriptionPane;
+    @FXML private Pane solutionPane;
+    @FXML private Pane imagePane;
     @FXML private Rectangle barOne;
     @FXML private Rectangle barTwo;
     @FXML private Label rateLabel;
@@ -34,20 +40,25 @@ public class MyReportFormController {
     @FXML private Label dateLabel;
     @FXML private Label statusLabel;
     @FXML private Label categoryLabel;
+    @FXML private Label solutionLabel;
     @FXML private Label descriptionLabel;
+    @FXML private ImageView reportImage;
+    @FXML private Button viewImageButton;
+    @FXML private Button viewSolutionButton;
     @FXML private ListView<Report> yourReportListView;
     //-------------------------------------------- private
     private DynamicCategoryFileSource dynamicCategoryFileSource = new DynamicCategoryFileSource("data", "category.csv");
     private DynamicCategory dynamicCategory = dynamicCategoryFileSource.readData();
+    private String fs = File.separator ;
     private User user;
     private ReportList list;
-
+    private Report report = new Report();
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
 
-    ObservableList<String> categoryList = FXCollections
+    private ObservableList<String> categoryList = FXCollections
             .observableArrayList(dynamicCategory.getAllCategory());
 
-    ObservableList<String> sortList = FXCollections
+    private ObservableList<String> sortList = FXCollections
             .observableArrayList(sortBy);
 
     //-------------------------------------------- initialize
@@ -102,10 +113,35 @@ public class MyReportFormController {
         }
     }
 
+    @FXML public void handleViewSolutionButton(ActionEvent actionEvent){
+        solutionPane.setVisible(true);
+        solutionLabel.setText(report.getSolution());
+    }
+
+    @FXML public void handleViewImageButton(){
+        System.out.printf(report.getPhoto());
+        imagePane.setVisible(true);
+        reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+report.getPhoto()));
+    }
+
+    @FXML public void handleOKButton(ActionEvent actionEvent){
+        solutionPane.setVisible(false);
+        imagePane.setVisible(false);
+    }
+
     //-------------------------------------------- method
 
     private void showSelectedReport(Report report){
         if(report!=null) {
+            if(report.isCheck())
+                viewSolutionButton.setVisible(true);
+            else
+                viewSolutionButton.setVisible(false);
+            if(!report.getPhoto().equals("null"))
+                viewImageButton.setVisible(true);
+            else
+                viewImageButton.setVisible(false);
+            this.report = report;
             barOne.setVisible(true);
             barTwo.setVisible(true);
             descriptionPane.setVisible(true);
@@ -126,6 +162,7 @@ public class MyReportFormController {
     }
 
     private void startForm(){
+        imagePane.setVisible(false);
         descriptionPane.setVisible(false);
         barOne.setVisible(false);
         barTwo.setVisible(false);
