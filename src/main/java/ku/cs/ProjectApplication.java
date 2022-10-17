@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class ProjectApplication extends Application{
-    @Override
     public void start(Stage stage) throws IOException{
         DefaultImageHardCode imageHardCode = new DefaultImageHardCode();
         imageHardCode.getDefault();
