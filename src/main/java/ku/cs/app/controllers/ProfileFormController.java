@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import ku.cs.app.models.Officer;
 import ku.cs.app.models.User;
 import ku.cs.app.models.list.UserList;
 import ku.cs.app.services.DataSource;
@@ -19,6 +20,7 @@ public class ProfileFormController {
     @FXML private Label usernameLabel;
     @FXML private Label nameLabel;
     @FXML private Label surnameLabel;
+    @FXML private Label inChargeLabel;
     @FXML private ImageView image;
 
     //-------------------------------------------- private
@@ -43,18 +45,22 @@ public class ProfileFormController {
                 usernameLabel.setText(user.getUsername());
                 nameLabel.setText(user.getName());
                 surnameLabel.setText(user.getSurname());
+                inChargeLabel.setText("");
                 image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "user" + fs + user.getPhoto()));
             }
             case "admin" -> {
                 usernameLabel.setText(user.getUsername());
                 nameLabel.setText(user.getName());
                 surnameLabel.setText(user.getSurname());
+                inChargeLabel.setText("");
                 image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "admin" + fs + user.getPhoto()));
             }
             case "officer" -> {
-                usernameLabel.setText(user.getUsername());
-                nameLabel.setText(user.getName());
-                surnameLabel.setText(user.getSurname());
+                Officer officer = (Officer) user;
+                usernameLabel.setText(officer.getUsername());
+                nameLabel.setText(officer.getName());
+                surnameLabel.setText(officer.getSurname());
+                inChargeLabel.setText(officer.getInCharge());
                 image.setImage(new Image(System.getProperty("user.dir") + fs + "data" + fs + "images" + fs + "officer" + fs + user.getPhoto()));
             }
         }

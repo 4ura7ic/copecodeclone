@@ -81,16 +81,18 @@ public class AddOfficerFormController {
             if(list.checkDuplicateUsername(tempOfficer.getUsername())){
                 if (confirmPasswordField.getText().equals(passwordField.getText())){
                     if (errorMsg == ""){
-                        officerDetail = new Officer(usernameTextField.getText(),new Password(passwordField.getText()),nameTextField.getText(),surnameTextField.getText(), inChargeBox.getValue());
-                        officerDetail.setPhoto(imageName);
-                        clearAllTextField();
-                        try {
-                            Admin admin = new Admin();
-                            admin.createOfficer(officerDetail);
-                            FXRouter.goTo("main_admin_form");
-                        }catch (IOException e) {
-                            System.err.println("err ไป project ไม่ได้");
-                            System.err.println("ให้ตรวจสอบการกําหนด route");
+                        if(inChargeBox.getValue()!=null) {
+                            officerDetail = new Officer(usernameTextField.getText(), new Password(passwordField.getText()), nameTextField.getText(), surnameTextField.getText(), inChargeBox.getValue());
+                            officerDetail.setPhoto(imageName);
+                            clearAllTextField();
+                            try {
+                                Admin admin = new Admin();
+                                admin.createOfficer(officerDetail);
+                                FXRouter.goTo("main_admin_form");
+                            } catch (IOException e) {
+                                System.err.println("err ไป project ไม่ได้");
+                                System.err.println("ให้ตรวจสอบการกําหนด route");
+                            }
                         }
                     } else {
                         passwordField.clear();

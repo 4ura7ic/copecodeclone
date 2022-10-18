@@ -37,6 +37,7 @@ public class MainOfficerFormController {
     @FXML private Label categoryLabel;
     @FXML private Label descriptionLabel;
     @FXML private Label officerLabel;
+    @FXML private Label inChargeLabel;
     @FXML private Button submitSolutionButton;
     @FXML private Button voteButton;
     @FXML private Button editSolutionButton;
@@ -73,6 +74,7 @@ public class MainOfficerFormController {
         sortBox.setOnAction(this::categorySort);
         resetSortButton.setVisible(false);
         list = dataSource.readData();
+        inChargeLabel.setText(user.getInCharge());
         showListView();
         handleSelectedListView();
         showUserData();
