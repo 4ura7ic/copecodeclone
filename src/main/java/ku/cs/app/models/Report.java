@@ -83,7 +83,19 @@ public class Report {
     //-------------------------------------------- method
     @Override
     public String toString() {
-        return "[" + category + "] " + topic;
+        return "[" + category + "] " + topic + " " + reportStatus();
+    }
+
+    public String reportStatus(){
+        if(service!=""){
+            if(isCheck()){
+                return "[Complete]";
+            }
+            else
+                return "[In progress]";
+        }
+        else
+            return "[Waiting for officer]";
     }
 
     public void finishingCheck(){ check = true; }

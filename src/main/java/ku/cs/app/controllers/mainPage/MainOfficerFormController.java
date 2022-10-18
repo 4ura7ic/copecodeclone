@@ -222,6 +222,7 @@ public class MainOfficerFormController {
             dateLabel.setText(report.getDate());
             categoryLabel.setText(report.getCategory());
             descriptionLabel.setText(report.getDescription());
+            descriptionLabel.setWrapText(true);
             rateLabel.setText("Rate: " + (report.getVote()));
             popUpLabel.setText("");
             officerFunctionUpdate();
