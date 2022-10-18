@@ -137,5 +137,10 @@
          </children>
       </Pane>
       <Label fx:id="inChargeLabel" alignment="CENTER" layoutX="569.0" layoutY="41.0" prefHeight="17.0" prefWidth="150.0" text="inChargeLabel" textFill="WHITE" />
+      <Button fx:id="enrollButton" layoutX="555.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleEnrollButton" prefHeight="22.0" prefWidth="80.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Enroll">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

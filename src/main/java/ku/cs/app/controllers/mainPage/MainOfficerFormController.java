@@ -42,6 +42,7 @@ public class MainOfficerFormController {
     @FXML private Button voteButton;
     @FXML private Button editSolutionButton;
     @FXML private Button resetSortButton;
+    @FXML private Button enrollButton;
     @FXML private TextField solutionTextField;
     @FXML private Pane submitSolutionPane;
     @FXML private Pane officerPane;
@@ -58,7 +59,7 @@ public class MainOfficerFormController {
     private Officer user;
     private String fs = File.separator ;
     private String[] sortBy = {"Oldest","Newest","Most Vote","Least Vote"};
-    private Report rp = new Report();
+    private Report report = new Report();
     private ObservableList<String> sortList = FXCollections
             .observableArrayList(sortBy);
 
@@ -137,15 +138,15 @@ public class MainOfficerFormController {
     }
 
     @FXML public void handleVoteButton(ActionEvent actionEvent) {
-        if (rp.getVotedUser().contains(user.getUsername())){
-            rp.decreaseVote();
-            rp.getVotedUser().remove(user.getUsername());
+        if (report.getVotedUser().contains(user.getUsername())){
+            report.decreaseVote();
+            report.getVotedUser().remove(user.getUsername());
         }
         else {
-            rp.increaseVote();
-            rp.getVotedUser().add(user.getUsername());
+            report.increaseVote();
+            report.getVotedUser().add(user.getUsername());
         }
-        rateLabel.setText("Rate: " + Integer.toString(rp.getVote()));
+        rateLabel.setText("Rate: " + Integer.toString(report.getVote()));
         dataSource.writeData(list);
     }
     @FXML
@@ -153,9 +154,9 @@ public class MainOfficerFormController {
         submitSolutionPane.setVisible(true);
     }
     @FXML public void handleSubmitButton(ActionEvent actionEvent){
-        rp.setSolution(solutionTextField.getText());
-        rp.setService(user.getUsername());
-        rp.finishingCheck();
+        report.setSolution(solutionTextField.getText());
+        report.setService(user.getUsername());
+        report.finishingCheck();
         solutionTextField.clear();
         clearListView();
         inProgressListView.getItems().addAll(list.sortTimeReport(sortBox.getValue(),list.sortInProgressReportByCategory(user.getInCharge())));
@@ -166,7 +167,7 @@ public class MainOfficerFormController {
 
     @FXML public void handleEditSolutionButton(ActionEvent actionEvent){
         submitSolutionPane.setVisible(true);
-        solutionTextField.setText(rp.getSolution());
+        solutionTextField.setText(report.getSolution());
     }
 
     @FXML public void handleCloseButton(ActionEvent actionEvent){
@@ -190,11 +191,15 @@ public class MainOfficerFormController {
         }
     }
     @FXML public void handleViewImageButton(){
-        System.out.printf(rp.getPhoto());
+        System.out.printf(report.getPhoto());
         imagePane.setVisible(true);
-        reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+rp.getPhoto()));
+        reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+ report.getPhoto()));
     }
 
+    @FXML public void handleEnrollButton(){
+        report.setService(user.getUsername());
+        officerFunctionUpdate();
+    }
     //-------------------------------------------- method
 
     private void showUserData(){
@@ -208,8 +213,7 @@ public class MainOfficerFormController {
 
     private void showSelectedReport(Report report){
         if(report!=null) {
-            rp = report;
-            submitSolutionButton.setVisible(true);
+            this.report = report;
             barOne.setVisible(true);
             barTwo.setVisible(true);
             descriptionPane.setVisible(true);
@@ -220,20 +224,34 @@ public class MainOfficerFormController {
             descriptionLabel.setText(report.getDescription());
             rateLabel.setText("Rate: " + (report.getVote()));
             popUpLabel.setText("");
-            if (rp.isCheck()) {
-                officerPane.setVisible(true);
-                officerLabel.setText(rp.getService());
-                editSolutionButton.setVisible(true);
-                submitSolutionButton.setVisible(false);
-            }
-            else {
-                officerPane.setVisible(false);
-                editSolutionButton.setVisible(false);
-            }
+            officerFunctionUpdate();
             if(!report.getPhoto().equals("null"))
                 viewImageButton.setVisible(true);
             else
                 viewImageButton.setVisible(false);
+        }
+    }
+
+    private void officerFunctionUpdate(){
+        if(this.report.getService()!=null){
+            enrollButton.setVisible(true);
+        }
+            else
+        enrollButton.setVisible(false);
+        if (this.report.getService()!="") {
+            if(this.report.isCheck()){
+                editSolutionButton.setVisible(true);
+                submitSolutionButton.setVisible(false);
+            }
+            enrollButton.setVisible(false);
+            submitSolutionButton.setVisible(true);
+            officerPane.setVisible(true);
+            officerLabel.setText(this.report.getService());
+        }
+        else {
+            submitSolutionButton.setVisible(false);
+            officerPane.setVisible(false);
+            editSolutionButton.setVisible(false);
         }
     }
 
@@ -245,6 +263,7 @@ public class MainOfficerFormController {
     }
 
     private void clearForm(){
+        enrollButton.setVisible(false);
         descriptionPane.setVisible(false);
         barOne.setVisible(false);
         barTwo.setVisible(false);
