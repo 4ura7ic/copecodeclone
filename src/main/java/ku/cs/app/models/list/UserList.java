@@ -14,8 +14,8 @@ public class UserList implements CheckIfExistAndReturnObject<User> {
     public void addUser(User user){
         users.add(user);
     }
-    public void removeUser(User user){
-        users.remove(user);
+    public void removeUser(){
+        users.removeIf(tmp -> tmp.getRole().equals("admin") || tmp.getRole().equals("officer"));
     }
     public ArrayList<User> getAllData(){
         return users;

@@ -200,7 +200,7 @@ public class UserSuspensionFormController {
     //-------------------------------------------- method
 
     private void showUserListView(){
-        userList.removeUser(userList.returnObject(user.getUsername()));
+        userList.removeUser();
         dataListView.getItems().addAll(userList.getAllData());
         dataListView.refresh();
     }
