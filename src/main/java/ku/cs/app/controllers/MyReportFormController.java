@@ -42,10 +42,13 @@ public class MyReportFormController {
     @FXML private Label categoryLabel;
     @FXML private Label solutionLabel;
     @FXML private Label descriptionLabel;
+    @FXML private Label errorMessageLabel;
     @FXML private ImageView reportImage;
     @FXML private Button viewImageButton;
     @FXML private Button viewSolutionButton;
-    @FXML private ListView<Report> yourReportListView;
+    @FXML private Button resetSortButton;
+    @FXML private TextField amountVoteField;
+    @FXML private ListView<Report> myReportListView;
     //-------------------------------------------- private
     private DynamicCategoryFileSource dynamicCategoryFileSource = new DynamicCategoryFileSource("data", "category.csv");
     private DynamicCategory dynamicCategory = dynamicCategoryFileSource.readData();
@@ -64,7 +67,7 @@ public class MyReportFormController {
     //-------------------------------------------- initialize
 
     public void initialize(){
-        startForm();
+        clearForm();
         user = (User) FXRouter.getData();
         categoryBox.getItems().addAll(categoryList);
         sortBox.getItems().addAll(sortList);
@@ -72,6 +75,7 @@ public class MyReportFormController {
         sortBox.setValue("Oldest");
         categoryBox.setOnAction(this::categorySort);
         sortBox.setOnAction(this::categorySort);
+        resetSortButton.setVisible(false);
         DataSource<ReportList> dataSource = new ReportListFileDataSource("data","report.csv");
         list = dataSource.readData();
         showListView();
@@ -79,14 +83,13 @@ public class MyReportFormController {
     }
 
     private void categorySort(Event event) {
-        yourReportListView.getItems().clear();
-        yourReportListView.getItems().addAll(list.sortTimeReport(sortBox.getValue(),list.sortUserReportByCategory(categoryBox.getValue(),list.returnObject(user.getUsername()))));
+        updateListView();
     }
 
     //-------------------------------------------- handle
 
     private void handleSelectedListView(){
-        yourReportListView.getSelectionModel().selectedItemProperty().addListener(
+        myReportListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Report>() {
                     @Override
                     public void changed(ObservableValue<? extends Report>
@@ -96,6 +99,19 @@ public class MyReportFormController {
                         showSelectedReport(newValue);
                     }
                 });
+    }
+
+    @FXML public void handleSortVote(ActionEvent actionEvent){
+        if(!(amountVoteField.getText().matches("[a-zA-Z]+"))) {
+            String checkVoteSort = (amountVoteField.getText() != "") ? amountVoteField.getText() : "";
+            if (checkVoteSort == "")
+                errorMessageLabel.setText("Put your number first");
+            else if (Integer.parseInt(checkVoteSort) >= 0) {
+                updateListView();
+            } else
+                errorMessageLabel.setText("Invalid Number");
+        }else
+            errorMessageLabel.setText("Invalid Input");
     }
 
     @FXML public void handleBackButton(ActionEvent actionEvent){
@@ -111,6 +127,14 @@ public class MyReportFormController {
             System.err.println("err ไป project ไม่ได้");
             System.err.println("ให้ตรวจสอบการกําหนด route");
         }
+    }
+
+    @FXML public void handleResetSortButton(ActionEvent actionEvent){
+        clearForm();
+        clearListView();
+        showListView();
+        resetSortButton.setVisible(false);
+        amountVoteField.clear();
     }
 
     @FXML public void handleViewSolutionButton(ActionEvent actionEvent){
@@ -130,6 +154,17 @@ public class MyReportFormController {
     }
 
     //-------------------------------------------- method
+    private void updateListView(){
+        String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"-1";
+        clearListView();
+        myReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport(sortBox.getValue(),list.sortUserReportByCategory(categoryBox.getValue(),list.returnObject(user.getUsername())))));
+        resetSortButton.setVisible(true);
+        clearForm();
+    }
+
+    private void clearListView(){
+        myReportListView.getItems().clear();
+    }
 
     private void showSelectedReport(Report report){
         if(report!=null) {
@@ -149,19 +184,18 @@ public class MyReportFormController {
             dateLabel.setText(report.getDate());
             categoryLabel.setText(report.getCategory());
             descriptionLabel.setText(report.getDescription());
-            if(report.isCheck()) statusLabel.setText("Clear");
-            else statusLabel.setText("In progress");
+            statusLabel.setText(this.report.reportStatus());
             rateLabel.setText("Rate: " + (report.getVote()));
             popUpLabel.setText("");
         }
     }
 
     private void showListView(){
-        yourReportListView.getItems().addAll(list.returnObject(user.getUsername()));
-        yourReportListView.refresh();
+        myReportListView.getItems().addAll(list.returnObject(user.getUsername()));
+        myReportListView.refresh();
     }
 
-    private void startForm(){
+    private void clearForm(){
         imagePane.setVisible(false);
         descriptionPane.setVisible(false);
         barOne.setVisible(false);

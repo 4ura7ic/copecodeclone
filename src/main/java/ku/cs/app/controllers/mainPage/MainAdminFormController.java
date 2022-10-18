@@ -180,14 +180,16 @@ public class MainAdminFormController {
         dataSource.writeData(list);
     }
     @FXML public void handleSortVote(ActionEvent actionEvent){
-        String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"";
-        if(checkVoteSort == "")
-            errorMessageLabel.setText("Put your number first");
-        else if(Integer.parseInt(checkVoteSort)>=0) {
-            updateListView();
-        }
-        else
-            errorMessageLabel.setText("Invalid Number");
+        if(!(amountVoteField.getText().matches("[a-zA-Z]+"))) {
+            String checkVoteSort = (amountVoteField.getText() != "") ? amountVoteField.getText() : "";
+            if (checkVoteSort == "")
+                errorMessageLabel.setText("Put your number first");
+            else if (Integer.parseInt(checkVoteSort) >= 0) {
+                updateListView();
+            } else
+                errorMessageLabel.setText("Invalid Number");
+        }else
+            errorMessageLabel.setText("Invalid Input");
     }
     @FXML public void handleViewSolutionButton(ActionEvent actionEvent){
         solutionPane.setVisible(true);

@@ -22,6 +22,8 @@ import com.github.saacsos.FXRouter;
 import java.io.File;
 import java.io.IOException;
 
+import static java.lang.Character.isDigit;
+
 public class MainOfficerFormController {
     //-------------------------------------------- FXML
 
@@ -38,6 +40,7 @@ public class MainOfficerFormController {
     @FXML private Label descriptionLabel;
     @FXML private Label officerLabel;
     @FXML private Label inChargeLabel;
+    @FXML private Label errorMessageLabel;
     @FXML private Button submitSolutionButton;
     @FXML private Button voteButton;
     @FXML private Button editSolutionButton;
@@ -49,6 +52,7 @@ public class MainOfficerFormController {
     @FXML private Pane imagePane;
     @FXML private Button viewImageButton;
     @FXML private ImageView reportImage;
+    @FXML private TextField amountVoteField;
     @FXML private ListView<Report> inProgressListView;
     @FXML private ListView<Report> finishReportListView;
 
@@ -74,6 +78,7 @@ public class MainOfficerFormController {
         sortBox.setValue("Oldest");
         sortBox.setOnAction(this::categorySort);
         resetSortButton.setVisible(false);
+        errorMessageLabel.setText("");
         list = dataSource.readData();
         inChargeLabel.setText(user.getInCharge());
         showListView();
@@ -179,6 +184,7 @@ public class MainOfficerFormController {
         clearListView();
         showListView();
         resetSortButton.setVisible(false);
+        amountVoteField.clear();
     }
     @FXML
     public void handleHowToButton(ActionEvent actionEvent){
@@ -199,11 +205,36 @@ public class MainOfficerFormController {
     @FXML public void handleEnrollButton(){
         report.setService(user.getUsername());
         officerFunctionUpdate();
+        dataSource.writeData(list);
+    }
+
+    @FXML public void handleSortVote(ActionEvent actionEvent){
+        if(!(amountVoteField.getText().matches("[a-zA-Z]+"))) {
+            String checkVoteSort = (amountVoteField.getText() != "") ? amountVoteField.getText() : "";
+            if (checkVoteSort == "")
+                errorMessageLabel.setText("Put your number first");
+            else if (Integer.parseInt(checkVoteSort) >= 0) {
+                updateListView();
+            }
+            else
+                errorMessageLabel.setText("Invalid Number");
+        }
+        else
+            errorMessageLabel.setText("Invalid Input");
     }
     //-------------------------------------------- method
 
     private void showUserData(){
         nameLabel.setText(user.getUsername());
+    }
+
+    private void updateListView(){
+        String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"-1";
+        clearListView();
+        inProgressListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport(sortBox.getValue(), list.sortInProgressReportByCategory(user.getInCharge()))));
+        finishReportListView.getItems().addAll(list.sortByVoteOfReport(Integer.parseInt(checkVoteSort), list.sortTimeReport(sortBox.getValue(), list.sortFinishedReportByCategory(user.getInCharge()))));
+        resetSortButton.setVisible(true);
+        clearForm();
     }
 
     private void clearListView(){
@@ -234,11 +265,7 @@ public class MainOfficerFormController {
     }
 
     private void officerFunctionUpdate(){
-        if(this.report.getService()!=null){
-            enrollButton.setVisible(true);
-        }
-            else
-        enrollButton.setVisible(false);
+        enrollButton.setVisible(this.report.getService() != null);
         if (this.report.getService()!="") {
             if(this.report.isCheck()){
                 editSolutionButton.setVisible(true);

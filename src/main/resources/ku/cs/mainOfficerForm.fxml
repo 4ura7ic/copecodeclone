@@ -121,7 +121,7 @@
             <Button layoutX="453.0" layoutY="11.0" maxHeight="22.0" maxWidth="50.0" minHeight="22.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleCloseButton" prefHeight="22.0" prefWidth="50.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Close" />
          </children>
       </Pane>
-      <Button fx:id="resetSortButton" layoutX="702.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleResetSortButton" prefHeight="27.0" prefWidth="66.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset">
+      <Button fx:id="resetSortButton" layoutX="706.0" layoutY="477.0" mnemonicParsing="false" onAction="#handleResetSortButton" prefHeight="27.0" prefWidth="66.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Reset">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -142,5 +142,13 @@
          </children>
       </Pane>
       <Label fx:id="inChargeLabel" alignment="CENTER" layoutX="569.0" layoutY="41.0" prefHeight="17.0" prefWidth="150.0" text="inChargeLabel" textFill="WHITE" />
+      <Label layoutX="663.0" layoutY="412.0" text="SortOverVote" textFill="WHITE" />
+      <TextField fx:id="amountVoteField" layoutX="662.0" layoutY="431.0" prefHeight="25.0" prefWidth="73.0" promptText="amount" />
+      <Button layoutX="739.0" layoutY="431.0" maxHeight="25.0" maxWidth="41.0" minHeight="25.0" minWidth="41.0" mnemonicParsing="false" onAction="#handleSortVote" prefHeight="25.0" prefWidth="41.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Set" />
+      <Label fx:id="errorMessageLabel" layoutX="662.0" layoutY="457.0" text="error" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
