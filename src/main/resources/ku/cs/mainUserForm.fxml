@@ -96,7 +96,7 @@
       <Label layoutX="658.0" layoutY="324.0" text="Category" textFill="WHITE" />
       <Label layoutX="658.0" layoutY="377.0" text="SortBy" textFill="WHITE" />
       <Rectangle fx:id="barOne1" arcHeight="5.0" arcWidth="5.0" fill="#c9ffda" height="30.0" layoutX="23.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="313.0" />
-      <Label layoutX="33.0" layoutY="335.0" text="In progress reports" />
+      <Label layoutX="33.0" layoutY="335.0" text="reports" />
       <Label layoutX="346.0" layoutY="335.0" text="accomplished reports" />
       <Label fx:id="popUpLabel" alignment="CENTER" layoutX="24.0" layoutY="150.0" prefHeight="82.0" prefWidth="623.0" text="---">
          <font>

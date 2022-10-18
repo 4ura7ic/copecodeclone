@@ -94,9 +94,9 @@
       <Label layoutX="34.0" layoutY="330.0" text="reports" />
       <Label layoutX="346.0" layoutY="330.0" text="accomplished reports" />
       <Button fx:id="submitSolutionButton" layoutX="550.0" layoutY="200.0" maxHeight="44.0" maxWidth="93.0" minHeight="44.0" minWidth="93.0" mnemonicParsing="false" onAction="#handleSubmitSolutionButton" prefHeight="44.0" prefWidth="93.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Submit Solution" />
-      <Button fx:id="editSolutionButton" layoutX="550.0" layoutY="200.0" maxHeight="44.0" maxWidth="101.0" minHeight="26.0" minWidth="85.0" mnemonicParsing="false" onAction="#handleEditSolutionButton" prefHeight="44.0" prefWidth="93.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Edit Solution" />
+      <Button fx:id="editSolutionButton" layoutX="550.0" layoutY="200.0" maxHeight="44.0" maxWidth="93.0" minHeight="44.0" minWidth="93.0" mnemonicParsing="false" onAction="#handleEditSolutionButton" prefHeight="44.0" prefWidth="93.0" styleClass="allpurposeButtonGreen" stylesheets="@../../cssStyle/style.css" text="Edit Solution" />
       <Button fx:id="viewImageButton" layoutX="550.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleViewImageButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View Image" />
-      <Button fx:id="enrollButton" layoutX="556.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleEnrollButton" prefHeight="22.0" prefWidth="80.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Enroll">
+      <Button fx:id="enrollButton" layoutX="557.0" layoutY="206.0" maxHeight="32.0" maxWidth="80.0" minHeight="32.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleEnrollButton" prefHeight="32.0" prefWidth="80.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Enroll">
          <font>
             <Font size="16.0" />
          </font>
