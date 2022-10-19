@@ -158,5 +158,6 @@
             </Button>
          </children>
       </Pane>
+      <Button layoutX="593.0" layoutY="315.0" mnemonicParsing="false" onAction="#handleRefreshButton" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Refresh" />
    </children>
 </AnchorPane>

@@ -233,6 +233,10 @@ public class MainAdminFormController {
         reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+rp.getPhoto()));
     }
 
+    @FXML public void handleRefreshButton(){
+        updateListView();
+    }
+
     //-------------------------------------------- method
     private void updateListView(){
         String  checkVoteSort = (amountVoteField.getText()!="")?amountVoteField.getText():"-1";

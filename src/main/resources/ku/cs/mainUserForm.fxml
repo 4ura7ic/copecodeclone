@@ -105,6 +105,7 @@
       </Label>
       <Button fx:id="viewImageButton" layoutX="550.0" layoutY="250.0" maxHeight="36.0" maxWidth="89.0" minHeight="36.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleViewImageButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View Image" />
       <Button fx:id="viewSolutionButton" layoutX="550.0" layoutY="200.0" maxHeight="36.0" maxWidth="89.0" minHeight="36.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleViewSolutionButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View Solution" />
+      <Button layoutX="590.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleRefreshButton" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Refresh" />
       <Pane fx:id="solutionPane" layoutX="96.0" layoutY="212.0" prefHeight="200.0" prefWidth="524.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="524.0" />

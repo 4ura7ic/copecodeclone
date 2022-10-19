@@ -108,6 +108,7 @@ public class MainUserFormController {
                         showSelectedReport(newValue);
                     }
                 });
+
     }
     private void handleSelectedFinishedListView(){
         finishReportListView.getSelectionModel().selectedItemProperty().addListener(
@@ -236,6 +237,10 @@ public class MainUserFormController {
         reportImage.setImage(new Image(System.getProperty("user.dir")+fs+"data"+fs+"images"+fs+"reportImage"+fs+ report.getPhoto()));
     }
 
+    @FXML public void handleRefreshButton(){
+        updateListView();
+    }
+
     //-------------------------------------------- method
 
     private void updateListView(){
@@ -257,14 +262,8 @@ public class MainUserFormController {
     }
     private void showSelectedReport(Report report){
         if(report!=null) {
-            if(report.isCheck())
-                viewSolutionButton.setVisible(true);
-            else
-                viewSolutionButton.setVisible(false);
-            if(!report.getPhoto().equals("null"))
-                viewImageButton.setVisible(true);
-            else
-                viewImageButton.setVisible(false);
+            viewSolutionButton.setVisible(report.isCheck());
+            viewImageButton.setVisible(!report.getPhoto().equals("null"));
             this.report = report;
             barOne.setVisible(true);
             barTwo.setVisible(true);

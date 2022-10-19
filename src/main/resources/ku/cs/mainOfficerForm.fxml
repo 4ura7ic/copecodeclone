@@ -150,5 +150,6 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <Button layoutX="594.0" layoutY="327.0" mnemonicParsing="false" onAction="#handleRefreshButton" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Refresh" />
    </children>
 </AnchorPane>

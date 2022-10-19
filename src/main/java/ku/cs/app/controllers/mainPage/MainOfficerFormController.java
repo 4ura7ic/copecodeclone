@@ -222,6 +222,10 @@ public class MainOfficerFormController {
         else
             errorMessageLabel.setText("Invalid Input");
     }
+
+    @FXML public void handleRefreshButton(){
+        updateListView();
+    }
     //-------------------------------------------- method
 
     private void showUserData(){
