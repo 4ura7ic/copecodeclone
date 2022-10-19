@@ -1,4 +1,236 @@
 <h1>copeCode</h1>
+
+```
+F:.                              
+├───.idea                        
+│   └───libraries                
+├───.mvn                         
+│   └───wrapper                  
+├───data                         
+│   └───images                   
+│       ├───admin                
+│       ├───officer
+│       ├───reportImage
+│       └───user
+├───src
+│   └───main
+│       ├───java
+│       │   └───ku
+│       │       └───cs
+│       │           ├───app
+│       │           │   ├───controllers
+│       │           │   │   ├───accountOrganizer
+│       │           │   │   ├───howTo
+│       │           │   │   └───mainPage
+│       │           │   ├───models
+│       │           │   │   └───list
+│       │           │   └───services
+│       │           └───com
+│       │               └───github
+│       │                   └───saacsos
+│       │                       └───fxrouter-1.0.0
+│       │                           └───src
+│       │                               └───main
+│       │                                   ├───java
+│       │                                   │   ├───com
+│       │                                   │   │   └───github
+│       │                                   │   │       └───saacsos
+│       │                                   │   └───sample
+│       │                                   │       └───controllers
+│       │                                   └───resources
+│       └───resources
+│           ├───cssStyle
+│           └───ku
+│               └───cs
+│                   ├───defaultImage
+│                   └───images
+└───target
+├───classes
+│   ├───com
+│   │   └───github
+│   │       └───saacsos
+│   ├───cssStyle
+│   ├───ku
+│   │   └───cs
+│   │       ├───app
+│   │       │   ├───controllers
+│   │       │   │   ├───accountOrganizer
+│   │       │   │   ├───howTo
+│   │       │   │   └───mainPage
+│   │       │   ├───models
+│   │       │   │   └───list
+│   │       │   └───services
+│   │       ├───defaultImage
+│   │       └───images
+│   └───sample
+│       └───controllers
+├───data
+│   └───images
+│       ├───admin
+│       ├───officer
+│       ├───reportImage
+│       └───user
+├───generated-sources
+│   └───annotations
+├───maven-archiver
+└───maven-status
+└───maven-compiler-plugin
+└───compile
+└───default-compile
+```
+```
+README.md                          
+data                               
+   |-- category.csv                
+   |-- images                      
+   |   |-- admin
+   |   |   |-- default.jpg               
+   |   |-- officer                 
+   |   |   |-- default.jpg         
+   |   |-- reportImage
+   |   |-- user
+   |   |   |-- default.jpg
+   |-- inappropriateUser.csv
+   |-- report.csv
+   |-- suspendedUser.csv
+   |-- user.csv
+   |-- userRequest.csv
+src
+   |-- main
+   |   |-- java
+   |   |   |-- ku
+   |   |   |   |-- cs
+   |   |   |   |   |-- Main.java
+   |   |   |   |   |-- ProjectApplication.java
+   |   |   |   |   |-- ProjectController.java
+   |   |   |   |   |-- app
+   |   |   |   |   |   |-- controllers
+   |   |   |   |   |   |   |-- AssignReportFormController.java
+   |   |   |   |   |   |   |-- CategoryEditorController.java
+   |   |   |   |   |   |   |-- CreditController.java
+   |   |   |   |   |   |   |-- MyReportFormController.java
+   |   |   |   |   |   |   |-- ProfileFormController.java
+   |   |   |   |   |   |   |-- ReportInappropriateActivityFormController.java
+   |   |   |   |   |   |   |-- SuspendedUserController.java
+   |   |   |   |   |   |   |-- accountOrganizer
+   |   |   |   |   |   |   |   |-- AddOfficerFormController.java
+   |   |   |   |   |   |   |   |-- LogDataFormController.java
+   |   |   |   |   |   |   |   |-- LoginFormController.java
+   |   |   |   |   |   |   |   |-- RegisterFormController.java
+   |   |   |   |   |   |   |   |-- RequestFormController.java
+   |   |   |   |   |   |   |   |-- ResetPasswordFormController.java
+   |   |   |   |   |   |   |   |-- UserDataListController.java
+   |   |   |   |   |   |   |   |-- UserSuspensionFormController.java
+   |   |   |   |   |   |   |-- howTo
+   |   |   |   |   |   |   |   |-- AdminHowToController.java
+   |   |   |   |   |   |   |   |-- HowToProfileController.java
+   |   |   |   |   |   |   |   |-- OfficerHowToController.java
+   |   |   |   |   |   |   |   |-- UserHowToAssignController.java
+   |   |   |   |   |   |   |   |-- UserHowtoController.java
+   |   |   |   |   |   |   |-- mainPage
+   |   |   |   |   |   |   |   |-- MainAdminFormController.java
+   |   |   |   |   |   |   |   |-- MainOfficerFormController.java
+   |   |   |   |   |   |   |   |-- MainUserFormController.java
+   |   |   |   |   |   |-- models
+   |   |   |   |   |   |   |-- Activity.java
+   |   |   |   |   |   |   |-- Admin.java
+   |   |   |   |   |   |   |-- InappropriateUser.java
+   |   |   |   |   |   |   |-- Officer.java
+   |   |   |   |   |   |   |-- Password.java
+   |   |   |   |   |   |   |-- Report.java
+   |   |   |   |   |   |   |-- User.java
+   |   |   |   |   |   |   |-- UserRequest.java
+   |   |   |   |   |   |   |-- UserSuspension.java
+   |   |   |   |   |   |   |-- list
+   |   |   |   |   |   |   |   |-- ActivityLog.java
+   |   |   |   |   |   |   |   |-- CheckIfExistAndReturnObject.java
+   |   |   |   |   |   |   |   |-- DynamicCategory.java
+   |   |   |   |   |   |   |   |-- InappropriateUserList.java
+   |   |   |   |   |   |   |   |-- ReportList.java
+   |   |   |   |   |   |   |   |-- UserList.java
+   |   |   |   |   |   |   |   |-- UserRequestList.java
+   |   |   |   |   |   |   |   |-- UserSuspensionList.java
+   |   |   |   |   |   |-- services
+   |   |   |   |   |   |   |-- ActivityLogDataSource.java
+   |   |   |   |   |   |   |-- DataSource.java
+   |   |   |   |   |   |   |-- DefaultCategoryHardCode.java
+   |   |   |   |   |   |   |-- DefaultImageHardCode.java
+   |   |   |   |   |   |   |-- DefaultUserHardCode.java
+   |   |   |   |   |   |   |-- DynamicCategoryFileSource.java
+   |   |   |   |   |   |   |-- ImageDataSource.java
+   |   |   |   |   |   |   |-- InappropriateUserListFileDataSource.java
+   |   |   |   |   |   |   |-- ReportImageDataSource.java
+   |   |   |   |   |   |   |-- ReportListFileDataSource.java
+   |   |   |   |   |   |   |-- Sorter.java
+   |   |   |   |   |   |   |-- UserDataListFileDataSource.java
+   |   |   |   |   |   |   |-- UserRequestListFileDataSource.java
+   |   |   |   |   |   |   |-- UserSuspensionListFileSource.java
+   |   |   |   |   |-- com
+   |   |   |   |   |   |-- github
+   |   |   |   |   |   |   |-- saacsos
+   |   |   |   |   |   |   |   |-- fxrouter-1.0.0
+   |   |   |   |   |   |   |   |   |-- .gitignore
+   |   |   |   |   |   |   |   |   |-- LICENSE
+   |   |   |   |   |   |   |   |   |-- README.md
+   |   |   |   |   |   |   |   |   |-- pom.xml
+   |   |   |   |   |   |   |   |   |-- src
+   |   |   |   |   |   |   |   |   |   |-- main
+   |   |   |   |   |   |   |   |   |   |   |-- java
+   |   |   |   |   |   |   |   |   |   |   |   |-- com
+   |   |   |   |   |   |   |   |   |   |   |   |   |-- github
+   |   |   |   |   |   |   |   |   |   |   |   |   |   |-- saacsos
+   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |-- FXRouter.java
+   |   |   |   |   |   |   |   |   |   |   |   |-- sample
+   |   |   |   |   |   |   |   |   |   |   |   |   |-- Main.java
+   |   |   |   |   |   |   |   |   |   |   |   |   |-- controllers
+   |   |   |   |   |   |   |   |   |   |   |   |   |   |-- FirstPageController.java
+   |   |   |   |   |   |   |   |   |   |   |   |   |   |-- SecondPageController.java
+   |   |   |   |   |   |   |   |   |   |   |   |   |   |-- ThirdPageController.java
+   |   |   |   |   |   |   |   |   |   |   |-- resources
+   |   |   |   |   |   |   |   |   |   |   |   |-- first.fxml
+   |   |   |   |   |   |   |   |   |   |   |   |-- second.fxml
+   |   |   |   |   |   |   |   |   |   |   |   |-- third.fxml
+   |   |   |-- module-info.java
+   |   |-- resources
+   |   |   |-- cssStyle
+   |   |   |   |-- style.css
+   |   |   |-- ku
+   |   |   |   |-- cs
+   |   |   |   |   |-- activityLog.fxml
+   |   |   |   |   |-- addOfficerForm.fxml
+   |   |   |   |   |-- adminHowToForm.fxml
+   |   |   |   |   |-- assignReportForm.fxml
+   |   |   |   |   |-- categoryEditor.fxml
+   |   |   |   |   |-- credit.fxml
+   |   |   |   |   |-- defaultImage
+   |   |   |   |   |   |-- default.jpg
+   |   |   |   |   |-- howToProfile.fxml
+   |   |   |   |   |-- images
+   |   |   |   |   |   |-- actLog.png
+   |   |   |   |   |   |-- adminHome.png
+   |   |   |   |   |   |-- adminHowTo.png
+   |   |   |   |   |   |-- agentHome.png
+   |   |   |   |   |   |-- assign.png
+   |   |   |   |   |   |-- cope.png
+   |   |   |   |   |   |-- credit.png
+   |   |   |   |   |   |-- default.jpg
+   |   |   |   |   |   |-- howToAssign.png
+   |   |   |   |   |   |-- howtoProfile.png
+   |   |   |   |   |   |-- myReport.png
+   |   |   |   |   |   |-- newOfficer.png
+   |   |   |   |   |   |-- officerHowTo.png
+   |   |   |   |   |   |-- profile.png
+   |   |   |   |   |   |-- register.png
+   |   |   |   |   |   |-- reportUser.png
+   |   |   |   |   |   |-- request.png
+   |   |   |   |   |   |-- reset.png
+   |   |   |   |   |   |-- suspensionManager.png
+   |   |   |   |   |   |-- userHome.png
+   |   |   |   |   |   |-- userHowTo.png
+   |   |   |   |   |   |-- userInfo.png
+   |   |   |   |   |-- loginForm.fxml
+   |   |   |   |   |-- loginForm.fxml
+   ```
 ----------------------------------------------------------------<br>
 
 <h3>วิธีการติดตั้ง</h3>
@@ -88,6 +320,7 @@ javafx -> javafx:run<br><br>
 MVN Clean<br>
 MVN install<br><br>
 file จะอยู่ใน target เป็น shade.jar 
+
 
 
 
