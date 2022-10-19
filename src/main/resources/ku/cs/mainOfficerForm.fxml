@@ -101,6 +101,7 @@
             <Font size="16.0" />
          </font>
       </Button>
+      <Button layoutX="594.0" layoutY="327.0" mnemonicParsing="false" onAction="#handleRefreshButton" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Refresh" />
       <Pane fx:id="submitSolutionPane" layoutX="96.0" layoutY="212.0" prefHeight="200.0" prefWidth="524.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="524.0" />
@@ -150,6 +151,5 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="594.0" layoutY="327.0" mnemonicParsing="false" onAction="#handleRefreshButton" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Refresh" />
    </children>
 </AnchorPane>

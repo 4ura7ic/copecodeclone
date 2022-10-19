@@ -239,6 +239,7 @@ public class MainUserFormController {
 
     @FXML public void handleRefreshButton(){
         updateListView();
+        resetSortButton.setVisible(false);
     }
 
     //-------------------------------------------- method

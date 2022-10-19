@@ -100,6 +100,7 @@
       <Label layoutX="663.0" layoutY="319.0" text="Category" textFill="WHITE" />
       <Label layoutX="663.0" layoutY="374.0" text="SortBy" textFill="WHITE" />
       <Button fx:id="viewSolutionButton" layoutX="550.0" layoutY="200.0" maxHeight="36.0" maxWidth="89.0" minHeight="36.0" minWidth="89.0" mnemonicParsing="false" onAction="#handleViewSolutionButton" prefHeight="36.0" prefWidth="89.0" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="View solution" />
+      <Button layoutX="593.0" layoutY="315.0" mnemonicParsing="false" onAction="#handleRefreshButton" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Refresh" />
       <Pane fx:id="solutionPane" focusTraversable="true" layoutX="81.0" layoutY="197.0" prefHeight="200.0" prefWidth="524.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c5757" height="200.0" stroke="BLACK" strokeType="INSIDE" width="524.0" />
@@ -158,6 +159,5 @@
             </Button>
          </children>
       </Pane>
-      <Button layoutX="593.0" layoutY="315.0" mnemonicParsing="false" onAction="#handleRefreshButton" styleClass="allpurposeButton" stylesheets="@../../cssStyle/style.css" text="Refresh" />
    </children>
 </AnchorPane>
