@@ -196,6 +196,7 @@ public class MyReportFormController {
     }
 
     private void clearForm(){
+        errorMessageLabel.setText("");
         imagePane.setVisible(false);
         descriptionPane.setVisible(false);
         barOne.setVisible(false);
