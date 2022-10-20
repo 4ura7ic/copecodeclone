@@ -58,7 +58,7 @@
 
 ### UML & PDF
 
-สามารถดูรวม UML ได้ที่ folder UML ด้านบน และ PDF ด้านบนชื่อ copeCode_01418211_SoftwareConstruction.pdf
+สามารถดูรวม UML ได้ที่ folder UML ด้านบน และ PDF ด้านบนชื่อ copeCode_01418211.pdf
 
 ---
 
